@@ -1,0 +1,37 @@
+---
+title: Using R To Automatically Create Dates For Your Syllabus
+author: Simon J. Kiss
+date: '2018-08-13'
+categories: 
+    - R
+tags: 
+    - R
+---
+
+
+
+<p>Now that August is upon us, academics around the world are sweating a little bit about getting back to the grind of teaching.</p>
+<p>I wanted to introduce a new R package I’ve developed that does precisely one thing: it creates a text file that contains the days and dates of the classes you’ll be teaching.</p>
+<p>Basically I had the idea for this package one late night when I was working on the syllabus for one of the first classes I ever taught. i was proing over Google Calendar, cutting and pasting dates and days, and adding and subtracting numbers and thinking, ``there has to be a way to automate this’’.</p>
+<p>The problem was that I was a complete noob not only to R, but to programming in general. Thanks to <a href="http://politicalscience.uwo.ca/people/faculty/full-time_faculty/dave_armstrong.html">this guy</a> I was able to gin up first a function, then a full package that takes as arguments: the day or days on which your class meets, the first and last days of lectures in your uni’s terms.</p>
+<p>Then it prints a text file of those day-date pairs that you can open and plunk into the word processor of your choice and, boom, you can fill in the readings, assignments, etc. as you need.</p>
+<p>If you have any comments, criticisms or questions about the package, please write!</p>
+<p>The following code illustrates how the code works. Note that it prints the text file to the desktop on a Mac. PC users will have to modify this.</p>
+<pre class="r"><code>library(devtools)
+install_github(&#39;sjkiss/syllabus&#39;)
+createDates(course.days=c(&#39;W&#39;), first.day=c(&#39;2018/09/01&#39;), last.day=c(&#39;2018/12/01&#39;), file=&#39;~/Desktop/example-dates-file.txt&#39;)</code></pre>
+<p>And the output looks like this:</p>
+<pre><code>##       day       date             
+##  [1,] Wednesday September 05 2018
+##  [2,] Wednesday September 12 2018
+##  [3,] Wednesday September 19 2018
+##  [4,] Wednesday September 26 2018
+##  [5,] Wednesday October 03 2018  
+##  [6,] Wednesday October 10 2018  
+##  [7,] Wednesday October 17 2018  
+##  [8,] Wednesday October 24 2018  
+##  [9,] Wednesday October 31 2018  
+## [10,] Wednesday November 07 2018 
+## [11,] Wednesday November 14 2018 
+## [12,] Wednesday November 21 2018 
+## [13,] Wednesday November 28 2018</code></pre>

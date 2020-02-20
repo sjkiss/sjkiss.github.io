@@ -1,0 +1,141 @@
+---
+title: The Ontario Progressive Conservative Party Leadership Race On Twitter
+author: Simon J. Kiss
+date: '2018-03-02'
+tags:
+  - R
+  - political-communication
+---
+
+The Ontario Progressive Conservative Party is putting on quite a show these days. As a side project, a colleague and I decided to capture the tweets to the dominant hashtags `#pcpo` and `#pcpoldr`, for history's sake. Neither of us are experts at sentiment analysis; but we have done a little bit and this is just too juicy. 
+
+One note: I made a first stab at getting tweets using the [twitteR](https://cran.r-project.org/web/packages/twitteR/index.html) package; but this proved to be less than optimal because it does not download full tweets with more than 140 characters.  so then I switched to the [rtweet](https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html) package which, honestly, looks like a substantial improvement. 
+
+After some fiddling getting my access tokens set up; one command was enough to get the tweets from the Sunday, February, 18th to today. Going forward, I'll add to these. 
+
+```{r echo=F, warning=F, message=F}
+library(knitr)
+opts_chunk$set(echo=F, warning=F, message=F, fig.align='center')
+opts_knit$set(root.dir='~/OneDrive - Wilfrid Laurier University/projects_folder/ON18/')
+library(rtweet)
+library(ggplot2)
+```
+
+Here's how you grab all the hashtags from `#pcpoldr` or `#pcpo`. If you ask for more than 18000 tweets, you have to set `retryonratelimit` to `TRUE`. This takes a while to run, so I'm not executing this. 
+
+```{r eval=F}
+library(rtweet)
+library(ggplot2)
+tweets<-search_tweets("pcpoldr OR pcpo", n=36000, retryonratelimit=T)
+```
+
+You can also work with the results of search_tweets function right away. However, because I'm downloading tweets every couple of days, I prefer to save them as a CSV file, redo the search in a day or two and read everything in and combine them. Here's how I did that. 
+
+
+```{r eval=F}
+save_as_csv(tweets, file_name=paste('Rtweets/', max(tweets$created_at), sep=''))
+```
+
+The `save_as_csv` command is a nice command that produces two separate but paired CSV files. One has each tweet and data associated with it (e.g. the date created, the text, whether it's a retweet) and the other has the user data of the person who generated the tweet (e.g. screen name, follower count, etc.)
+
+Note that I'm saving these in a subfolder of my working directory and I'm giving naming the saved files with the date and time stamp of the most recent tweet. That way I'll know where the file stops. 
+
+After I've conducted the search a couple of times, I'm ready to read in all the files and combine them. 
+
+First, I list the files that are in the Rtweets subfolder.
+```{r list-files, echo=F}
+files<-list.files(path='Rtweets', full.names=T)
+files
+```
+Then, I read each file in and bind them together. 
+```{r read in, eval=T,echo=T}
+#read libraries
+library(readr)
+library(dplyr)
+
+#Read in files
+tweets<-lapply(files[grep('tweets.csv', files)], read_csv) %>% 
+  bind_rows()
+
+```
+```{r set-theme, echo=F, eval=T}
+theme_set(theme_bw())
+```
+
+Part of what is returned is a variable `created_at`. We just need to turn it into a datetime variable and round it to the hour to plot it hourly.
+```{r get-tweets, echo=T, eval=T}
+#load lubridate library
+library(lubridate)
+#Format date variable
+tweets$Date<-ymd_hms(tweets$created_at, tz='UTC')
+#Round to the hour
+tweets$Date<-round_date(tweets$Date, 'hour')
+
+
+```
+
+Then I group the tweets by date, count how many there are and plot the counts. 
+
+```{r plot, echo=T, eval=T}
+tweets %>% 
+  group_by(Date) %>% 
+  summarize(freq=n()) %>% 
+ggplot(., aes(x=Date, y=freq))+geom_line()+
+  scale_x_datetime(date_breaks='1 days',date_minor_breaks='6 hours', date_labels='%m %d %H', timezone='EST')+
+  theme(axis.text.x = element_text(angle=90))+ylim(c(0,500))
+
+```
+
+So obviously things were pretty steady and cyclical on a daily basis through the first days of the leadership race until February 26th, when Patrick Brown withdrew after resigning and then reentering the race. For anyone reading this who is not from Canada, yeah, it's been pretty wild. Best just to read the Wikipedia [entry](https://en.wikipedia.org/wiki/Progressive_Conservative_Party_of_Ontario_leadership_election,_2018). 
+
+There are a few things that are interesting here to me though beyond that. 
+
+First, it looks to me like the Twitter conversation about a leadership race has a daily news cycle to it, with one peak every day. However, every day has a different peak. Sometimes it's early morning, sometimes it's late at night. I had sort of thought that there might be a little more regularity in this, that you might see people going online and posting something routinely, like just before htey left home from work or just after supper or on their lunch break. But this seems like people go on to twitter as events warrant, once a day. 
+
+The other thing to notice is that the biggest peak was during the debate on March 1st. A little more analysis will tell us what drove that peak; i.e. was it partisans promoting their candidates? Journalists weighing in? Or god forbid regular people talking to other regular people? So the debate actually garnered more twitter activity than the bombshell of brown's resignation; and so did the post-debate activity on March 2nd. 
+
+One other quick thing we can do is to find who the most frequent tweeters are on the hashtags.
+```{r most-frequent, results='markup'}
+
+most_frequent<-tweets %>% 
+  #Group by the screen name
+  group_by(screen_name) %>% 
+  #Count how many occurrences of each there are
+  summarize(n=n()) %>% 
+  #arrange in descending order
+  arrange(desc(n))
+
+#Print the most frequent
+most_frequent[1:20,]
+```
+My favourite is probably MuskokaMoneybag. Classy. Of course it's moderately interesting that Tanya Allen is the only leadership contender to appear in the Top 20.  There might be something to be said about Twitter being a crucial resource for the outsider candidate.  
+
+I'll be playing around with this in the next few weeks.
+
+```{r leadership-candidates, eval=F}
+grep('elliott', tweets$screen_name, value=T, ignore.case=T)
+Elliott<-'celliotability'
+grep('ford', tweets$screen_name, value=T, ignore.case=T)
+Ford<-'fordnation'
+grep('Granic', tweets$screen_name, value=T, ignore.case=T)
+Allen<-'TGranicAllen'
+grep('Brown', tweets$screen_name, value=T, ignore.case=T)
+Brown<-'brownbarrie'
+grep('mulroney', tweets$screen_name, value=T, ignore.case=T)
+Mulroney<-'C_mulroney'
+```
+
+```{r count-leadership-tweets}
+# leadership<-c(Elliott, Ford, Allen, Brown, Mulroney)
+# library(purrr)
+# tweets %>% 
+#   map(leadership, grepl(., mentions_screen_name))
+
+# 
+# tweets %>% 
+#   filter(screen_name %in% leadership) %>% 
+#   group_by(screen_name) %>% 
+#   summarize(n=n())
+
+```
+

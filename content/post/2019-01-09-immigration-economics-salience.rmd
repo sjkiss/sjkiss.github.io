@@ -1,0 +1,144 @@
+---
+title: Salience of Immigration and Personal Finances in Ontario
+author: 'Simon Kiss'
+date: '2019-01-11'
+slug: immigration-economics-salience
+categories: ['LISPOP']
+tags: ['public-opinion']
+header:
+  caption: ''
+  image: ''
+---
+Colleagues and I at the Laurier Institute For The Study Of Public Opinion and Policy (LISPOP) conducted a survey of ONtario voters in the 2018 election. One of the things we were interested in was people's feelings about their personal financial situation and about immigration and refugees. 
+
+The reasoning was simple: it seemed in the campaign like the PCs were really trying to capitalize on people's anger. In the literature on populism, two common schools of thought are that people are angry about their economic situation and about threats from immigration and refugee. 
+
+Usually surveys don't collect open-ended questions because they are hard to analyze. But there is a lot you can learn from that data if you put the effort into studying it. 
+
+For example, when prompted to share their feelings about their personal financial situation or about immigrations and refugees, did you know that people tend to write more about the latter than about the former?
+
+Here's the distribution of characters in the responses to the two questions. 
+
+```{r set-options, results='hide', echo=F, warning=F}
+library(knitr)
+opts_chunk$set(echo=F, results='hide', message=F, warning=F, fig.width=4, fig.height=2)
+opts_knit$set(root.dir='~/OneDrive - Wilfrid Laurier University/projects_folder/ON18')
+
+setwd('~/OneDrive - Wilfrid Laurier University/projects_folder/ON18')
+```
+
+```{r load-data}
+
+source('/Users/Simon/OneDrive - Wilfrid Laurier University/projects_folder/ON18/1_load_on18.R')
+```
+```{r set-theme}
+theme_set(theme_bw())
+```
+
+The data are quite skewed because a lot of people wrote very  little and very few people wrote a lot, so the differences are hard to see. So I will filter out responses with more than 500 characters. 
+
+```{r results='markup'}
+library(stringr)
+on18 %>% 
+  select(indivfinfeel, immfeel) %>% 
+ rename(`Personal Financial Situation`=indivfinfeel,`Immigration and Refugees`= immfeel) %>% 
+  map_df(., nchar) %>% 
+  gather(Variable, Characters) %>%
+  filter(., Characters<501) %>% 
+  ggplot(., aes(x=Characters, ))+geom_histogram()+facet_wrap(~Variable)
+
+  
+```
+
+That doesn't look so impressive, and there are a lot of people who entered nothing. So, if we also filter out people with empty responses, and people who had extremely long answers and calculate the median, there are some big differences. 
+```{r calculate-median, results='markup', echo=T}
+on18 %>% 
+  select(indivfinfeel, immfeel) %>% 
+  map_df(., nchar) %>% 
+  filter((indivfinfeel> 0 & immfeel>0) & 
+           (indivfinfeel <501 & immfeel< 501)) %>% 
+  map(., median)
+```
+
+So, the median survey respondent used *almost double* the number of characters to provide their feelings about immigration and refugees than about their personal financial situation. 
+
+It would be interesting to see if the number of characters expressed is related to *negative* sentiments on either topic. 
+
+this is a little more involved. But follow along. 
+
+I'll use the [quanteda](https://quanteda.io/) library to quickly count up the negative and positive words in each survey response. 
+
+I'll use the [Lexicoder Sentiment Dictionary](http://www.lexicoder.com/) that was developed by Mark Daku, Stuart Soroka and Lori Young. It's dictionary of affect-laden terms is handily included in the quanteda package. 
+
+```{r load-library, echo=T}
+library(quanteda)
+on18 %>% 
+  #make a corpus out of the personal financial responses
+  corpus(., text_field='indivfinfeel1') %>% 
+  #tokenize this into words
+  tokens() %>% 
+  #Count the number of positive, negative and negated positive and negative terms that are in each survey response
+  tokens_lookup(.,dictionary=data_dictionary_LSD2015) %>%  
+  #Convert to a document frequency matrix
+  dfm() %>% 
+  #convert to a data.frame 
+  convert(., to='data.frame') %>% 
+  #Add a prefix to each variable so we know where they came from and save to a data.frame
+  rename_all(., .funs=funs(paste0('indivfin_', .)))-> economic_responses 
+  
+```
+
+Then we just repeat the exact same steps for the immigration responses. 
+```{r count-immigration-positive, echo=T}
+on18 %>% 
+  corpus(., text_field='immfeel1') %>% 
+  tokens() %>% 
+  tokens_lookup(.,dictionary=data_dictionary_LSD2015) %>% 
+  dfm() %>% 
+  convert(., to='data.frame') %>% 
+  rename_all(., .funs=funs(paste0('imm_', .)))-> imm_responses
+```
+
+This provides us with counts of the negative, positive words contained in the Lexicoder Sentiment Dictionary as well as some of the numbers of some negation terms (i.e. 'not happy'  is counted as a negated positive word). 
+
+
+
+Now we can just see if longer responses are more correlated with negative and / or positive sentiment for economic and immigration responses. 
+Again, I'm going to filter out the extreme responses. 
+```{r calculate-and-plot, echo=T}
+
+on18 %>%  
+  #Start with the open-ended survey responses
+  select(indivfinfeel, immfeel) %>% 
+  #count the number of characters in each 
+  map_df(., nchar) %>%  
+  #Bind these to the sentiment counts we calculated above 
+bind_cols(., economic_responses, imm_responses) -> out 
+
+
+ 
+```
+```{r plot, echo=T}
+
+out %>% 
+  #First calculate  net sentiment
+  mutate(indivfin_net=indivfin_positive-indivfin_negative,
+         imm_net=imm_positive-imm_negative) %>%  
+  #Select only the number of characters and the net sentiments
+  select(indivfinfeel, immfeel, indivfin_net, imm_net) %>% 
+  #Filter out extreme responses
+  filter((indivfinfeel>0&indivfinfeel <501 ) & (immfeel>0 & immfeel<501)) %>% 
+ #Gather the number of characters into two variables
+   gather(Open_Topic, nCharacters, -indivfin_net, -imm_net) %>% 
+#Gather the net sentiment into two variables
+  gather(Open_Topic2, Net_Sentiment, -Open_Topic, -nCharacters)%>% 
+  ggplot(., aes(x=nCharacters, y=Net_Sentiment))+facet_wrap(~Open_Topic)+geom_point()+geom_smooth(method='loess')
+
+```
+
+
+so, it actually looks like there is a slight relationship. On the topic of immigration and refugees, when people wrote more chacters, they tended to use more positive words. For people, writing about their personal financial situation, there is either no relationship, or a curvilinear relationship whereby people with the shortest and the longest responses feel the worst about their situation. 
+
+I have to say, this surprises me.  I would have thought that there would have been a stronger negativity bias, whereby people who felt more negatively about a topic, would have written longer responses. 
+
+

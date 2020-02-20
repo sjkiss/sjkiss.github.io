@@ -1,0 +1,66 @@
+---
+title: The Ambiguous Definitions of Open Government
+author: ~
+date: '2018-11-29'
+slug: the-ambiguous-definitions-of-open-government
+categories:
+  - LISPOP
+tags:
+  - public-opinion
+image:
+  caption: ''
+  focal_point: ''
+---
+
+
+My colleague [George Wootten](https://www.utm.utoronto.ca/political-science/george-wootten) and I have a new [paper](https://doi.org/10.1017/S0008423918000446) in the Canadian Journal of Political Science out in which we survey journalists, parliamentarians and bloggers in Canada in 2014 and asked them to rank different definitions of "open government".  
+
+We hypothesized that people would choose different definitions of open government that fit their institutional position. 
+
+We presented our survey respondents definitions of open government that reflected concepts such as responsiveness, information, accountability and participation. In addition, we included one definition ("trade-offs") which is not commonly included in the discussion about "open government" but which we think should be.   
+
+| Definition | 	Variable Name	| Concept | 
+| ----------------------------------------------------------- | ----- | ----- |
+| A policy process that is responsive to public concerns| 	Responsive | 	Participation| 
+| Having access to technical officials and experts in the bureaucracy to explain complex details of policies | 	Officials	| Information | 
+| Having easy access to information like internal government documents, statistics and records	| Information	| Information | 
+| Politicians being accessible to the media to answer for their actions |	Accessible |	Accountability |
+| Politicians using social media to engage in a dialogue with citizens	| Social | 	Participation |
+| Presenting citizens with the trade-offs associated with policy decisions |	Trade-Offs | 	Trade-Offs |
+| Public debate about different policy alternatives | Debate | 	Participation |
+
+Here was what we got. 
+
+![Distribution of rankings by position](/post/2018-11-29-open-government_files/figure1.jpeg)
+
+Clearly, journalists were more likely to prefer defintions of open government that emphasize *sources* (e.g. *information*, *accessible* and *officials*. )
+
+But by contrast, government parliamentarians were more likely to prefer definitions that gave a role to public opinion in the policy process (e.g. *debate* and *responsive*).
+
+Opposition parliamentarians occupied a kind of a middle ground between the two positions, preferring access to information definitions and public opinion definitions somewhat equally. 
+
+Bloggers were even more eclectic, assigning high ranks to *information*, like journalists, but also high ranks to *responsive* and *debate*. 
+
+# What do these results mean? 
+
+There has been considerable debate in the scholarship on "open government" about what exactly it means (see [here](http://policyoptions.irpp.org/magazines/august-2017/opening-government/) and  [here](https://jedem.org/index.php/jedem/article/view/227)). We suggest that a large part of this confusion is because actors in the policy process choose definitions of the term that *suit their interests*. We think this is one reason for the common phenomenon of opposition parties routinely promising to be more open and accountable and then closing up when they win elections and form government. 
+
+For this reason, we are quite skeptical about whether or not "open government" as a concept has any chance to serve as a mobilizing concept and a focus of reform.  Instead, we are more convinced "open government" will linger as a useful symbol for opposition parties looking for cheap and popular promises.
+
+# Why did we do this?
+
+The impetus for this project stems from the heated debate in Ontario about the McGuinty government's cancellation of two natural gas plants to rescue his government in the 2011 provincial election. The decision to cancel the plants incurred *significant* costs to the province, but ultimately saved his government. 
+
+But in the wake of the 2011 election that returned a minority legislature, opposition politicians and journalists were clamouring for information about "who knew what when", trying to ferret out a smoking gun. To us, watching the bloodbath, the answers to these questions were fairly obvious.  Dalton McGuinty was the who and the why was to rescue seats in Mississauga and Oakville. It wasn't exactly rocket science. 
+
+But somehow, both the opposition and journalists insisted on combing through thousands of pages of internal documents looking for a mythical smoking gun memo that would bring down whoever made this horrible decision. 
+
+It is worth pointing out that, in a lot of ways, clear accountability was exacted in this case. Dalton McGuinty had to give up his premiership to save his party and [one person was convicted of criminal charges](https://www.cbc.ca/news/canada/toronto/livingston-sentence-april-1.4553906). 
+
+When Kathleen Wynne replaced McGuinty as premier, a large part of her campaign was built around ideas of - you guessed it - "[open government](https://www.amo.on.ca/AMO-PDFs/Events/16OWMC/PaulVet.aspx)". As far as we can tell, the idea was a politically sound one; address the feeling in the electorate that the previous Liberal government was excessively secretive in its dealings by promising to be more "open". 
+
+All of this is well and good and tough to argue with, but we also noted at the time that what was *really* missing from the debate about the cancellation of the natural gas plants was an honest and - ahem - "open" conversation about the trade-offs associated with the different ways of generating electricity in the province, keeping costs low and addressing climate change and air pollution. 
+
+In addition to pointing to the ways in which open government is defined in ways that suit political actors' interest, our work also hopefully points out some of the ways in which the definitions of open government could be expanded to include a discussion of the trade-offs associated with . 
+
+A lot of our criticism is levied at journalists who define open government in terms of access to information, facts and sources. While it is at one level understandable because this makes their jobs easier (and is in a lot of ways completely laudable) we feel that if journalists thought about open government in ways that emphasize trade-offs, they might play a more productive role in producing an informed public opinion and better policy.

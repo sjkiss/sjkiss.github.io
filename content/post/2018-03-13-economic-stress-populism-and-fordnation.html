@@ -1,0 +1,241 @@
+---
+title: Economic Stress, Populism and FordNation
+author: Simon J. Kiss
+date: '2018-03-13'
+slug: economic-stress-populism-and-fordnation
+categories: []
+tags:
+  - public-opinion
+  - political-communication
+---
+
+
+
+<p><a href="https://sjkiss.github.io/post/populism-race-and-ford-nation/">Yesterday</a>, I showed some data that showed that Rob Ford was very popular among visible minorities, which cast some doubt on the narrative that right-wing populism always thrives on xenophobia. Usually, scholars and commentators divide explanations for support for populism into an economics and values dichotomy. The economic story usually emphasizes the role that stagnating wages or an eroded welfare state play in generating frustration, anger or anxiety at the loss of class standing that leads to populism. The values story usually emphasizes the role that immigration plays in either undermining national identities, or overwhelming the welfare state or providing a convenient scapegoat.</p>
+<p>John Ibbitson and Darrell Bricker put summarize the values story and evidence pretty usefully <a href="https://www.theglobeandmail.com/opinion/what-is-driving-populism-it-isnt-the-economy-stupid/article37899813/">here</a></p>
+<p>Frank Graves represents the economic story here (and the corresponding thread is really useful as well).</p>
+{{% tweet 963259049184722944 %}}
+<p>Given the support that Rob Ford found amoung visible minorities, it is hard to be convinced that anti-immigration attitudes was an important driver of his support, although this is not decisive, to be sure. It’s possible, just unlikely, in my view, that non-white Torontonians take a hard position on immigration.</p>
+<p>But we did ask a survey question that tried to measure respondent’s personal financial situation. Namely, we asked respondents strongly agree or strongly disagree with the statement that $50 a month would make a big difference.</p>
+<p><img src="/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p>Clearly, agreeing that $50 per month would make a big difference is clearly related to income, but not entirely. Amazingly, 25% of people earning $200 to $250,000 a year agree that an extra $50 would make a big difference. For people earning between $100 and $200,00 per year, anywhere from 25% to 40% of people agree.</p>
+<p>When we correlate this with support for Mayor Ford (remembering again, this was taken in 2014, so at the depths of his unpopularity, in teh context of a provincial general election exit poll), there is a clear relationship.</p>
+<p><img src="/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>When we combine both economic stress and visible minority status, controlling for each other, both seem to matter independently (Model 1). When we put an interaction term, in it also seems to matter. This means that stress and matters <em>slightly</em> differently for visible minority respondents than for others.</p>
+<table style="text-align:center">
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+<em>Dependent variable:</em>
+</td>
+</tr>
+<tr>
+<td>
+</td>
+<td colspan="2" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td colspan="2">
+Support For Mayor Rob Ford
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+Model 1
+</td>
+<td>
+Model 2
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(1)
+</td>
+<td>
+(2)
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Stress
+</td>
+<td>
+0.236<sup>***</sup>
+</td>
+<td>
+0.266<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.033)
+</td>
+<td>
+(0.037)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Visible Minority Status
+</td>
+<td>
+0.154<sup>***</sup>
+</td>
+<td>
+0.252<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.031)
+</td>
+<td>
+(0.059)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Stress*Visible Minority Status
+</td>
+<td>
+</td>
+<td>
+-0.169<sup>*</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+(0.087)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Constant
+</td>
+<td>
+0.181<sup>***</sup>
+</td>
+<td>
+0.166<sup>***</sup>
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+(0.020)
+</td>
+<td>
+(0.022)
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+</td>
+<td>
+</td>
+<td>
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Observations
+</td>
+<td>
+1,487
+</td>
+<td>
+1,487
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Log Likelihood
+</td>
+<td>
+-941.572
+</td>
+<td>
+-939.667
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+Akaike Inf. Crit.
+</td>
+<td>
+1,889.143
+</td>
+<td>
+1,887.335
+</td>
+</tr>
+<tr>
+<td colspan="3" style="border-bottom: 1px solid black">
+</td>
+</tr>
+<tr>
+<td style="text-align:left">
+<em>Note:</em>
+</td>
+<td colspan="2" style="text-align:right">
+<sup><em></sup>p&lt;0.1; <sup><strong></sup>p&lt;0.05; <sup></strong></em></sup>p&lt;0.01
+</td>
+</tr>
+</table>
+<p>We can visualize this in the graph below which shows the predicted probability of approving of Mayor Ford by economic stress and visible minority status. For both sets of respondents, stress leads to greater support for Ford, but the slope is a little weaker for visible minority respondents. Note also that, overall, the line for visible minority respondents is higher than for others meaning that independent of stress, there’s more general support there.</p>
+<p><img src="/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png" width="672" /></p>
+<p>These data are insightful for a number of reasons. First, most literature on economic voting usually asks respondents to rate how they think the economy has performed in the last year or so, or how the economy has affected them in the past year or so. When asking these questions, and controlling for views on immigration, most scholarly literature on populism shows that the economic views do not seem to matter. But our survey questions really tried to tap into the scholarly literature on populism by emphasizing the personal financial situation <em>right now</em>.</p>
+<p>Moreover, we didn’t ask <em>why</em> an extra $50 per month mattered or not, we just asked whether it did or not. By asking in this way, we divorce respondent’s feelings about their economic standing from government policy. Even if the economy improves in the sense that it creates more jobs, it might be the case that people feel they need an extra $50 because they are locked in a status competition with their neighbours. More importantly, in our case, even controlling for one of our best measures of anti-immigrant sentiment (visible minority status), economic stress seems to matter in generating support for a right-wing populist. Although this plays out slightly differently (more weakly) for visible minority respondents, it matters for both.</p>

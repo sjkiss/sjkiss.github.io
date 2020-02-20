@@ -1,0 +1,116 @@
+---
+title: "The Ontario General Election Twitter Verse"
+author: "Simon Kiss"
+date: '2018-06-07'
+slug: election-twitter
+tags: 
+ - public-opinion
+---
+
+
+A lot of people will be watching the results of the Ontario general election tonight, me among them. While most people will be poring over exit polls and vote intention polls, I took the liberty of scraping a lot of tweets to the main Ontario election hashtags. 
+
+I took all the tweets that contained the words #onpoli,  #onelxn or anty the user names for each of the party leaders and the three major political parties. 
+
+In the end, I got just over 1.3 million tweets between May 2nd, 2018 and June 6, 2018. 
+
+There are a few quick things we can look at. For example, here are the number of tweets by day. The spike you see is the day of the debate. 
+
+```{r set-options, echo=F, results='hide', message=F, warning=F}
+library(knitr)
+opts_chunk$set(echo=F, results='hide', message=F, warning=F)
+opts_knit$set(root.dir='~/OneDrive - Wilfrid Laurier University/projects_folder/ON18/Data')
+
+library(tidyverse)
+library(tidytext)
+library(stringr)
+library(lubridate)
+```
+
+
+
+```{r load-tweets}
+load('~/OneDrive - Wilfrid Laurier University/projects_folder/ON18/Data/tweets.rdata')
+nrow(tweets)
+```
+
+```{r manipualation}
+#Get sentiments
+nrc<-get_sentiments('nrc')
+bing<-get_sentiments('bing')
+
+bing[bing$word=='trump', 'sentiment']<-'negative'
+
+#Delete words
+#bing<-bing %>% 
+ # filter(word !='conservative', word!='issue', word!='issues', word!='promise', word!='promises', word!='premier')
+remove_words<-data.frame(word=c('premier', 'green', 'liberal', 'leader', 'don', 'conservative', 'issue', 'issues', 'promise'))
+remove_words
+
+tweets<-tweets %>%
+  #filter out any retweets
+  filter(!str_detect(text, "^RT")) %>%
+  #replace original text with text where urls and weird characters are removed
+  mutate(text = str_replace_all(text, "https://t.co/[A-Za-z\\d]+|http://[A-Za-z\\d]+|&amp;|&lt;|&gt;|RT|https", "")) %>%
+  unnest_tokens(word, text, token = "regex", pattern="([^A-Za-z_\\d#@']|'(?![A-Za-z_\\d#@]))") %>%
+  filter(!word %in% stop_words$word,
+         str_detect(word, "[a-z]"))
+
+```
+
+Here, for example, are the number of tweets by day. 
+
+```{r echo=F, results='hide'}
+theme_set(theme_bw())
+```
+
+```{r ntweets, include=T, results='hide', echo=T}
+tweets %>% 
+  count(date) %>% 
+  ggplot(., aes(x=date, y=n))+geom_point()+labs(title='Number of Tweets to Ontario Election Hashtags')
+
+```
+
+```{r make-date}
+tweets$date2<-as.Date(cut.Date(tweets$date, '3 days'))
+```
+
+
+And here are the top 10 positive and negative terms, using [Prof. Bing Liu's](https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html) dictionary of positive and negative terms. 
+
+This had to be refined a bit (as is usually the case). For example, the original sentiment dictionary included `issue` and `issues` as negative terms, probably in the sense of, "That person has some issues to deal with." But this doesn't make a lot of sense in an election campaign, where it probably actually is more of a positive word, "Let's just stick to the issues." 
+
+The dictionary also includes conservative as a negative word, which would not be accurate in an election campaign featuring a conservative party. 
+
+```{r positive-words}
+library(scales)
+tweets %>% 
+  inner_join(., bing) %>% 
+  anti_join(.,remove_words) %>% 
+  count(date2, sentiment, word) %>% 
+  group_by(sentiment, date2) %>% 
+  top_n(10) %>% 
+  filter(sentiment=='positive') %>% 
+  ggplot(., aes(x=date2, y=n))+geom_col()+facet_wrap(~word)+scale_x_date(labels=date_format('%m-%d'), date_breaks='3 days')+theme(axis.text.x=element_text(angle=90, hjust=1))+labs(title='Most Frequent Positive Words, Ontario Election Hashtags', x='Date')
+```
+
+And here are the most frequently mentioned negative words. 
+
+```{r negative-words, include=T, echo=T}
+
+tweets %>% 
+  inner_join(., bing) %>% 
+  anti_join(., remove_words) %>% 
+  count(date2, sentiment, word) %>% 
+  group_by(sentiment, date2) %>% 
+  top_n(10) %>% 
+  filter(sentiment=='negative') %>% 
+  ggplot(., aes(x=date2, y=n))+geom_col()+facet_wrap(~word)+scale_x_date(labels=date_format('%m-%d'), date_breaks='3 days')+theme(axis.text.x=element_text(angle=90, hjust=1))+labs(title='Most Frequent Negative Terms, Ontario Hashtags', x='Date')
+```
+
+
+So, there you have it, the most commonly used positive negative words seem to be a combination of "free", "affordable" on the one side and "bad", "debt" and "trump". 
+
+At some level, it makes a lot of sense. The left is arguing for free and cheap stuff, and the right is warning about the costs of too much government. 
+
+Using another sentiment dictionary, one of the most commonly used words was "beer". So, there you have it. Ontario 2018 boils down to free, affordable stuff like beer racked up on debt charges while people are worried about some guy named Trump. 
