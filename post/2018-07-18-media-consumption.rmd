@@ -1,0 +1,58 @@
+---
+title: "What Media Are Ontario Voters Consuming?"
+author: "Simon Kiss"
+date: '2018-07-18'
+header:
+  caption: ''
+  image: ''
+slug: ontario-voters-media-consumption
+tags: ['public-opinion']
+categories: []
+---
+
+A friend was wondering whether or not The Toronto Star or the Toronto Sun newspapers reached more New Democrats. So I decided to take a look at the data in our Ontario Provincial Election Study, conducted by the [Laurier Institute for the Study of Public Opinion and Policy](http://www.lispop.ca). Here are the raw results broken out by 2018 vote. The specific question respondets were asked in our online panel survey was whether they read any particular news outlet daily. 
+
+It looks to me, based on this, that the Toronto Sun actually gets more New Democrats than does the Toronto Star. Now, If you combined the Star with other Metro papers (such as teh Waterloo Record) then MetroLand would probably come out on top. But, we also did not include the Ottawa Sun as an option, so, who knows. 
+But at least for the Toronto market, The Sun seems to have taken it. More Liberal and NDP voters reported reading it than the Star and the Star and the Sun were split down the middle for PC voters. 
+
+
+```{r setup, echo=F, results='hide', warning=F, message=F} 
+library(knitr)
+opts_chunk$set(echo=F, results='hide', warning=F, message=F)
+opts_knit$set(root.dir='~/OneDrive - Wilfrid Laurier University/projects_folder/ON18')
+```
+
+
+```{r setwd, eval=F}
+#setworking directory for sourcing chunks
+setwd('/Users/Simon/OneDrive - Wilfrid Laurier University/projects_folder/ON18')
+
+```
+
+```{r source-data}
+
+source('1_load_on18.R')
+
+```
+
+
+
+```{r set-theme}
+theme_set(theme_bw())
+```
+
+```{r make-plot, include=TRUE}
+
+library(forcats)
+ on18 %>% 
+ gather(., News,Value, `CBCTV`:`Other`) %>% 
+  count(Vote, News, Value) %>% 
+  group_by(Vote) %>% 
+  mutate(Percent=n/sum(n)) %>% 
+ # filter(Vote=='NDP') %>% 
+      mutate(News=fct_reorder(News, n)) %>% 
+   filter(., is.na(Vote)==F&Vote!='Green') %>% 
+  ggplot(., aes(x=News,y=n, fill=Vote))+geom_col(position='dodge')+theme(axis.text.x=element_text(angle=45, hjust=1))+scale_fill_manual(values=c('red', 'blue', 'orange'))+labs(title='Number of Survey Respondents Reading Media Outlets Daily', subtitle='Ontario Provincial Election StudyLaurier Institute For the Study of Public Policy')
+
+```
+

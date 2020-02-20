@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simon J. Kiss</title>
+    <link>/authors/simon-j.-kiss/</link>
+      <atom:link href="/authors/simon-j.-kiss/index.xml" rel="self" type="application/rss+xml" />
+    <description>Simon J. Kiss</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <title>Simon J. Kiss</title>
+      <link>/authors/simon-j.-kiss/</link>
+    </image>
+    
+    <item>
+      <title>Right-wing populism in a metropolis</title>
+      <link>/publication/ford_populism/</link>
+      <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
+      <guid>/publication/ford_populism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Risk perception, psychological heuristics and the water fluoridation controversy</title>
+      <link>/publication/risk-perception/</link>
+      <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/risk-perception/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada’s Regulation of Bisphenol A</title>
+      <link>/publication/bpa-canada/</link>
+      <pubDate>Mon, 01 Dec 2014 00:00:00 +0000</pubDate>
+      <guid>/publication/bpa-canada/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Legislation by agenda-setting: Assessing the media&#39;s role in the regulation of BPA in the US states</title>
+      <link>/publication/legislation-by-agenda-setting/</link>
+      <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/legislation-by-agenda-setting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Responding to the &#39;New Public&#39;: The arrival of strategic communications and managed participation in Alberta</title>
+      <link>/publication/new-public/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/new-public/</guid>
+      <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

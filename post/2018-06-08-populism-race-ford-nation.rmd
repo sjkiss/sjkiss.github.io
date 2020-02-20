@@ -1,0 +1,83 @@
+---
+title: Populism, Race and Ford Nation
+author: Simon J. Kiss
+date: '2018-03-12'
+slug: populism-race-and-ford-nation
+tags:
+  - public-opinion
+
+
+fig_caption: true
+---
+
+```{r "setup", results='hide', warning=F, message=F, echo=F}
+library(knitr)
+opts_knit$set(root.dir='~/Dropbox/Ford/ford_r_scripts')
+opts_chunk$set(echo=F, results='hide', warning=F, message=F)
+
+
+```
+
+
+
+
+Ontario politics got a lot more interesting on the weekend.  It's timely for myself and another colleague as we are preparing to finally (finally!) share some data that we collected during the 2014 provincial election.
+
+At the time, I and others were a little mystified at the strategy the Ontario NDP was pursuing (opposing road tolls for public transit initiatives, being hostile to minimum wage increases). It felt like the NDP was trying to capture a little bit of Rob Ford's support that had propelled him to the mayoralty in 2010. 
+
+We included a question on Ipsos-Reid's 2014 election poll that asked about respondent's approval of Rob Ford and a few other qeustions. The results were interesting and we will be presenting them at the Midwest Political Science ASsociation meeting in April and the Canadian Political Science Association in Regina in June. 
+
+There is a lot to digest in our results, but one of the most interesting findings bears on the queestion of the role of race and ethnicity in support for Rob (and possibly for his brother Doug) Ford. 
+
+A few commentators have quite quickly branded both as Canadian incarnations of Trump-style populism that offers a strong dose of xenophobia. 
+
+`r blogdown::shortcode('tweet',972600796272455680)` 
+
+We disagree. If you look at Rob Ford's record, and I think Doug's as well, they have been careful *not* to cater to anti-immigrant sentiment and xenophobia in their political careers. After all, how could they: famously, one half of the population of Toronto is foreign born. You're not going to win many elections that way. 
+
+```{r}
+source('~/Dropbox/Ford/ford_r_scripts/ford_recodes.R')
+source('~/Dropbox/Ford/ford_r_scripts/ford_demographics.R')
+theme_set(theme_bw())
+```
+
+
+```{r load-library}
+library(car)
+ford$ford3<-recode(ford$ford2, "1='Approve' ; 0='Disapprove'", as.factor=T, levels=c('Disapprove', 'Approve'))
+```
+
+
+
+A note: the following poll results come from Ipsos' 2014 Ontario Election Exit Survey. In that survey, only residents of the City of Toronto were asked about whether they approved or disapproved of Mayor Rob Ford. Obviously, these data do not shed light on who *voted* for Ford in 2010; but they do shed light on who made up Rob Ford's most hard-core coalition. These data were gathered after *everything* had come out: the crack smoking, the lewd comments about his wife, the conflict of interest charges, the stuff about the football team, evertyhing. 
+
+You can see, respondents who reported visible minority status were split 50-50 on whether Rob Ford was doing a good job, while othe respondents overwhelmingly thought Ford was doing a terrible job. 
+
+```{r plot1}
+library(ggplot2)
+ford %>% 
+  select(ford=ford3, visible) %>% 
+  # group_by(visible, ford) %>%
+  # summarise(freq=n()) %>%
+  filter(is.na(ford)==F) %>% 
+  ggplot(.,aes(x=visible))+geom_bar(aes(fill=ford), stat='count', position='dodge')
+
+```
+
+
+I do not have an answer for why Rob Ford was not as unpopular among visible minorities as he was amongst white people. Our dataset does show that visible minorities who approved of Rob Ford were, on average, more religious than others. 
+
+```{r plot2, fig.cap='Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.' }
+ford %>% 
+  select(ford=ford3, visible, relx) %>% 
+  group_by(visible, ford) %>% 
+  filter(is.na(ford)==F) %>% 
+  summarize(avg=mean(relx, na.rm=T)) %>% 
+  ggplot(., aes(x=ford, y=avg))+geom_point()+facet_grid(~visible)+labs(title='Religiosity of Ford Supporters by Visible Minority Status')
+```
+
+These data don't really make sense given Rob Ford's proclivities to engage in substance abuse and make lewd comments about women, but then again, neither did President Trump's appeal to social conservatives given his, um, liberal lifestyle. But it does perhaps start to shed some light about why alliances between the avowed social conservative candidate and her supporters in the Ontario leadership race drifted to Doug Ford and not to other candidates. 
+
+![Point flow chart courtesy of Paul Fairie (@paulisci)](/img/point_flow.jpg)
+
+There will be more to come on this, I'm sure. But the real lesson here is that Rob Ford built a coalition of right-wing authoritarian populism with significant support from visible minorities. 
