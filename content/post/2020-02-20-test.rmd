@@ -1,0 +1,85 @@
+---
+title: 'Test'
+author: 'Sinon Kiss'
+date: '2020-02-20'
+slug: test
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-20T14:34:04-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r echo=F, results='markup', warning=F, message=F}
+library(knitr)
+opts_chunk$set(results='markup', warning=F, message=F)
+```
+
+First thing is to read in all the data. If we go to the sunshine lists's page and look at the URLs for all of the data, the filenames are formatted very nicely. 
+
+`https://files.ontario.ca/en-1997-pssd.csv`
+`https://files.ontario.ca/en-1996-pssd.csv`
+
+But, it also looks like starting in 2010, the filenames change patters. 
+`https://files.ontario.ca/2010.csv`
+
+And it looks like 2012 changes. 
+
+`https://files.ontario.ca/pssd-en-2012-fixed_0.csv`
+And the 2018 file name is different yet again. 
+
+`https://files.ontario.ca/en-2018-pssd-compendium-utf8_1.csv`
+
+So we can paste together a list of all the CSV files with this command. 
+
+```{r}
+
+years<-seq(1996,2009, by=1)
+
+
+urls<-paste0('https://files.ontario.ca/en-', years, '-pssd.csv')
+
+#we need to change 2012
+urls[15]<-'https://files.ontario.ca/2010.csv'
+urls[16]<-'https://files.ontario.ca/2011.csv'
+urls[17]<-'https://files.ontario.ca/pssd-en-2012-fixed_0.csv'
+urls[18]<-'https://files.ontario.ca/pssd-en-2013.csv'
+urls[19]<-'https://files.ontario.ca/2014-pssd-full-compendium-utf8-en.csv'
+urls[20]<-'https://files.ontario.ca/pssd/en-2015-pssd-compendium-with-addendum-20161219.csv'
+urls[21]<-'https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.csv'
+urls[22]<-'https://files.ontario.ca/en-2018-pssd-compendium.csv'
+urls[23]<-'https://files.ontario.ca/en-2018-pssd-compendium-20191223.csv'
+
+```
+
+```{r}
+urls
+library(tidyverse)
+urls %>% 
+  map(., read_csv)-> out
+
+
+```
+
+```{r}
+library(stringr)
+library(magrittr)
+out %>% 
+  map(., mutate, salary=str_replace(`Salary Paid`, '\\$', '')) %>% 
+  map(., mutate, salary=str_replace(salary, ",", '')) %>%  
+  map_df(., extract, c(1,6,7,9)) -> sunshine
+
+```
+
+
+```{r}
+
+```
+

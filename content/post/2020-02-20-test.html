@@ -1,0 +1,79 @@
+---
+title: 'Test'
+author: 'Sinon Kiss'
+date: '2020-02-20'
+slug: test
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-02-20T14:34:04-05:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+
+<p>First thing is to read in all the data. If we go to the sunshine lists’s page and look at the URLs for all of the data, the filenames are formatted very nicely.</p>
+<p><code>https://files.ontario.ca/en-1997-pssd.csv</code>
+<code>https://files.ontario.ca/en-1996-pssd.csv</code></p>
+<p>But, it also looks like starting in 2010, the filenames change patters.
+<code>https://files.ontario.ca/2010.csv</code></p>
+<p>And it looks like 2012 changes.</p>
+<p><code>https://files.ontario.ca/pssd-en-2012-fixed_0.csv</code>
+And the 2018 file name is different yet again.</p>
+<p><code>https://files.ontario.ca/en-2018-pssd-compendium-utf8_1.csv</code></p>
+<p>So we can paste together a list of all the CSV files with this command.</p>
+<pre class="r"><code>years&lt;-seq(1996,2009, by=1)
+
+
+urls&lt;-paste0(&#39;https://files.ontario.ca/en-&#39;, years, &#39;-pssd.csv&#39;)
+
+#we need to change 2012
+urls[15]&lt;-&#39;https://files.ontario.ca/2010.csv&#39;
+urls[16]&lt;-&#39;https://files.ontario.ca/2011.csv&#39;
+urls[17]&lt;-&#39;https://files.ontario.ca/pssd-en-2012-fixed_0.csv&#39;
+urls[18]&lt;-&#39;https://files.ontario.ca/pssd-en-2013.csv&#39;
+urls[19]&lt;-&#39;https://files.ontario.ca/2014-pssd-full-compendium-utf8-en.csv&#39;
+urls[20]&lt;-&#39;https://files.ontario.ca/pssd/en-2015-pssd-compendium-with-addendum-20161219.csv&#39;
+urls[21]&lt;-&#39;https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.csv&#39;
+urls[22]&lt;-&#39;https://files.ontario.ca/en-2018-pssd-compendium.csv&#39;
+urls[23]&lt;-&#39;https://files.ontario.ca/en-2018-pssd-compendium-20191223.csv&#39;</code></pre>
+<pre class="r"><code>urls</code></pre>
+<pre><code>##  [1] &quot;https://files.ontario.ca/en-1996-pssd.csv&quot;                                       
+##  [2] &quot;https://files.ontario.ca/en-1997-pssd.csv&quot;                                       
+##  [3] &quot;https://files.ontario.ca/en-1998-pssd.csv&quot;                                       
+##  [4] &quot;https://files.ontario.ca/en-1999-pssd.csv&quot;                                       
+##  [5] &quot;https://files.ontario.ca/en-2000-pssd.csv&quot;                                       
+##  [6] &quot;https://files.ontario.ca/en-2001-pssd.csv&quot;                                       
+##  [7] &quot;https://files.ontario.ca/en-2002-pssd.csv&quot;                                       
+##  [8] &quot;https://files.ontario.ca/en-2003-pssd.csv&quot;                                       
+##  [9] &quot;https://files.ontario.ca/en-2004-pssd.csv&quot;                                       
+## [10] &quot;https://files.ontario.ca/en-2005-pssd.csv&quot;                                       
+## [11] &quot;https://files.ontario.ca/en-2006-pssd.csv&quot;                                       
+## [12] &quot;https://files.ontario.ca/en-2007-pssd.csv&quot;                                       
+## [13] &quot;https://files.ontario.ca/en-2008-pssd.csv&quot;                                       
+## [14] &quot;https://files.ontario.ca/en-2009-pssd.csv&quot;                                       
+## [15] &quot;https://files.ontario.ca/2010.csv&quot;                                               
+## [16] &quot;https://files.ontario.ca/2011.csv&quot;                                               
+## [17] &quot;https://files.ontario.ca/pssd-en-2012-fixed_0.csv&quot;                               
+## [18] &quot;https://files.ontario.ca/pssd-en-2013.csv&quot;                                       
+## [19] &quot;https://files.ontario.ca/2014-pssd-full-compendium-utf8-en.csv&quot;                  
+## [20] &quot;https://files.ontario.ca/pssd/en-2015-pssd-compendium-with-addendum-20161219.csv&quot;
+## [21] &quot;https://files.ontario.ca/en-2016-pssd-compendium-20171128-utf8.csv&quot;              
+## [22] &quot;https://files.ontario.ca/en-2018-pssd-compendium.csv&quot;                            
+## [23] &quot;https://files.ontario.ca/en-2018-pssd-compendium-20191223.csv&quot;</code></pre>
+<pre class="r"><code>library(tidyverse)
+urls %&gt;% 
+  map(., read_csv)-&gt; out</code></pre>
+<pre class="r"><code>library(stringr)
+library(magrittr)
+out %&gt;% 
+  map(., mutate, salary=str_replace(`Salary Paid`, &#39;\\$&#39;, &#39;&#39;)) %&gt;% 
+  map(., mutate, salary=str_replace(salary, &quot;,&quot;, &#39;&#39;)) %&gt;%  
+  map_df(., extract, c(1,6,7,9)) -&gt; sunshine</code></pre>
