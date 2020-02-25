@@ -55,29 +55,6 @@
     </item>
     
     <item>
-      <title>Academic Hiring in Ontario</title>
-      <link>https://sjkiss.github.io/post/test/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/test/</guid>
-      <description>
-
-
-&lt;p&gt;First thing is to read in all the data. If we go to the sunshine lists’s page and look at the URLs for all of the data, the filenames are formatted very nicely.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://files.ontario.ca/en-1997-pssd.csv&lt;/code&gt;
-&lt;code&gt;https://files.ontario.ca/en-1996-pssd.csv&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;But, it also looks like starting in 2010, the filenames change patters.
-&lt;code&gt;https://files.ontario.ca/2010.csv&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;And it looks like 2012 changes.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://files.ontario.ca/pssd-en-2012-fixed_0.csv&lt;/code&gt;
-And the 2018 file name is different yet again.&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;https://files.ontario.ca/en-2018-pssd-compendium-utf8_1.csv&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;So we can paste together a list of all the CSV files with this command.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/how-many-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Test</title>
       <link>https://sjkiss.github.io/post/test/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
