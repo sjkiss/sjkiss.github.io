@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publication | Simon J. Kiss</title>
-    <link>/project/</link>
-      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/project/</link>
+      <atom:link href="https://sjkiss.github.io/project/index.xml" rel="self" type="application/rss+xml" />
     <description>Publication</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 30 Apr 2018 14:19:13 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
       <title>Publication</title>
-      <link>/project/</link>
+      <link>https://sjkiss.github.io/project/</link>
     </image>
     
     <item>
       <title>Data, Reproducibility and Open Science</title>
-      <link>/project/data/</link>
+      <link>https://sjkiss.github.io/project/data/</link>
       <pubDate>Mon, 30 Apr 2018 14:19:13 -0500</pubDate>
-      <guid>/project/data/</guid>
+      <guid>https://sjkiss.github.io/project/data/</guid>
       <description>&lt;p&gt;There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny. I&amp;rsquo;ve set up my own dataverse and here you&amp;rsquo;ll find links to some of my datasets.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>R</title>
-      <link>/project/r/</link>
+      <link>https://sjkiss.github.io/project/r/</link>
       <pubDate>Wed, 28 Feb 2018 14:15:30 -0500</pubDate>
-      <guid>/project/r/</guid>
+      <guid>https://sjkiss.github.io/project/r/</guid>
       <description>&lt;p&gt;Although I am a qualitative researcher at heart, I&amp;rsquo;m also a keen user of the statistical software 
 &lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R&lt;/a&gt; for my quantitative research projects. To my mind, R offers a number of advantages. It is free, it produces beautiful and informative plots, it encourages analytical thinking and familiarization with statistical concepts. It is also becoming extremely popular and it has a vibrant community of software developers and users that can provide assistance and develop new tools to deal with tasks as they emerge.&lt;/p&gt;
 &lt;p&gt;I attended the 
@@ -42,9 +42,9 @@
     
     <item>
       <title>Social Democracy</title>
-      <link>/project/social-democracy/</link>
+      <link>https://sjkiss.github.io/project/social-democracy/</link>
       <pubDate>Fri, 09 Feb 2018 14:19:13 -0500</pubDate>
-      <guid>/project/social-democracy/</guid>
+      <guid>https://sjkiss.github.io/project/social-democracy/</guid>
       <description>&lt;p&gt;I am currently on a long-term research project with 
 &lt;a href=&#34;https://socialsciences.mcmaster.ca/people/graefe-peter&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Peter Graefe&lt;/a&gt; of McMaster University examining the transformation of the NDP under Jack Layton. We&amp;rsquo;re investigating the way in which changes in the electoral and financing rules for political parties contributed to a &amp;ldquo;new&amp;rdquo; New Democratic Party. This builds on earlier research I&amp;rsquo;ve conducted examining the politics of the New Politics Initiative in the NDP in 1999-2000.&lt;/p&gt;
 &lt;p&gt;I also have a strong interest in the way that social class affects public opinion in the post-industrial societies. I am interested in the interplay of income, status, levels of education and field of study to create political preferences for and against redistribution and environmental protection. I woud like to know if the increasing role played by educated professionals will weaken social democratic parties&amp;rsquo; capacity to push for redistribution.&lt;/p&gt;
@@ -55,29 +55,29 @@
     
     <item>
       <title>Political Communication And Public Opinion</title>
-      <link>/project/political-communication/</link>
+      <link>https://sjkiss.github.io/project/political-communication/</link>
       <pubDate>Fri, 09 Feb 2018 11:00:55 -0500</pubDate>
-      <guid>/project/political-communication/</guid>
-      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
+      <guid>https://sjkiss.github.io/project/political-communication/</guid>
+      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
 &lt;p&gt;More recently, I have been involved in a project with a colleague at the 
-&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;https://sjkiss.github.io/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Politics of Risk Perception</title>
-      <link>/project/risk/</link>
+      <link>https://sjkiss.github.io/project/risk/</link>
       <pubDate>Thu, 08 Feb 2018 15:22:41 -0500</pubDate>
-      <guid>/project/risk/</guid>
+      <guid>https://sjkiss.github.io/project/risk/</guid>
       <description>&lt;p&gt;The bulk of my research since arriving at Wilfrid Laurier University has been to investigate the politics of risk perception, particularly in regards to environmental issues.  I have completed a project on the politics of the controversial chemical BPA. In one 
-&lt;a href=&#34;/publication/legislation-by-agenda-setting&#34;&gt;paper&lt;/a&gt;, I was able to show that the level of news coverage in state&amp;rsquo;s daily newspaper about BPA was correlated with the probability that that state would adopt a ban on BPA. In short, politicians adopt policies responding to media pressure.  In a second, more qualitative 
-&lt;a href=&#34;/publication/bpa-canada&#34;&gt;paper&lt;/a&gt;, I examined the interaction between legislative provisions, short term interest-group pressure and media attention that led to Canada being the first country in the world to prohibit baby bottles made with BPA.&lt;/p&gt;
+&lt;a href=&#34;https://sjkiss.github.io/publication/legislation-by-agenda-setting&#34;&gt;paper&lt;/a&gt;, I was able to show that the level of news coverage in state&amp;rsquo;s daily newspaper about BPA was correlated with the probability that that state would adopt a ban on BPA. In short, politicians adopt policies responding to media pressure.  In a second, more qualitative 
+&lt;a href=&#34;https://sjkiss.github.io/publication/bpa-canada&#34;&gt;paper&lt;/a&gt;, I examined the interaction between legislative provisions, short term interest-group pressure and media attention that led to Canada being the first country in the world to prohibit baby bottles made with BPA.&lt;/p&gt;
 &lt;p&gt;In the course of this project I was inspired by the work emerging on the 
 &lt;a href=&#34;http://culturalcognition.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cultural cognition&lt;/a&gt; of risk perception and the cultural theory of risk. I was awarded a 
 &lt;a href=&#34;http://www.sshrc.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSHRC&lt;/a&gt; Insight Development Grant in 2013 to develop survey measures of the core concepts of cultural theory for the canadian context. Working with 
 &lt;a href=&#34;http://www.ericmontpetit.ca/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Eric Montpetit&lt;/a&gt; and 
 &lt;a href=&#34;http://www.ericklachapelle.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Erick Lachapelle&lt;/a&gt;, I conducted intense qualitative research and survey development to produce these measures.  Our first publicadtion from this project can be seen 
-&lt;a href=&#34;/publication/montpetit-lachapelle-kiss&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://sjkiss.github.io/publication/montpetit-lachapelle-kiss&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Building on this project, I have been invited to take part in the 
 &lt;a href=&#34;https://issp.uottawa.ca/en/research-and-publications/at-risk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@risk&lt;/a&gt; research project, a SSHRC-funded research project that seeks to find ways to mange the democratic and technocratic tensions managing risks in contemporary Canada.&lt;/p&gt;
 </description>
