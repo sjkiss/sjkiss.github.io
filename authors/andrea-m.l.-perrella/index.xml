@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Andrea M.L. Perrella | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/authors/andrea-m.l.-perrella/</link>
-      <atom:link href="https://sjkiss.github.io/authors/andrea-m.l.-perrella/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/andrea-m.l.-perrella/</link>
+      <atom:link href="/authors/andrea-m.l.-perrella/index.xml" rel="self" type="application/rss+xml" />
     <description>Andrea M.L. Perrella</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
     <image>
-      <url>img/map[gravatar:%!s(bool=false) shape:circle]</url>
+      <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Andrea M.L. Perrella</title>
-      <link>https://sjkiss.github.io/authors/andrea-m.l.-perrella/</link>
+      <link>/authors/andrea-m.l.-perrella/</link>
     </image>
     
     <item>
       <title>Right-wing populism in a metropolis</title>
-      <link>https://sjkiss.github.io/publication/ford_populism/</link>
+      <link>/publication/ford_populism/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/ford_populism/</guid>
+      <guid>/publication/ford_populism/</guid>
       <description></description>
     </item>
     
