@@ -4,7 +4,8 @@ author: 'Sinon Kiss'
 date: '2020-02-20'
 slug: test
 categories: []
-tags: []
+draft: true
+tags: ['university']
 subtitle: ''
 summary: ''
 authors: []
@@ -14,30 +15,42 @@ image:
   caption: ''
   focal_point: ''
   preview_only: no
-projects: []
+projects: ['']
+
+
 ---
 
 ```{r echo=F, results='markup', warning=F, message=F}
 library(knitr)
-opts_chunk$set(results='markup', warning=F, message=F, echo=F)
+opts_chunk$set(results='hide', warning=F, message=F, echo=F, fig.width=5, fig.height=3)
 ```
 
-First thing is to read in all the data. If we go to the sunshine lists's page and look at the URLs for all of the data, the filenames are formatted very nicely. 
+### Introduction
 
-`https://files.ontario.ca/en-1997-pssd.csv`
-`https://files.ontario.ca/en-1996-pssd.csv`
+Alex Usher has a series of recent blog posts [here](http://higheredstrategy.com/administrative-bloat-2020-edition/), [here](http://higheredstrategy.com/administrative-bloat-2020-part-ii/), [here](http://higheredstrategy.com/one-more-thought-on-administrative-bloat/) and [here](http://higheredstrategy.com/one-last-thought-really-on-administrative-bloat-2020/) looking at academic versus non-academic expendituers and hiring in Canadian universities. 
 
-But, it also looks like starting in 2010, the filenames change patters. 
-`https://files.ontario.ca/2010.csv`
+The basic thrust of Alex's findings are that while the *numbers* of non-academic staff are increasing, their overall aggregate salaries are not. His conclusion is that academic salaries continue to rise partially because there is no churn in the academic job market as there is in non-academic jobs. Once you're a prof, you're a prof for a *long* time. 
 
-And it looks like 2012 changes. 
+I wanted to play with the data from the Ontario public sector salary disclosure list (''Sunshine List'') to see if we could learn anything about it. 
 
-`https://files.ontario.ca/pssd-en-2012-fixed_0.csv`
-And the 2018 file name is different yet again. 
+### Background
+If you don't know already the Sunshine List is a dataset published annually by the Government of Ontario. It contains the name, title and salary of each public sector employee (broadly construed) who earned more than \$100,00 in any calendar year.  It was legislated in 1996 at the height of the Common Sense Revolution as part of the Harris government's war on the public sector. 
 
-`https://files.ontario.ca/en-2018-pssd-compendium-utf8_1.csv`
+When the legislation was passed, however, there were no provisions for adjusting the salary level upwards with inflation. That was over 20 years ago and so, inexorably, the sunshine list has gotten larger and larger. You would be shocked at the number of front-line nurses and police officers on that list now. 
 
-So we can paste together a list of all the CSV files with this command. 
+So, as time passes, the sunshine list will become an increasingly useful data source to track, in a very fine-grained way, salary patterns in Ontario's public sector. The median salary for full-time faculty in 2017-2017 was \$128,950, meaning that the Ontario sunshine list contains *more* than half of Ontario full-time professors. And because inflation is a powerful force, that will almost inexorably include everyone. I wasn't able to locate data on the average salary for non-academic staff in Ontario, but if it is less than professors. It is almost certainly lower, but, again, given inflation, it won't be an insignificant portion of the university workforce. Just remember there are a lot of teachers, nurses and police constables on that list, so university professionals like (well, nurses, engineering technicians in the physical plants, human resource executives, PR people) might plausibly be in the ball park. 
+
+And, at the very least, this exercise might be fun.
+
+So, the headline finding from Alex's numbers are that while universities are hiring *more* non-academic staff than academnic staff, the overall share of the compensation budget for non-academic staff is growing at about the same rate as for academic staff. His two charts here show this: 
+
+![Growth in Number of Non-Academic and Academic Staff](http://higheredstrategy.com/wp-content/uploads/2020/02/February-19-2020-Figure-1.png)
+
+
+![Non-academic and Academic salaries](http://higheredstrategy.com/wp-content/uploads/2020/02/February-18-2020-Figure-1.png)
+
+
+
 
 ```{r make-urls}
 
@@ -87,67 +100,91 @@ out %>%
   mutate(., Salary=str_replace(`Salary Paid`, "\\,", ""),
          Benefits=str_replace(`Taxable Benefits`, "\\,", "")) %>% 
   mutate(., Salary=as.numeric(Salary), Benefits=as.numeric(Benefits), 
-         Total=sum(Salary,Benefits, na.rm=T)) ->out2
+         Total=Salary+Benefits, na.rm=T) ->out2
+
 ```
 
 
-```{r recode-odd-titles}
+```{r recode-job-titles}
 out2 %>% 
-  mutate(job=case_when(
+  mutate(Category=case_when(
+    #These categorize these job titles into the academic category
     str_detect(`Job Title`, 'Professor') ~"Academic",
+    str_detect(`Job Title`, 'Prof.') ~"Academic",
         str_detect(`Job Title`, 'Canada Research Chair') ~"Academic",
     str_detect(`Job Title`, 'Lecturer') ~"Academic",
     str_detect(`Job Title`, 'Faculty') ~"Academic",
     str_detect(`Job Title`, "Librar") ~"Academic",
-    str_detect(`Job Title`, 'Prof.') ~"Academic",
-    str_detect(`Job Title`, 'Physician') ~NA_character_,
+    str_detect(`Job Title`, 'Course Director') ~"Academic",
     str_detect(`Job Title`, 'Chair') ~"Academic",
     str_detect(`Job Title`, 'Dean') ~"Academic",
     str_detect(`Job Title`, 'Principal') ~"Academic",
     str_detect(`Job Title`, 'Research Associate') ~"Academic",
-    str_detect(`Job Title`, 'Clinician')~ NA_character_,
     str_detect(`Job Title`, 'Department Head')~ "Academic",
     str_detect(`Job Title`, 'Research Director')~ "Academic",
     str_detect(`Job Title`, 'Research Manager')~ "Academic",
     str_detect(`Job Title`, 'Queen\'s National Scholar')~ "Academic",
     str_detect(`Job Title`, 'Molecular Biologist')~ "Academic",
     str_detect(`Job Title`, 'Senior Researcher')~ "Academic",
-    str_detect(`Job Title`, 'Psychologist')~ "Academic",
     str_detect(`Job Title`, 'Contract Academic Staff')~ "Academic",
-    str_detect(`Job Title`, 'Clinical Research Coordinator')~ NA_character_,
     str_detect(`Job Title`, 'Manager, Analytical Biology')~ "Academic",
     str_detect(`Job Title`, 'Director, Sudbury Neutrino')~ "Academic",
     str_detect(`Job Title`, 'Director Wilfrid Laurier Press')~ "Academic",
     str_detect(`Job Title`, 'Tutor')~ "Academic",
-    TRUE ~ "Non-Academic"
+    #These are grey area jobs that are likely associated with university teaching hospitals; they are categorized as missing.  
+       str_detect(`Job Title`, 'Psychologist')~ NA_character_,
+     str_detect(`Job Title`, 'Clinician')~ NA_character_,    
+    str_detect(`Job Title`, 'Clinical Research Coordinator')~ NA_character_,
+        str_detect(`Job Title`, 'Physician') ~NA_character_,
+#If a job title is anything other than the above, it is classed as non-academnic
+        TRUE ~ "Non-Academic"
   )
   ) %>% 
-  filter(Sector=="Universities") ->out3
- # group_by(job) %>% 
- #  summarize(n=n()) %>% 
- #  arrange(desc(n))
+  filter(Sector=="Universities")->out3
 
 ```
 ```{r set-theme}
 theme_set(theme_bw())
 
 ```
-```{r how-many}
+
+The first thing we can check is Alex's finding that academic staff hiring is growing more slowly than non-academic staff. Is that pattern showing up for people earning \$100,000? The answer is below, and, honestly, it doesn't look like it. 
+
+```{r how-many, include=T}
 out3 %>% 
-  ggplot(., aes(x=Year, fill=job))+geom_bar(position="dodge")
+  filter(is.na(Category)==F) %>% 
+  ggplot(., aes(x=Year, fill=Category))+geom_bar(position="dodge")+labs(title="Number of Academic and Non-Academic\nSunshine List Employees in the University Sector by Year")
 ```
 
+So the way to square that finding with Alex' finding is that the hiring that is happening at universities is happening below \$100,000. There is another interesting pattern in that plot, which is a bulge in academic staff above $100,000 between the years about 2006 and 2010. I can't be certain, but it's possible that is the McGuinty government's expansion of post-secondary education.
 
-```{r}
+But, we can also check whether there are different compensation patterns for non-academic staff and academic staff. We can actually track it in two ways, the average and the total. Here's the average salary over time. 
+```{r average-salaries, include=T}
 
 out3 %>% 
- group_by(Year, job) %>% 
-  summarize(n=n(), average=mean(Total)) %>% 
-  ggplot(., aes(x=Year, col=job, y=average))+geom_point()
+ group_by(Year, Category) %>% 
+  summarize(average=mean(Total, na.rm=T)) %>% 
+  filter(is.na(Category)==F) %>% 
+  ggplot(., aes(x=Year, fill=Category, y=average))+geom_bar(stat="identity", position="dodge")
 
 
 ```
+Now that looks like a clear pattern. 
 
+Just as a check that my method of selecting job titles into the  academic or non-academic category was plausible. Here are the top 30 uniquely occuring job titles in each category. 
 
+```{r check, results='asis'}
+library(knitr)
+out3 %>% 
+  select(`Job Title`, Category) %>% 
+  group_by(`Job Title`, Category) %>% 
+  summarize(n=n()) %>% 
+  group_by(Category) %>% 
+  filter(is.na(Category)==F) %>% 
+  top_n(20) %>% 
+  arrange(Category, desc(n)) %>% 
+  kable()
+
+```
 
 

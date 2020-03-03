@@ -121,7 +121,7 @@ contact_links = [
 sharing_image = ""
 
 # Twitter username (without @). Used when a visitor shares your site on Twitter.
-twitter = ""
+twitter = "@SimonKiss1"
 
 ############################
 ## Regional Settings
@@ -168,7 +168,7 @@ plugins_js  = []
   gravatar = false
 
   # Choose a shape for avatar images. Options: circle, square.
-  shape = "circle"
+  shape = "square"
 
 # Available address formats.
 [address_formats]
@@ -206,14 +206,14 @@ plugins_js  = []
   #   0: Disabled
   #   1: Disqus (https://disqus.com)
   #   2: Commento (https://commento.io)
-  engine = 0
+  engine = 1
 
   # Which page types are commentable?
-  commentable = {page = true, post = true, docs = true, project = true, publication = true, talk = true}
+  commentable = {page = false, post = true, docs = false, project = false, publication = false, talk = false}
 
   # Configuration of Disqus.
   [comments.disqus]
-    shortname = ""  # Paste the shortname from your Disqus dashboard.
+    shortname = "simonjkiss"  # Paste the shortname from your Disqus dashboard.
     show_count = true  # Show comment count in page header? (true/false)
 
   # Configuration of Commento.
