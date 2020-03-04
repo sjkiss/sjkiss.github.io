@@ -2,9 +2,8 @@
 title: 'Academic Hiring in Ontario'
 author: 'Sinon Kiss'
 date: '2020-02-20'
-slug: test
+slug: []
 categories: []
-draft: true
 tags: ['university']
 subtitle: ''
 summary: ''
