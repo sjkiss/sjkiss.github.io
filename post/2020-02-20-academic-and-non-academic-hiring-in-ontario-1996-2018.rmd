@@ -32,7 +32,7 @@ library(knitr)
 opts_chunk$set(results='hide', warning=F, message=F, echo=F, fig.width=5, fig.height=3)
 options(knitr.duplicate.label = 'allow')
 ```
-`
+
 
 ### Introduction
 
