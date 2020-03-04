@@ -114,7 +114,7 @@ salaries2 %>%
   summarize(n=n()) %>% 
   mutate(pct_change=(n/lag(n)-1)*100) %>% 
   filter(is.na(pct_change)==F) %>% 
-  ggplot(., aes(x=Year, fill=Category, y=pct_change))+geom_bar(position="dodge", stat="identity")+labs(title="Number of Academic and Non-Academic\nSunshine List Employees in the University Sector by Year")+ylim(c(0,40))
+  ggplot(., aes(x=Year, fill=Category, y=pct_change))+geom_bar(position="dodge", stat="identity")+labs(title="Percent Change (year over year) in Number of Academic and Non-Academic\nSunshine List Employees in the University Sector by Year", y="% change")+ylim(c(0,40))
 
 
 
