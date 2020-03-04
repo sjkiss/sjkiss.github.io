@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Eric Montpetit, Erick Lachapelle, Simon Kiss | Simon J. Kiss</title>
-    <link>/authors/eric-montpetit-erick-lachapelle-simon-kiss/</link>
-      <atom:link href="/authors/eric-montpetit-erick-lachapelle-simon-kiss/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/authors/eric-montpetit-erick-lachapelle-simon-kiss/</link>
+      <atom:link href="https://sjkiss.github.io/authors/eric-montpetit-erick-lachapelle-simon-kiss/index.xml" rel="self" type="application/rss+xml" />
     <description>Eric Montpetit, Erick Lachapelle, Simon Kiss</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Feb 2018 09:52:31 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Eric Montpetit, Erick Lachapelle, Simon Kiss</title>
-      <link>/authors/eric-montpetit-erick-lachapelle-simon-kiss/</link>
+      <link>https://sjkiss.github.io/authors/eric-montpetit-erick-lachapelle-simon-kiss/</link>
     </image>
     
     <item>
       <title>Does Canadian Federalism Amplify Policy Disagreements?</title>
-      <link>/publication/montpetit-lachapelle-kiss/</link>
+      <link>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</link>
       <pubDate>Fri, 09 Feb 2018 09:52:31 -0500</pubDate>
-      <guid>/publication/montpetit-lachapelle-kiss/</guid>
+      <guid>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</guid>
       <description></description>
     </item>
     

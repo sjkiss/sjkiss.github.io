@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Recent &amp; Upcoming Talks | Simon J. Kiss</title>
-    <link>/talk/</link>
-      <atom:link href="/talk/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/talk/</link>
+      <atom:link href="https://sjkiss.github.io/talk/index.xml" rel="self" type="application/rss+xml" />
     <description>Recent &amp; Upcoming Talks</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 30 May 2018 00:00:00 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Recent &amp; Upcoming Talks</title>
-      <link>/talk/</link>
+      <link>https://sjkiss.github.io/talk/</link>
     </image>
     
     <item>
       <title>Adapting A Cultural Theory of Risk To The Canadian Context</title>
-      <link>/talk/regina/</link>
+      <link>https://sjkiss.github.io/talk/regina/</link>
       <pubDate>Wed, 30 May 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/regina/</guid>
+      <guid>https://sjkiss.github.io/talk/regina/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Motivated Reasoning And Risk Management</title>
-      <link>/talk/ottawa/</link>
+      <link>https://sjkiss.github.io/talk/ottawa/</link>
       <pubDate>Mon, 14 May 2018 11:20:01 -0400</pubDate>
-      <guid>/talk/ottawa/</guid>
+      <guid>https://sjkiss.github.io/talk/ottawa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Economic Anxiety, Visible Minorities and Populism: Public Support for Toronto Mayor Rob Ford</title>
-      <link>/talk/chicago/</link>
+      <link>https://sjkiss.github.io/talk/chicago/</link>
       <pubDate>Thu, 29 Mar 2018 07:32:05 -0400</pubDate>
-      <guid>/talk/chicago/</guid>
+      <guid>https://sjkiss.github.io/talk/chicago/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syracuse</title>
-      <link>/talk/syracuse/</link>
+      <link>https://sjkiss.github.io/talk/syracuse/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 -0400</pubDate>
-      <guid>/talk/syracuse/</guid>
+      <guid>https://sjkiss.github.io/talk/syracuse/</guid>
       <description></description>
     </item>
     

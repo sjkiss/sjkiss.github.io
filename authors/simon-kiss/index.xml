@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simon J. Kiss</title>
-    <link>/authors/simon-kiss/</link>
-      <atom:link href="/authors/simon-kiss/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/authors/simon-kiss/</link>
+      <atom:link href="https://sjkiss.github.io/authors/simon-kiss/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
-      <link>/authors/simon-kiss/</link>
+      <link>https://sjkiss.github.io/authors/simon-kiss/</link>
     </image>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>/publication/open-government/</link>
+      <link>https://sjkiss.github.io/publication/open-government/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>/publication/open-government/</guid>
+      <guid>https://sjkiss.github.io/publication/open-government/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Balanced Journalism Amplifies Minority Positions</title>
-      <link>/publication/fluoride/</link>
+      <link>https://sjkiss.github.io/publication/fluoride/</link>
       <pubDate>Tue, 06 Nov 2018 13:11:45 -0500</pubDate>
-      <guid>/publication/fluoride/</guid>
+      <guid>https://sjkiss.github.io/publication/fluoride/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
-      <link>/publication/fracking/</link>
+      <link>https://sjkiss.github.io/publication/fracking/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 -0400</pubDate>
-      <guid>/publication/fracking/</guid>
+      <guid>https://sjkiss.github.io/publication/fracking/</guid>
       <description></description>
     </item>
     

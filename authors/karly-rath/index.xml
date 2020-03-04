@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Karly Rath | Simon J. Kiss</title>
-    <link>/authors/karly-rath/</link>
-      <atom:link href="/authors/karly-rath/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/authors/karly-rath/</link>
+      <atom:link href="https://sjkiss.github.io/authors/karly-rath/index.xml" rel="self" type="application/rss+xml" />
     <description>Karly Rath</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 06 Nov 2018 13:11:45 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Karly Rath</title>
-      <link>/authors/karly-rath/</link>
+      <link>https://sjkiss.github.io/authors/karly-rath/</link>
     </image>
     
     <item>
       <title>Balanced Journalism Amplifies Minority Positions</title>
-      <link>/publication/fluoride/</link>
+      <link>https://sjkiss.github.io/publication/fluoride/</link>
       <pubDate>Tue, 06 Nov 2018 13:11:45 -0500</pubDate>
-      <guid>/publication/fluoride/</guid>
+      <guid>https://sjkiss.github.io/publication/fluoride/</guid>
       <description></description>
     </item>
     

@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Authors | Simon J. Kiss</title>
-    <link>/authors/</link>
-      <atom:link href="/authors/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/authors/</link>
+      <atom:link href="https://sjkiss.github.io/authors/index.xml" rel="self" type="application/rss+xml" />
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Authors</title>
-      <link>/authors/</link>
+      <link>https://sjkiss.github.io/authors/</link>
     </image>
     
   </channel>
