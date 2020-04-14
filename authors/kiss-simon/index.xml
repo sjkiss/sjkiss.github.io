@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Erick Lachapelle | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/authors/erick-lachapelle/</link>
-      <atom:link href="https://sjkiss.github.io/authors/erick-lachapelle/index.xml" rel="self" type="application/rss+xml" />
-    <description>Erick Lachapelle</description>
+    <title>Kiss, Simon | Simon J. Kiss</title>
+    <link>https://sjkiss.github.io/authors/kiss-simon/</link>
+      <atom:link href="https://sjkiss.github.io/authors/kiss-simon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Kiss, Simon</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
-      <title>Erick Lachapelle</title>
-      <link>https://sjkiss.github.io/authors/erick-lachapelle/</link>
+      <title>Kiss, Simon</title>
+      <link>https://sjkiss.github.io/authors/kiss-simon/</link>
     </image>
     
     <item>
@@ -17,14 +17,6 @@
       <link>https://sjkiss.github.io/publication/beyond_regions/</link>
       <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
       <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
-      <link>https://sjkiss.github.io/publication/fracking/</link>
-      <pubDate>Sat, 01 Sep 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/publication/fracking/</guid>
       <description></description>
     </item>
     
