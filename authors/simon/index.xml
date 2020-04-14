@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Simon | Simon J. Kiss</title>
+    <link>https://sjkiss.github.io/authors/simon/</link>
+      <atom:link href="https://sjkiss.github.io/authors/simon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Simon</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
+      <title>Simon</title>
+      <link>https://sjkiss.github.io/authors/simon/</link>
+    </image>
+    
+    <item>
+      <title>Beyond_regions</title>
+      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
+      <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

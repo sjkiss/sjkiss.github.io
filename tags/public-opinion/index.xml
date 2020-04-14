@@ -5,12 +5,20 @@
     <link>https://sjkiss.github.io/tags/public-opinion/</link>
       <atom:link href="https://sjkiss.github.io/tags/public-opinion/index.xml" rel="self" type="application/rss+xml" />
     <description>public-opinion</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 11 Jan 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>public-opinion</title>
       <link>https://sjkiss.github.io/tags/public-opinion/</link>
     </image>
+    
+    <item>
+      <title>Beyond_regions</title>
+      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
+      <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Salience of Immigration and Personal Finances in Ontario</title>

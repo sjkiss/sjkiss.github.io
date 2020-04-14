@@ -5,7 +5,7 @@
     <link>https://sjkiss.github.io/</link>
       <atom:link href="https://sjkiss.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
@@ -52,6 +52,14 @@
 &lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
 &lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Beyond_regions</title>
+      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
+      <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
+      <description></description>
     </item>
     
     <item>
@@ -354,7 +362,7 @@ Now that is a very different pattern. Average non-academic salaries (of people o
 &lt;div class=&#34;footnotes&#34;&gt;
 &lt;hr /&gt;
 &lt;ol&gt;
-&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The full code is &lt;a href=&#34;http://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/files/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018.R&#34;&gt;here&lt;/a&gt;. Eventually I think I’ll plunk the whole Ontario sunshine list online, like in one file instead of the 23 separate files as is currently the case.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li id=&#34;fn1&#34;&gt;&lt;p&gt;The full code is &lt;a href=&#34;https://github.com/sjkiss/sjkiss.github.io/blob/master/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/files/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018.R&#34;&gt;here&lt;/a&gt;. Eventually I think I’ll plunk the whole Ontario sunshine list online, like in one file instead of the 23 separate files as is currently the case.&lt;a href=&#34;#fnref1&#34; class=&#34;footnote-back&#34;&gt;↩︎&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
