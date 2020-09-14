@@ -5,12 +5,80 @@
     <link>https://sjkiss.github.io/post/</link>
       <atom:link href="https://sjkiss.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     <description>Posts</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Sep 2020 09:35:04 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Posts</title>
       <link>https://sjkiss.github.io/post/</link>
     </image>
+    
+    <item>
+      <title>Text Expander Footnotes</title>
+      <link>https://sjkiss.github.io/post/text-expander-footnotes/</link>
+      <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
+      <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
+&lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;quot;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
+&lt;p&gt;Parallel to this, I had started using 
+&lt;a href=&#34;https://daringfireball.net/projects/markdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;  a lot more. This website is built with markdown and Hugo. Markdown is a plain-text markup language that can be incredibly easy to use and incredibly versatile. The same document can be converted into different file formats using 
+&lt;a href=&#34;https://pandoc.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pandoc&lt;/a&gt; (e.g. Word, PDF, slides). I really got into Markdown because there are ways you can integrate R, slides, and text into one document. So my vision was really to have a way to quickly write code and some thoughts into one document and post it to a website or convert it into slides for a presentation, all using the same basic platform.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m pretty much sold on the whole suite of software, but there are moments where I find it really frustrating, and here&amp;rsquo;s one. I have been using 
+&lt;a href=&#34;https://www.deckset.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Deckset&lt;/a&gt; to convert my markdown files into presentations. The reason I ahve been doing this is using pandoc to convert a markdown document into slides can be tedious; Deckset just goes so quickly. But: there is a problem: Deckset does not use pandoc (which makes it go more quickly) but that means it does not process my bibtex citations using the pandoc-citeproc filter. For those who don&amp;rsquo;t know, pandoc-citeproc is just a fabulous way of converting biblatex citations into properlly formatted citations and bilbiographies.&lt;/p&gt;
+&lt;p&gt;So I had this problem that I would write slides and I would want to include a reference to some book or journal article for students. The answer was just to use markdown&amp;rsquo;s built-in footnote system. Footnotes in markdown are dead easy.&lt;/p&gt;
+&lt;p&gt;You just enter them in like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;Here is an idea I would like to reference.[^1]
+
+[^1]: Here is the footnote text
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;And then they look like this.&lt;/p&gt;
+&lt;p&gt;Here is an idea I would like to reference.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;So that&amp;rsquo;s pretty cool. And here&amp;rsquo;s where TextExpander comes in.&lt;/p&gt;
+&lt;p&gt;Typing this is pretty tedious.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;[^1]
+
+[^1]:
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;so, I just made a TextExpander snippet that looks like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/sjkiss/Images/raw/master/footnote.png&#34; alt=&#34;footnote_snippet&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The exact syntax is:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-unix&#34;&gt;[^%filltext:name=Footnote:width=1%]
+
+
+[^%filltext:name=Footnote:width=1%]: %fillarea:name=area 1:width=20:height=5%
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now, whenever I want to add a footnote, I just type the shortcut (abbreviation) for a footnote and I get this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/sjkiss/Images/raw/master/footnote_menu.png&#34; alt=&#34;foonote_menu&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I just fill in the footnote number (in this case 3), and then I go over to Zotero and copy the full citation:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://github.com/sjkiss/Images/raw/master/agenda_setting_citation.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;And paste it into the text box.&lt;/p&gt;
+&lt;p&gt;Which puts the following into my markdown document&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;[^2]
+
+
+[^2]: McCombs, M, and D Shaw. “The Agenda-Setting Function of Mass Media.” Public Opinion Quarterly 36, no. 2 (January 1, 1972): 176.
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Which renders as this: &lt;sup id=&#34;fnref:2&#34;&gt;&lt;a href=&#34;#fn:2&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;et, voial. A quick, nicely formatted footnote reference that I can put into any markdown document I&amp;rsquo;m using to prepare slides which Deckset can process. And, even if I decide to use pandoc to turn the markdown documents into slides, it will process the document quickly and nicely as well. They won&amp;rsquo;t be processed via pandoc-citeproc and it won&amp;rsquo;t produce a bibliography, but good enough is good enough.&lt;/p&gt;
+&lt;p&gt;There is one important catch using the Markdown-Deckset combination as opposed to markdown-pandoc. With pandoc, you don&amp;rsquo;t have to worry about the sequence about entering footnotes. So: entering the first footnote with:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt; [^4]
+
+
+[^4]: 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Will still render the footnote as &lt;code&gt;1&lt;/code&gt; if it is the first footnote in the document. But Deckset can&amp;rsquo;t do this. It translates the footnotes literally. This is a challenge, because often you might need to go back to the beginning and add a footnote reference in, meaning then that you have to change the actual numbers of all the footnotes that follow. This is frustrating and it would be nice for Deckset to figure out a way to change that.&lt;/p&gt;
+&lt;section class=&#34;footnotes&#34; role=&#34;doc-endnotes&#34;&gt;
+&lt;hr&gt;
+&lt;ol&gt;
+&lt;li id=&#34;fn:1&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;Here is the footnote text &lt;a href=&#34;#fnref:1&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li id=&#34;fn:2&#34; role=&#34;doc-endnote&#34;&gt;
+&lt;p&gt;McCombs, M, and D Shaw. “The Agenda-Setting Function of Mass Media.” Public Opinion Quarterly 36, no. 2 (January 1, 1972): 176. &lt;a href=&#34;#fnref:2&#34; class=&#34;footnote-backref&#34; role=&#34;doc-backlink&#34;&gt;&amp;#x21a9;&amp;#xfe0e;&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/section&gt;
+</description>
+    </item>
     
     <item>
       <title>Academic Hiring in Ontario</title>
