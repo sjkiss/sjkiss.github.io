@@ -1,8 +1,8 @@
 ---
 # Documentation: https://sourcethemes.com/academic/docs/managing-content/
 
-title: "Beyond_regions"
-authors: [Kiss, Simon]
+title: "Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada"
+authors: ["Kiss, Simon", "Éric Montpetit", "Erick Lachapelle"]
 date: 2020-04-14T16:30:22-04:00
 doi: "https://doi.org/10.1017/S0008423920000177"
 
