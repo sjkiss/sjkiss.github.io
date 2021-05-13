@@ -24,13 +24,7 @@ date_format = "Jan 2006"
   location = "Edmonton"
   date_start = "2002-02-01"
   date_end = "2002-09-01"
-  description = """
-  Responsibilities include:
-  
-  * Analysing
-  * Modelling
-  * Deploying
-  """
+  description = ""
 
 [[experience]]
   title = "Communications Director"
