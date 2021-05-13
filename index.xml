@@ -5,7 +5,7 @@
     <link>https://sjkiss.github.io/</link>
       <atom:link href="https://sjkiss.github.io/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 13:28:09 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
@@ -55,10 +55,10 @@
     </item>
     
     <item>
-      <title>Rob Ford and Municipal Populism</title>
-      <link>https://sjkiss.github.io/talk/amcto/amcto/</link>
-      <pubDate>Fri, 09 Oct 2020 13:28:09 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/amcto/amcto/</guid>
+      <title>Right Wing Populism and Municipal Governance: The Case of Toronto</title>
+      <link>https://sjkiss.github.io/talk/amcto_2020_10_09/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/talk/amcto_2020_10_09/</guid>
       <description></description>
     </item>
     
@@ -68,7 +68,7 @@
       <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
       <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
-&lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;quot;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
+&lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;rdquo;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
 &lt;p&gt;Parallel to this, I had started using 
 &lt;a href=&#34;https://daringfireball.net/projects/markdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;  a lot more. This website is built with markdown and Hugo. Markdown is a plain-text markup language that can be incredibly easy to use and incredibly versatile. The same document can be converted into different file formats using 
 &lt;a href=&#34;https://pandoc.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pandoc&lt;/a&gt; (e.g. Word, PDF, slides). I really got into Markdown because there are ways you can integrate R, slides, and text into one document. So my vision was really to have a way to quickly write code and some thoughts into one document and post it to a website or convert it into slides for a presentation, all using the same basic platform.&lt;/p&gt;
@@ -510,6 +510,14 @@ Now that is a very different pattern. Average non-academic salaries (of people o
     </item>
     
     <item>
+      <title>Opposition to carbon pricing and right-wing populism</title>
+      <link>https://sjkiss.github.io/publication/carbon_pricing_populism/</link>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/publication/carbon_pricing_populism/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Chiropractic Care For Ontario Social Assistance Recipients?!?!</title>
       <link>https://sjkiss.github.io/post/chiropractic/</link>
       <pubDate>Tue, 02 Apr 2019 15:54:30 -0400</pubDate>
@@ -618,6 +626,7 @@ Three
 &lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
 &lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
 &lt;/ul&gt;
+
 &lt;/aside&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
@@ -1087,7 +1096,7 @@ But at least for the Toronto market, The Sun seems to have taken it. More Libera
 &lt;a href=&#34;https://dataverse.scholarsportal.info/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;. And, yes, I&amp;rsquo;ve got my own working 
 &lt;a href=&#34;https://dataverse.scholarsportal.info/dataverse.xhtml?alias=sjkiss&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;dataverse&lt;/a&gt; where I&amp;rsquo;ll be be uploading my datasets and code mostly associated with peer-reviewed articles, but sometimes dealing with fun stuff I&amp;rsquo;m working on.&lt;/p&gt;
 &lt;p&gt;To that point, here&amp;rsquo;s something fun, as part of some ongoing research into Canada&amp;rsquo;s NDP, I had reason to try to figure out the evolution of the NDP&amp;rsquo;s fundraising over its history. 
-&lt;a href=&#34;http://www.elections.ca/content.aspx?section=fin&amp;amp;&amp;amp;document=index&amp;amp;lang=e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Elections Canada&lt;/a&gt; has been doing some great work on making parties&amp;rsquo; financial returns available, but I was interested in stuff going back to the 1970s and 1980s, and that seems to be locked up. Jansen and Young (2009, 2011) have very good data on the NDP, but the numbers are not available digitally, at least such that I could find them. I also found a very good table in Archer (1990), but again, the raw numbers are nowhere to be found.&lt;/p&gt;
+&lt;a href=&#34;http://www.elections.ca/content.aspx?section=fin&amp;amp;&amp;amp;document=index&amp;amp;lang=e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Elections Canada&lt;/a&gt; has been doing some great work on making parties&#39; financial returns available, but I was interested in stuff going back to the 1970s and 1980s, and that seems to be locked up. Jansen and Young (2009, 2011) have very good data on the NDP, but the numbers are not available digitally, at least such that I could find them. I also found a very good table in Archer (1990), but again, the raw numbers are nowhere to be found.&lt;/p&gt;
 &lt;p&gt;This seems to me to be&amp;hellip;wrong., in an age where the cost of memory and storage space is so low.&lt;/p&gt;
 &lt;p&gt;So, I decided to do something about it.&lt;/p&gt;
 &lt;p&gt;First, I used my home (home!) printer to scan one of Archer&amp;rsquo;s tables that has the NDP&amp;rsquo;s contributions, as reported to Elections Canada, by source from 1979 to 1986. From there, I got this &lt;img src=&#34;https://sjkiss.github.io/img/archer_table.pdf&#34; alt=&#34;pdf&#34;&gt;. Because I splurged on Adobe Acrobat Pro a few years ago, I was able to use its handy OCR tool to parase that into a spreadsheet.  With a few modifications, I was able to get a spreadsheet that looks like the one right 
@@ -1517,7 +1526,7 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
       <guid>https://sjkiss.github.io/project/social-democracy/</guid>
       <description>&lt;p&gt;I am currently on a long-term research project with 
 &lt;a href=&#34;https://socialsciences.mcmaster.ca/people/graefe-peter&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Peter Graefe&lt;/a&gt; of McMaster University examining the transformation of the NDP under Jack Layton. We&amp;rsquo;re investigating the way in which changes in the electoral and financing rules for political parties contributed to a &amp;ldquo;new&amp;rdquo; New Democratic Party. This builds on earlier research I&amp;rsquo;ve conducted examining the politics of the New Politics Initiative in the NDP in 1999-2000.&lt;/p&gt;
-&lt;p&gt;I also have a strong interest in the way that social class affects public opinion in the post-industrial societies. I am interested in the interplay of income, status, levels of education and field of study to create political preferences for and against redistribution and environmental protection. I woud like to know if the increasing role played by educated professionals will weaken social democratic parties&amp;rsquo; capacity to push for redistribution.&lt;/p&gt;
+&lt;p&gt;I also have a strong interest in the way that social class affects public opinion in the post-industrial societies. I am interested in the interplay of income, status, levels of education and field of study to create political preferences for and against redistribution and environmental protection. I woud like to know if the increasing role played by educated professionals will weaken social democratic parties&#39; capacity to push for redistribution.&lt;/p&gt;
 &lt;p&gt;We are currently hiring a research assistant to assist with preparing survey data from the Canada Election Studies (
 &lt;a href=&#34;https://sjkiss.github.io/post/research-assistantship-examining-class-voting-in-canada/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;see here&lt;/a&gt;).&lt;/p&gt;
 </description>
@@ -1567,26 +1576,6 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
       <pubDate>Sun, 01 Jan 2017 00:00:00 +0000</pubDate>
       <guid>https://sjkiss.github.io/publication/_index-2/</guid>
       <description></description>
-    </item>
-    
-    <item>
-      <title>An example journal article</title>
-      <link>https://sjkiss.github.io/publication/journal-article/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/journal-article/</guid>
-      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;div class=&#34;alert alert-note&#34;&gt;
-  &lt;div&gt;
-    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
-  &lt;/div&gt;
-&lt;/div&gt;
-&lt;p&gt;Supplementary notes can be added here, including 
-&lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
-</description>
     </item>
     
     <item>

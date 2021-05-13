@@ -5,12 +5,20 @@
     <link>https://sjkiss.github.io/authors/simon-kiss/</link>
       <atom:link href="https://sjkiss.github.io/authors/simon-kiss/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
       <link>https://sjkiss.github.io/authors/simon-kiss/</link>
     </image>
+    
+    <item>
+      <title>Right Wing Populism and Municipal Governance: The Case of Toronto</title>
+      <link>https://sjkiss.github.io/talk/amcto_2020_10_09/</link>
+      <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/talk/amcto_2020_10_09/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>

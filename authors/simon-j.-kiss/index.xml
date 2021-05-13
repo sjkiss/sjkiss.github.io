@@ -5,7 +5,7 @@
     <link>https://sjkiss.github.io/authors/simon-j.-kiss/</link>
       <atom:link href="https://sjkiss.github.io/authors/simon-j.-kiss/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 13:28:09 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Sep 2020 09:35:04 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
@@ -13,20 +13,12 @@
     </image>
     
     <item>
-      <title>Rob Ford and Municipal Populism</title>
-      <link>https://sjkiss.github.io/talk/amcto/amcto/</link>
-      <pubDate>Fri, 09 Oct 2020 13:28:09 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/amcto/amcto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Text Expander Footnotes</title>
       <link>https://sjkiss.github.io/post/text-expander-footnotes/</link>
       <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
       <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
-&lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;quot;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
+&lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;rdquo;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
 &lt;p&gt;Parallel to this, I had started using 
 &lt;a href=&#34;https://daringfireball.net/projects/markdown/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Markdown&lt;/a&gt;  a lot more. This website is built with markdown and Hugo. Markdown is a plain-text markup language that can be incredibly easy to use and incredibly versatile. The same document can be converted into different file formats using 
 &lt;a href=&#34;https://pandoc.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;pandoc&lt;/a&gt; (e.g. Word, PDF, slides). I really got into Markdown because there are ways you can integrate R, slides, and text into one document. So my vision was really to have a way to quickly write code and some thoughts into one document and post it to a website or convert it into slides for a presentation, all using the same basic platform.&lt;/p&gt;
@@ -86,6 +78,14 @@
 &lt;/ol&gt;
 &lt;/section&gt;
 </description>
+    </item>
+    
+    <item>
+      <title>Opposition to carbon pricing and right-wing populism</title>
+      <link>https://sjkiss.github.io/publication/carbon_pricing_populism/</link>
+      <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/publication/carbon_pricing_populism/</guid>
+      <description></description>
     </item>
     
     <item>
