@@ -1,0 +1,45 @@
+---
+title: Private School Enrolment in Ontario
+author: Simon J. Kiss
+date: '2021-10-22'
+slug: []
+categories: []
+tags:
+  - R
+subtitle: ''
+summary: ''
+authors: ['Simon J. Kiss']
+lastmod: '2021-10-22T13:22:30-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Our five year old is in Grade 1 this year obviously everyoen's public school experience in Ontario has been severely impacted in the last ywo years because of the pandemic. It seemed like one issue that was debated during the debate was whether private schools did a better job offering students smaller classes, sensitive to public health precautions while keeping kids in classrooms. I don't know whether that's true or not. But it did get me thinking of whether or not there are long-term patterns in private school enrolment in Ontario. So I tracked down the data [here](https://data.ontario.ca/dataset/private-school-enrolment-by-gender). I took the liberty of cleaning the data a little bit and publishing it [here](https://github.com/sjkiss/ontario_private_school_enrolment). 
+
+The headline finding is here:
+
+```{r data-import, echo=F, results='hide', message=F}
+enrolment<-read.csv(file="https://raw.githubusercontent.com/sjkiss/ontario_private_school_enrolment/main/Data/ontario_private_school_enrolment_total.csv")
+library(tidyverse)
+library(scales)
+theme_set(theme_bw())
+
+```
+
+```{r show-graph, echo=F, results='include'}
+
+
+enrolment%>%
+  group_by(Academic.Year)%>%
+  summarize(total=sum(total))%>%
+  ggplot(., aes(x=Academic.Year, y=total))+geom_col()+scale_y_continuous(labels=comma)
+
+  
+```
+
+
+Of course, this does not account for population growth in the background; when I get to it I'll try to combine those numbers. 
