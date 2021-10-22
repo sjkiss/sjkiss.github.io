@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>George Wootten | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/authors/george-wootten/</link>
-      <atom:link href="https://sjkiss.github.io/authors/george-wootten/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/george-wootten/</link>
+      <atom:link href="/authors/george-wootten/index.xml" rel="self" type="application/rss+xml" />
     <description>George Wootten</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>George Wootten</title>
-      <link>https://sjkiss.github.io/authors/george-wootten/</link>
+      <link>/authors/george-wootten/</link>
     </image>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>https://sjkiss.github.io/publication/open-government/</link>
+      <link>/publication/open-government/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/open-government/</guid>
+      <guid>/publication/open-government/</guid>
       <description></description>
     </item>
     

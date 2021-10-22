@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>data | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/tags/data/</link>
-      <atom:link href="https://sjkiss.github.io/tags/data/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/data/</link>
+      <atom:link href="/tags/data/index.xml" rel="self" type="application/rss+xml" />
     <description>data</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 30 Apr 2018 14:19:13 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>data</title>
-      <link>https://sjkiss.github.io/tags/data/</link>
+      <link>/tags/data/</link>
     </image>
     
     <item>
       <title>Data, Reproducibility and Open Science</title>
-      <link>https://sjkiss.github.io/project/data/</link>
+      <link>/project/data/</link>
       <pubDate>Mon, 30 Apr 2018 14:19:13 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/data/</guid>
+      <guid>/project/data/</guid>
       <description>&lt;p&gt;There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny. I&amp;rsquo;ve set up my own dataverse and here you&amp;rsquo;ll find links to some of my datasets.&lt;/p&gt;
 </description>
     </item>

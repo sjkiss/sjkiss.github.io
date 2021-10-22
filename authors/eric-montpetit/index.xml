@@ -2,29 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Éric Montpetit | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/authors/eric-montpetit/</link>
-      <atom:link href="https://sjkiss.github.io/authors/eric-montpetit/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/eric-montpetit/</link>
+      <atom:link href="/authors/eric-montpetit/index.xml" rel="self" type="application/rss+xml" />
     <description>Éric Montpetit</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Éric Montpetit</title>
-      <link>https://sjkiss.github.io/authors/eric-montpetit/</link>
+      <link>/authors/eric-montpetit/</link>
     </image>
     
     <item>
       <title>Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada</title>
-      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
+      <link>/publication/beyond_regions/</link>
       <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
-      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
+      <guid>/publication/beyond_regions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
-      <link>https://sjkiss.github.io/publication/fracking/</link>
+      <link>/publication/fracking/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/publication/fracking/</guid>
+      <guid>/publication/fracking/</guid>
       <description></description>
     </item>
     

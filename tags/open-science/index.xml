@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Open Science | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/tags/open-science/</link>
-      <atom:link href="https://sjkiss.github.io/tags/open-science/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/open-science/</link>
+      <atom:link href="/tags/open-science/index.xml" rel="self" type="application/rss+xml" />
     <description>Open Science</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Sep 2020 09:35:04 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Open Science</title>
-      <link>https://sjkiss.github.io/tags/open-science/</link>
+      <link>/tags/open-science/</link>
     </image>
     
     <item>
       <title>Text Expander Footnotes</title>
-      <link>https://sjkiss.github.io/post/text-expander-footnotes/</link>
+      <link>/post/text-expander-footnotes/</link>
       <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
+      <guid>/post/text-expander-footnotes/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
 &lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;rdquo;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
 &lt;p&gt;Parallel to this, I had started using 

@@ -2,37 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>political-communication | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/tags/political-communication/</link>
-      <atom:link href="https://sjkiss.github.io/tags/political-communication/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/political-communication/</link>
+      <atom:link href="/tags/political-communication/index.xml" rel="self" type="application/rss+xml" />
     <description>political-communication</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 29 Nov 2018 15:35:18 -0500</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>political-communication</title>
-      <link>https://sjkiss.github.io/tags/political-communication/</link>
+      <link>/tags/political-communication/</link>
     </image>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>https://sjkiss.github.io/publication/open-government/</link>
+      <link>/publication/open-government/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/open-government/</guid>
+      <guid>/publication/open-government/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syracuse</title>
-      <link>https://sjkiss.github.io/talk/syracuse/</link>
+      <link>/talk/syracuse/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/syracuse/</guid>
+      <guid>/talk/syracuse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Economic Stress, Populism and FordNation</title>
-      <link>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</link>
+      <link>/post/economic-stress-populism-and-fordnation/</link>
       <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</guid>
+      <guid>/post/economic-stress-populism-and-fordnation/</guid>
       <description>
 
 
@@ -44,10 +44,10 @@
 
 &lt;p&gt;Given the support that Rob Ford found amoung visible minorities, it is hard to be convinced that anti-immigration attitudes was an important driver of his support, although this is not decisive, to be sure. It’s possible, just unlikely, in my view, that non-white Torontonians take a hard position on immigration.&lt;/p&gt;
 &lt;p&gt;But we did ask a survey question that tried to measure respondent’s personal financial situation. Namely, we asked respondents strongly agree or strongly disagree with the statement that $50 a month would make a big difference.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Clearly, agreeing that $50 per month would make a big difference is clearly related to income, but not entirely. Amazingly, 25% of people earning $200 to $250,000 a year agree that an extra $50 would make a big difference. For people earning between $100 and $200,00 per year, anywhere from 25% to 40% of people agree.&lt;/p&gt;
 &lt;p&gt;When we correlate this with support for Mayor Ford (remembering again, this was taken in 2014, so at the depths of his unpopularity, in teh context of a provincial general election exit poll), there is a clear relationship.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;When we combine both economic stress and visible minority status, controlling for each other, both seem to matter independently (Model 1). When we put an interaction term, in it also seems to matter. This means that stress and matters &lt;em&gt;slightly&lt;/em&gt; differently for visible minority respondents than for others.&lt;/p&gt;
 &lt;table style=&#34;text-align:center&#34;&gt;
 &lt;tr&gt;
@@ -263,7 +263,7 @@ Akaike Inf. Crit.
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;We can visualize this in the graph below which shows the predicted probability of approving of Mayor Ford by economic stress and visible minority status. For both sets of respondents, stress leads to greater support for Ford, but the slope is a little weaker for visible minority respondents. Note also that, overall, the line for visible minority respondents is higher than for others meaning that independent of stress, there’s more general support there.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;These data are insightful for a number of reasons. First, most literature on economic voting usually asks respondents to rate how they think the economy has performed in the last year or so, or how the economy has affected them in the past year or so. When asking these questions, and controlling for views on immigration, most scholarly literature on populism shows that the economic views do not seem to matter. But our survey questions really tried to tap into the scholarly literature on populism by emphasizing the personal financial situation &lt;em&gt;right now&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Moreover, we didn’t ask &lt;em&gt;why&lt;/em&gt; an extra $50 per month mattered or not, we just asked whether it did or not. By asking in this way, we divorce respondent’s feelings about their economic standing from government policy. Even if the economy improves in the sense that it creates more jobs, it might be the case that people feel they need an extra $50 because they are locked in a status competition with their neighbours. More importantly, in our case, even controlling for one of our best measures of anti-immigrant sentiment (visible minority status), economic stress seems to matter in generating support for a right-wing populist. Although this plays out slightly differently (more weakly) for visible minority respondents, it matters for both.&lt;/p&gt;
 </description>
@@ -271,9 +271,9 @@ Akaike Inf. Crit.
     
     <item>
       <title>The Ontario Progressive Conservative Party Leadership Race On Twitter</title>
-      <link>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</link>
+      <link>/post/2018-03-09-pc-twitter/</link>
       <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</guid>
+      <guid>/post/2018-03-09-pc-twitter/</guid>
       <description>
 
 
@@ -322,7 +322,7 @@ tweets$Date&amp;lt;-round_date(tweets$Date, &amp;#39;hour&amp;#39;)&lt;/code&gt;
 ggplot(., aes(x=Date, y=freq))+geom_line()+
   scale_x_datetime(date_breaks=&amp;#39;1 days&amp;#39;,date_minor_breaks=&amp;#39;6 hours&amp;#39;, date_labels=&amp;#39;%m %d %H&amp;#39;, timezone=&amp;#39;EST&amp;#39;)+
   theme(axis.text.x = element_text(angle=90))+ylim(c(0,500))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-09-pc-twitter_files/figure-html/plot-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-09-pc-twitter_files/figure-html/plot-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;So obviously things were pretty steady and cyclical on a daily basis through the first days of the leadership race until February 26th, when Patrick Brown withdrew after resigning and then reentering the race. For anyone reading this who is not from Canada, yeah, it’s been pretty wild. Best just to read the Wikipedia &lt;a href=&#34;https://en.wikipedia.org/wiki/Progressive_Conservative_Party_of_Ontario_leadership_election,_2018&#34;&gt;entry&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are a few things that are interesting here to me though beyond that.&lt;/p&gt;
 &lt;p&gt;First, it looks to me like the Twitter conversation about a leadership race has a daily news cycle to it, with one peak every day. However, every day has a different peak. Sometimes it’s early morning, sometimes it’s late at night. I had sort of thought that there might be a little more regularity in this, that you might see people going online and posting something routinely, like just before htey left home from work or just after supper or on their lunch break. But this seems like people go on to twitter as events warrant, once a day.&lt;/p&gt;
@@ -358,12 +358,12 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
     
     <item>
       <title>Political Communication And Public Opinion</title>
-      <link>https://sjkiss.github.io/project/political-communication/</link>
+      <link>/project/political-communication/</link>
       <pubDate>Fri, 09 Feb 2018 11:00:55 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/political-communication/</guid>
-      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
+      <guid>/project/political-communication/</guid>
+      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
 &lt;p&gt;More recently, I have been involved in a project with a colleague at the 
-&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;https://sjkiss.github.io/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
 </description>
     </item>
     

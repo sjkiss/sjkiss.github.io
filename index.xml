@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/</link>
-      <atom:link href="https://sjkiss.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
-      <link>https://sjkiss.github.io/</link>
+      <link>/</link>
     </image>
     
     <item>
       <title>Example Page 1</title>
-      <link>https://sjkiss.github.io/courses/example/example1/</link>
+      <link>/courses/example/example1/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://sjkiss.github.io/courses/example/example1/</guid>
+      <guid>/courses/example/example1/</guid>
       <description>&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -35,9 +35,9 @@
     
     <item>
       <title>Example Page 2</title>
-      <link>https://sjkiss.github.io/courses/example/example2/</link>
+      <link>/courses/example/example2/</link>
       <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
-      <guid>https://sjkiss.github.io/courses/example/example2/</guid>
+      <guid>/courses/example/example2/</guid>
       <description>&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
 &lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
 &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
@@ -56,17 +56,17 @@
     
     <item>
       <title>Right Wing Populism and Municipal Governance: The Case of Toronto</title>
-      <link>https://sjkiss.github.io/talk/amcto_2020_10_09/</link>
+      <link>/talk/amcto_2020_10_09/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/talk/amcto_2020_10_09/</guid>
+      <guid>/talk/amcto_2020_10_09/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Text Expander Footnotes</title>
-      <link>https://sjkiss.github.io/post/text-expander-footnotes/</link>
+      <link>/post/text-expander-footnotes/</link>
       <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
+      <guid>/post/text-expander-footnotes/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
 &lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;rdquo;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
 &lt;p&gt;Parallel to this, I had started using 
@@ -132,17 +132,17 @@
     
     <item>
       <title>Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada</title>
-      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
+      <link>/publication/beyond_regions/</link>
       <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
-      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
+      <guid>/publication/beyond_regions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Academic Hiring in Ontario</title>
-      <link>https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</link>
+      <link>/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</guid>
+      <guid>/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</guid>
       <description>
 
 
@@ -208,10 +208,10 @@
   filter(Sector==&amp;quot;Universities&amp;quot;)-&amp;gt;salaries2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The first thing to do is see how many non-academic and academics are showing up, over time, on the sunshine list.&lt;/p&gt;
 &lt;p&gt;Is Alex’s pattern that there is greater hiring for non-academic than for academic staff showing up for people earning $100,000? The answer is that it kind of looks like it. this graph shows the percent change over the previous year in the number of people in the non-academic and academic categories earning $100,00 per year in Ontario.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/how-many-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/how-many-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It looks like there was about rough parity in the late 1990s and early 2000s and then non-academic staff have grown more rapidly than academic staff. Now, this doesn’t particularly tell us if this is actually more bodies, it tells us there are increasingly more non-academic people on the sunshin list than academic staff.&lt;/p&gt;
 &lt;p&gt;But, we can also check whether there are different compensation patterns for non-academic staff and academic staff. Here’s the average salary over time for the two categories.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/average-salaries-1.png&#34; width=&#34;480&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/average-salaries-1.png&#34; width=&#34;480&#34; /&gt;
 Now that is a very different pattern. Average non-academic salaries (of people on the sunshine list) were &lt;em&gt;significantly&lt;/em&gt; higher than academic faculty in the mid-1990s, but there has been a complete switch since then.&lt;/p&gt;
 &lt;p&gt;I think this is a super interesting pattern and I wonder if there is kind of a thermostatic reaction going on where senior non-academic and academic staff in universities watch each other and struggle for pay increases. In fact, I wonder if one perverse effect of the sunshine list was to &lt;em&gt;increase&lt;/em&gt; academic salaries because they suddenly had very clear access to data on their non-academic counterparts who had a series of good years in the mid- to late-1990s.&lt;/p&gt;
 &lt;p&gt;I think these data are basically compatible with Alex’ conclusions which is that non-academic hiring has been growing at lower salaries than non-academic hiring. But the only way to square the first graph with the second is that any growth in Ontario in the last 20 years either in the # of non-academic staff or their salaries is constrained to people earning maybe just above the $100,00 salary mark. Otherwise, we would have seen an increase in the average salary of people on the sunshine list; but we haven’t.&lt;/p&gt;
@@ -446,9 +446,9 @@ Now that is a very different pattern. Average non-academic salaries (of people o
     
     <item>
       <title>Research Assistantship Examining Class Voting in Canada</title>
-      <link>https://sjkiss.github.io/post/research-assistantship-examining-class-voting-in-canada/</link>
+      <link>/post/research-assistantship-examining-class-voting-in-canada/</link>
       <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/research-assistantship-examining-class-voting-in-canada/</guid>
+      <guid>/post/research-assistantship-examining-class-voting-in-canada/</guid>
       <description>
 
 
@@ -511,17 +511,17 @@ Now that is a very different pattern. Average non-academic salaries (of people o
     
     <item>
       <title>Opposition to carbon pricing and right-wing populism</title>
-      <link>https://sjkiss.github.io/publication/carbon_pricing_populism/</link>
+      <link>/publication/carbon_pricing_populism/</link>
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/carbon_pricing_populism/</guid>
+      <guid>/publication/carbon_pricing_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Chiropractic Care For Ontario Social Assistance Recipients?!?!</title>
-      <link>https://sjkiss.github.io/post/chiropractic/</link>
+      <link>/post/chiropractic/</link>
       <pubDate>Tue, 02 Apr 2019 15:54:30 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/chiropractic/</guid>
+      <guid>/post/chiropractic/</guid>
       <description>&lt;p&gt;There was a 
 &lt;a href=&#34;https://www.therecord.com/news-story/9243865-region-of-waterloo-pilot-project-connects-people-on-ontario-works-with-chiropractic-care/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;report&lt;/a&gt; in the &lt;em&gt;Waterloo Region Record&lt;/em&gt; recently that caught my eye. The province and the Region of Waterloo have partnered to launch a pilot project offering access to chiropractic care for Ontario Works recipients.&lt;/p&gt;
 &lt;p&gt;Needless to say, this is apalling, even if this is only a three-year pilot project.&lt;/p&gt;
@@ -545,9 +545,9 @@ Now that is a very different pattern. Average non-academic salaries (of people o
     
     <item>
       <title>Slides</title>
-      <link>https://sjkiss.github.io/slides/example/</link>
+      <link>/slides/example/</link>
       <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/slides/example/</guid>
+      <guid>/slides/example/</guid>
       <description>&lt;h1 id=&#34;create-slides-in-markdown-with-academic&#34;&gt;Create slides in Markdown with Academic&lt;/h1&gt;
 &lt;p&gt;
 &lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Academic&lt;/a&gt; | 
@@ -679,9 +679,9 @@ Three
     
     <item>
       <title>Using R To Extract Census Data from Statistics Canada</title>
-      <link>https://sjkiss.github.io/post/using-r-to-extract-census-data-from-statistics-canada/</link>
+      <link>/post/using-r-to-extract-census-data-from-statistics-canada/</link>
       <pubDate>Thu, 17 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/using-r-to-extract-census-data-from-statistics-canada/</guid>
+      <guid>/post/using-r-to-extract-census-data-from-statistics-canada/</guid>
       <description>
 
 
@@ -728,9 +728,9 @@ str(out)&lt;/code&gt;&lt;/pre&gt;
     
     <item>
       <title>Salience of Immigration and Personal Finances in Ontario</title>
-      <link>https://sjkiss.github.io/post/immigration-economics-salience/</link>
+      <link>/post/immigration-economics-salience/</link>
       <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/immigration-economics-salience/</guid>
+      <guid>/post/immigration-economics-salience/</guid>
       <description>
 
 
@@ -740,7 +740,7 @@ str(out)&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;For example, when prompted to share their feelings about their personal financial situation or about immigrations and refugees, did you know that people tend to write more about the latter than about the former?&lt;/p&gt;
 &lt;p&gt;Here’s the distribution of characters in the responses to the two questions.&lt;/p&gt;
 &lt;p&gt;The data are quite skewed because a lot of people wrote very little and very few people wrote a lot, so the differences are hard to see. So I will filter out responses with more than 500 characters.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2019-01-09-immigration-economics-salience_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-09-immigration-economics-salience_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;That doesn’t look so impressive, and there are a lot of people who entered nothing. So, if we also filter out people with empty responses, and people who had extremely long answers and calculate the median, there are some big differences.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;on18 %&amp;gt;% 
   select(indivfinfeel, immfeel) %&amp;gt;% 
@@ -803,7 +803,7 @@ bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/
 #Gather the net sentiment into two variables
   gather(Open_Topic2, Net_Sentiment, -Open_Topic, -nCharacters)%&amp;gt;% 
   ggplot(., aes(x=nCharacters, y=Net_Sentiment))+facet_wrap(~Open_Topic)+geom_point()+geom_smooth(method=&amp;#39;loess&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2019-01-09-immigration-economics-salience_files/figure-html/plot-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2019-01-09-immigration-economics-salience_files/figure-html/plot-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;so, it actually looks like there is a slight relationship. On the topic of immigration and refugees, when people wrote more chacters, they tended to use more positive words. For people, writing about their personal financial situation, there is either no relationship, or a curvilinear relationship whereby people with the shortest and the longest responses feel the worst about their situation.&lt;/p&gt;
 &lt;p&gt;I have to say, this surprises me. I would have thought that there would have been a stronger negativity bias, whereby people who felt more negatively about a topic, would have written longer responses.&lt;/p&gt;
 </description>
@@ -811,25 +811,25 @@ bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/
     
     <item>
       <title>Right-wing populism in a metropolis</title>
-      <link>https://sjkiss.github.io/publication/ford_populism/</link>
+      <link>/publication/ford_populism/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/ford_populism/</guid>
+      <guid>/publication/ford_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>https://sjkiss.github.io/publication/open-government/</link>
+      <link>/publication/open-government/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/open-government/</guid>
+      <guid>/publication/open-government/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>https://sjkiss.github.io/post/the-ambiguous-definitions-of-open-government/</link>
+      <link>/post/the-ambiguous-definitions-of-open-government/</link>
       <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/the-ambiguous-definitions-of-open-government/</guid>
+      <guid>/post/the-ambiguous-definitions-of-open-government/</guid>
       <description>
 
 
@@ -889,7 +889,7 @@ bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/
 &lt;/table&gt;
 &lt;p&gt;Here was what we got.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://sjkiss.github.io/post/2018-11-29-open-government_files/figure1.jpeg&#34; alt=&#34;Distribution of rankings by position&#34; /&gt;
+&lt;img src=&#34;/post/2018-11-29-open-government_files/figure1.jpeg&#34; alt=&#34;Distribution of rankings by position&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Distribution of rankings by position&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Clearly, journalists were more likely to prefer defintions of open government that emphasize &lt;em&gt;sources&lt;/em&gt; (e.g. &lt;em&gt;information&lt;/em&gt;, &lt;em&gt;accessible&lt;/em&gt; and &lt;em&gt;officials&lt;/em&gt;. )&lt;/p&gt;
@@ -917,17 +917,17 @@ bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/
     
     <item>
       <title>Balanced Journalism Amplifies Minority Positions</title>
-      <link>https://sjkiss.github.io/publication/fluoride/</link>
+      <link>/publication/fluoride/</link>
       <pubDate>Tue, 06 Nov 2018 13:11:45 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/fluoride/</guid>
+      <guid>/publication/fluoride/</guid>
       <description></description>
     </item>
     
     <item>
       <title>&#39;Balanced Journalism&#39; Amplifies Uninformed Voices</title>
-      <link>https://sjkiss.github.io/post/2018-10-18-fluoridation/</link>
+      <link>/post/2018-10-18-fluoridation/</link>
       <pubDate>Thu, 18 Oct 2018 13:28:41 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-10-18-fluoridation/</guid>
+      <guid>/post/2018-10-18-fluoridation/</guid>
       <description>&lt;h1 id=&#34;introductionas-ontario-voters-consider-their-choices-in-municipal-elections-a-new-report-by-the-laurier-institute-for-the-study-of-public-opinion-and-policy-lispop-went-back-in-time-to-examine-the-dynamics-of-waterloos-2010-controversial-plebiscite-to-end-fluoridationfluoridation-is-one-of-the-modern-worlds-great-triumphs-it-safely-cheaply-equitably-and-effectively-improves-dental-health-and-quality-of-life-for-all-people-with-benefits-focused-mostly-on-children-and-the-poor-and-yet-it-has-always-elicited-controversyour-peer-reviewed-study-examined-the-newspaper-coverage-by-the-dominant-newspaper-in-the-region-the-waterloo-region-record-between-2008-and-the-2010-voteour-main-conclusion-is-that-the-records-coverage-and-letters-to-the-editors-ended-up-downplaying-the-benefits-of-fluoridation-and-emphasizing-the-risks-of-fluoridation-because-of-the-high-levels-of-activity-of-anti-fluoridation-activists-contextin-2008-the-newly-elected-council-of-the-city-of-waterloo-was-prompted-to-deal-with-the-question-of-fluoridation-even-though-the-city-had-fluoridated-its-water-supply-for-decades-on-a-first-motion-two-city-councillors-angela-vieth-and-diane-freeman-proposed-ceasing-fluoridation-but-this-was-defeated-by-council-however-quite-bizarrely-the-majority-of-city-council-which-was-supportive-of-fluoridation-voted-to-hold-a-plebiscite-equally-bizarrely-the-two-councillors-vieth-and-freeman-who-had-just-voted-to-end-fluoridation-opposed-the-plebiscite-see-herehttpsgithubcomsjkisssjkissgithubiorawmasterfileswaterloo_fluoridation_minutespdf--the-campaign-that-followed-in-2010-was-a-disaster-for-those-supporting-fluoridation-in-a-narrow-vote-in-2010-waterloo-residents-voted-to-end-fluoridationwe-were-puzzled-at-how-this-result-could-come-about-and-so-we-launched-a-research-project-into-the-politics-of-fluoridation-in-our-first-paper-we-surveyed-residents-of-the-region-of-waterloo-two-years-after-the-vote-about-their-views-on-fluoridation1-surprisingly-a-solid-majority-of-respondents-supported-municipal-fluoridationsubsequently-we-turned-our-focus-to-how-the-local-media-covered-the-issue-between-2008-and-2010-our-results-will-be-published-in-october-in-the-canadian-journal-of-communication-a-pre-print-copy-of-the-paper-can-be-found-herehttpsdoiorg105683spv2vpz4-summaryin-that-study-we-measured-the-tone-of-each-letter-and-each-article-published-in-the-waterloo-record-the-results-are-in-the-next-graphimg-srchttpsgithubcomsjkisssjkissgithubiorawmasterfilesplot_article_type_tone_timejpeg-width500--there-are-two-clear-trends-one-anti-fluoridation-activists-were-active-earlier-than-were-supporters-there-were-only-two-quarters-where-pro-fluoridation-letters-outnumbered-anti-fluoridation-letters-second-the-news-coverage-tended-to-be-much-more-neutral-towards-fluoridation-than-supportive-this-fits-with-what-we-know-about-modern-journalism-it-has-a-tendency-to-equate-objectivity-with-balance-to-avoid-alienating-potential-customers-either-side-of-a-controversy-journalists-play-it-safe-indexing-the-coverage-of-any-given-issue-to-the-range-of-voices-that-are-active-this-creates-an-opportunity-for-highly-organized-and-motivated-but-small-groups-to-capture-a-dominant-stake-in-news-coveragebecause-journalism-revolves-so-heavily-around-quotes-obtained-from-experts-citizens-and-participants-we-also-examined-each-quotation-in-the-news-coverage-about-fluoridation-coding-each-quote-as-either-critical-neutral-or-supportive-of-fluoridationthe-results-are-in-the-following-figureimg-srchttpsgithubcomsjkisssjkissgithubiorawmasterfilessource_balance_datejpeg-width500-they-show-in-no-uncertain-terms-that-balance-of-quotations-ranged-from-being-neutral-to-outright-opposed-to-fluoridationwe-also-analyzed-the-tone-of-each-quote-and-broke-it-out-by-the-type-of-person-interviewed-the-results-are-below&#34;&gt;IntroductionAs Ontario voters consider their choices in municipal elections, a new report by the Laurier Institute for the Study of Public Opinion and Policy (LISPOP) went back in time to examine the dynamics of Waterloo’s 2010 controversial plebiscite to end fluoridation.Fluoridation is one of the modern world’s great triumphs. It safely, cheaply, equitably and effectively improves dental health and quality of life for all people, with benefits focused mostly on children and the poor. And yet it has always elicited controversy.Our peer-reviewed study examined the newspaper coverage by the dominant newspaper in the region, the Waterloo Region Record, between 2008 and the 2010 vote.Our main conclusion is that the Record’s coverage and letters to the editors ended up downplaying the benefits of fluoridation and emphasizing the risks of fluoridation because of the high levels of activity of anti-fluoridation activists.## ContextIn 2008, the newly-elected council of the city of Waterloo was prompted to deal with the question of fluoridation, even though the city had fluoridated its water supply for decades. On a first motion, two city councillors (Angela Vieth and Diane Freeman) proposed ceasing fluoridation, but this was defeated by council. However, quite bizarrely, the majority of city council, which was supportive of fluoridation voted to hold a plebiscite. Equally bizarrely, the two councillors (Vieth and Freeman) who had just voted to end fluoridation opposed the plebiscite (see 
 &lt;a href=&#34;https://github.com/sjkiss/sjkiss.github.io/raw/master/files/waterloo_fluoridation_minutes.pdf&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;) . The campaign that followed in 2010 was a disaster for those supporting fluoridation. In a narrow vote in 2010, Waterloo residents voted to end fluoridation.We were puzzled at how this result could come about and so we launched a research project into the politics of fluoridation. In our first paper, we surveyed residents of the Region of Waterloo (two years after the vote) about their views on fluoridation.&lt;sup id=&#34;fnref:1&#34;&gt;&lt;a href=&#34;#fn:1&#34; class=&#34;footnote-ref&#34; role=&#34;doc-noteref&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; Surprisingly, a solid majority of respondents supported municipal fluoridation.Subsequently, we turned our focus to how the local media covered the issue between 2008 and 2010. Our results will be published in October in the &lt;em&gt;Canadian Journal of Communication&lt;/em&gt;. A pre-print copy of the paper can be found 
 &lt;a href=&#34;https://doi.org/10.5683/SP/V2VPZ4&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.# SummaryIn that study, we measured the tone of each letter and each article published in the Waterloo Record. The results are in the next graph.&lt;img src=&#34;https://github.com/sjkiss/sjkiss.github.io/raw/master/files/plot_article_type_tone_time.jpeg&#34; width=&#34;500&#34;&gt;  There are two clear trends. One, anti-fluoridation activists were active earlier than were supporters. There were only two quarters where pro-fluoridation letters outnumbered anti-fluoridation letters. Second, the news coverage tended to be much more neutral towards fluoridation than supportive. This fits with what we know about modern journalism. It has a tendency to equate objectivity with balance. To avoid alienating potential customers either side of a controversy, journalists play it safe, indexing the coverage of any given issue to the range of voices that are active. This creates an opportunity for highly organized and motivated, but small, groups, to capture a dominant stake in news coverage.Because journalism revolves so heavily around quotes obtained from experts, citizens and participants, we also examined each quotation in the news coverage about fluoridation, coding each quote as either critical, neutral or supportive of fluoridation.The results are in the following figure.&lt;img src=&#34;https://github.com/sjkiss/sjkiss.github.io/raw/master/files/source_balance_date.jpeg&#34; width=&#34;500&#34;&gt; They show in no uncertain terms that balance of quotations ranged from being neutral to outright opposed to fluoridation.We also analyzed the tone of each quote and broke it out by the type of person interviewed. The results are below.&lt;/h1&gt;
@@ -948,17 +948,17 @@ bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/
     
     <item>
       <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
-      <link>https://sjkiss.github.io/publication/fracking/</link>
+      <link>/publication/fracking/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/publication/fracking/</guid>
+      <guid>/publication/fracking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Using R To Automatically Create Dates For Your Syllabus</title>
-      <link>https://sjkiss.github.io/post/2018-08-13-createdates/</link>
+      <link>/post/2018-08-13-createdates/</link>
       <pubDate>Mon, 13 Aug 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-08-13-createdates/</guid>
+      <guid>/post/2018-08-13-createdates/</guid>
       <description>
 
 
@@ -992,9 +992,9 @@ createDates(course.days=c(&amp;#39;W&amp;#39;), first.day=c(&amp;#39;2018/09/01&
     
     <item>
       <title>Doug Ford&#39;s Win And Sentiment Towards Immigration</title>
-      <link>https://sjkiss.github.io/post/2018-07-06-ford-immigration/</link>
+      <link>/post/2018-07-06-ford-immigration/</link>
       <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-07-06-ford-immigration/</guid>
+      <guid>/post/2018-07-06-ford-immigration/</guid>
       <description>
 
 
@@ -1002,12 +1002,12 @@ createDates(course.days=c(&amp;#39;W&amp;#39;), first.day=c(&amp;#39;2018/09/01&
 &lt;p&gt;This is all a little surprising as the PC campaign did not really make any &lt;em&gt;explicit&lt;/em&gt; hay out of anti-immigration sentiment. Moreover, as I’ve pointed out here, Doug Ford’s brother was remarkably &lt;em&gt;popular&lt;/em&gt; among visible minorities as mayor.&lt;/p&gt;
 &lt;p&gt;The &lt;a href=&#34;http://lispop.ca&#34;&gt;Laurier Institute for the Study of Public Opinion and Policy&lt;/a&gt; conducted a survey of Ontario voters in the last 10 days of the election campaign and asked a few questions about their views on refugees and immigration. Here they are broken down by 2018 vote intention.&lt;/p&gt;
 &lt;p&gt;Here are is the distributon of responses for each question on immigration that we asked, broken out by reported vote in the Ontario election. Note, here, I’ve rescaled each resopnse to range from 0 to 1, with 1 being a pro-immigration response.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-06-ford-immigration_files/figure-html/plot-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-06-ford-immigration_files/figure-html/plot-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;
 It definitely looks like people who voted for the PCs have concerns about immigration and refugees, more so than voters for other parties.&lt;/p&gt;
 &lt;p&gt;One interesting question is whether this varies substantially by region. I’ve talked to some involved in the election who suggest that this issue was particularly salient in south-western Ontario.&lt;/p&gt;
 &lt;p&gt;Moreover, given that we know that &lt;em&gt;Rob&lt;/em&gt; Ford attracted substantial support from visible minorities in the city of toronto, it would be interesting to see regional variations there.&lt;/p&gt;
 &lt;p&gt;To simplify the plot, I took the average of each person’s responses to all the immigration questions and filtered out the Greens.
-&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-06-ford-immigration_files/figure-html/plot-region-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;/post/2018-07-06-ford-immigration_files/figure-html/plot-region-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;These data don’t really support the notion that anti-immigration sentiment was concentrated in the southwest, in particular. There was, however, a notable drop amongst PC voters in central and Eastern Ontario, which fits with the notion that rural voters tend to socially conservative views.&lt;/p&gt;
 &lt;p&gt;Additionally, PC voters in the 416 (Toronto) did have views on immigration that were close to, although not at, the average level of the other parties throughout Ontario.&lt;/p&gt;
 &lt;p&gt;Lastly, it is worthwhile pointing out that Liberal voters had the most pro-immigration views, the PCs had the least and the NDP straddled the middle. This fits with a general understanding of the NDP as struggling to balance between two types of egalitarians, higher educated, middle class egalitarians, and working class egalitarians with lower levels of education.&lt;/p&gt;
@@ -1017,24 +1017,24 @@ It definitely looks like people who voted for the PCs have concerns about immigr
     
     <item>
       <title>What Media Are Ontario Voters Consuming?</title>
-      <link>https://sjkiss.github.io/post/ontario-voters-media-consumption/</link>
+      <link>/post/ontario-voters-media-consumption/</link>
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/ontario-voters-media-consumption/</guid>
+      <guid>/post/ontario-voters-media-consumption/</guid>
       <description>
 
 
 &lt;p&gt;A friend was wondering whether or not The Toronto Star or the Toronto Sun newspapers reached more New Democrats. So I decided to take a look at the data in our Ontario Provincial Election Study, conducted by the &lt;a href=&#34;http://www.lispop.ca&#34;&gt;Laurier Institute for the Study of Public Opinion and Policy&lt;/a&gt;. Here are the raw results broken out by 2018 vote. The specific question respondets were asked in our online panel survey was whether they read any particular news outlet daily.&lt;/p&gt;
 &lt;p&gt;It looks to me, based on this, that the Toronto Sun actually gets more New Democrats than does the Toronto Star. Now, If you combined the Star with other Metro papers (such as teh Waterloo Record) then MetroLand would probably come out on top. But, we also did not include the Ottawa Sun as an option, so, who knows.
 But at least for the Toronto market, The Sun seems to have taken it. More Liberal and NDP voters reported reading it than the Star and the Star and the Sun were split down the middle for PC voters.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-18-media-consumption_files/figure-html/make-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-07-18-media-consumption_files/figure-html/make-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>The Ontario General Election Twitter Verse</title>
-      <link>https://sjkiss.github.io/post/election-twitter/</link>
+      <link>/post/election-twitter/</link>
       <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/election-twitter/</guid>
+      <guid>/post/election-twitter/</guid>
       <description>
 
 
@@ -1046,11 +1046,11 @@ But at least for the Toronto market, The Sun seems to have taken it. More Libera
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweets %&amp;gt;% 
   count(date) %&amp;gt;% 
   ggplot(., aes(x=date, y=n))+geom_point()+labs(title=&amp;#39;Number of Tweets to Ontario Election Hashtags&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/ntweets-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-election-twitter_files/figure-html/ntweets-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;And here are the top 10 positive and negative terms, using &lt;a href=&#34;https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html&#34;&gt;Prof. Bing Liu’s&lt;/a&gt; dictionary of positive and negative terms.&lt;/p&gt;
 &lt;p&gt;This had to be refined a bit (as is usually the case). For example, the original sentiment dictionary included &lt;code&gt;issue&lt;/code&gt; and &lt;code&gt;issues&lt;/code&gt; as negative terms, probably in the sense of, “That person has some issues to deal with.” But this doesn’t make a lot of sense in an election campaign, where it probably actually is more of a positive word, “Let’s just stick to the issues.”&lt;/p&gt;
 &lt;p&gt;The dictionary also includes conservative as a negative word, which would not be accurate in an election campaign featuring a conservative party.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/positive-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-election-twitter_files/figure-html/positive-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;And here are the most frequently mentioned negative words.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweets %&amp;gt;% 
   inner_join(., bing) %&amp;gt;% 
@@ -1060,7 +1060,7 @@ But at least for the Toronto market, The Sun seems to have taken it. More Libera
   top_n(10) %&amp;gt;% 
   filter(sentiment==&amp;#39;negative&amp;#39;) %&amp;gt;% 
   ggplot(., aes(x=date2, y=n))+geom_col()+facet_wrap(~word)+scale_x_date(labels=date_format(&amp;#39;%m-%d&amp;#39;), date_breaks=&amp;#39;3 days&amp;#39;)+theme(axis.text.x=element_text(angle=90, hjust=1))+labs(title=&amp;#39;Most Frequent Negative Terms, Ontario Hashtags&amp;#39;, x=&amp;#39;Date&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/negative-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-07-election-twitter_files/figure-html/negative-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;So, there you have it, the most commonly used positive negative words seem to be a combination of “free”, “affordable” on the one side and “bad”, “debt” and “trump”.&lt;/p&gt;
 &lt;p&gt;At some level, it makes a lot of sense. The left is arguing for free and cheap stuff, and the right is warning about the costs of too much government.&lt;/p&gt;
 &lt;p&gt;Using another sentiment dictionary, one of the most commonly used words was “beer”. So, there you have it. Ontario 2018 boils down to free, affordable stuff like beer racked up on debt charges while people are worried about some guy named Trump.&lt;/p&gt;
@@ -1069,25 +1069,25 @@ But at least for the Toronto market, The Sun seems to have taken it. More Libera
     
     <item>
       <title>Adapting A Cultural Theory of Risk To The Canadian Context</title>
-      <link>https://sjkiss.github.io/talk/regina/</link>
+      <link>/talk/regina/</link>
       <pubDate>Wed, 30 May 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/regina/</guid>
+      <guid>/talk/regina/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Motivated Reasoning And Risk Management</title>
-      <link>https://sjkiss.github.io/talk/ottawa/</link>
+      <link>/talk/ottawa/</link>
       <pubDate>Mon, 14 May 2018 11:20:01 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/ottawa/</guid>
+      <guid>/talk/ottawa/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Welcome To The Dataverse</title>
-      <link>https://sjkiss.github.io/post/2018-05-02-dataverse/</link>
+      <link>/post/2018-05-02-dataverse/</link>
       <pubDate>Wed, 02 May 2018 15:04:50 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-05-02-dataverse/</guid>
+      <guid>/post/2018-05-02-dataverse/</guid>
       <description>&lt;p&gt;The dataverse is an initiative associated with Harvard University&amp;rsquo;s 
 &lt;a href=&#34;https://www.iq.harvard.edu/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Institute for Quantitative Social Sciences&lt;/a&gt;. It establishes a fairly user-friendly space for scholars to store data-sets, documentation and code.&lt;/p&gt;
 &lt;p&gt;Going forward, it&amp;rsquo;s going to be a bigger part of scholarship to make datasets and code publicly available to hold scholars to account for their claims. You may have heard, but science (or at least some disciplines in science (&lt;em&gt;cough&lt;/em&gt; psychology &lt;em&gt;cough&lt;/em&gt;) are in a fairly profound replication crisis. The dataverse is meant to address this by making it dead easy for scholars to upload their data and their code to a publicly-available, free and searchable database. Reflecting this increased importance, SSHRC is rolling out new (and presumably stricter) guidelines in the next  year or two about Research Data Management.&lt;/p&gt;
@@ -1099,11 +1099,11 @@ But at least for the Toronto market, The Sun seems to have taken it. More Libera
 &lt;a href=&#34;http://www.elections.ca/content.aspx?section=fin&amp;amp;&amp;amp;document=index&amp;amp;lang=e&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Elections Canada&lt;/a&gt; has been doing some great work on making parties&#39; financial returns available, but I was interested in stuff going back to the 1970s and 1980s, and that seems to be locked up. Jansen and Young (2009, 2011) have very good data on the NDP, but the numbers are not available digitally, at least such that I could find them. I also found a very good table in Archer (1990), but again, the raw numbers are nowhere to be found.&lt;/p&gt;
 &lt;p&gt;This seems to me to be&amp;hellip;wrong., in an age where the cost of memory and storage space is so low.&lt;/p&gt;
 &lt;p&gt;So, I decided to do something about it.&lt;/p&gt;
-&lt;p&gt;First, I used my home (home!) printer to scan one of Archer&amp;rsquo;s tables that has the NDP&amp;rsquo;s contributions, as reported to Elections Canada, by source from 1979 to 1986. From there, I got this &lt;img src=&#34;https://sjkiss.github.io/img/archer_table.pdf&#34; alt=&#34;pdf&#34;&gt;. Because I splurged on Adobe Acrobat Pro a few years ago, I was able to use its handy OCR tool to parase that into a spreadsheet.  With a few modifications, I was able to get a spreadsheet that looks like the one right 
+&lt;p&gt;First, I used my home (home!) printer to scan one of Archer&amp;rsquo;s tables that has the NDP&amp;rsquo;s contributions, as reported to Elections Canada, by source from 1979 to 1986. From there, I got this &lt;img src=&#34;/img/archer_table.pdf&#34; alt=&#34;pdf&#34;&gt;. Because I splurged on Adobe Acrobat Pro a few years ago, I was able to use its handy OCR tool to parase that into a spreadsheet.  With a few modifications, I was able to get a spreadsheet that looks like the one right 
 &lt;a href=&#34;http://dx.doi.org/10.5683/SP/DPBTKP&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;And, I can also add in an R file right 
 &lt;a href=&#34;doi:10.5683/SP/DPBTKP&#34;&gt;here&lt;/a&gt; that you can download to make a version of this plot that shows the breakdown of individual and union contributions to the federal party, compared to the revenue that provincial parties earned during the same time period.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/img/ndp_fundraising.jpeg&#34; alt=&#34;NDP fundraising&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/img/ndp_fundraising.jpeg&#34; alt=&#34;NDP fundraising&#34;&gt;&lt;/p&gt;
 &lt;h1 id=&#34;references&#34;&gt;References&lt;/h1&gt;
 &lt;p&gt;Archer, Keith. (1990). Political choices and electoral consequences: A study of organized Labour and the New Democratic Party. McGill-Queen’s Press-MQUP.
 Jansen, Harold J., &amp;amp; Young, Lisa. (2009). Solidarity forever? The NDP, organized labour, and the changing face of party finance in Canada. Canadian Journal of Political Science/Revue Canadienne de Science Politique, 42(3), 657–678.&lt;/p&gt;
@@ -1113,34 +1113,34 @@ Jansen, Harold J., &amp;amp; Young, Lisa. (2009). Solidarity forever? The NDP, o
     
     <item>
       <title>Data, Reproducibility and Open Science</title>
-      <link>https://sjkiss.github.io/project/data/</link>
+      <link>/project/data/</link>
       <pubDate>Mon, 30 Apr 2018 14:19:13 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/data/</guid>
+      <guid>/project/data/</guid>
       <description>&lt;p&gt;There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny. I&amp;rsquo;ve set up my own dataverse and here you&amp;rsquo;ll find links to some of my datasets.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Economic Anxiety, Visible Minorities and Populism: Public Support for Toronto Mayor Rob Ford</title>
-      <link>https://sjkiss.github.io/talk/chicago/</link>
+      <link>/talk/chicago/</link>
       <pubDate>Thu, 29 Mar 2018 07:32:05 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/chicago/</guid>
+      <guid>/talk/chicago/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Syracuse</title>
-      <link>https://sjkiss.github.io/talk/syracuse/</link>
+      <link>/talk/syracuse/</link>
       <pubDate>Tue, 27 Mar 2018 00:00:00 -0400</pubDate>
-      <guid>https://sjkiss.github.io/talk/syracuse/</guid>
+      <guid>/talk/syracuse/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Economic Stress, Populism and FordNation</title>
-      <link>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</link>
+      <link>/post/economic-stress-populism-and-fordnation/</link>
       <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</guid>
+      <guid>/post/economic-stress-populism-and-fordnation/</guid>
       <description>
 
 
@@ -1152,10 +1152,10 @@ Jansen, Harold J., &amp;amp; Young, Lisa. (2009). Solidarity forever? The NDP, o
 
 &lt;p&gt;Given the support that Rob Ford found amoung visible minorities, it is hard to be convinced that anti-immigration attitudes was an important driver of his support, although this is not decisive, to be sure. It’s possible, just unlikely, in my view, that non-white Torontonians take a hard position on immigration.&lt;/p&gt;
 &lt;p&gt;But we did ask a survey question that tried to measure respondent’s personal financial situation. Namely, we asked respondents strongly agree or strongly disagree with the statement that $50 a month would make a big difference.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;Clearly, agreeing that $50 per month would make a big difference is clearly related to income, but not entirely. Amazingly, 25% of people earning $200 to $250,000 a year agree that an extra $50 would make a big difference. For people earning between $100 and $200,00 per year, anywhere from 25% to 40% of people agree.&lt;/p&gt;
 &lt;p&gt;When we correlate this with support for Mayor Ford (remembering again, this was taken in 2014, so at the depths of his unpopularity, in teh context of a provincial general election exit poll), there is a clear relationship.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;When we combine both economic stress and visible minority status, controlling for each other, both seem to matter independently (Model 1). When we put an interaction term, in it also seems to matter. This means that stress and matters &lt;em&gt;slightly&lt;/em&gt; differently for visible minority respondents than for others.&lt;/p&gt;
 &lt;table style=&#34;text-align:center&#34;&gt;
 &lt;tr&gt;
@@ -1371,7 +1371,7 @@ Akaike Inf. Crit.
 &lt;/tr&gt;
 &lt;/table&gt;
 &lt;p&gt;We can visualize this in the graph below which shows the predicted probability of approving of Mayor Ford by economic stress and visible minority status. For both sets of respondents, stress leads to greater support for Ford, but the slope is a little weaker for visible minority respondents. Note also that, overall, the line for visible minority respondents is higher than for others meaning that independent of stress, there’s more general support there.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;These data are insightful for a number of reasons. First, most literature on economic voting usually asks respondents to rate how they think the economy has performed in the last year or so, or how the economy has affected them in the past year or so. When asking these questions, and controlling for views on immigration, most scholarly literature on populism shows that the economic views do not seem to matter. But our survey questions really tried to tap into the scholarly literature on populism by emphasizing the personal financial situation &lt;em&gt;right now&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;Moreover, we didn’t ask &lt;em&gt;why&lt;/em&gt; an extra $50 per month mattered or not, we just asked whether it did or not. By asking in this way, we divorce respondent’s feelings about their economic standing from government policy. Even if the economy improves in the sense that it creates more jobs, it might be the case that people feel they need an extra $50 because they are locked in a status competition with their neighbours. More importantly, in our case, even controlling for one of our best measures of anti-immigrant sentiment (visible minority status), economic stress seems to matter in generating support for a right-wing populist. Although this plays out slightly differently (more weakly) for visible minority respondents, it matters for both.&lt;/p&gt;
 </description>
@@ -1379,9 +1379,9 @@ Akaike Inf. Crit.
     
     <item>
       <title>Populism, Race and Ford Nation</title>
-      <link>https://sjkiss.github.io/post/populism-race-and-ford-nation/</link>
+      <link>/post/populism-race-and-ford-nation/</link>
       <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/populism-race-and-ford-nation/</guid>
+      <guid>/post/populism-race-and-ford-nation/</guid>
       <description>
 
 
@@ -1396,17 +1396,17 @@ Akaike Inf. Crit.
 &lt;p&gt;We disagree. If you look at Rob Ford’s record, and I think Doug’s as well, they have been careful &lt;em&gt;not&lt;/em&gt; to cater to anti-immigrant sentiment and xenophobia in their political careers. After all, how could they: famously, one half of the population of Toronto is foreign born. You’re not going to win many elections that way.&lt;/p&gt;
 &lt;p&gt;A note: the following poll results come from Ipsos’ 2014 Ontario Election Exit Survey. In that survey, only residents of the City of Toronto were asked about whether they approved or disapproved of Mayor Rob Ford. Obviously, these data do not shed light on who &lt;em&gt;voted&lt;/em&gt; for Ford in 2010; but they do shed light on who made up Rob Ford’s most hard-core coalition. These data were gathered after &lt;em&gt;everything&lt;/em&gt; had come out: the crack smoking, the lewd comments about his wife, the conflict of interest charges, the stuff about the football team, evertyhing.&lt;/p&gt;
 &lt;p&gt;You can see, respondents who reported visible minority status were split 50-50 on whether Rob Ford was doing a good job, while othe respondents overwhelmingly thought Ford was doing a terrible job.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;I do not have an answer for why Rob Ford was not as unpopular among visible minorities as he was amongst white people. Our dataset does show that visible minorities who approved of Rob Ford were, on average, more religious than others.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:plot2&#34;&gt;&lt;/span&gt;
-&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot2-1.png&#34; alt=&#34;Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.&#34; width=&#34;672&#34; /&gt;
+&lt;img src=&#34;/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot2-1.png&#34; alt=&#34;Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.&#34; width=&#34;672&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;
 Figure 1: Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.
 &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;These data don’t really make sense given Rob Ford’s proclivities to engage in substance abuse and make lewd comments about women, but then again, neither did President Trump’s appeal to social conservatives given his, um, liberal lifestyle. But it does perhaps start to shed some light about why alliances between the avowed social conservative candidate and her supporters in the Ontario leadership race drifted to Doug Ford and not to other candidates.&lt;/p&gt;
 &lt;div class=&#34;figure&#34;&gt;
-&lt;img src=&#34;https://sjkiss.github.io/img/point_flow.jpg&#34; alt=&#34;Point flow chart courtesy of Paul Fairie (@paulisci)&#34; /&gt;
+&lt;img src=&#34;/img/point_flow.jpg&#34; alt=&#34;Point flow chart courtesy of Paul Fairie (@paulisci)&#34; /&gt;
 &lt;p class=&#34;caption&#34;&gt;Point flow chart courtesy of Paul Fairie (&lt;span class=&#34;citation&#34;&gt;@paulisci&lt;/span&gt;)&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;There will be more to come on this, I’m sure. But the real lesson here is that Rob Ford built a coalition of right-wing authoritarian populism with significant support from visible minorities.&lt;/p&gt;
@@ -1415,9 +1415,9 @@ Figure 1: Religiosity here is a variable scaled from 0 to 1 taken from a few sur
     
     <item>
       <title>The Ontario Progressive Conservative Party Leadership Race On Twitter</title>
-      <link>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</link>
+      <link>/post/2018-03-09-pc-twitter/</link>
       <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</guid>
+      <guid>/post/2018-03-09-pc-twitter/</guid>
       <description>
 
 
@@ -1466,7 +1466,7 @@ tweets$Date&amp;lt;-round_date(tweets$Date, &amp;#39;hour&amp;#39;)&lt;/code&gt;
 ggplot(., aes(x=Date, y=freq))+geom_line()+
   scale_x_datetime(date_breaks=&amp;#39;1 days&amp;#39;,date_minor_breaks=&amp;#39;6 hours&amp;#39;, date_labels=&amp;#39;%m %d %H&amp;#39;, timezone=&amp;#39;EST&amp;#39;)+
   theme(axis.text.x = element_text(angle=90))+ylim(c(0,500))&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-09-pc-twitter_files/figure-html/plot-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2018-03-09-pc-twitter_files/figure-html/plot-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;So obviously things were pretty steady and cyclical on a daily basis through the first days of the leadership race until February 26th, when Patrick Brown withdrew after resigning and then reentering the race. For anyone reading this who is not from Canada, yeah, it’s been pretty wild. Best just to read the Wikipedia &lt;a href=&#34;https://en.wikipedia.org/wiki/Progressive_Conservative_Party_of_Ontario_leadership_election,_2018&#34;&gt;entry&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;There are a few things that are interesting here to me though beyond that.&lt;/p&gt;
 &lt;p&gt;First, it looks to me like the Twitter conversation about a leadership race has a daily news cycle to it, with one peak every day. However, every day has a different peak. Sometimes it’s early morning, sometimes it’s late at night. I had sort of thought that there might be a little more regularity in this, that you might see people going online and posting something routinely, like just before htey left home from work or just after supper or on their lunch break. But this seems like people go on to twitter as events warrant, once a day.&lt;/p&gt;
@@ -1502,9 +1502,9 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
     
     <item>
       <title>R</title>
-      <link>https://sjkiss.github.io/project/r/</link>
+      <link>/project/r/</link>
       <pubDate>Wed, 28 Feb 2018 14:15:30 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/r/</guid>
+      <guid>/project/r/</guid>
       <description>&lt;p&gt;Although I am a qualitative researcher at heart, I&amp;rsquo;m also a keen user of the statistical software 
 &lt;a href=&#34;https://cran.r-project.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;R&lt;/a&gt; for my quantitative research projects. To my mind, R offers a number of advantages. It is free, it produces beautiful and informative plots, it encourages analytical thinking and familiarization with statistical concepts. It is also becoming extremely popular and it has a vibrant community of software developers and users that can provide assistance and develop new tools to deal with tasks as they emerge.&lt;/p&gt;
 &lt;p&gt;I attended the 
@@ -1521,9 +1521,9 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
     
     <item>
       <title>Social Democracy</title>
-      <link>https://sjkiss.github.io/project/social-democracy/</link>
+      <link>/project/social-democracy/</link>
       <pubDate>Fri, 09 Feb 2018 14:19:13 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/social-democracy/</guid>
+      <guid>/project/social-democracy/</guid>
       <description>&lt;p&gt;I am currently on a long-term research project with 
 &lt;a href=&#34;https://socialsciences.mcmaster.ca/people/graefe-peter&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Prof. Peter Graefe&lt;/a&gt; of McMaster University examining the transformation of the NDP under Jack Layton. We&amp;rsquo;re investigating the way in which changes in the electoral and financing rules for political parties contributed to a &amp;ldquo;new&amp;rdquo; New Democratic Party. This builds on earlier research I&amp;rsquo;ve conducted examining the politics of the New Politics Initiative in the NDP in 1999-2000.&lt;/p&gt;
 &lt;p&gt;I also have a strong interest in the way that social class affects public opinion in the post-industrial societies. I am interested in the interplay of income, status, levels of education and field of study to create political preferences for and against redistribution and environmental protection. I woud like to know if the increasing role played by educated professionals will weaken social democratic parties&#39; capacity to push for redistribution.&lt;/p&gt;
@@ -1534,37 +1534,37 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
     
     <item>
       <title>Political Communication And Public Opinion</title>
-      <link>https://sjkiss.github.io/project/political-communication/</link>
+      <link>/project/political-communication/</link>
       <pubDate>Fri, 09 Feb 2018 11:00:55 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/political-communication/</guid>
-      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;https://sjkiss.github.io/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
+      <guid>/project/political-communication/</guid>
+      <description>&lt;p&gt;My dissertation examined the evolution of government public relations in the province of Alberta.  The major results of that dissertation have been published in &lt;em&gt;Canadian Public Administration&lt;/em&gt;. Fundamentally, I showed that the structure of the government of Alberta&amp;rsquo;s bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process.  Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially &lt;em&gt;expanded&lt;/em&gt; its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically &lt;em&gt;reduced&lt;/em&gt; (see below). &lt;img src=&#34;/img/pab-total.jpg&#34; alt=&#34;Alberta Public Affairs Bureau expenditures history&#34;&gt;support for communications activities. However, it changed the focus of the government&amp;rsquo;s PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). &lt;img src=&#34;/img/pab-share.jpg&#34; alt=&#34;Alberta Public Affairs Bureau mandate&#34;&gt;.&lt;/p&gt;
 &lt;p&gt;More recently, I have been involved in a project with a colleague at the 
-&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;https://sjkiss.github.io/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
+&lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;University of Toronto&lt;/a&gt; where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)&lt;img src=&#34;/img/open-government.png&#34; alt=&#34;Ambiguous Definitions of Open Government&#34;&gt;.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Does Canadian Federalism Amplify Policy Disagreements?</title>
-      <link>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</link>
+      <link>/publication/montpetit-lachapelle-kiss/</link>
       <pubDate>Fri, 09 Feb 2018 09:52:31 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</guid>
+      <guid>/publication/montpetit-lachapelle-kiss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Politics of Risk Perception</title>
-      <link>https://sjkiss.github.io/project/risk/</link>
+      <link>/project/risk/</link>
       <pubDate>Thu, 08 Feb 2018 15:22:41 -0500</pubDate>
-      <guid>https://sjkiss.github.io/project/risk/</guid>
+      <guid>/project/risk/</guid>
       <description>&lt;p&gt;The bulk of my research since arriving at Wilfrid Laurier University has been to investigate the politics of risk perception, particularly in regards to environmental issues.  I have completed a project on the politics of the controversial chemical BPA. In one 
-&lt;a href=&#34;https://sjkiss.github.io/publication/legislation-by-agenda-setting&#34;&gt;paper&lt;/a&gt;, I was able to show that the level of news coverage in state&amp;rsquo;s daily newspaper about BPA was correlated with the probability that that state would adopt a ban on BPA. In short, politicians adopt policies responding to media pressure.  In a second, more qualitative 
-&lt;a href=&#34;https://sjkiss.github.io/publication/bpa-canada&#34;&gt;paper&lt;/a&gt;, I examined the interaction between legislative provisions, short term interest-group pressure and media attention that led to Canada being the first country in the world to prohibit baby bottles made with BPA.&lt;/p&gt;
+&lt;a href=&#34;/publication/legislation-by-agenda-setting&#34;&gt;paper&lt;/a&gt;, I was able to show that the level of news coverage in state&amp;rsquo;s daily newspaper about BPA was correlated with the probability that that state would adopt a ban on BPA. In short, politicians adopt policies responding to media pressure.  In a second, more qualitative 
+&lt;a href=&#34;/publication/bpa-canada&#34;&gt;paper&lt;/a&gt;, I examined the interaction between legislative provisions, short term interest-group pressure and media attention that led to Canada being the first country in the world to prohibit baby bottles made with BPA.&lt;/p&gt;
 &lt;p&gt;In the course of this project I was inspired by the work emerging on the 
 &lt;a href=&#34;http://culturalcognition.net&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;cultural cognition&lt;/a&gt; of risk perception and the cultural theory of risk. I was awarded a 
 &lt;a href=&#34;http://www.sshrc.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SSHRC&lt;/a&gt; Insight Development Grant in 2013 to develop survey measures of the core concepts of cultural theory for the canadian context. Working with 
 &lt;a href=&#34;http://www.ericmontpetit.ca/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Eric Montpetit&lt;/a&gt; and 
 &lt;a href=&#34;http://www.ericklachapelle.ca&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Dr. Erick Lachapelle&lt;/a&gt;, I conducted intense qualitative research and survey development to produce these measures.  Our first publicadtion from this project can be seen 
-&lt;a href=&#34;https://sjkiss.github.io/publication/montpetit-lachapelle-kiss&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;a href=&#34;/publication/montpetit-lachapelle-kiss&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Building on this project, I have been invited to take part in the 
 &lt;a href=&#34;https://issp.uottawa.ca/en/research-and-publications/at-risk&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;@risk&lt;/a&gt; research project, a SSHRC-funded research project that seeks to find ways to mange the democratic and technocratic tensions managing risks in contemporary Canada.&lt;/p&gt;
 </description>
@@ -1572,42 +1572,42 @@ ggplot(., aes(x=Date, y=freq))+geom_line()+
     
     <item>
       <title>Risk perception, psychological heuristics and the water fluoridation controversy</title>
-      <link>https://sjkiss.github.io/publication/risk-perception/</link>
+      <link>/publication/risk-perception/</link>
       <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/risk-perception/</guid>
+      <guid>/publication/risk-perception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada’s Regulation of Bisphenol A</title>
-      <link>https://sjkiss.github.io/publication/bpa-canada/</link>
+      <link>/publication/bpa-canada/</link>
       <pubDate>Mon, 01 Dec 2014 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/bpa-canada/</guid>
+      <guid>/publication/bpa-canada/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Legislation by agenda-setting: Assessing the media&#39;s role in the regulation of BPA in the US states</title>
-      <link>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</link>
+      <link>/publication/legislation-by-agenda-setting/</link>
       <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</guid>
+      <guid>/publication/legislation-by-agenda-setting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Responding to the &#39;New Public&#39;: The arrival of strategic communications and managed participation in Alberta</title>
-      <link>https://sjkiss.github.io/publication/new-public/</link>
+      <link>/publication/new-public/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/new-public/</guid>
+      <guid>/publication/new-public/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://sjkiss.github.io/post/2019-09-2019-ford-populism/</link>
+      <link>/post/2019-09-2019-ford-populism/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2019-09-2019-ford-populism/</guid>
+      <guid>/post/2019-09-2019-ford-populism/</guid>
       <description>&lt;h1 id=&#34;test&#34;&gt;Test&lt;/h1&gt;
 &lt;p&gt;HI my name is Simon Kiss.&lt;/p&gt;
 </description>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/authors/simon-j.-kiss/</link>
-      <atom:link href="https://sjkiss.github.io/authors/simon-j.-kiss/index.xml" rel="self" type="application/rss+xml" />
+    <link>/authors/simon-j.-kiss/</link>
+      <atom:link href="/authors/simon-j.-kiss/index.xml" rel="self" type="application/rss+xml" />
     <description>Simon J. Kiss</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Mon, 14 Sep 2020 09:35:04 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Simon J. Kiss</title>
-      <link>https://sjkiss.github.io/authors/simon-j.-kiss/</link>
+      <link>/authors/simon-j.-kiss/</link>
     </image>
     
     <item>
       <title>Text Expander Footnotes</title>
-      <link>https://sjkiss.github.io/post/text-expander-footnotes/</link>
+      <link>/post/text-expander-footnotes/</link>
       <pubDate>Mon, 14 Sep 2020 09:35:04 -0400</pubDate>
-      <guid>https://sjkiss.github.io/post/text-expander-footnotes/</guid>
+      <guid>/post/text-expander-footnotes/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve discovered a neat way to use  
 &lt;a href=&#34;https://textexpander.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;TextExpander&lt;/a&gt;  to make authoring slides in Markdown go much more quickly. I started using TextExpander for a lot of different reasons. I found myself typing the same introduction of myself over and over again, e.g., &amp;ldquo;My name is Simon Kiss and I&amp;rsquo;m a &amp;hellip;.&amp;rdquo;. And during grading season I found myself writing, &amp;ldquo;This is very strong but could use some improvements&amp;hellip;&amp;rdquo; again and again. And asically I fell in love with TextExpander and I&amp;rsquo;ve been slowly building up different types of snippets.&lt;/p&gt;
 &lt;p&gt;Parallel to this, I had started using 
@@ -82,49 +82,49 @@
     
     <item>
       <title>Opposition to carbon pricing and right-wing populism</title>
-      <link>https://sjkiss.github.io/publication/carbon_pricing_populism/</link>
+      <link>/publication/carbon_pricing_populism/</link>
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/carbon_pricing_populism/</guid>
+      <guid>/publication/carbon_pricing_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Right-wing populism in a metropolis</title>
-      <link>https://sjkiss.github.io/publication/ford_populism/</link>
+      <link>/publication/ford_populism/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>https://sjkiss.github.io/publication/ford_populism/</guid>
+      <guid>/publication/ford_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Risk perception, psychological heuristics and the water fluoridation controversy</title>
-      <link>https://sjkiss.github.io/publication/risk-perception/</link>
+      <link>/publication/risk-perception/</link>
       <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/risk-perception/</guid>
+      <guid>/publication/risk-perception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada’s Regulation of Bisphenol A</title>
-      <link>https://sjkiss.github.io/publication/bpa-canada/</link>
+      <link>/publication/bpa-canada/</link>
       <pubDate>Mon, 01 Dec 2014 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/bpa-canada/</guid>
+      <guid>/publication/bpa-canada/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Legislation by agenda-setting: Assessing the media&#39;s role in the regulation of BPA in the US states</title>
-      <link>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</link>
+      <link>/publication/legislation-by-agenda-setting/</link>
       <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</guid>
+      <guid>/publication/legislation-by-agenda-setting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Responding to the &#39;New Public&#39;: The arrival of strategic communications and managed participation in Alberta</title>
-      <link>https://sjkiss.github.io/publication/new-public/</link>
+      <link>/publication/new-public/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/publication/new-public/</guid>
+      <guid>/publication/new-public/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>

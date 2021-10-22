@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>university | Simon J. Kiss</title>
-    <link>https://sjkiss.github.io/tags/university/</link>
-      <atom:link href="https://sjkiss.github.io/tags/university/index.xml" rel="self" type="application/rss+xml" />
+    <link>/tags/university/</link>
+      <atom:link href="/tags/university/index.xml" rel="self" type="application/rss+xml" />
     <description>university</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>university</title>
-      <link>https://sjkiss.github.io/tags/university/</link>
+      <link>/tags/university/</link>
     </image>
     
     <item>
       <title>Academic Hiring in Ontario</title>
-      <link>https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</link>
+      <link>/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</link>
       <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      <guid>https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</guid>
+      <guid>/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</guid>
       <description>
 
 
@@ -82,10 +82,10 @@
   filter(Sector==&amp;quot;Universities&amp;quot;)-&amp;gt;salaries2&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;The first thing to do is see how many non-academic and academics are showing up, over time, on the sunshine list.&lt;/p&gt;
 &lt;p&gt;Is Alex’s pattern that there is greater hiring for non-academic than for academic staff showing up for people earning $100,000? The answer is that it kind of looks like it. this graph shows the percent change over the previous year in the number of people in the non-academic and academic categories earning $100,00 per year in Ontario.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/how-many-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/how-many-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;It looks like there was about rough parity in the late 1990s and early 2000s and then non-academic staff have grown more rapidly than academic staff. Now, this doesn’t particularly tell us if this is actually more bodies, it tells us there are increasingly more non-academic people on the sunshin list than academic staff.&lt;/p&gt;
 &lt;p&gt;But, we can also check whether there are different compensation patterns for non-academic staff and academic staff. Here’s the average salary over time for the two categories.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/average-salaries-1.png&#34; width=&#34;480&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018_files/figure-html/average-salaries-1.png&#34; width=&#34;480&#34; /&gt;
 Now that is a very different pattern. Average non-academic salaries (of people on the sunshine list) were &lt;em&gt;significantly&lt;/em&gt; higher than academic faculty in the mid-1990s, but there has been a complete switch since then.&lt;/p&gt;
 &lt;p&gt;I think this is a super interesting pattern and I wonder if there is kind of a thermostatic reaction going on where senior non-academic and academic staff in universities watch each other and struggle for pay increases. In fact, I wonder if one perverse effect of the sunshine list was to &lt;em&gt;increase&lt;/em&gt; academic salaries because they suddenly had very clear access to data on their non-academic counterparts who had a series of good years in the mid- to late-1990s.&lt;/p&gt;
 &lt;p&gt;I think these data are basically compatible with Alex’ conclusions which is that non-academic hiring has been growing at lower salaries than non-academic hiring. But the only way to square the first graph with the second is that any growth in Ontario in the last 20 years either in the # of non-academic staff or their salaries is constrained to people earning maybe just above the $100,00 salary mark. Otherwise, we would have seen an increase in the average salary of people on the sunshine list; but we haven’t.&lt;/p&gt;
