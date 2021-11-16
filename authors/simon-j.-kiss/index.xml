@@ -24,7 +24,7 @@
 &lt;p&gt;Our five year old is in Grade 1 this year obviously everyoen’s public school experience in Ontario has been severely impacted in the last ywo years because of the pandemic. It seemed like one issue that was debated during the debate was whether private schools did a better job offering students smaller classes, sensitive to public health precautions while keeping kids in classrooms. I don’t know whether that’s true or not. But it did get me thinking of whether or not there are long-term patterns in private school enrolment in Ontario. So I tracked down the data &lt;a href=&#34;https://data.ontario.ca/dataset/private-school-enrolment-by-gender&#34;&gt;here&lt;/a&gt;. I took the liberty of cleaning the data a little bit and publishing it &lt;a href=&#34;https://github.com/sjkiss/ontario_private_school_enrolment&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The headline finding is here:&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;/post/2021-10-22-private-school-enrolment-in-ontario/index_files/figure-html/show-graph-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;Of course, this does not account for population growth in the background; when I get to it I’ll try to combine those numbers.&lt;/p&gt;
+&lt;p&gt;Of course, this does not account for population growth in the background; when I get to it I’ll try to combine those numbers&lt;/p&gt;
 </description>
     </item>
     
