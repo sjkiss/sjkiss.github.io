@@ -31,8 +31,6 @@ theme_set(theme_bw())
 ```
 
 ```{r show-graph, echo=F, results='include'}
-
-
 enrolment%>%
   group_by(Academic.Year)%>%
   summarize(total=sum(total))%>%
@@ -42,4 +40,4 @@ enrolment%>%
 ```
 
 
-Of course, this does not account for population growth in the background; when I get to it I'll try to combine those numbers. 
+Of course, this does not account for population growth in the background; when I get to it I'll try to combine those numbers

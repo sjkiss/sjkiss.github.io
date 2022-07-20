@@ -1,0 +1,36 @@
+---
+title: Public Spending Priorities in the 2018 and 2022 Ontario Elections
+author: Simon J. Kiss
+date: '2022-07-20'
+categories:
+  - LISPOP
+tags:
+  - public-opinion
+slug:
+  - public-spending-priorities-in-ontario-election
+authors:
+  - Simon Kiss
+lastmod: '2022-07-20T14:49:13-04:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+---
+LISPOP commissioned a survey of voters during hte 2022 election and we'll be disseminating findings from it over the next few weeks. But as an opening, I wanted to take a look at public spending priorities in the 2022 eleciton compared to the 2018 election. To do so, I compared the spending priorities from LISPOP's 2018 Ontario Provincial Election Survey with those from the 2022 survey. Respondents were ppresented with a series of issue areas and asked to state whether they preferred spending more, the same or less on that area. Although different areas were presented in the two different elections, which are excluded here, there was some overlap. And these are graphed here: 
+
+```{r graph-fig, echo=F}
+
+library(knitr)
+include_graphics("spending_comparison_2018_2022.png")
+```
+  
+Three things jump out at me:
+
+First, the largest movement came in the area of affordable housing. In 2022, 58% of people wanted more spending, commpared to only 47% in 2018, notably crossing the threshold of 50%. The next largest jump was in support for more spending on health care. There isn't really a surprise here; health care is routinely popular as a target for more spending *and* we just went through a massive health care crisis. 
+
+Also notable, in my eyes was the increased support for spending on crime. Here we have to be a little careful. In 2018, respondents were asked to express their spending preferences on "crime and justice" and in 2022 it was "fighting crime.". So, it's possible the increased level of support is down to wording changes. But note that the increase came *after* significant protests in teh United States and in Canada against police brutality and trying to *reduce* funding for police. It's possible the public moved the other way. 
+
+Lastly, notice that there was a slightly increasdd level of support for increasd spending on the environment. 
+
+We'll have more to say on this in the coming months. 
