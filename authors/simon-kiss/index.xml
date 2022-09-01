@@ -41,7 +41,7 @@
 
 
 &lt;p&gt;Did you know that the share Ontario students attending private schools is creeping steadily up? Here are the numbers and then the story of why I came to cobble this together below.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;static/img/enrolment.png&#34; alt=&#34;Public and private school enrolment in Ontario by year.&#34; /&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;img/enrolment.png&#34; alt=&#34;Public and private school enrolment in Ontario by year.&#34; /&gt;.&lt;/p&gt;
 &lt;p&gt;So, to be clear, this is the &lt;em&gt;share&lt;/em&gt; of all students (elementary and secondary, Catholic and public) in Ontario who are attending private schools. So, this &lt;em&gt;does&lt;/em&gt; account for population growth. It’s definitely peripheral, but there’s a signal here too.&lt;/p&gt;
 &lt;pre class=&#34;r&#34;&gt;&lt;code&gt;enrolment&amp;lt;-read.csv(file=&amp;quot;https://github.com/sjkiss/ontario_private_school_enrolment/raw/main/Data/ontario_enrolment.csv&amp;quot;)
 str(enrolment)&lt;/code&gt;&lt;/pre&gt;
