@@ -19,10 +19,11 @@ image:
 ---
 LISPOP commissioned a survey of voters during hte 2022 election and we'll be disseminating findings from it over the next few weeks. But as an opening, I wanted to take a look at public spending priorities in the 2022 eleciton compared to the 2018 election. To do so, I compared the spending priorities from LISPOP's 2018 Ontario Provincial Election Survey with those from the 2022 survey. Respondents were ppresented with a series of issue areas and asked to state whether they preferred spending more, the same or less on that area. Although different areas were presented in the two different elections, which are excluded here, there was some overlap. And these are graphed here: 
 
-```{r graph-fig, echo=F}
+```{r graph-fig, echo=F, out.width="600px", fig.align="center"}
 
 library(knitr)
 include_graphics("spending_comparison_2018_2022.png")
+
 ```
   
 Three things jump out at me:
