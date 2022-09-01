@@ -14,17 +14,16 @@ image:
   caption: ''
   focal_point: ''
   preview_only: no
-projects: ['data', 'social-democracy']
 
 ---
 
 Did you know that the share Ontario students attending private schools is creeping steadily up? Here are the numbers and then the story of why I came to cobble this together below. 
 
-![image](post/2021-11-15-private-and-public-/index_files/figure-html/show-graph-1.png). 
+![Share of Ontario students attending private schools.](images/enrolment.png)
 
 So, to be clear, this is the *share* of all students (elementary and secondary, Catholic and public) in Ontario who are attending private schools. So, this *does* account for population growth. It's definitely peripheral, but there's a signal here too. 
 
-```{r}
+```{r results='hide', echo=F}
 enrolment<-read.csv(file="https://github.com/sjkiss/ontario_private_school_enrolment/raw/main/Data/ontario_enrolment.csv")
 str(enrolment)
 ```
