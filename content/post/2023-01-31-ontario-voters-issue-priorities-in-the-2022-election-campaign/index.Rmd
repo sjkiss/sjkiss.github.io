@@ -1,0 +1,66 @@
+---
+title: Ontario Voters' Issue Priorities in the 2022 Election Campaign
+author: Simon Kiss
+date: '2023-01-31'
+slug: []
+categories:
+  - LISPOP
+tags:
+  - public-opinion
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2023-01-31T19:28:25-05:00'
+featured: no
+draft: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+Tests
+```{r setup, include=FALSE, eval=T, echo=F, message=F, results='hide'}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, 
+                      results='show', cache=FALSE, autodep=FALSE)
+
+knitr::opts_knit$set(root.dir = '../external_data/Ontario_Housing')
+
+
+```
+
+
+```{r load-data}
+
+#setwd("../external_data/Ontario_Housing")
+source("R_Scripts/2_recodes.R")
+```
+
+```{r }
+
+glimpse(on22)
+
+```
+
+
+```{r make-week}
+#Make a weekvariable
+on22$Week<-cut(on22$StartDate, "weeks")
+library(lubridate)
+on22$Day<-day(on22$StartDate)
+on22 %>% 
+  group_by(Day) %>% 
+  summarize(n=n())
+#Group most important Problem By Week
+names(on22)
+on22 %>% 
+  group_by(Week, Topic) %>% 
+  summarize(n=n()) %>% 
+  mutate(Percent=n/sum(n)) %>% 
+  #group_by(Week, Topic) %>% 
+slice_max(Percent, n=3) %>% 
+  View()
+?slice_max
+```
+
