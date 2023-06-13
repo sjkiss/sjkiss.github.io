@@ -5,3 +5,9 @@
 	path = public
 	url = https://github.com/sjkiss/sjkiss.github.io.git
 	branch = master
+[submodule "content/post/external_data/Ontario_Housing"]
+	path = content/post/external_data/Ontario_Housing
+	url = https://github.com/LISPOP/Ontario_Housing
+[submodule "content/post/external_data/ontario_private_school_enrolment"]
+	path = content/post/external_data/ontario_private_school_enrolment
+	url = https://github.com/sjkiss/ontario_private_school_enrolment
