@@ -17,15 +17,36 @@ image:
 
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE, 
+                      results='show', cache=FALSE, autodep=FALSE, fig.align="center")
+knitr::opts_knit$set(root.dir = '../external_data/ontario_private_school_enrolment')
+
+```
 Did you know that the share Ontario students attending private schools is creeping steadily up? Here are the numbers and then the story of why I came to cobble this together below. 
 
-![Share of Ontario students attending private schools.](images/enrolment.png)
+<!-- ![Share of Ontario students attending private schools.](images/enrolment.png) -->
 
 So, to be clear, this is the *share* of all students (elementary and secondary, Catholic and public) in Ontario who are attending private schools. So, this *does* account for population growth. It's definitely peripheral, but there's a signal here too. 
 
-```{r results='hide', echo=F}
+```{r results='hide', echo=F, eval=F}
 enrolment<-read.csv(file="https://github.com/sjkiss/ontario_private_school_enrolment/raw/main/Data/ontario_enrolment.csv")
 str(enrolment)
+```
+
+```{r results='hide', echo=F, eval=T}
+source('R_Scripts/1_data_import.R')
+```
+```{r draw-graph, echo=F, include=T}
+#### Draw the Grap[h]
+ontario_enrolment%>%
+  group_by(`Board`, `Academic Year`) %>%
+  summarize(n=sum(Enrolment, na.rm=T)) %>% 
+  group_by(`Academic Year`) %>% 
+  mutate(Percent=n/sum(n)*100) %>% 
+  filter(Board=="Private") %>% 
+  ggplot(., aes(x=`Academic Year`, y=Percent))+geom_col()+theme_minimal()+labs(title=str_wrap("Share of Ontario students enrolled in private schools, 2014-2020", 50))+facet_grid(~Board)+geom_text(aes(x=`Academic Year`, y=Percent, label=round(Percent, 1)), nudge_y=0.2)
+
 ```
 
 I've had reason to think a lot about the quality of public education lately. Our five-year old has entered Grade 1 this year and so school has been a huge focus. Plus, with the lockdowns last year, we got to (had to? ) take part in a lot of her schooling, more than in normal years. Mostly we've been really happy with the quality of the education, but there are ways in which the experience has been underwhelming. On top of that, there have been more than a few skirmishes in the culture wars in the news lately on the field of public education. 
@@ -54,3 +75,19 @@ The data I've cobbled together stop in the academic year 2019-2020, so it will c
 You would sort of think that data like this would be readily available and it was-ish (to use the parlance of our times). Ontario publishes data on private school enrolmemnt [here](https://data.ontario.ca/dataset/private-school-enrolment-by-gender) and data on public school enrolment [here](https://data.ontario.ca/dataset/ontario-public-schools-enrolment) but of course what we want is a combined dataset. 
 
 I took a couple of hours to force the two data-sets together and the final data are published for posterity [here](https://github.com/sjkiss/ontario_private_school_enrolment). 
+
+## Update 
+
+The data allow us to compare shares of enrollment by Catholic, public and private status so we can whether Catholic schools are losing students at the same rate as public schools. 
+
+```{r public-private-catholic, echo=F}
+ontario_enrolment%>%
+  group_by(`Board`, `Academic Year`) %>%
+  summarize(n=sum(Enrolment, na.rm=T)) %>% 
+  group_by(`Academic Year`) %>% 
+  mutate(Percent=n/sum(n)*100) %>% 
+  # filter(Board=="Private") %>% 
+  ggplot(., aes(x=`Academic Year`, y=Percent))+geom_col()+theme_minimal()+labs(title="Share of Ontario students enrolled in private, public and separate schools, 2014-2020")+facet_grid(~Board)+geom_text(aes(x=`Academic Year`, y=Percent, label=round(Percent, 1)), nudge_y=3)+theme(axis.text.x = element_text(angle=90, hjust=1))
+```
+
+Catholic schools share are ever so slightly lower now than in 2014. It is tough to say if that is noise or a signal.

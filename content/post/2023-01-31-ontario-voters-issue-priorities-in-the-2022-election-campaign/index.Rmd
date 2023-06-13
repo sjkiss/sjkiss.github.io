@@ -33,7 +33,7 @@ knitr::opts_knit$set(root.dir = '../external_data/Ontario_Housing')
 
 ```{r load-data}
 
-#setwd("../external_data/Ontario_Housing")
+setwd("../external_data/Ontario_Housing")
 source("R_Scripts/2_recodes.R")
 ```
 
@@ -50,17 +50,18 @@ on22$Week<-cut(on22$StartDate, "weeks")
 library(lubridate)
 on22$Day<-day(on22$StartDate)
 on22 %>% 
-  group_by(Day) %>% 
-  summarize(n=n())
-#Group most important Problem By Week
-names(on22)
-on22 %>% 
-  group_by(Week, Topic) %>% 
+  group_by(Interest, Topic) %>% 
   summarize(n=n()) %>% 
-  mutate(Percent=n/sum(n)) %>% 
-  #group_by(Week, Topic) %>% 
-slice_max(Percent, n=3) %>% 
-  View()
-?slice_max
+  arrange(Interest, desc(n)) %>% 
+  filter(str_detect(Topic, "Other", negate=T)) %>% 
+filter(str_detect(Topic, "know", negate=T)) %>% 
+  filter(str_detect(Topic, "None", negate=T)) %>% 
+    filter(str_detect(Topic, "Refused", negate=T)) %>% 
+  filter(!is.na(Interest)) %>% 
+  mutate(Percent=(n/sum(n))*100) %>% 
+  slice_max(Percent, n=3) %>% 
+  ggplot(., aes(y=fct_reorder(Topic, Percent), x=Percent, fill=fct_relevel(Interest, "High", "Medium", "Low")))+
+  geom_col(position="dodge")+
+  scale_fill_manual(values=c("red", "green", "blue"), guide=guide_legend(reverse=T))
 ```
 
