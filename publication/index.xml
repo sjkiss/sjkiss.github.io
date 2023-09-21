@@ -5,12 +5,28 @@
     <link>https://sjkiss.github.io/publication/</link>
       <atom:link href="https://sjkiss.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 Sep 2023 14:47:20 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Publications</title>
       <link>https://sjkiss.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>The education and income voting divides in Canada and their consequences for redistributive politics</title>
+      <link>https://sjkiss.github.io/publication/education_income_divide/</link>
+      <pubDate>Thu, 21 Sep 2023 14:47:20 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/education_income_divide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Changing Nature of Class Voting in Canada, 1965–2019</title>
+      <link>https://sjkiss.github.io/publication/class_voting/</link>
+      <pubDate>Thu, 21 Sep 2023 14:41:56 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/class_voting/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada</title>

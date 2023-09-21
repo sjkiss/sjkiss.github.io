@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Peter Graefe | Simon J. Kiss</title>
+    <link>https://sjkiss.github.io/authors/peter-graefe/</link>
+      <atom:link href="https://sjkiss.github.io/authors/peter-graefe/index.xml" rel="self" type="application/rss+xml" />
+    <description>Peter Graefe</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Thu, 21 Sep 2023 14:47:20 -0400</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
+      <title>Peter Graefe</title>
+      <link>https://sjkiss.github.io/authors/peter-graefe/</link>
+    </image>
+    
+    <item>
+      <title>The education and income voting divides in Canada and their consequences for redistributive politics</title>
+      <link>https://sjkiss.github.io/publication/education_income_divide/</link>
+      <pubDate>Thu, 21 Sep 2023 14:47:20 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/education_income_divide/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>The Changing Nature of Class Voting in Canada, 1965–2019</title>
+      <link>https://sjkiss.github.io/publication/class_voting/</link>
+      <pubDate>Thu, 21 Sep 2023 14:41:56 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/class_voting/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
