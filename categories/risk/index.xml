@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>risk | Simon J. Kiss</title>
-    <link>/categories/risk/</link>
-      <atom:link href="/categories/risk/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/categories/risk/</link>
+      <atom:link href="https://sjkiss.github.io/categories/risk/index.xml" rel="self" type="application/rss+xml" />
     <description>risk</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>risk</title>
-      <link>/categories/risk/</link>
+      <link>https://sjkiss.github.io/categories/risk/</link>
     </image>
     
     <item>
       <title>Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada</title>
-      <link>/publication/beyond_regions/</link>
+      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
       <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
-      <guid>/publication/beyond_regions/</guid>
+      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
       <description></description>
     </item>
     

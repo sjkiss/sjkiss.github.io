@@ -2,251 +2,254 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/courses/example/example1/</loc>
+    <loc>https://sjkiss.github.io/courses/example/example1/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>/courses/example/</loc>
+    <loc>https://sjkiss.github.io/courses/example/</loc>
     <lastmod>2018-09-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/courses/example/example2/</loc>
+    <loc>https://sjkiss.github.io/courses/example/example2/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>/authors/simon-kiss/</loc>
+    <loc>https://sjkiss.github.io/authors/simon-kiss/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/authors/</loc>
+    <loc>https://sjkiss.github.io/authors/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/categories/</loc>
+    <loc>https://sjkiss.github.io/categories/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/categories/lispop/</loc>
+    <loc>https://sjkiss.github.io/categories/lispop/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/post/</loc>
+    <loc>https://sjkiss.github.io/post/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/post/2022-07-20-public-spending-priorities-in-ontario-elections/</loc>
+    <loc>https://sjkiss.github.io/post/2022-07-20-public-spending-priorities-in-ontario-elections/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/tags/public-opinion/</loc>
+    <loc>https://sjkiss.github.io/tags/public-opinion/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/</loc>
+    <loc>https://sjkiss.github.io/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/tags/</loc>
+    <loc>https://sjkiss.github.io/tags/</loc>
     <lastmod>2022-07-20T14:49:13-04:00</lastmod>
   </url><url>
-    <loc>/post/2021-10-22-private-school-enrolment-in-ontario/</loc>
+    <loc>https://sjkiss.github.io/post/2021-11-15-private-and-public-school-enrolment-in-ontario/</loc>
+    <lastmod>2021-11-15T14:47:53-05:00</lastmod>
+  </url><url>
+    <loc>https://sjkiss.github.io/post/2021-10-22-private-school-enrolment-in-ontario/</loc>
     <lastmod>2021-10-22T13:22:30-04:00</lastmod>
   </url><url>
-    <loc>/tags/r/</loc>
+    <loc>https://sjkiss.github.io/tags/r/</loc>
     <lastmod>2021-10-22T13:22:30-04:00</lastmod>
   </url><url>
-    <loc>/authors/simon-j.-kiss/</loc>
+    <loc>https://sjkiss.github.io/authors/simon-j.-kiss/</loc>
     <lastmod>2021-10-22T13:22:30-04:00</lastmod>
   </url><url>
-    <loc>/talk/</loc>
+    <loc>https://sjkiss.github.io/talk/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/talk/amcto_2020_10_09/</loc>
+    <loc>https://sjkiss.github.io/talk/amcto_2020_10_09/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/data/</loc>
+    <loc>https://sjkiss.github.io/categories/data/</loc>
     <lastmod>2020-09-14T09:35:04-04:00</lastmod>
   </url><url>
-    <loc>/tags/open-science/</loc>
+    <loc>https://sjkiss.github.io/tags/open-science/</loc>
     <lastmod>2020-09-14T09:35:04-04:00</lastmod>
   </url><url>
-    <loc>/tags/plain-text/</loc>
+    <loc>https://sjkiss.github.io/tags/plain-text/</loc>
     <lastmod>2020-09-14T09:35:04-04:00</lastmod>
   </url><url>
-    <loc>/post/text-expander-footnotes/</loc>
+    <loc>https://sjkiss.github.io/post/text-expander-footnotes/</loc>
     <lastmod>2020-09-14T09:35:04-04:00</lastmod>
   </url><url>
-    <loc>/publication_types/2/</loc>
+    <loc>https://sjkiss.github.io/publication_types/2/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/beyond_regions/</loc>
+    <loc>https://sjkiss.github.io/publication/beyond_regions/</loc>
     <lastmod>2020-04-14T16:30:22-04:00</lastmod>
   </url><url>
-    <loc>/authors/eric-montpetit/</loc>
+    <loc>https://sjkiss.github.io/authors/eric-montpetit/</loc>
     <lastmod>2020-04-14T16:30:22-04:00</lastmod>
   </url><url>
-    <loc>/authors/erick-lachapelle/</loc>
+    <loc>https://sjkiss.github.io/authors/erick-lachapelle/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/authors/kiss-simon/</loc>
+    <loc>https://sjkiss.github.io/authors/kiss-simon/</loc>
     <lastmod>2020-04-14T16:30:22-04:00</lastmod>
   </url><url>
-    <loc>/publication_types/</loc>
+    <loc>https://sjkiss.github.io/publication_types/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/</loc>
+    <loc>https://sjkiss.github.io/publication/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/risk/</loc>
+    <loc>https://sjkiss.github.io/tags/risk/</loc>
     <lastmod>2020-04-14T16:30:22-04:00</lastmod>
   </url><url>
-    <loc>/categories/risk/</loc>
+    <loc>https://sjkiss.github.io/categories/risk/</loc>
     <lastmod>2020-04-14T16:30:22-04:00</lastmod>
   </url><url>
-    <loc>/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</loc>
+    <loc>https://sjkiss.github.io/post/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/</loc>
     <lastmod>2020-02-20T14:34:04-05:00</lastmod>
   </url><url>
-    <loc>/tags/university/</loc>
+    <loc>https://sjkiss.github.io/tags/university/</loc>
     <lastmod>2020-02-20T14:34:04-05:00</lastmod>
   </url><url>
-    <loc>/post/research-assistantship-examining-class-voting-in-canada/</loc>
+    <loc>https://sjkiss.github.io/post/research-assistantship-examining-class-voting-in-canada/</loc>
     <lastmod>2019-08-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/courses/</loc>
+    <loc>https://sjkiss.github.io/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url><url>
-    <loc>/publication/carbon_pricing_populism/</loc>
+    <loc>https://sjkiss.github.io/publication/carbon_pricing_populism/</loc>
     <lastmod>2021-05-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/chiropractic/</loc>
+    <loc>https://sjkiss.github.io/post/chiropractic/</loc>
     <lastmod>2019-04-02T15:54:30-04:00</lastmod>
   </url><url>
-    <loc>/slides/</loc>
+    <loc>https://sjkiss.github.io/slides/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/slides/example/</loc>
+    <loc>https://sjkiss.github.io/slides/example/</loc>
     <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/categories/r/</loc>
+    <loc>https://sjkiss.github.io/categories/r/</loc>
     <lastmod>2019-01-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/using-r-to-extract-census-data-from-statistics-canada/</loc>
+    <loc>https://sjkiss.github.io/post/using-r-to-extract-census-data-from-statistics-canada/</loc>
     <lastmod>2019-01-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/immigration-economics-salience/</loc>
+    <loc>https://sjkiss.github.io/post/immigration-economics-salience/</loc>
     <lastmod>2019-01-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/authors/andrea-m.l.-perrella/</loc>
+    <loc>https://sjkiss.github.io/authors/andrea-m.l.-perrella/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/authors/george-wootten/</loc>
+    <loc>https://sjkiss.github.io/authors/george-wootten/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/tags/political-communication/</loc>
+    <loc>https://sjkiss.github.io/tags/political-communication/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/publication/ford_populism/</loc>
+    <loc>https://sjkiss.github.io/publication/ford_populism/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/publication/open-government/</loc>
+    <loc>https://sjkiss.github.io/publication/open-government/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/authors/zachary-spicer/</loc>
+    <loc>https://sjkiss.github.io/authors/zachary-spicer/</loc>
     <lastmod>2018-11-29T15:35:18-05:00</lastmod>
   </url><url>
-    <loc>/post/the-ambiguous-definitions-of-open-government/</loc>
+    <loc>https://sjkiss.github.io/post/the-ambiguous-definitions-of-open-government/</loc>
     <lastmod>2018-11-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/authors/andrea-m.-l.-perrella/</loc>
+    <loc>https://sjkiss.github.io/authors/andrea-m.-l.-perrella/</loc>
     <lastmod>2018-11-06T13:11:45-05:00</lastmod>
   </url><url>
-    <loc>/publication/fluoride/</loc>
+    <loc>https://sjkiss.github.io/publication/fluoride/</loc>
     <lastmod>2018-11-06T13:11:45-05:00</lastmod>
   </url><url>
-    <loc>/authors/karly-rath/</loc>
+    <loc>https://sjkiss.github.io/authors/karly-rath/</loc>
     <lastmod>2018-11-06T13:11:45-05:00</lastmod>
   </url><url>
-    <loc>/post/2018-10-18-fluoridation/</loc>
+    <loc>https://sjkiss.github.io/post/2018-10-18-fluoridation/</loc>
     <lastmod>2018-10-18T13:28:41-04:00</lastmod>
   </url><url>
-    <loc>/publication/fracking/</loc>
+    <loc>https://sjkiss.github.io/publication/fracking/</loc>
     <lastmod>2018-09-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2018-08-13-createdates/</loc>
+    <loc>https://sjkiss.github.io/post/2018-08-13-createdates/</loc>
     <lastmod>2018-08-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2018-07-06-ford-immigration/</loc>
+    <loc>https://sjkiss.github.io/post/2018-07-06-ford-immigration/</loc>
     <lastmod>2018-07-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/ontario-voters-media-consumption/</loc>
+    <loc>https://sjkiss.github.io/post/ontario-voters-media-consumption/</loc>
     <lastmod>2018-07-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/election-twitter/</loc>
+    <loc>https://sjkiss.github.io/post/election-twitter/</loc>
     <lastmod>2018-06-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/talk/regina/</loc>
+    <loc>https://sjkiss.github.io/talk/regina/</loc>
     <lastmod>2018-05-30T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/talk/ottawa/</loc>
+    <loc>https://sjkiss.github.io/talk/ottawa/</loc>
     <lastmod>2018-05-14T11:20:01-04:00</lastmod>
   </url><url>
-    <loc>/post/2018-05-02-dataverse/</loc>
+    <loc>https://sjkiss.github.io/post/2018-05-02-dataverse/</loc>
     <lastmod>2018-05-02T15:04:50-04:00</lastmod>
   </url><url>
-    <loc>/tags/data/</loc>
+    <loc>https://sjkiss.github.io/tags/data/</loc>
     <lastmod>2018-04-30T14:19:13-05:00</lastmod>
   </url><url>
-    <loc>/project/data/</loc>
+    <loc>https://sjkiss.github.io/project/data/</loc>
     <lastmod>2018-04-30T14:19:13-05:00</lastmod>
   </url><url>
-    <loc>/project/</loc>
+    <loc>https://sjkiss.github.io/project/</loc>
     <lastmod>2018-04-30T14:19:13-05:00</lastmod>
   </url><url>
-    <loc>/talk/chicago/</loc>
+    <loc>https://sjkiss.github.io/talk/chicago/</loc>
     <lastmod>2018-03-29T07:32:05-04:00</lastmod>
   </url><url>
-    <loc>/talk/syracuse/</loc>
+    <loc>https://sjkiss.github.io/talk/syracuse/</loc>
     <lastmod>2018-03-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/economic-stress-populism-and-fordnation/</loc>
+    <loc>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</loc>
     <lastmod>2018-03-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/populism-race-and-ford-nation/</loc>
+    <loc>https://sjkiss.github.io/post/populism-race-and-ford-nation/</loc>
     <lastmod>2018-03-12T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2018-03-09-pc-twitter/</loc>
+    <loc>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</loc>
     <lastmod>2018-03-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/project/r/</loc>
+    <loc>https://sjkiss.github.io/project/r/</loc>
     <lastmod>2018-02-28T14:15:30-05:00</lastmod>
   </url><url>
-    <loc>/project/social-democracy/</loc>
+    <loc>https://sjkiss.github.io/project/social-democracy/</loc>
     <lastmod>2018-02-09T14:19:13-05:00</lastmod>
   </url><url>
-    <loc>/tags/social-democracy/</loc>
+    <loc>https://sjkiss.github.io/tags/social-democracy/</loc>
     <lastmod>2018-02-09T14:19:13-05:00</lastmod>
   </url><url>
-    <loc>/project/political-communication/</loc>
+    <loc>https://sjkiss.github.io/project/political-communication/</loc>
     <lastmod>2018-02-09T11:00:55-05:00</lastmod>
   </url><url>
-    <loc>/publication_types/4/</loc>
+    <loc>https://sjkiss.github.io/publication_types/4/</loc>
     <lastmod>2018-02-09T09:52:31-05:00</lastmod>
   </url><url>
-    <loc>/publication/montpetit-lachapelle-kiss/</loc>
+    <loc>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</loc>
     <lastmod>2018-02-09T09:52:31-05:00</lastmod>
   </url><url>
-    <loc>/authors/eric-montpetit-erick-lachapelle-simon-kiss/</loc>
+    <loc>https://sjkiss.github.io/authors/eric-montpetit-erick-lachapelle-simon-kiss/</loc>
     <lastmod>2018-02-09T09:52:31-05:00</lastmod>
   </url><url>
-    <loc>/project/risk/</loc>
+    <loc>https://sjkiss.github.io/project/risk/</loc>
     <lastmod>2018-02-08T15:22:41-05:00</lastmod>
   </url><url>
-    <loc>/authors/aml-perella/</loc>
+    <loc>https://sjkiss.github.io/authors/aml-perella/</loc>
     <lastmod>2015-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/risk-perception/</loc>
+    <loc>https://sjkiss.github.io/publication/risk-perception/</loc>
     <lastmod>2015-01-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/bpa-canada/</loc>
+    <loc>https://sjkiss.github.io/publication/bpa-canada/</loc>
     <lastmod>2014-12-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/legislation-by-agenda-setting/</loc>
+    <loc>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</loc>
     <lastmod>2013-09-06T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/publication/new-public/</loc>
+    <loc>https://sjkiss.github.io/publication/new-public/</loc>
     <lastmod>2013-07-01T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/post/2019-09-2019-ford-populism/</loc>
+    <loc>https://sjkiss.github.io/post/2019-09-2019-ford-populism/</loc>
   </url><url>
-    <loc>/post/</loc>
+    <loc>https://sjkiss.github.io/post/</loc>
   </url>
 </urlset>

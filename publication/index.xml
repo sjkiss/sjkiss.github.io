@@ -2,101 +2,101 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Publications | Simon J. Kiss</title>
-    <link>/publication/</link>
-      <atom:link href="/publication/index.xml" rel="self" type="application/rss+xml" />
+    <link>https://sjkiss.github.io/publication/</link>
+      <atom:link href="https://sjkiss.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Tue, 14 Apr 2020 16:30:22 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Publications</title>
-      <link>/publication/</link>
+      <link>https://sjkiss.github.io/publication/</link>
     </image>
     
     <item>
       <title>Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada</title>
-      <link>/publication/beyond_regions/</link>
+      <link>https://sjkiss.github.io/publication/beyond_regions/</link>
       <pubDate>Tue, 14 Apr 2020 16:30:22 -0400</pubDate>
-      <guid>/publication/beyond_regions/</guid>
+      <guid>https://sjkiss.github.io/publication/beyond_regions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Opposition to carbon pricing and right-wing populism</title>
-      <link>/publication/carbon_pricing_populism/</link>
+      <link>https://sjkiss.github.io/publication/carbon_pricing_populism/</link>
       <pubDate>Wed, 24 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/publication/carbon_pricing_populism/</guid>
+      <guid>https://sjkiss.github.io/publication/carbon_pricing_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Right-wing populism in a metropolis</title>
-      <link>/publication/ford_populism/</link>
+      <link>https://sjkiss.github.io/publication/ford_populism/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>/publication/ford_populism/</guid>
+      <guid>https://sjkiss.github.io/publication/ford_populism/</guid>
       <description></description>
     </item>
     
     <item>
       <title>The Ambiguous Definitions of Open Government</title>
-      <link>/publication/open-government/</link>
+      <link>https://sjkiss.github.io/publication/open-government/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
-      <guid>/publication/open-government/</guid>
+      <guid>https://sjkiss.github.io/publication/open-government/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Balanced Journalism Amplifies Minority Positions</title>
-      <link>/publication/fluoride/</link>
+      <link>https://sjkiss.github.io/publication/fluoride/</link>
       <pubDate>Tue, 06 Nov 2018 13:11:45 -0500</pubDate>
-      <guid>/publication/fluoride/</guid>
+      <guid>https://sjkiss.github.io/publication/fluoride/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
-      <link>/publication/fracking/</link>
+      <link>https://sjkiss.github.io/publication/fracking/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
-      <guid>/publication/fracking/</guid>
+      <guid>https://sjkiss.github.io/publication/fracking/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Does Canadian Federalism Amplify Policy Disagreements?</title>
-      <link>/publication/montpetit-lachapelle-kiss/</link>
+      <link>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</link>
       <pubDate>Fri, 09 Feb 2018 09:52:31 -0500</pubDate>
-      <guid>/publication/montpetit-lachapelle-kiss/</guid>
+      <guid>https://sjkiss.github.io/publication/montpetit-lachapelle-kiss/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Risk perception, psychological heuristics and the water fluoridation controversy</title>
-      <link>/publication/risk-perception/</link>
+      <link>https://sjkiss.github.io/publication/risk-perception/</link>
       <pubDate>Thu, 01 Jan 2015 00:00:00 +0000</pubDate>
-      <guid>/publication/risk-perception/</guid>
+      <guid>https://sjkiss.github.io/publication/risk-perception/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada’s Regulation of Bisphenol A</title>
-      <link>/publication/bpa-canada/</link>
+      <link>https://sjkiss.github.io/publication/bpa-canada/</link>
       <pubDate>Mon, 01 Dec 2014 00:00:00 +0000</pubDate>
-      <guid>/publication/bpa-canada/</guid>
+      <guid>https://sjkiss.github.io/publication/bpa-canada/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Legislation by agenda-setting: Assessing the media&#39;s role in the regulation of BPA in the US states</title>
-      <link>/publication/legislation-by-agenda-setting/</link>
+      <link>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</link>
       <pubDate>Fri, 06 Sep 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/legislation-by-agenda-setting/</guid>
+      <guid>https://sjkiss.github.io/publication/legislation-by-agenda-setting/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Responding to the &#39;New Public&#39;: The arrival of strategic communications and managed participation in Alberta</title>
-      <link>/publication/new-public/</link>
+      <link>https://sjkiss.github.io/publication/new-public/</link>
       <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication/new-public/</guid>
+      <guid>https://sjkiss.github.io/publication/new-public/</guid>
       <description>&lt;p&gt;More detail can easily be written here using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
 </description>
     </item>
