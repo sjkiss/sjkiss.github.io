@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>public-opinion | Simon J. Kiss</title>
+    <link>https://sjkiss.github.io/categories/public-opinion/</link>
+      <atom:link href="https://sjkiss.github.io/categories/public-opinion/index.xml" rel="self" type="application/rss+xml" />
+    <description>public-opinion</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Mar 2024 08:53:12 -0400</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
+      <title>public-opinion</title>
+      <link>https://sjkiss.github.io/categories/public-opinion/</link>
+    </image>
+    
+    <item>
+      <title>Carbon Tax At The Crossroads</title>
+      <link>https://sjkiss.github.io/talk/climate_change/</link>
+      <pubDate>Wed, 27 Mar 2024 08:53:12 -0400</pubDate>
+      <guid>https://sjkiss.github.io/talk/climate_change/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

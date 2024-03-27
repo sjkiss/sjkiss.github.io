@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>social-democracy | Simon J. Kiss</title>
+    <link>https://sjkiss.github.io/categories/social-democracy/</link>
+      <atom:link href="https://sjkiss.github.io/categories/social-democracy/index.xml" rel="self" type="application/rss+xml" />
+    <description>social-democracy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Mar 2024 09:23:05 -0400</lastBuildDate>
+    <image>
+      <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
+      <title>social-democracy</title>
+      <link>https://sjkiss.github.io/categories/social-democracy/</link>
+    </image>
+    
+    <item>
+      <title>Subjective economic insecurity and attitudes toward immigration and feminists among voters on the Right in Canada</title>
+      <link>https://sjkiss.github.io/publication/subjective_economic_insecurity/</link>
+      <pubDate>Wed, 27 Mar 2024 09:23:05 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/subjective_economic_insecurity/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
