@@ -5,12 +5,20 @@
     <link>https://sjkiss.github.io/publication/</link>
       <atom:link href="https://sjkiss.github.io/publication/index.xml" rel="self" type="application/rss+xml" />
     <description>Publications</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Mar 2024 09:23:05 -0400</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 27 Mar 2024 09:32:15 -0400</lastBuildDate>
     <image>
       <url>img/map[gravatar:%!s(bool=false) shape:square]</url>
       <title>Publications</title>
       <link>https://sjkiss.github.io/publication/</link>
     </image>
+    
+    <item>
+      <title>Narratives and the Water Fluoridation Controversy</title>
+      <link>https://sjkiss.github.io/publication/narratives_water_fluoridation/</link>
+      <pubDate>Wed, 27 Mar 2024 09:32:15 -0400</pubDate>
+      <guid>https://sjkiss.github.io/publication/narratives_water_fluoridation/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Subjective economic insecurity and attitudes toward immigration and feminists among voters on the Right in Canada</title>
