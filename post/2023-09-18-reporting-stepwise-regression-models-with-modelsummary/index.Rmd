@@ -1,0 +1,107 @@
+---
+title: Reporting stepwise regression models with modelsummary
+author: Simon Kiss
+date: '2023-09-18'
+slug: []
+categories:
+  - R
+tags:
+  - R
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2023-09-18T10:21:06-04:00'
+featured: no
+draft: yes
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+I love Vincent Arel-Bundock's modelsummary package, and I'm in the process of moving all my model reporting from stargazer to it. I should also say, Vincent is such a super friendly person. Every time I've reached out to him personally with some requests for assistance, he responds. I hope I haven't abused that.
+
+I recently needed to report a series of OLS models for a few different dependent variables. For each dependent variable, I wanted to report a basic model and then two or three more complicated models with more covariates added.  
+
+It wasn't immediately clear how to report this in `modelsummary` but in the end it goes quite quickly. Here's how I did it.
+
+The basic test data I'll use is the dataset on college students' political behaviour contained in Vincent's `Rdatasets` packag 
+
+```{r import-data}
+library(tidyverse)
+pol<-read_csv(file="https://vincentarelbundock.github.io/Rdatasets/csv/Stat2Data/Political.csv")
+
+```
+
+Let's say I have two dependent variables: did the student vote and did the student feel informed.  For each dependent variable, let's fit two models. A raw one that that checks whether sex was related to either and then whether or not that any relationship holds controlling for a variable measuring students' media consumption habits.
+
+
+We just make a new vote variable that is 1 for eligible and voted and 0 for eligible and did not vote. 
+
+```{r}
+pol %>% 
+  mutate(vote2=case_when(
+    Vote==4 ~ "Voted",
+    Vote==2 ~ "Did not vote",
+    Vote==1 ~ "Did not vote",
+    TRUE ~ NA_character_
+  ))->pol
+#Convert to factor
+pol$vote2<-factor(pol$vote2, levels=c("Did not vote", "Voted"))
+
+```
+
+Here's my go-to way of doing these kinds of things.
+
+```{r}
+#import dataset
+pol %>% 
+  #Winnow the dataset to variables of interest
+  select(Sex, Ethics,Inform, Paper, TV)  %>% 
+  # Pivot the dataset so the two dependent variables are in one column
+  pivot_longer(cols=c(Ethics, Inform), names_to=c("DV")) %>% 
+  #Nest the dataset by each dependent variable
+  nest(-DV) %>% 
+  #Mutate the dataset addinga list column of models %>% 
+  mutate(model1=map(data, function(x) lm(value~Sex, data=x)),
+         model2=map(data, function(x) lm(value~Sex+Paper, data=x)), 
+         model3=map(data, function(x) lm(value~Sex+TV, data=x)),
+         model4=map(data, function(x) lm(value~Sex+TV+Paper, data=x)))->mod.df1
+glimpse(mod.df1)
+```
+
+So now we have two rows of six columns. Each row contains four models for each separate dependent variable. We could go right to reporting this quite easily.
+
+
+```{r}
+library(modelsummary)
+
+#names(mod.df1$model1)<-c("Ethics", "Informed")
+modelsummary(mod.df1$model1, stars=T, 
+             gof_omit=c("AIC|BIC|Log.Lik.|RMSE"))
+```
+
+And we can report the models with a second set of covariates without too much difficulty. 
+
+Note, it would be nice to figure out how to pipe this immediately to `modelsummary`, but I cannot figure out how to make that work. 
+
+As such, an intermediate step, saving the pivotted models into a new data.frame is necessary.
+```{r}
+mod.df1 %>% 
+  #Pivot the models of interest into one column
+  # Store in a new data.frame
+  pivot_longer(., cols=c(model1, model2))  ->mod.df1
+#Glimpse to see the results
+glimpse(mod.df1)
+
+```
+
+This enables easy reporting with `modelsummary`
+
+```{r}
+modelsummary(mod.df1$value)
+mod.df1
+```
+
+Note that models 1 and 2 
