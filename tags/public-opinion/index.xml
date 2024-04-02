@@ -21,6 +21,25 @@
     </item>
     
     <item>
+      <title>Public Spending Priorities in the 2018 and 2022 Ontario Elections</title>
+      <link>https://sjkiss.github.io/post/2022-07-20-public-spending-priorities-in-ontario-elections/</link>
+      <pubDate>Wed, 20 Jul 2022 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/2022-07-20-public-spending-priorities-in-ontario-elections/</guid>
+      <description>
+&lt;script src=&#34;https://sjkiss.github.io/post/2022-07-20-public-spending-priorities-in-ontario-elections/index_files/header-attrs/header-attrs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;LISPOP commissioned a survey of voters during the 2022 election and we’ll be disseminating findings from it over the next few weeks. But as an opening, I wanted to take a look at public spending priorities in the 2022 eleciton compared to the 2018 election. To do so, I compared the spending priorities from LISPOP’s 2018 Ontario Provincial Election Survey with those from the 2022 survey. Respondents were ppresented with a series of issue areas and asked to state whether they preferred spending more, the same or less on that area. Although different areas were presented in the two different elections, which are excluded here, there was some overlap. And these are graphed here:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;spending_comparison_2018_2022.png&#34; width=&#34;600px&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Three things jump out at me:&lt;/p&gt;
+&lt;p&gt;First, the largest movement came in the area of affordable housing. In 2022, 58% of people wanted more spending, commpared to only 47% in 2018, notably crossing the threshold of 50%. The next largest jump was in support for more spending on health care. There isn’t really a surprise here; health care is routinely popular as a target for more spending &lt;em&gt;and&lt;/em&gt; we just went through a massive health care crisis.&lt;/p&gt;
+&lt;p&gt;Also notable, in my eyes was the increased support for spending on crime. Here we have to be a little careful. In 2018, respondents were asked to express their spending preferences on “crime and justice” and in 2022 it was “fighting crime.”. So, it’s possible the increased level of support is down to wording changes. But note that the increase came &lt;em&gt;after&lt;/em&gt; significant protests in teh United States and in Canada against police brutality and trying to &lt;em&gt;reduce&lt;/em&gt; funding for police. It’s possible the public moved the other way.&lt;/p&gt;
+&lt;p&gt;Lastly, notice that there was a slightly increasdd level of support for increasd spending on the environment.&lt;/p&gt;
+&lt;p&gt;We’ll have more to say on this in the coming months.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Right Wing Populism and Municipal Governance: The Case of Toronto</title>
       <link>https://sjkiss.github.io/talk/amcto_2020_10_09/</link>
       <pubDate>Fri, 09 Oct 2020 00:00:00 +0000</pubDate>
@@ -45,6 +64,89 @@
     </item>
     
     <item>
+      <title>Salience of Immigration and Personal Finances in Ontario</title>
+      <link>https://sjkiss.github.io/post/immigration-economics-salience/</link>
+      <pubDate>Fri, 11 Jan 2019 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/immigration-economics-salience/</guid>
+      <description>
+
+
+&lt;p&gt;Colleagues and I at the Laurier Institute For The Study Of Public Opinion and Policy (LISPOP) conducted a survey of ONtario voters in the 2018 election. One of the things we were interested in was people’s feelings about their personal financial situation and about immigration and refugees.&lt;/p&gt;
+&lt;p&gt;The reasoning was simple: it seemed in the campaign like the PCs were really trying to capitalize on people’s anger. In the literature on populism, two common schools of thought are that people are angry about their economic situation and about threats from immigration and refugee.&lt;/p&gt;
+&lt;p&gt;Usually surveys don’t collect open-ended questions because they are hard to analyze. But there is a lot you can learn from that data if you put the effort into studying it.&lt;/p&gt;
+&lt;p&gt;For example, when prompted to share their feelings about their personal financial situation or about immigrations and refugees, did you know that people tend to write more about the latter than about the former?&lt;/p&gt;
+&lt;p&gt;Here’s the distribution of characters in the responses to the two questions.&lt;/p&gt;
+&lt;p&gt;The data are quite skewed because a lot of people wrote very little and very few people wrote a lot, so the differences are hard to see. So I will filter out responses with more than 500 characters.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2019-01-09-immigration-economics-salience_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;That doesn’t look so impressive, and there are a lot of people who entered nothing. So, if we also filter out people with empty responses, and people who had extremely long answers and calculate the median, there are some big differences.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;on18 %&amp;gt;% 
+  select(indivfinfeel, immfeel) %&amp;gt;% 
+  map_df(., nchar) %&amp;gt;% 
+  filter((indivfinfeel&amp;gt; 0 &amp;amp; immfeel&amp;gt;0) &amp;amp; 
+           (indivfinfeel &amp;lt;501 &amp;amp; immfeel&amp;lt; 501)) %&amp;gt;% 
+  map(., median)&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## $indivfinfeel
+## [1] 27
+## 
+## $immfeel
+## [1] 49&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;So, the median survey respondent used &lt;em&gt;almost double&lt;/em&gt; the number of characters to provide their feelings about immigration and refugees than about their personal financial situation.&lt;/p&gt;
+&lt;p&gt;It would be interesting to see if the number of characters expressed is related to &lt;em&gt;negative&lt;/em&gt; sentiments on either topic.&lt;/p&gt;
+&lt;p&gt;this is a little more involved. But follow along.&lt;/p&gt;
+&lt;p&gt;I’ll use the &lt;a href=&#34;https://quanteda.io/&#34;&gt;quanteda&lt;/a&gt; library to quickly count up the negative and positive words in each survey response.&lt;/p&gt;
+&lt;p&gt;I’ll use the &lt;a href=&#34;http://www.lexicoder.com/&#34;&gt;Lexicoder Sentiment Dictionary&lt;/a&gt; that was developed by Mark Daku, Stuart Soroka and Lori Young. It’s dictionary of affect-laden terms is handily included in the quanteda package.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;library(quanteda)
+on18 %&amp;gt;% 
+  #make a corpus out of the personal financial responses
+  corpus(., text_field=&amp;#39;indivfinfeel1&amp;#39;) %&amp;gt;% 
+  #tokenize this into words
+  tokens() %&amp;gt;% 
+  #Count the number of positive, negative and negated positive and negative terms that are in each survey response
+  tokens_lookup(.,dictionary=data_dictionary_LSD2015) %&amp;gt;%  
+  #Convert to a document frequency matrix
+  dfm() %&amp;gt;% 
+  #convert to a data.frame 
+  convert(., to=&amp;#39;data.frame&amp;#39;) %&amp;gt;% 
+  #Add a prefix to each variable so we know where they came from and save to a data.frame
+  rename_all(., .funs=funs(paste0(&amp;#39;indivfin_&amp;#39;, .)))-&amp;gt; economic_responses &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then we just repeat the exact same steps for the immigration responses.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;on18 %&amp;gt;% 
+  corpus(., text_field=&amp;#39;immfeel1&amp;#39;) %&amp;gt;% 
+  tokens() %&amp;gt;% 
+  tokens_lookup(.,dictionary=data_dictionary_LSD2015) %&amp;gt;% 
+  dfm() %&amp;gt;% 
+  convert(., to=&amp;#39;data.frame&amp;#39;) %&amp;gt;% 
+  rename_all(., .funs=funs(paste0(&amp;#39;imm_&amp;#39;, .)))-&amp;gt; imm_responses&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This provides us with counts of the negative, positive words contained in the Lexicoder Sentiment Dictionary as well as some of the numbers of some negation terms (i.e. ‘not happy’ is counted as a negated positive word).&lt;/p&gt;
+&lt;p&gt;Now we can just see if longer responses are more correlated with negative and / or positive sentiment for economic and immigration responses.
+Again, I’m going to filter out the extreme responses.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;on18 %&amp;gt;%  
+  #Start with the open-ended survey responses
+  select(indivfinfeel, immfeel) %&amp;gt;% 
+  #count the number of characters in each 
+  map_df(., nchar) %&amp;gt;%  
+  #Bind these to the sentiment counts we calculated above 
+bind_cols(., economic_responses, imm_responses) -&amp;gt; out &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;out %&amp;gt;% 
+  #First calculate  net sentiment
+  mutate(indivfin_net=indivfin_positive-indivfin_negative,
+         imm_net=imm_positive-imm_negative) %&amp;gt;%  
+  #Select only the number of characters and the net sentiments
+  select(indivfinfeel, immfeel, indivfin_net, imm_net) %&amp;gt;% 
+  #Filter out extreme responses
+  filter((indivfinfeel&amp;gt;0&amp;amp;indivfinfeel &amp;lt;501 ) &amp;amp; (immfeel&amp;gt;0 &amp;amp; immfeel&amp;lt;501)) %&amp;gt;% 
+ #Gather the number of characters into two variables
+   gather(Open_Topic, nCharacters, -indivfin_net, -imm_net) %&amp;gt;% 
+#Gather the net sentiment into two variables
+  gather(Open_Topic2, Net_Sentiment, -Open_Topic, -nCharacters)%&amp;gt;% 
+  ggplot(., aes(x=nCharacters, y=Net_Sentiment))+facet_wrap(~Open_Topic)+geom_point()+geom_smooth(method=&amp;#39;loess&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2019-01-09-immigration-economics-salience_files/figure-html/plot-1.png&#34; width=&#34;384&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;so, it actually looks like there is a slight relationship. On the topic of immigration and refugees, when people wrote more chacters, they tended to use more positive words. For people, writing about their personal financial situation, there is either no relationship, or a curvilinear relationship whereby people with the shortest and the longest responses feel the worst about their situation.&lt;/p&gt;
+&lt;p&gt;I have to say, this surprises me. I would have thought that there would have been a stronger negativity bias, whereby people who felt more negatively about a topic, would have written longer responses.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Right-wing populism in a metropolis</title>
       <link>https://sjkiss.github.io/publication/ford_populism/</link>
       <pubDate>Thu, 29 Nov 2018 15:35:18 -0500</pubDate>
@@ -61,11 +163,457 @@
     </item>
     
     <item>
+      <title>The Ambiguous Definitions of Open Government</title>
+      <link>https://sjkiss.github.io/post/the-ambiguous-definitions-of-open-government/</link>
+      <pubDate>Thu, 29 Nov 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/the-ambiguous-definitions-of-open-government/</guid>
+      <description>
+
+
+&lt;p&gt;My colleague &lt;a href=&#34;https://www.utm.utoronto.ca/political-science/george-wootten&#34;&gt;George Wootten&lt;/a&gt; and I have a new &lt;a href=&#34;https://doi.org/10.1017/S0008423918000446&#34;&gt;paper&lt;/a&gt; in the Canadian Journal of Political Science out in which we survey journalists, parliamentarians and bloggers in Canada in 2014 and asked them to rank different definitions of “open government”.&lt;/p&gt;
+&lt;p&gt;We hypothesized that people would choose different definitions of open government that fit their institutional position.&lt;/p&gt;
+&lt;p&gt;We presented our survey respondents definitions of open government that reflected concepts such as responsiveness, information, accountability and participation. In addition, we included one definition (“trade-offs”) which is not commonly included in the discussion about “open government” but which we think should be.&lt;/p&gt;
+&lt;table&gt;
+&lt;colgroup&gt;
+&lt;col width=&#34;83%&#34; /&gt;
+&lt;col width=&#34;8%&#34; /&gt;
+&lt;col width=&#34;8%&#34; /&gt;
+&lt;/colgroup&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th&gt;Definition&lt;/th&gt;
+&lt;th&gt;Variable Name&lt;/th&gt;
+&lt;th&gt;Concept&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;A policy process that is responsive to public concerns&lt;/td&gt;
+&lt;td&gt;Responsive&lt;/td&gt;
+&lt;td&gt;Participation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Having access to technical officials and experts in the bureaucracy to explain complex details of policies&lt;/td&gt;
+&lt;td&gt;Officials&lt;/td&gt;
+&lt;td&gt;Information&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Having easy access to information like internal government documents, statistics and records&lt;/td&gt;
+&lt;td&gt;Information&lt;/td&gt;
+&lt;td&gt;Information&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Politicians being accessible to the media to answer for their actions&lt;/td&gt;
+&lt;td&gt;Accessible&lt;/td&gt;
+&lt;td&gt;Accountability&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Politicians using social media to engage in a dialogue with citizens&lt;/td&gt;
+&lt;td&gt;Social&lt;/td&gt;
+&lt;td&gt;Participation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td&gt;Presenting citizens with the trade-offs associated with policy decisions&lt;/td&gt;
+&lt;td&gt;Trade-Offs&lt;/td&gt;
+&lt;td&gt;Trade-Offs&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td&gt;Public debate about different policy alternatives&lt;/td&gt;
+&lt;td&gt;Debate&lt;/td&gt;
+&lt;td&gt;Participation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Here was what we got.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://sjkiss.github.io/post/2018-11-29-open-government_files/figure1.jpeg&#34; alt=&#34;Distribution of rankings by position&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Distribution of rankings by position&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Clearly, journalists were more likely to prefer defintions of open government that emphasize &lt;em&gt;sources&lt;/em&gt; (e.g. &lt;em&gt;information&lt;/em&gt;, &lt;em&gt;accessible&lt;/em&gt; and &lt;em&gt;officials&lt;/em&gt;. )&lt;/p&gt;
+&lt;p&gt;But by contrast, government parliamentarians were more likely to prefer definitions that gave a role to public opinion in the policy process (e.g. &lt;em&gt;debate&lt;/em&gt; and &lt;em&gt;responsive&lt;/em&gt;).&lt;/p&gt;
+&lt;p&gt;Opposition parliamentarians occupied a kind of a middle ground between the two positions, preferring access to information definitions and public opinion definitions somewhat equally.&lt;/p&gt;
+&lt;p&gt;Bloggers were even more eclectic, assigning high ranks to &lt;em&gt;information&lt;/em&gt;, like journalists, but also high ranks to &lt;em&gt;responsive&lt;/em&gt; and &lt;em&gt;debate&lt;/em&gt;.&lt;/p&gt;
+&lt;div id=&#34;what-do-these-results-mean&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;What do these results mean?&lt;/h1&gt;
+&lt;p&gt;There has been considerable debate in the scholarship on “open government” about what exactly it means (see &lt;a href=&#34;http://policyoptions.irpp.org/magazines/august-2017/opening-government/&#34;&gt;here&lt;/a&gt; and &lt;a href=&#34;https://jedem.org/index.php/jedem/article/view/227&#34;&gt;here&lt;/a&gt;). We suggest that a large part of this confusion is because actors in the policy process choose definitions of the term that &lt;em&gt;suit their interests&lt;/em&gt;. We think this is one reason for the common phenomenon of opposition parties routinely promising to be more open and accountable and then closing up when they win elections and form government.&lt;/p&gt;
+&lt;p&gt;For this reason, we are quite skeptical about whether or not “open government” as a concept has any chance to serve as a mobilizing concept and a focus of reform. Instead, we are more convinced “open government” will linger as a useful symbol for opposition parties looking for cheap and popular promises.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;why-did-we-do-this&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Why did we do this?&lt;/h1&gt;
+&lt;p&gt;The impetus for this project stems from the heated debate in Ontario about the McGuinty government’s cancellation of two natural gas plants to rescue his government in the 2011 provincial election. The decision to cancel the plants incurred &lt;em&gt;significant&lt;/em&gt; costs to the province, but ultimately saved his government.&lt;/p&gt;
+&lt;p&gt;But in the wake of the 2011 election that returned a minority legislature, opposition politicians and journalists were clamouring for information about “who knew what when”, trying to ferret out a smoking gun. To us, watching the bloodbath, the answers to these questions were fairly obvious. Dalton McGuinty was the who and the why was to rescue seats in Mississauga and Oakville. It wasn’t exactly rocket science.&lt;/p&gt;
+&lt;p&gt;But somehow, both the opposition and journalists insisted on combing through thousands of pages of internal documents looking for a mythical smoking gun memo that would bring down whoever made this horrible decision.&lt;/p&gt;
+&lt;p&gt;It is worth pointing out that, in a lot of ways, clear accountability was exacted in this case. Dalton McGuinty had to give up his premiership to save his party and &lt;a href=&#34;https://www.cbc.ca/news/canada/toronto/livingston-sentence-april-1.4553906&#34;&gt;one person was convicted of criminal charges&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;When Kathleen Wynne replaced McGuinty as premier, a large part of her campaign was built around ideas of - you guessed it - “&lt;a href=&#34;https://www.amo.on.ca/AMO-PDFs/Events/16OWMC/PaulVet.aspx&#34;&gt;open government&lt;/a&gt;”. As far as we can tell, the idea was a politically sound one; address the feeling in the electorate that the previous Liberal government was excessively secretive in its dealings by promising to be more “open”.&lt;/p&gt;
+&lt;p&gt;All of this is well and good and tough to argue with, but we also noted at the time that what was &lt;em&gt;really&lt;/em&gt; missing from the debate about the cancellation of the natural gas plants was an honest and - ahem - “open” conversation about the trade-offs associated with the different ways of generating electricity in the province, keeping costs low and addressing climate change and air pollution.&lt;/p&gt;
+&lt;p&gt;In addition to pointing to the ways in which open government is defined in ways that suit political actors’ interest, our work also hopefully points out some of the ways in which the definitions of open government could be expanded to include a discussion of the trade-offs associated with .&lt;/p&gt;
+&lt;p&gt;A lot of our criticism is levied at journalists who define open government in terms of access to information, facts and sources. While it is at one level understandable because this makes their jobs easier (and is in a lot of ways completely laudable) we feel that if journalists thought about open government in ways that emphasize trade-offs, they might play a more productive role in producing an informed public opinion and better policy.&lt;/p&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Public Perceptions of Hydraulic Fracturing (Fracking) in Canada</title>
       <link>https://sjkiss.github.io/publication/fracking/</link>
       <pubDate>Sat, 01 Sep 2018 00:00:00 +0000</pubDate>
       <guid>https://sjkiss.github.io/publication/fracking/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Doug Ford&#39;s Win And Sentiment Towards Immigration</title>
+      <link>https://sjkiss.github.io/post/2018-07-06-ford-immigration/</link>
+      <pubDate>Sat, 21 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/2018-07-06-ford-immigration/</guid>
+      <description>
+
+
+&lt;p&gt;It seems like one of the priorities of the new Ford government is to take a harder line dealing with refugees and asylum-seekers in Canada. Just after taking office, Premier Ford told Prime Minister Trudeau that his new government was basically getting out of the business of supporting the settlement of refugees and blamed the federal government for supposedly encouraging illegal immigration.&lt;/p&gt;
+&lt;p&gt;This is all a little surprising as the PC campaign did not really make any &lt;em&gt;explicit&lt;/em&gt; hay out of anti-immigration sentiment. Moreover, as I’ve pointed out here, Doug Ford’s brother was remarkably &lt;em&gt;popular&lt;/em&gt; among visible minorities as mayor.&lt;/p&gt;
+&lt;p&gt;The &lt;a href=&#34;http://lispop.ca&#34;&gt;Laurier Institute for the Study of Public Opinion and Policy&lt;/a&gt; conducted a survey of Ontario voters in the last 10 days of the election campaign and asked a few questions about their views on refugees and immigration. Here they are broken down by 2018 vote intention.&lt;/p&gt;
+&lt;p&gt;Here are is the distributon of responses for each question on immigration that we asked, broken out by reported vote in the Ontario election. Note, here, I’ve rescaled each resopnse to range from 0 to 1, with 1 being a pro-immigration response.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-06-ford-immigration_files/figure-html/plot-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;
+It definitely looks like people who voted for the PCs have concerns about immigration and refugees, more so than voters for other parties.&lt;/p&gt;
+&lt;p&gt;One interesting question is whether this varies substantially by region. I’ve talked to some involved in the election who suggest that this issue was particularly salient in south-western Ontario.&lt;/p&gt;
+&lt;p&gt;Moreover, given that we know that &lt;em&gt;Rob&lt;/em&gt; Ford attracted substantial support from visible minorities in the city of toronto, it would be interesting to see regional variations there.&lt;/p&gt;
+&lt;p&gt;To simplify the plot, I took the average of each person’s responses to all the immigration questions and filtered out the Greens.
+&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-06-ford-immigration_files/figure-html/plot-region-immigration-vote-1.png&#34; width=&#34;480&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;These data don’t really support the notion that anti-immigration sentiment was concentrated in the southwest, in particular. There was, however, a notable drop amongst PC voters in central and Eastern Ontario, which fits with the notion that rural voters tend to socially conservative views.&lt;/p&gt;
+&lt;p&gt;Additionally, PC voters in the 416 (Toronto) did have views on immigration that were close to, although not at, the average level of the other parties throughout Ontario.&lt;/p&gt;
+&lt;p&gt;Lastly, it is worthwhile pointing out that Liberal voters had the most pro-immigration views, the PCs had the least and the NDP straddled the middle. This fits with a general understanding of the NDP as struggling to balance between two types of egalitarians, higher educated, middle class egalitarians, and working class egalitarians with lower levels of education.&lt;/p&gt;
+&lt;p&gt;In a future post, I will look at whether the Ontario PCs were able to also capture support from visible minorities (perhaps only in Toronto) in the ways that Rob Ford was able to.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>What Media Are Ontario Voters Consuming?</title>
+      <link>https://sjkiss.github.io/post/ontario-voters-media-consumption/</link>
+      <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/ontario-voters-media-consumption/</guid>
+      <description>
+
+
+&lt;p&gt;A friend was wondering whether or not The Toronto Star or the Toronto Sun newspapers reached more New Democrats. So I decided to take a look at the data in our Ontario Provincial Election Study, conducted by the &lt;a href=&#34;http://www.lispop.ca&#34;&gt;Laurier Institute for the Study of Public Opinion and Policy&lt;/a&gt;. Here are the raw results broken out by 2018 vote. The specific question respondets were asked in our online panel survey was whether they read any particular news outlet daily.&lt;/p&gt;
+&lt;p&gt;It looks to me, based on this, that the Toronto Sun actually gets more New Democrats than does the Toronto Star. Now, If you combined the Star with other Metro papers (such as teh Waterloo Record) then MetroLand would probably come out on top. But, we also did not include the Ottawa Sun as an option, so, who knows.
+But at least for the Toronto market, The Sun seems to have taken it. More Liberal and NDP voters reported reading it than the Star and the Star and the Sun were split down the middle for PC voters.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-07-18-media-consumption_files/figure-html/make-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Ontario General Election Twitter Verse</title>
+      <link>https://sjkiss.github.io/post/election-twitter/</link>
+      <pubDate>Thu, 07 Jun 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/election-twitter/</guid>
+      <description>
+
+
+&lt;p&gt;A lot of people will be watching the results of the Ontario general election tonight, me among them. While most people will be poring over exit polls and vote intention polls, I took the liberty of scraping a lot of tweets to the main Ontario election hashtags.&lt;/p&gt;
+&lt;p&gt;I took all the tweets that contained the words #onpoli, #onelxn or anty the user names for each of the party leaders and the three major political parties.&lt;/p&gt;
+&lt;p&gt;In the end, I got just over 1.3 million tweets between May 2nd, 2018 and June 6, 2018.&lt;/p&gt;
+&lt;p&gt;There are a few quick things we can look at. For example, here are the number of tweets by day. The spike you see is the day of the debate.&lt;/p&gt;
+&lt;p&gt;Here, for example, are the number of tweets by day.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweets %&amp;gt;% 
+  count(date) %&amp;gt;% 
+  ggplot(., aes(x=date, y=n))+geom_point()+labs(title=&amp;#39;Number of Tweets to Ontario Election Hashtags&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/ntweets-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And here are the top 10 positive and negative terms, using &lt;a href=&#34;https://www.cs.uic.edu/~liub/FBS/sentiment-analysis.html&#34;&gt;Prof. Bing Liu’s&lt;/a&gt; dictionary of positive and negative terms.&lt;/p&gt;
+&lt;p&gt;This had to be refined a bit (as is usually the case). For example, the original sentiment dictionary included &lt;code&gt;issue&lt;/code&gt; and &lt;code&gt;issues&lt;/code&gt; as negative terms, probably in the sense of, “That person has some issues to deal with.” But this doesn’t make a lot of sense in an election campaign, where it probably actually is more of a positive word, “Let’s just stick to the issues.”&lt;/p&gt;
+&lt;p&gt;The dictionary also includes conservative as a negative word, which would not be accurate in an election campaign featuring a conservative party.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/positive-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;And here are the most frequently mentioned negative words.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweets %&amp;gt;% 
+  inner_join(., bing) %&amp;gt;% 
+  anti_join(., remove_words) %&amp;gt;% 
+  count(date2, sentiment, word) %&amp;gt;% 
+  group_by(sentiment, date2) %&amp;gt;% 
+  top_n(10) %&amp;gt;% 
+  filter(sentiment==&amp;#39;negative&amp;#39;) %&amp;gt;% 
+  ggplot(., aes(x=date2, y=n))+geom_col()+facet_wrap(~word)+scale_x_date(labels=date_format(&amp;#39;%m-%d&amp;#39;), date_breaks=&amp;#39;3 days&amp;#39;)+theme(axis.text.x=element_text(angle=90, hjust=1))+labs(title=&amp;#39;Most Frequent Negative Terms, Ontario Hashtags&amp;#39;, x=&amp;#39;Date&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-07-election-twitter_files/figure-html/negative-words-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So, there you have it, the most commonly used positive negative words seem to be a combination of “free”, “affordable” on the one side and “bad”, “debt” and “trump”.&lt;/p&gt;
+&lt;p&gt;At some level, it makes a lot of sense. The left is arguing for free and cheap stuff, and the right is warning about the costs of too much government.&lt;/p&gt;
+&lt;p&gt;Using another sentiment dictionary, one of the most commonly used words was “beer”. So, there you have it. Ontario 2018 boils down to free, affordable stuff like beer racked up on debt charges while people are worried about some guy named Trump.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Economic Stress, Populism and FordNation</title>
+      <link>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</link>
+      <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;https://sjkiss.github.io/post/populism-race-and-ford-nation/&#34;&gt;Yesterday&lt;/a&gt;, I showed some data that showed that Rob Ford was very popular among visible minorities, which cast some doubt on the narrative that right-wing populism always thrives on xenophobia. Usually, scholars and commentators divide explanations for support for populism into an economics and values dichotomy. The economic story usually emphasizes the role that stagnating wages or an eroded welfare state play in generating frustration, anger or anxiety at the loss of class standing that leads to populism. The values story usually emphasizes the role that immigration plays in either undermining national identities, or overwhelming the welfare state or providing a convenient scapegoat.&lt;/p&gt;
+&lt;p&gt;John Ibbitson and Darrell Bricker put summarize the values story and evidence pretty usefully &lt;a href=&#34;https://www.theglobeandmail.com/opinion/what-is-driving-populism-it-isnt-the-economy-stupid/article37899813/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Frank Graves represents the economic story here (and the corresponding thread is really useful as well).&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Call me old fashioned but I like my causes to preceed the effect. Are we really arguing that people became more economically insecure because of rising  racism and nativism ?  Tumours don&amp;#39;t cause cancer; they are an expression of antecedant causal factors &lt;a href=&#34;https://t.co/0QN2t5FlJe&#34;&gt;https://t.co/0QN2t5FlJe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Frank Graves (@VoiceOfFranky) &lt;a href=&#34;https://twitter.com/VoiceOfFranky/status/963259049184722944?ref_src=twsrc%5Etfw&#34;&gt;February 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Given the support that Rob Ford found amoung visible minorities, it is hard to be convinced that anti-immigration attitudes was an important driver of his support, although this is not decisive, to be sure. It’s possible, just unlikely, in my view, that non-white Torontonians take a hard position on immigration.&lt;/p&gt;
+&lt;p&gt;But we did ask a survey question that tried to measure respondent’s personal financial situation. Namely, we asked respondents strongly agree or strongly disagree with the statement that $50 a month would make a big difference.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, agreeing that $50 per month would make a big difference is clearly related to income, but not entirely. Amazingly, 25% of people earning $200 to $250,000 a year agree that an extra $50 would make a big difference. For people earning between $100 and $200,00 per year, anywhere from 25% to 40% of people agree.&lt;/p&gt;
+&lt;p&gt;When we correlate this with support for Mayor Ford (remembering again, this was taken in 2014, so at the depths of his unpopularity, in teh context of a provincial general election exit poll), there is a clear relationship.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;When we combine both economic stress and visible minority status, controlling for each other, both seem to matter independently (Model 1). When we put an interaction term, in it also seems to matter. This means that stress and matters &lt;em&gt;slightly&lt;/em&gt; differently for visible minority respondents than for others.&lt;/p&gt;
+&lt;table style=&#34;text-align:center&#34;&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34;&gt;
+&lt;em&gt;Dependent variable:&lt;/em&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34;&gt;
+Support For Mayor Rob Ford
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Model 1
+&lt;/td&gt;
+&lt;td&gt;
+Model 2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(1)
+&lt;/td&gt;
+&lt;td&gt;
+(2)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Stress
+&lt;/td&gt;
+&lt;td&gt;
+0.236&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.266&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.033)
+&lt;/td&gt;
+&lt;td&gt;
+(0.037)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Visible Minority Status
+&lt;/td&gt;
+&lt;td&gt;
+0.154&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.252&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.031)
+&lt;/td&gt;
+&lt;td&gt;
+(0.059)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Stress*Visible Minority Status
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+-0.169&lt;sup&gt;*&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.087)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Constant
+&lt;/td&gt;
+&lt;td&gt;
+0.181&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.166&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.020)
+&lt;/td&gt;
+&lt;td&gt;
+(0.022)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Observations
+&lt;/td&gt;
+&lt;td&gt;
+1,487
+&lt;/td&gt;
+&lt;td&gt;
+1,487
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Log Likelihood
+&lt;/td&gt;
+&lt;td&gt;
+-941.572
+&lt;/td&gt;
+&lt;td&gt;
+-939.667
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Akaike Inf. Crit.
+&lt;/td&gt;
+&lt;td&gt;
+1,889.143
+&lt;/td&gt;
+&lt;td&gt;
+1,887.335
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;em&gt;Note:&lt;/em&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34; style=&#34;text-align:right&#34;&gt;
+&lt;sup&gt;&lt;em&gt;&lt;/sup&gt;p&amp;lt;0.1; &lt;sup&gt;&lt;strong&gt;&lt;/sup&gt;p&amp;lt;0.05; &lt;sup&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/sup&gt;p&amp;lt;0.01
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;We can visualize this in the graph below which shows the predicted probability of approving of Mayor Ford by economic stress and visible minority status. For both sets of respondents, stress leads to greater support for Ford, but the slope is a little weaker for visible minority respondents. Note also that, overall, the line for visible minority respondents is higher than for others meaning that independent of stress, there’s more general support there.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;These data are insightful for a number of reasons. First, most literature on economic voting usually asks respondents to rate how they think the economy has performed in the last year or so, or how the economy has affected them in the past year or so. When asking these questions, and controlling for views on immigration, most scholarly literature on populism shows that the economic views do not seem to matter. But our survey questions really tried to tap into the scholarly literature on populism by emphasizing the personal financial situation &lt;em&gt;right now&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Moreover, we didn’t ask &lt;em&gt;why&lt;/em&gt; an extra $50 per month mattered or not, we just asked whether it did or not. By asking in this way, we divorce respondent’s feelings about their economic standing from government policy. Even if the economy improves in the sense that it creates more jobs, it might be the case that people feel they need an extra $50 because they are locked in a status competition with their neighbours. More importantly, in our case, even controlling for one of our best measures of anti-immigrant sentiment (visible minority status), economic stress seems to matter in generating support for a right-wing populist. Although this plays out slightly differently (more weakly) for visible minority respondents, it matters for both.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Populism, Race and Ford Nation</title>
+      <link>https://sjkiss.github.io/post/populism-race-and-ford-nation/</link>
+      <pubDate>Mon, 12 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/populism-race-and-ford-nation/</guid>
+      <description>
+
+
+&lt;p&gt;Ontario politics got a lot more interesting on the weekend. It’s timely for myself and another colleague as we are preparing to finally (finally!) share some data that we collected during the 2014 provincial election.&lt;/p&gt;
+&lt;p&gt;At the time, I and others were a little mystified at the strategy the Ontario NDP was pursuing (opposing road tolls for public transit initiatives, being hostile to minimum wage increases). It felt like the NDP was trying to capture a little bit of Rob Ford’s support that had propelled him to the mayoralty in 2010.&lt;/p&gt;
+&lt;p&gt;We included a question on Ipsos-Reid’s 2014 election poll that asked about respondent’s approval of Rob Ford and a few other qeustions. The results were interesting and we will be presenting them at the Midwest Political Science ASsociation meeting in April and the Canadian Political Science Association in Regina in June.&lt;/p&gt;
+&lt;p&gt;There is a lot to digest in our results, but one of the most interesting findings bears on the queestion of the role of race and ethnicity in support for Rob (and possibly for his brother Doug) Ford.&lt;/p&gt;
+&lt;p&gt;A few commentators have quite quickly branded both as Canadian incarnations of Trump-style populism that offers a strong dose of xenophobia.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;1. Guys, you remember Rob Ford? The Toronto mayor who was caught on tape smoking a crack pipe? The guy who constantly made sexist, racist &amp;amp; homophobic remarks? His brother, a much worse character, is now head of Ontario Conservative Party. &lt;a href=&#34;https://t.co/FrPoWmDV02&#34;&gt;https://t.co/FrPoWmDV02&lt;/a&gt;&lt;/p&gt;&amp;mdash; Jeet Heer (@HeerJeet) &lt;a href=&#34;https://twitter.com/HeerJeet/status/972600796272455680?ref_src=twsrc%5Etfw&#34;&gt;March 10, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;We disagree. If you look at Rob Ford’s record, and I think Doug’s as well, they have been careful &lt;em&gt;not&lt;/em&gt; to cater to anti-immigrant sentiment and xenophobia in their political careers. After all, how could they: famously, one half of the population of Toronto is foreign born. You’re not going to win many elections that way.&lt;/p&gt;
+&lt;p&gt;A note: the following poll results come from Ipsos’ 2014 Ontario Election Exit Survey. In that survey, only residents of the City of Toronto were asked about whether they approved or disapproved of Mayor Rob Ford. Obviously, these data do not shed light on who &lt;em&gt;voted&lt;/em&gt; for Ford in 2010; but they do shed light on who made up Rob Ford’s most hard-core coalition. These data were gathered after &lt;em&gt;everything&lt;/em&gt; had come out: the crack smoking, the lewd comments about his wife, the conflict of interest charges, the stuff about the football team, evertyhing.&lt;/p&gt;
+&lt;p&gt;You can see, respondents who reported visible minority status were split 50-50 on whether Rob Ford was doing a good job, while othe respondents overwhelmingly thought Ford was doing a terrible job.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;I do not have an answer for why Rob Ford was not as unpopular among visible minorities as he was amongst white people. Our dataset does show that visible minorities who approved of Rob Ford were, on average, more religious than others.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;&lt;span id=&#34;fig:plot2&#34;&gt;&lt;/span&gt;
+&lt;img src=&#34;https://sjkiss.github.io/post/2018-06-08-populism-race-ford-nation_files/figure-html/plot2-1.png&#34; alt=&#34;Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.&#34; width=&#34;672&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;
+Figure 1: Religiosity here is a variable scaled from 0 to 1 taken from a few survey questions asking about whether the respondent believed their holy book was the literal word of God, how many times they went to church, mosque or temple, etc.
+&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;These data don’t really make sense given Rob Ford’s proclivities to engage in substance abuse and make lewd comments about women, but then again, neither did President Trump’s appeal to social conservatives given his, um, liberal lifestyle. But it does perhaps start to shed some light about why alliances between the avowed social conservative candidate and her supporters in the Ontario leadership race drifted to Doug Ford and not to other candidates.&lt;/p&gt;
+&lt;div class=&#34;figure&#34;&gt;
+&lt;img src=&#34;https://sjkiss.github.io/img/point_flow.jpg&#34; alt=&#34;Point flow chart courtesy of Paul Fairie (@paulisci)&#34; /&gt;
+&lt;p class=&#34;caption&#34;&gt;Point flow chart courtesy of Paul Fairie (&lt;span class=&#34;citation&#34;&gt;@paulisci&lt;/span&gt;)&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There will be more to come on this, I’m sure. But the real lesson here is that Rob Ford built a coalition of right-wing authoritarian populism with significant support from visible minorities.&lt;/p&gt;
+</description>
     </item>
     
     <item>

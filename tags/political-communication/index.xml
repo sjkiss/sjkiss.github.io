@@ -29,6 +29,335 @@
     </item>
     
     <item>
+      <title>Economic Stress, Populism and FordNation</title>
+      <link>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</link>
+      <pubDate>Tue, 13 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/economic-stress-populism-and-fordnation/</guid>
+      <description>
+
+
+&lt;p&gt;&lt;a href=&#34;https://sjkiss.github.io/post/populism-race-and-ford-nation/&#34;&gt;Yesterday&lt;/a&gt;, I showed some data that showed that Rob Ford was very popular among visible minorities, which cast some doubt on the narrative that right-wing populism always thrives on xenophobia. Usually, scholars and commentators divide explanations for support for populism into an economics and values dichotomy. The economic story usually emphasizes the role that stagnating wages or an eroded welfare state play in generating frustration, anger or anxiety at the loss of class standing that leads to populism. The values story usually emphasizes the role that immigration plays in either undermining national identities, or overwhelming the welfare state or providing a convenient scapegoat.&lt;/p&gt;
+&lt;p&gt;John Ibbitson and Darrell Bricker put summarize the values story and evidence pretty usefully &lt;a href=&#34;https://www.theglobeandmail.com/opinion/what-is-driving-populism-it-isnt-the-economy-stupid/article37899813/&#34;&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Frank Graves represents the economic story here (and the corresponding thread is really useful as well).&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Call me old fashioned but I like my causes to preceed the effect. Are we really arguing that people became more economically insecure because of rising  racism and nativism ?  Tumours don&amp;#39;t cause cancer; they are an expression of antecedant causal factors &lt;a href=&#34;https://t.co/0QN2t5FlJe&#34;&gt;https://t.co/0QN2t5FlJe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Frank Graves (@VoiceOfFranky) &lt;a href=&#34;https://twitter.com/VoiceOfFranky/status/963259049184722944?ref_src=twsrc%5Etfw&#34;&gt;February 13, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;Given the support that Rob Ford found amoung visible minorities, it is hard to be convinced that anti-immigration attitudes was an important driver of his support, although this is not decisive, to be sure. It’s possible, just unlikely, in my view, that non-white Torontonians take a hard position on immigration.&lt;/p&gt;
+&lt;p&gt;But we did ask a survey question that tried to measure respondent’s personal financial situation. Namely, we asked respondents strongly agree or strongly disagree with the statement that $50 a month would make a big difference.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-1-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;Clearly, agreeing that $50 per month would make a big difference is clearly related to income, but not entirely. Amazingly, 25% of people earning $200 to $250,000 a year agree that an extra $50 would make a big difference. For people earning between $100 and $200,00 per year, anywhere from 25% to 40% of people agree.&lt;/p&gt;
+&lt;p&gt;When we correlate this with support for Mayor Ford (remembering again, this was taken in 2014, so at the depths of his unpopularity, in teh context of a provincial general election exit poll), there is a clear relationship.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/unnamed-chunk-2-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;When we combine both economic stress and visible minority status, controlling for each other, both seem to matter independently (Model 1). When we put an interaction term, in it also seems to matter. This means that stress and matters &lt;em&gt;slightly&lt;/em&gt; differently for visible minority respondents than for others.&lt;/p&gt;
+&lt;table style=&#34;text-align:center&#34;&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34;&gt;
+&lt;em&gt;Dependent variable:&lt;/em&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34;&gt;
+Support For Mayor Rob Ford
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+Model 1
+&lt;/td&gt;
+&lt;td&gt;
+Model 2
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(1)
+&lt;/td&gt;
+&lt;td&gt;
+(2)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Stress
+&lt;/td&gt;
+&lt;td&gt;
+0.236&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.266&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.033)
+&lt;/td&gt;
+&lt;td&gt;
+(0.037)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Visible Minority Status
+&lt;/td&gt;
+&lt;td&gt;
+0.154&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.252&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.031)
+&lt;/td&gt;
+&lt;td&gt;
+(0.059)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Stress*Visible Minority Status
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+-0.169&lt;sup&gt;*&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.087)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Constant
+&lt;/td&gt;
+&lt;td&gt;
+0.181&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;td&gt;
+0.166&lt;sup&gt;***&lt;/sup&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+(0.020)
+&lt;/td&gt;
+&lt;td&gt;
+(0.022)
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;td&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Observations
+&lt;/td&gt;
+&lt;td&gt;
+1,487
+&lt;/td&gt;
+&lt;td&gt;
+1,487
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Log Likelihood
+&lt;/td&gt;
+&lt;td&gt;
+-941.572
+&lt;/td&gt;
+&lt;td&gt;
+-939.667
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+Akaike Inf. Crit.
+&lt;/td&gt;
+&lt;td&gt;
+1,889.143
+&lt;/td&gt;
+&lt;td&gt;
+1,887.335
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&#34;3&#34; style=&#34;border-bottom: 1px solid black&#34;&gt;
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left&#34;&gt;
+&lt;em&gt;Note:&lt;/em&gt;
+&lt;/td&gt;
+&lt;td colspan=&#34;2&#34; style=&#34;text-align:right&#34;&gt;
+&lt;sup&gt;&lt;em&gt;&lt;/sup&gt;p&amp;lt;0.1; &lt;sup&gt;&lt;strong&gt;&lt;/sup&gt;p&amp;lt;0.05; &lt;sup&gt;&lt;/strong&gt;&lt;/em&gt;&lt;/sup&gt;p&amp;lt;0.01
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;We can visualize this in the graph below which shows the predicted probability of approving of Mayor Ford by economic stress and visible minority status. For both sets of respondents, stress leads to greater support for Ford, but the slope is a little weaker for visible minority respondents. Note also that, overall, the line for visible minority respondents is higher than for others meaning that independent of stress, there’s more general support there.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-13-economic-stress-populism-and-fordnation_files/figure-html/predicteds-plot-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;These data are insightful for a number of reasons. First, most literature on economic voting usually asks respondents to rate how they think the economy has performed in the last year or so, or how the economy has affected them in the past year or so. When asking these questions, and controlling for views on immigration, most scholarly literature on populism shows that the economic views do not seem to matter. But our survey questions really tried to tap into the scholarly literature on populism by emphasizing the personal financial situation &lt;em&gt;right now&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;Moreover, we didn’t ask &lt;em&gt;why&lt;/em&gt; an extra $50 per month mattered or not, we just asked whether it did or not. By asking in this way, we divorce respondent’s feelings about their economic standing from government policy. Even if the economy improves in the sense that it creates more jobs, it might be the case that people feel they need an extra $50 because they are locked in a status competition with their neighbours. More importantly, in our case, even controlling for one of our best measures of anti-immigrant sentiment (visible minority status), economic stress seems to matter in generating support for a right-wing populist. Although this plays out slightly differently (more weakly) for visible minority respondents, it matters for both.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The Ontario Progressive Conservative Party Leadership Race On Twitter</title>
+      <link>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</link>
+      <pubDate>Fri, 02 Mar 2018 00:00:00 +0000</pubDate>
+      <guid>https://sjkiss.github.io/post/2018-03-09-pc-twitter/</guid>
+      <description>
+
+
+&lt;p&gt;The Ontario Progressive Conservative Party is putting on quite a show these days. As a side project, a colleague and I decided to capture the tweets to the dominant hashtags &lt;code&gt;#pcpo&lt;/code&gt; and &lt;code&gt;#pcpoldr&lt;/code&gt;, for history’s sake. Neither of us are experts at sentiment analysis; but we have done a little bit and this is just too juicy.&lt;/p&gt;
+&lt;p&gt;One note: I made a first stab at getting tweets using the &lt;a href=&#34;https://cran.r-project.org/web/packages/twitteR/index.html&#34;&gt;twitteR&lt;/a&gt; package; but this proved to be less than optimal because it does not download full tweets with more than 140 characters. so then I switched to the &lt;a href=&#34;https://cran.r-project.org/web/packages/rtweet/vignettes/intro.html&#34;&gt;rtweet&lt;/a&gt; package which, honestly, looks like a substantial improvement.&lt;/p&gt;
+&lt;p&gt;After some fiddling getting my access tokens set up; one command was enough to get the tweets from the Sunday, February, 18th to today. Going forward, I’ll add to these.&lt;/p&gt;
+&lt;p&gt;Here’s how you grab all the hashtags from &lt;code&gt;#pcpoldr&lt;/code&gt; or &lt;code&gt;#pcpo&lt;/code&gt;. If you ask for more than 18000 tweets, you have to set &lt;code&gt;retryonratelimit&lt;/code&gt; to &lt;code&gt;TRUE&lt;/code&gt;. This takes a while to run, so I’m not executing this.&lt;/p&gt;
+&lt;p&gt;You can also work with the results of search_tweets function right away. However, because I’m downloading tweets every couple of days, I prefer to save them as a CSV file, redo the search in a day or two and read everything in and combine them. Here’s how I did that.&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;save_as_csv&lt;/code&gt; command is a nice command that produces two separate but paired CSV files. One has each tweet and data associated with it (e.g. the date created, the text, whether it’s a retweet) and the other has the user data of the person who generated the tweet (e.g. screen name, follower count, etc.)&lt;/p&gt;
+&lt;p&gt;Note that I’m saving these in a subfolder of my working directory and I’m giving naming the saved files with the date and time stamp of the most recent tweet. That way I’ll know where the file stops.&lt;/p&gt;
+&lt;p&gt;After I’ve conducted the search a couple of times, I’m ready to read in all the files and combine them.&lt;/p&gt;
+&lt;p&gt;First, I list the files that are in the Rtweets subfolder.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;##  [1] &amp;quot;Rtweets/2018-02-28-tweets.csv&amp;quot;         
+##  [2] &amp;quot;Rtweets/2018-02-28-users.csv&amp;quot;          
+##  [3] &amp;quot;Rtweets/2018-03-02 17-50-09.users.csv&amp;quot; 
+##  [4] &amp;quot;Rtweets/2018-03-02-17-50-09.tweets.csv&amp;quot;
+##  [5] &amp;quot;Rtweets/2018-03-09 17-19-49.tweets.csv&amp;quot;
+##  [6] &amp;quot;Rtweets/2018-03-09 17-19-49.users.csv&amp;quot; 
+##  [7] &amp;quot;Rtweets/2018-03-09 17-59-39.tweets.csv&amp;quot;
+##  [8] &amp;quot;Rtweets/2018-03-09 17-59-39.users.csv&amp;quot; 
+##  [9] &amp;quot;Rtweets/2018-03-11 16-59-42.tweets.csv&amp;quot;
+## [10] &amp;quot;Rtweets/2018-03-11 16-59-42.users.csv&amp;quot; 
+## [11] &amp;quot;Rtweets/2018-03-12 16-59-38.tweets.csv&amp;quot;
+## [12] &amp;quot;Rtweets/2018-03-12 16-59-38.users.csv&amp;quot; 
+## [13] &amp;quot;Rtweets/2018-03-20 23-55-04.tweets.csv&amp;quot;
+## [14] &amp;quot;Rtweets/2018-03-20 23-55-04.users.csv&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then, I read each file in and bind them together.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#read libraries
+library(readr)
+library(dplyr)
+
+#Read in files
+tweets&amp;lt;-lapply(files[grep(&amp;#39;tweets.csv&amp;#39;, files)], read_csv) %&amp;gt;% 
+  bind_rows()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Part of what is returned is a variable &lt;code&gt;created_at&lt;/code&gt;. We just need to turn it into a datetime variable and round it to the hour to plot it hourly.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#load lubridate library
+library(lubridate)
+#Format date variable
+tweets$Date&amp;lt;-ymd_hms(tweets$created_at, tz=&amp;#39;UTC&amp;#39;)
+#Round to the hour
+tweets$Date&amp;lt;-round_date(tweets$Date, &amp;#39;hour&amp;#39;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Then I group the tweets by date, count how many there are and plot the counts.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tweets %&amp;gt;% 
+  group_by(Date) %&amp;gt;% 
+  summarize(freq=n()) %&amp;gt;% 
+ggplot(., aes(x=Date, y=freq))+geom_line()+
+  scale_x_datetime(date_breaks=&amp;#39;1 days&amp;#39;,date_minor_breaks=&amp;#39;6 hours&amp;#39;, date_labels=&amp;#39;%m %d %H&amp;#39;, timezone=&amp;#39;EST&amp;#39;)+
+  theme(axis.text.x = element_text(angle=90))+ylim(c(0,500))&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/post/2018-03-09-pc-twitter_files/figure-html/plot-1.png&#34; width=&#34;672&#34; style=&#34;display: block; margin: auto;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;So obviously things were pretty steady and cyclical on a daily basis through the first days of the leadership race until February 26th, when Patrick Brown withdrew after resigning and then reentering the race. For anyone reading this who is not from Canada, yeah, it’s been pretty wild. Best just to read the Wikipedia &lt;a href=&#34;https://en.wikipedia.org/wiki/Progressive_Conservative_Party_of_Ontario_leadership_election,_2018&#34;&gt;entry&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;There are a few things that are interesting here to me though beyond that.&lt;/p&gt;
+&lt;p&gt;First, it looks to me like the Twitter conversation about a leadership race has a daily news cycle to it, with one peak every day. However, every day has a different peak. Sometimes it’s early morning, sometimes it’s late at night. I had sort of thought that there might be a little more regularity in this, that you might see people going online and posting something routinely, like just before htey left home from work or just after supper or on their lunch break. But this seems like people go on to twitter as events warrant, once a day.&lt;/p&gt;
+&lt;p&gt;The other thing to notice is that the biggest peak was during the debate on March 1st. A little more analysis will tell us what drove that peak; i.e. was it partisans promoting their candidates? Journalists weighing in? Or god forbid regular people talking to other regular people? So the debate actually garnered more twitter activity than the bombshell of brown’s resignation; and so did the post-debate activity on March 2nd.&lt;/p&gt;
+&lt;p&gt;One other quick thing we can do is to find who the most frequent tweeters are on the hashtags.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 20 x 2
+##    screen_name         n
+##    &amp;lt;chr&amp;gt;           &amp;lt;int&amp;gt;
+##  1 5BobbyArmstrong  1426
+##  2 KrankyKanuck     1037
+##  3 AORRHLiberals     765
+##  4 PCPONewsWatch     734
+##  5 AwuniAlbGene      727
+##  6 EdFlint2          654
+##  7 Madhattersdes     622
+##  8 pqpolitics        596
+##  9 dneilmckay        591
+## 10 nrbruns           550
+## 11 WaldingerTrudy    525
+## 12 dennisfurlan      494
+## 13 LyndaE222         480
+## 14 MuskokaMoneybag   455
+## 15 geoff_bernz       433
+## 16 BobBaileyPC       412
+## 17 Uranowski         409
+## 18 happylou12        389
+## 19 TGranicAllen      388
+## 20 mdr1607           361&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;My favourite is probably MuskokaMoneybag. Classy. Of course it’s moderately interesting that Tanya Allen is the only leadership contender to appear in the Top 20. There might be something to be said about Twitter being a crucial resource for the outsider candidate.&lt;/p&gt;
+&lt;p&gt;I’ll be playing around with this in the next few weeks.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Political Communication And Public Opinion</title>
       <link>https://sjkiss.github.io/project/political-communication/</link>
       <pubDate>Fri, 09 Feb 2018 11:00:55 -0500</pubDate>
