@@ -21,6 +21,137 @@
     </item>
     
     <item>
+      <title>Automated Academic</title>
+      <link>https://sjkiss.github.io/post/automatic_academic/automated_academic/</link>
+      <pubDate>Wed, 27 Mar 2024 08:50:43 -0400</pubDate>
+      <guid>https://sjkiss.github.io/post/automatic_academic/automated_academic/</guid>
+      <description>&lt;p&gt;I am by no means a coder by nature or training. Yet, I enjoy screwing around with computers, particularly to try to automate mundane tasks. As an academic, we are expected to track &lt;em&gt;everything&lt;/em&gt; we do, although to be honest, it seems like Canada is a bit behind places like the UK. One of the most frustrating parts of this is that everything you apply for (e.g. grants, promotions, annual reports) all have different reporting requirements.&lt;/p&gt;
+&lt;p&gt;It has always seemed to me to be a challenge that I could try to automate some of this to make my life easier. In the end, honestly, as probably an academic with a proclivity for coding greater than average but less than professional, this process has probably cost me more time than it has saved me. On the other hand, I have had a perverse amount of fun.&lt;/p&gt;
+&lt;p&gt;I would like to share with you my basic set up of how to manage your CV and academic work to maximize the range of accountability outputs you are expected to produce and minimize your times.&lt;/p&gt;
+&lt;h2 id=&#34;the-tools&#34;&gt;The Tools&lt;/h2&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.latex-project.org/get/#google_vignette&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Latex&lt;/a&gt; This is an open source type-setting software that is most commonly used in the natural sciences. I like it because it produces unfailingly beautiful documents. It also has outstanding citation management features because of its roots in the scientific world which is why it is here! It can be complicated to write in, but I think you&amp;rsquo;re going to see some real merits in this use case.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;
+&lt;a href=&#34;https://www.zotero.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Zotero&lt;/a&gt; This is free and open source citation management software for PC and Macs. I use it for &lt;em&gt;everything&lt;/em&gt; and it is &lt;em&gt;great&lt;/em&gt;. It has a very 
+&lt;a href=&#34;https://forums.zotero.org/discussions&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;vibrant forum&lt;/a&gt; which is responsive.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Add the 
+&lt;a href=&#34;https://chromewebstore.google.com/detail/zotero-connector/ekhagklcjbdpajgpjgmbionohlpdbjgc?pli=1&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Zotero Connector&lt;/a&gt; to Chrome. This will allow you to often grab entries in Google Scholar or Google Books (e.g. like your publications!) and you can quickly add them to Zotero.&lt;/li&gt;
+&lt;li&gt;Supercharge Zotero with the 
+&lt;a href=&#34;https://retorque.re/zotero-better-bibtex/installation/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Better Bibtex plugin&lt;/a&gt;. It&amp;rsquo;s very easy to install within Zotero, is necessary for this workflow to work and makes Zotero work with LaTeX very nicely.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;the-strategy&#34;&gt;The strategy&lt;/h1&gt;
+&lt;p&gt;The basic game plan is to use Zotero to organize everything you do in your academic life. This is quite easy because it is point-and-click, you can duplicate items (repeat course offerings) and you can grab publications from Google Scholar (e.g. things you have published) quite quickly. Then, you&amp;rsquo;re going to export each collection to a separate &lt;code&gt;.bib&lt;/code&gt; file, which is a bibliography file for LaTex files.  Then, we&amp;rsquo;re going to use LaTeX to build one single dossier, chunk by chunk, grabbing all the courses, publications, media interviews, teaching philosophy, cover letter into &lt;em&gt;one file&lt;/em&gt;.&lt;/p&gt;
+&lt;h1 id=&#34;the-setup&#34;&gt;The setup&lt;/h1&gt;
+&lt;h2 id=&#34;your-outputs&#34;&gt;Your outputs&lt;/h2&gt;
+&lt;p&gt;In Zotero, you can set up collections, via &lt;code&gt;File &amp;gt; New Collections&lt;/code&gt;. I can&amp;rsquo;t stress this enough: do so for each type of activity that you do in your academic life and do not be shy about breaking them out. For example, set up a collection for:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Journal articles&lt;/li&gt;
+&lt;li&gt;Classes you have taught&lt;/li&gt;
+&lt;li&gt;Lectures you have given&lt;/li&gt;
+&lt;li&gt;Grants you have applied for or reviewed&lt;/li&gt;
+&lt;li&gt;Reviews you have done (peer reviews, grants)&lt;/li&gt;
+&lt;li&gt;Media interviews you have provided.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Populate your collections with everything you have done by making items: &lt;code&gt;File &amp;gt; New Item&lt;/code&gt; ! Tips to make things go quickly include:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;duplicate items (e.g. repeat course offerings.) &lt;code&gt;right-click &amp;gt; Duplicate Item&lt;/code&gt; then just change the date&lt;/li&gt;
+&lt;li&gt;Use the Zotero connector extension in Chrome to grab your publications from Google Scholar or any other database.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At the end, your collections should look a bit like this. Note that naming your collections with the same starting phrase (e.g. cv_articles, cv_chapters, cv_courses) is just a hack in order to be sure that your collections are in the same spot in the collection menu. It will save time finding what you need.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/content/post/automatic_academic/images/collections.png&#34; alt=&#34;Examples of Zotero collections&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;item-types&#34;&gt;Item types&lt;/h3&gt;
+&lt;p&gt;When you create an item in your collection, you have to set its &lt;em&gt;type&lt;/em&gt;. This is somewhat important. Easy categories here include book, journalarticle, report, etc. These correspond &lt;em&gt;roughly&lt;/em&gt; to &lt;code&gt;entry types&lt;/code&gt; in &lt;code&gt;biblatex&lt;/code&gt; which is the bibliographic companion to LaTeX.  Many of your outputs types are self-evident (e.g. journal articles), others are less so (e.g. courses or grants) and to be honest this is where Zotero falls down &lt;em&gt;a little bit&lt;/em&gt;. If things are unclear, usually the &lt;code&gt;document&lt;/code&gt; or the &lt;code&gt;manuscript&lt;/code&gt; type will work just fine.  The problem is that LaTeX formats these types in certain way for bibliographic software, but we are hacking the program a little bit. For example, &lt;code&gt;biblatex&lt;/code&gt; has no &lt;code&gt;entry type&lt;/code&gt; for a grant. And obviously the grant amount is a kind of important thing in your CV. My hack for this is just to make a basic &lt;code&gt;manuscript&lt;/code&gt; item for each grant and just write the title so it shows up in the output nicely in the end. You will see, this part will go quickly.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/content/post/automatic_academic/images/item_types.png&#34; alt=&#34;Examples of Item Types&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;tags&#34;&gt;Tags&lt;/h2&gt;
+&lt;p&gt;Another really nice feature of Zotero is that you can add &lt;code&gt;tags&lt;/code&gt; very quickly to your items. This allows for filtering of items in Zotero, but it also turns those tags into &lt;code&gt;keywords&lt;/code&gt; in the &lt;code&gt;bib&lt;/code&gt; file that we&amp;rsquo;re going to create and that&amp;rsquo;s going to come in super handy when we produce documents for the overlords.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/content/post/automatic_academic/images/tags.png&#34; alt=&#34;Tags&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Just as an example, you might have journal articles that are peer-reviewed and some that are not peer-reviewed. So for the journal article collection, you could tag your articles in that way. You could also tag &amp;ldquo;successful&amp;rdquo; and &amp;ldquo;unsuccessful&amp;rdquo; grants, or tag articles &amp;ldquo;in press&amp;quot;or &amp;ldquo;forthcoming&amp;rdquo; or &amp;ldquo;under review&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;bib-files&#34;&gt;Bib files&lt;/h2&gt;
+&lt;p&gt;LaTeX works with &lt;code&gt;.bib&lt;/code&gt; files to process citations. Zotero can create these files very easily. For each collection you have created, we&amp;rsquo;ll create a separate &lt;code&gt;.bib&lt;/code&gt;file.  It&amp;rsquo;s dead easy. Right-click on &lt;em&gt;each&lt;/em&gt; collection and select &lt;code&gt;Export Collection&lt;/code&gt; . You&amp;rsquo;ll get a menu like this:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://sjkiss.github.io/content/post/automatic_academic/images/keep_updated.png&#34; alt=&#34;Keeping collections updated&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll want to select the &lt;code&gt;Keep Updated&lt;/code&gt; option. That essentially will automatically sync every change you make in your Zotero collections with the corresponding &lt;code&gt;.bib&lt;/code&gt; file.  After that, you will get to choose a file path for where the &lt;code&gt;.bib&lt;/code&gt; file will be stored. &lt;em&gt;I highly suggest picking one central folder for these bib files.&lt;/em&gt; I put it in a subfolder of my CV folder. YMMV.&lt;/p&gt;
+&lt;h1 id=&#34;the-tex-file&#34;&gt;The Tex File&lt;/h1&gt;
+&lt;p&gt;OK, with your academic life organized in Zotero and &lt;code&gt;.bib&lt;/code&gt; files exported, you&amp;rsquo;re ready to start constructing the &lt;code&gt;.tex&lt;/code&gt; file for your dossier.&lt;/p&gt;
+&lt;p&gt;After having installed LaTeX as above, you should have a GUI tex application. On my Mac it is Texshop. You&amp;rsquo;ll want to open that up and start a new &lt;code&gt;.tex&lt;/code&gt; file.&lt;/p&gt;
+&lt;p&gt;The basic components of a &lt;code&gt;.tex&lt;/code&gt; file are as follows:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-latex&#34;&gt;\documentclass{article}
+%lots of formatting preamble and instructions
+\begin{document}
+%All you contents
+
+Text .
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Feel free to dump that into TexShop and hit something like &lt;code&gt;Typeset&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;OK, you&amp;rsquo;ve written your first LaTeX document. Now it&amp;rsquo;s time to get going.&lt;/p&gt;
+&lt;h2 id=&#34;your-publications&#34;&gt;Your publications&lt;/h2&gt;
+&lt;p&gt;You&amp;rsquo;re going to want to produce is a list of all your publications, courses, grant applications, all that stuff in bibliography style. No problem.&lt;/p&gt;
+&lt;p&gt;First, we&amp;rsquo;re going to use the &lt;code&gt;[biblatex-publist](https://github.com/jspitz/biblatex-publist/blob/master/biblatex-publist.pdf)&lt;/code&gt; package.&lt;/p&gt;
+&lt;p&gt;Drawing on packages in a LaTeX document for specific purposes involves adding something like this to the preamble of your document.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\usepackage[package-options=value]{package_name}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;In this case, we add the &lt;code&gt;biblatex&lt;/code&gt; package to produce our bibliographies of our stuff, formatting them in the&lt;code&gt;publist&lt;/code&gt; bibliography style to make nice lists of our documents for our overlords. I have set out some of the primary options you can set.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\documentclass{article}
+\usepackage[bibstyle=publist, 
+%do you want dois printed for all your publications
+doi=true,
+%do you want dates reduced to years?
+date=year, 
+url=true,
+%at how many authornames do you want to start using et. a.
+maxbibnames=10]{biblatex}
+
+\begin{document}
+%All you contents
+
+Text .
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Note, if you compile this document you won&amp;rsquo;t see anything. All of this just happens in the background.&lt;/p&gt;
+&lt;p&gt;To start adding lists, we&amp;rsquo;re going to do the following.&lt;/p&gt;
+&lt;p&gt;First, we&amp;rsquo;re going to add a section called something like Publications and then some sub-sections like &amp;ldquo;Peer-reviewed journal articles&amp;rdquo;, &amp;ldquo;Book chapters&amp;rdquo;, &amp;ldquo;op-eds&amp;rdquo;, etc.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\documentclass{article}
+\usepackage[bibstyle=publist, 
+%do you want dois printed for all your publications
+doi=true,
+%do you want dates reduced to years?
+date=year, 
+url=true,
+%at how many authornames do you want to start using et. a.
+maxbibnames=10]{biblatex}
+
+\begin{document}
+%All you contents
+
+Text .
+
+%Adding the asterisk removes section numbering
+\section*{Publications}
+\subsection*{Peer-reviewed journal articles}
+\subsection*{Chapters}
+\subsection*{Op-Eds}
+\end{document}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You might see where we&amp;rsquo;re headed. &lt;em&gt;Each of these sections should mirror one of your collections&lt;/em&gt;. Now we&amp;rsquo;re going to actually produce the bibliography (e.g. your publications that you curated in Zotero). For each section of publications you&amp;rsquo;re going to define a &lt;code&gt;\newrefsection&lt;/code&gt; with a link to the respective &lt;code&gt;.bib&lt;/code&gt; file.&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;\subsection*{Peer-reviewed journal articles}
+\newrefsection[sample_]
+\nocite{*}
+\printbibliography[heading=none,type={article}, keyword={peerreviewed}, keyword={inprint}, check=recent]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;your-research-dossier-and-cover-letter&#34;&gt;Your research dossier and cover letter&lt;/h2&gt;
+&lt;h2 id=&#34;your-cv&#34;&gt;Your CV&lt;/h2&gt;
+&lt;h2 id=&#34;pdfs-of-all-your-publications&#34;&gt;PDFs of all your publications.&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
       <title>The education and income voting divides in Canada and their consequences for redistributive politics</title>
       <link>https://sjkiss.github.io/publication/education_income_divide/</link>
       <pubDate>Thu, 21 Sep 2023 14:47:20 -0400</pubDate>
