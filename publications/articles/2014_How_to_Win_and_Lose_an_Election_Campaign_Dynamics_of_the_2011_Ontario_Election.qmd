@@ -1,0 +1,24 @@
+---
+title : "How to Win and Lose an Election: Campaign Dynamics of the 2011 Ontario Election"
+date : "2014-08-01"
+author : ["Simon Kiss", "\relax AML Perrella", "B J Kay"]
+categories : ["Journal Article"]
+publication : "Canadian Political Science Review, 8(1) [https://doi.org/10.24124/c677/2014497](https://doi.org/10.24124/c677/2014497)"
+publication_short : "Canadian Political Science Review, 8(1) [https://doi.org/10.24124/c677/2014497](https://doi.org/10.24124/c677/2014497)"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "10.24124/c677/2014497"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Simon Kiss, \relax AML Perrella, B J Kay (2014). *How to Win and Lose an Election: Campaign Dynamics of the 2011 Ontario Election*. Canadian Political Science Review, 8(1) [https://doi.org/10.24124/c677/2014497](https://doi.org/10.24124/c677/2014497)
+
+:::
+

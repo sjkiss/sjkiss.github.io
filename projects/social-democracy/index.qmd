@@ -1,0 +1,14 @@
+---
+title: "Social Democracy and Class Voting"
+image: featured.jpg
+categories: 
+  - Social Democracy
+  - Public Opinion
+about:
+  template: trestles
+  image: featured.jpg
+---
+
+I am currently on a long-term research project with [Prof. Peter Graefe](https://socialsciences.mcmaster.ca/people/graefe-peter) of McMaster University examining the transformation of the NDP under Jack Layton. We're investigating the way in which changes in the electoral and financing rules for political parties contributed to a "new" New Democratic Party. This builds on earlier research I've conducted examining the politics of the New Politics Initiative in the NDP in 1999-2000. 
+
+I also have a strong interest in the way that social class affects public opinion in the post-industrial societies. I am interested in the interplay of income, status, levels of education and field of study to create political preferences for and against redistribution and environmental protection. I woud like to know if the increasing role played by educated professionals will weaken social democratic parties' capacity to push for redistribution.

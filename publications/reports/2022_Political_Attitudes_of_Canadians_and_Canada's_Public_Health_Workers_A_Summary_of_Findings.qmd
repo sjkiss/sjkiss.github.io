@@ -1,0 +1,24 @@
+---
+title : "Political Attitudes of Canadians and Canada's Public Health Workers: A Summary of Findings"
+date : "2022-06-01"
+author : ["Simon J. Kiss", "Matthew Arp", "Ketan Shankardass", "Erick Lachapelle", "Patrick Fafard", "Andrea Perrella"]
+categories : ["Report"]
+publication : " . Waterloo, ON Laurier Institute for the Study of Public Opinion and Policy"
+publication_short : " . Waterloo, ON Laurier Institute for the Study of Public Opinion and Policy"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "NA"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Simon J. Kiss, Matthew Arp, Ketan Shankardass, Erick Lachapelle, Patrick Fafard, Andrea Perrella (2022). *Political Attitudes of Canadians and Canada's Public Health Workers: A Summary of Findings*.  . Waterloo, ON Laurier Institute for the Study of Public Opinion and Policy
+
+:::
+

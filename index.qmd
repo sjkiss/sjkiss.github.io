@@ -1,0 +1,50 @@
+---
+title: ""
+listing: 
+  - id: blog-posts
+    contents: posts
+    max-items: 2
+    sort: "date desc"
+  - id: recent-pubs
+    contents: publications
+    max-items: 2
+    sort: "date"
+about: 
+  template: trestles
+  image: files/avatar.jpg
+  image-shape: rectangle
+  image-width: 15em
+  links:
+    - text: Email
+      icon: envelope
+      href: mailto:skiss@wlu.ca
+    - text: GitHub
+      icon: github
+      href: https://github.com/sjkiss
+    - text: Scholar
+      icon: google
+      href: https://scholar.google.com/citations?user=67hVw8AAAAJ&hl=en
+    - text: CV
+      icon: file-text
+      href: files/kiss_CV.pdf
+    - text: Faculty Page
+      icon: file-text
+      href: https://www.wlu.ca/academics/faculties/faculty-of-liberal-arts/faculty-profiles/simon-kiss/index.html
+    - text: Laurier Institute for the Study of Public Opinion and Policy
+      icon: file-text
+      href: http://lispop.ca
+---
+
+## About Me
+
+I am a political scientist in Human Rights and Political Science at [Wilfrid Laurier University](http://www.wlu.ca). My primary interests are in the fields of political communication, public opinion and political parties. I am originally from Edmonton, Alberta, and did my undergraduate degree in Political Science at the [University of Alberta](http://www.ualberta.ca). After some time in Germany, including a fascinating internship at the [German Bundestag](http://www.bundestag.de/en), the [Canadian embassy](https://www.international.gc.ca/country-pays/germany-allemagne/index.aspx?lang=eng) and a leading national [television political talk show,](https://en.wikipedia.org/wiki/Sabine_Christiansen_(TV_program)) I returned to Kingston, Ontario to do my graduate work. I obtained my PhD from [Queen's University](http://www.queensu.ca) in 2008 and then moved back to Germany to do my post-doctoral work at the [John F. Kennedy Institute for North American Studies](https://www.jfki.fu-berlin.de/en/index.html).
+
+## Recent Blog Posts
+
+::: {#blog-posts}
+:::
+
+## Recent Publications
+
+::: {#recent-pubs}
+:::

@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+  - "*.qmd"
+  - "*.rmd"
+  - "*.md"
+  - "*.Rmd"
+  resources:
+    - "files/"
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    grid: 
+      body-width: 2500px
+
+editor: visual
+
+website:
+  title: "Simon Kiss"
+  navbar:
+    right:
+      - text: "Posts"
+        href: posts.qmd
+      - text: "Projects"
+        href: projects.qmd
+      - text: "Publications"
+        href: publications.qmd

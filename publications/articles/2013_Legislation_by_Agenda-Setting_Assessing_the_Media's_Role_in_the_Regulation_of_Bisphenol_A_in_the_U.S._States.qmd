@@ -1,0 +1,24 @@
+---
+title : "Legislation by Agenda-Setting: Assessing the Media's Role in the Regulation of Bisphenol A in the U.S. States"
+date : "2013-09-01"
+author : ["Simon Kiss"]
+categories : ["Journal Article"]
+publication : "Mass Communication and Society, 16(5) 687--712  [https://doi.org/10.1080/15205436.2013.768345](https://doi.org/10.1080/15205436.2013.768345)"
+publication_short : "Mass Communication and Society, 16(5) 687--712  [https://doi.org/10.1080/15205436.2013.768345](https://doi.org/10.1080/15205436.2013.768345)"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "10.1080/15205436.2013.768345"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Simon Kiss (2013). *Legislation by Agenda-Setting: Assessing the Media's Role in the Regulation of Bisphenol A in the U.S. States*. Mass Communication and Society, 16(5) 687--712  [https://doi.org/10.1080/15205436.2013.768345](https://doi.org/10.1080/15205436.2013.768345)
+
+:::
+

@@ -1,0 +1,30 @@
+---
+title: 'Subjective economic insecurity and attitudes toward immigration and feminists among voters on the Right in Canada'
+author:
+  - name: Polacko, Matt
+    orcid: 0000-0002-3311-646X
+    affiliation: University of Toronto
+  - name: Kiss, Simon
+    url: https://sjkiss.github.io
+    orcid: 0000-0003-1837-5428
+    affiliation: Wilfrid Laurier University
+  - name: Graefe, Peter
+    affiliation: McMaster University
+    orcid: 
+date: '2024-01-01'
+categories:
+  - social-democracy
+  - public-opinion
+doi: 10.1111/ssqu.13336
+pub-info:
+  reference: >-
+    Polacko, Matthew, Peter Graefe, and Simon Kiss. 2024. “Subjective Economic Insecurity and Attitudes toward Immigration and Feminists among Voters on the Right in Canada.” <em>Social Science Quarterly</em> 105 (2): 281–95. <a href>https://doi.org/10.1111/ssqu.13336</a>.
+---
+
+# Abstract
+
+The recent success of far-right populism has led to a wave of public attention to its causes. Drawing on novel survey items from the Canadian Election Study, we investigate how economic insecurity, mediated by immigration and feminist attitudes, affects voting behavior. While economic distress has been linked to far-right voting in Europe, we find support that subjective measures of economic distress are significantly associated with voting for the Right in Canada, when interacting with immigration and feminist attitudes. However, the association only holds for men. The findings suggest that Canada, despite its comparatively weak nativist cleavage, is not immune to tensions arising from globalization and economic insecurity.
+
+## Links
+
+-   [PDF](subjective_economic_insecurity.pdf)

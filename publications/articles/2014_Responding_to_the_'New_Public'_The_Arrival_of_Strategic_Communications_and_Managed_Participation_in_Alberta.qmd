@@ -1,0 +1,24 @@
+---
+title : "Responding to the 'New Public': The Arrival of Strategic Communications and Managed Participation in Alberta"
+date : "2014-03-01"
+author : ["Simon Kiss"]
+categories : ["Journal Article"]
+publication : "Canadian Public Administration, 57(1) 26--48  [https://doi.org/10.1111/capa.12053](https://doi.org/10.1111/capa.12053)"
+publication_short : "Canadian Public Administration, 57(1) 26--48  [https://doi.org/10.1111/capa.12053](https://doi.org/10.1111/capa.12053)"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "10.1111/capa.12053"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Simon Kiss (2014). *Responding to the 'New Public': The Arrival of Strategic Communications and Managed Participation in Alberta*. Canadian Public Administration, 57(1) 26--48  [https://doi.org/10.1111/capa.12053](https://doi.org/10.1111/capa.12053)
+
+:::
+

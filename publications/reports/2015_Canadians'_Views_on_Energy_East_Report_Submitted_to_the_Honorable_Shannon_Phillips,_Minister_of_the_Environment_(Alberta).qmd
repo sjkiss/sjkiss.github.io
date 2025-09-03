@@ -1,0 +1,24 @@
+---
+title : "Canadians' Views on Energy East: Report Submitted to the Honorable Shannon Phillips, Minister of the Environment (Alberta)"
+date : "2015-07-01"
+author : ["Simon Kiss"]
+categories : ["Report"]
+publication : " . Waterloo, ON Wilfrid Laurier University"
+publication_short : " . Waterloo, ON Wilfrid Laurier University"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "NA"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Simon Kiss (2015). *Canadians' Views on Energy East: Report Submitted to the Honorable Shannon Phillips, Minister of the Environment (Alberta)*.  . Waterloo, ON Wilfrid Laurier University
+
+:::
+

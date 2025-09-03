@@ -1,0 +1,15 @@
+---
+title: "R"
+image: featured.jpg
+categories: 
+  - R
+about:
+  template: trestles
+  image: featured.jpg
+---
+
+Although I am a qualitative researcher at heart, I'm also a keen user of the statistical software R for my quantitative research projects. To my mind, R offers a number of advantages. It is free, it produces beautiful and informative plots, it encourages analytical thinking and familiarization with statistical concepts. It is also becoming extremely popular and it has a vibrant community of software developers and users that can provide assistance and develop new tools to deal with tasks as they emerge.
+
+I attended the Oxford Spring School in Modern Regression in 2010 that was taught by Dr. Robert Andersen and Dr. David Armstrong. Since then, all of my R learning has been self-taught. To date I have used R to conduct sentiment analysis, event history analysis, as well as standard OLS and logistic regression. I have taught three successive introductory courses in R at the Laurier School In Research Methods.
+
+One marginally useful innovation I have developed for R is a plugin to the tm ("text mining") package that reads in files containing news articles from Canadian media outlets in the Canadian Newsstream database. It extracts all of the useful metadata contained in each article (e.g. author, title, date of publication and word length, as well as section and page number) and prepares the article text for computer assisted content analysis. I have intentions of preparing the package for submission to CRAN, but for the moment, you can get a working version from my github.

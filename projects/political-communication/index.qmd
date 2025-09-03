@@ -1,0 +1,15 @@
+---
+title: "Political Communication"
+image: featured.jpg
+categories: 
+  - Political communication
+  - Public Opinion
+description: Research on political communication and public opinion
+about:
+  template: trestles
+  image: featured.jpg
+---
+
+My dissertation examined the evolution of government public relations in the province of Alberta. The major results of that dissertation have been published in *Canadian Public Administration*. Fundamentally, I showed that the structure of the government of Alberta's bureaucratic public relations function was intimately related to both the political economy of the province but also the way the government of the day envisioned the democratic process. Most political and scholarly commentary on this issue argued that the government of Premier Ralph Klein (1992-2007) government substantially *expanded* its efforts in public relations and that this was a major factor in winning public support for heavy budget cuts and privatization between 1993 and 1997. In actuality, I was able to show that the government of Alberta dramatically *reduced* (see below). ![Alberta Public Affairs Bureau expenditures history](pab_total.png)support for communications activities. However, it changed the focus of the government's PR unit to be much more politically sensitive and playing a role shuttling between the political leadership and public opinion (see below). ![Alberta Public Affairs Bureau mandate](pab_share.png).
+
+More recently, I have been involved in a project with a colleague at the [University of Toronto](https://www.utm.utoronto.ca/political-science/george-wootten) where we surveyed Canadian parliamentarians, journalists and bloggers about their definitions of open government. We hypothesized that different actors would prefer definitions that fit with their interests. This is evident in this key plot of our data and was borne out in formal statistical models (see below)![Ambiguous Definitions of Open Government](open-government.png).

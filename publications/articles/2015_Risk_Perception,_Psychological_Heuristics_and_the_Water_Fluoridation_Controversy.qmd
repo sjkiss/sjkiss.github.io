@@ -1,0 +1,20 @@
+---
+title : "Risk Perception, Psychological Heuristics and the Water Fluoridation Controversy"
+date : "2015-05-01"
+author : ["Andrea ML Perrella", "Simon Kiss"]
+categories : ["Journal Article"]
+publication : "Canadian Journal of Public Health, 106(4) e197-e203  [https://doi.org/10.17269/cjph.106.4828](https://doi.org/10.17269/cjph.106.4828)"
+publication_short : "Canadian Journal of Public Health, 106(4) e197-e203  [https://doi.org/10.17269/cjph.106.4828](https://doi.org/10.17269/cjph.106.4828)"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "10.17269/cjph.106.4828"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+::: {.callout-note title="How to cite this work"}
+Andrea ML Perrella, Simon Kiss (2015). *Risk Perception, Psychological Heuristics and the Water Fluoridation Controversy*. Canadian Journal of Public Health, 106(4) e197-e203 <https://doi.org/10.17269/cjph.106.4828>
+:::

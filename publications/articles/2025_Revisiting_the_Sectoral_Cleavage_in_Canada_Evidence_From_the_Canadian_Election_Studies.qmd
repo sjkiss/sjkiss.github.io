@@ -1,0 +1,24 @@
+---
+title : "Revisiting the Sectoral Cleavage in Canada: Evidence From the Canadian Election Studies"
+date : "2025-08-01"
+author : ["Matthew Polacko", "Peter Graefe", "Simon Kiss"]
+categories : ["Journal Article"]
+publication : "Canadian Review of Sociology = Revue Canadienne De Sociologie [https://doi.org/10.1111/cars.70014](https://doi.org/10.1111/cars.70014)"
+publication_short : "Canadian Review of Sociology = Revue Canadienne De Sociologie [https://doi.org/10.1111/cars.70014](https://doi.org/10.1111/cars.70014)"
+abstract : "Abstract not available"
+abstract_short : ""
+doi : "10.1111/cars.70014"
+about:
+  template: marquee
+  links:
+    - icon: NA
+      href: NA
+---
+
+
+::: {.callout-note title="How to cite this work"}
+
+Matthew Polacko, Peter Graefe, Simon Kiss (2025). *Revisiting the Sectoral Cleavage in Canada: Evidence From the Canadian Election Studies*. Canadian Review of Sociology = Revue Canadienne De Sociologie [https://doi.org/10.1111/cars.70014](https://doi.org/10.1111/cars.70014)
+
+:::
+

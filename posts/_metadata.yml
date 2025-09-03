@@ -1,0 +1,13 @@
+# options specified here will apply to all posts in this folder
+
+# re-render posts only when a change to the source file is made ----
+
+# enable banner style title blocks ----
+title-block-banner: true
+
+author:
+  - name: Simon Kiss
+    url: https://samanthacsik.github.io/
+    orcid: 0000-0003-1837-5428
+    affiliation: Wilfrid Laurier University, Human Rights and Political Science
+    affiliation-url: https://wlu.ca

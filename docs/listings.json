@@ -1,0 +1,80 @@
+[
+  {
+    "listing": "/posts/index.html",
+    "items": []
+  },
+  {
+    "listing": "/posts.html",
+    "items": [
+      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html",
+      "/posts/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/data/index.html",
+      "/projects/political-communication/index.html",
+      "/projects/r/index.html",
+      "/projects/risk/index.html",
+      "/projects/social-democracy/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html",
+      "/posts/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/index.html",
+      "/publications/articles/2013_Legislation_by_Agenda-Setting_Assessing_the_Media's_Role_in_the_Regulation_of_Bisphenol_A_in_the_U.S._States.html",
+      "/publications/articles/2014_Responding_to_the_'New_Public'_The_Arrival_of_Strategic_Communications_and_Managed_Participation_in_Alberta.html",
+      "/publications/articles/2014_How_to_Win_and_Lose_an_Election_Campaign_Dynamics_of_the_2011_Ontario_Election.html",
+      "/publications/articles/2015_Risk_Perception,_Psychological_Heuristics_and_the_Water_Fluoridation_Controversy.html",
+      "/publications/reports/2015_Canadians'_Views_on_Energy_East_Report_Submitted_to_the_Honorable_Shannon_Phillips,_Minister_of_the_Environment_(Alberta).html",
+      "/publications/articles/2017_Triple_Play_The_Ontario_2014_General_Election.html",
+      "/publications/articles/2017_Does_Canadian_Federalism_Amplify_Policy_Disagreements.html",
+      "/publications/articles/2018_Public_Perceptions_of_Hydraulic_Fracturing_(Fracking)_in_Canada_Corporate_Ownership,_Issue_Familiarity,_and_Cultural_Bias.html",
+      "/publications/articles/2018_Balanced_Journalism_Amplifies_Minority_Voices_A_Case_Study_of_a_Fluoridation_Plebiscite.html",
+      "/publications/articles/2019_Opposition_to_Carbon_Pricing_and_Right-Wing_Populism_Ontario's_2018_General_Election.html",
+      "/publications/articles/2020_Beyond_Region_and_Ideology_Cultural_Theory_and_Risk_Perception_in_Canada.html",
+      "/publications/articles/2020_Conservative_Populism,_or_Unpopular_Liberalism_Review_of_the_2018_Ontario_Provincial_Election.html",
+      "/publications/reports/2021_Summary_of_Waterloo_Region_Vote_Intention,_Spring_2021.html",
+      "/publications/reports/2022_Political_Attitudes_of_Canadians_and_Canada's_Public_Health_Workers_A_Summary_of_Findings.html",
+      "/publications/reports/2022_Summary_of_Findings,_Ontario_Provincial_Election_Study_2022.html",
+      "/publications/articles/2023_The_Education_And_Income_Voting_Divides_In_Canada_And_Their_Consequences_For_Redistributive_Politics.html",
+      "/publications/articles/2025_Revisiting_the_Sectoral_Cleavage_in_Canada_Evidence_From_the_Canadian_Election_Studies.html"
+    ]
+  },
+  {
+    "listing": "/research.html",
+    "items": [
+      "/research/articles/beyond_regions/index.html",
+      "/research/articles/subjective_economic_insecurity/index.html"
+    ]
+  },
+  {
+    "listing": "/publications.html",
+    "items": [
+      "/publications/articles/2025_Revisiting_the_Sectoral_Cleavage_in_Canada_Evidence_From_the_Canadian_Election_Studies.html",
+      "/publications/articles/2023_The_Education_And_Income_Voting_Divides_In_Canada_And_Their_Consequences_For_Redistributive_Politics.html",
+      "/publications/articles/2020_Conservative_Populism,_or_Unpopular_Liberalism_Review_of_the_2018_Ontario_Provincial_Election.html",
+      "/publications/articles/2020_Beyond_Region_and_Ideology_Cultural_Theory_and_Risk_Perception_in_Canada.html",
+      "/publications/articles/2019_Opposition_to_Carbon_Pricing_and_Right-Wing_Populism_Ontario's_2018_General_Election.html",
+      "/publications/articles/2018_Balanced_Journalism_Amplifies_Minority_Voices_A_Case_Study_of_a_Fluoridation_Plebiscite.html",
+      "/publications/articles/2018_Public_Perceptions_of_Hydraulic_Fracturing_(Fracking)_in_Canada_Corporate_Ownership,_Issue_Familiarity,_and_Cultural_Bias.html",
+      "/publications/articles/2017_Does_Canadian_Federalism_Amplify_Policy_Disagreements.html",
+      "/publications/articles/2017_Triple_Play_The_Ontario_2014_General_Election.html",
+      "/publications/articles/2015_Risk_Perception,_Psychological_Heuristics_and_the_Water_Fluoridation_Controversy.html",
+      "/publications/articles/2014_How_to_Win_and_Lose_an_Election_Campaign_Dynamics_of_the_2011_Ontario_Election.html",
+      "/publications/articles/2014_Responding_to_the_'New_Public'_The_Arrival_of_Strategic_Communications_and_Managed_Participation_in_Alberta.html",
+      "/publications/articles/2013_Legislation_by_Agenda-Setting_Assessing_the_Media's_Role_in_the_Regulation_of_Bisphenol_A_in_the_U.S._States.html",
+      "/publications/reports/2022_Summary_of_Findings,_Ontario_Provincial_Election_Study_2022.html",
+      "/publications/reports/2022_Political_Attitudes_of_Canadians_and_Canada's_Public_Health_Workers_A_Summary_of_Findings.html",
+      "/publications/reports/2021_Summary_of_Waterloo_Region_Vote_Intention,_Spring_2021.html",
+      "/publications/reports/2015_Canadians'_Views_on_Energy_East_Report_Submitted_to_the_Honorable_Shannon_Phillips,_Minister_of_the_Environment_(Alberta).html"
+    ]
+  },
+  {
+    "listing": "/publications/index.html",
+    "items": []
+  }
+]

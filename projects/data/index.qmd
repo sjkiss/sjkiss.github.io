@@ -1,0 +1,12 @@
+---
+title: "Open Science and reproducbility"
+image: minard.jpg
+categories: 
+  - Open science
+  - reproducibility
+description: Open science and reproducibility
+about:
+  template: trestles
+  image: minard.png
+---
+There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny. 

@@ -1,0 +1,32 @@
+---
+title: 'Beyond Regions and Ideology: Using Cultural Theory to Explain Risk Perception in Canada'
+author:
+  - name: Kiss, Simon
+    url: https://sjkiss.github.io
+    orcid: 0000-0003-1837-5428
+    affiliation: Wilfrid Laurier University
+  - name: Éric Montpetit
+    affiliation: Université de Montréal
+    orcid: 0000-0003-3470-0657
+  - name: Erick Lachapelle
+    affiliation: Université de Montréal
+    orcid: 0000-0002-0808-0688
+date: '2020-04-14'
+categories:
+  - risk
+  - public-opinion
+doi: 10.1017/S0008423920000177
+publication: Canadian Journal of Political Science / Revue Canadienne de Science Politique 
+pub-info:
+  reference: >-
+    Kiss, Simon, Erick Lachapelle, and Eric Montpetit. 2020. “Beyond Region and Ideology: Cultural Theory and Risk Perception in Canada.” <em>Canadian Journal of Political Science / Revue Canadienne de Science Politique</em> 53 (2).
+---
+
+# Abstract
+
+Cultural theory (CT) has been widely used to explain variations in risk perception but has rarely been tested in Canada. This contribution represents the most thorough attempt to adapt CT to the Canadian context. Study results suggest that respondents’ commitment to egalitarianism was strongly correlated with risks from technology, while respondents’ commitment to hierarchism was strongly correlated with risks from criminal or unsafe behaviours. Respondents’ commitment to individualism was also correlated with risks from criminal and unsafe behaviours but differed from hierarchism in that individualism was not correlated with risk perceptions from prostitution and marijuana use. Respondents’ commitments to fatalism were strongly correlated with risk perception of vaccines. These conclusions are reinforced by results from a survey question that tests the extent to which such cultural predispositions map onto the myths of nature hypothesized by CT and by a survey experiment that tests how cultural commitments predict perceived risks from a controversial pipeline.
+
+## Important links
+
+-   [PDF](beyond_regions.pdf)
+-   [Dataset and Replication Materials](https://doi.org/10.5683/SP2/DWBACD)
