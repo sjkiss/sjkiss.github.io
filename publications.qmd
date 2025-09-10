@@ -41,12 +41,14 @@ fmt_authors_card <- function(entry) {
   au <- entry$author
   if (is.null(au) || length(au) == 0) return(NA_character_)
 
-  fmt_one <- function(a) {
-    given <- a$given %||% ""
-    family <- a$family %||% ""
+  
+fmt_one <- function(a) {
+    given <- paste(a$given %||% "", collapse = " ")
+    family <- paste(a$family %||% "", collapse = " ")
     full_name <- paste(given, family)
     trimws(full_name)
   }
+
 
   pieces <- vapply(au, fmt_one, character(1))
   pieces <- pieces[nzchar(pieces)]
@@ -56,21 +58,6 @@ fmt_authors_card <- function(entry) {
   else paste(paste(pieces[-length(pieces)], collapse = ", "), "&", pieces[length(pieces)])
 }
 
-# 
-# This is the old fmt_authors card that did this
-# fmt_authors_card <- function(entry) {
-#   au <- entry$author
-#   if (is.null(au) || length(au) == 0) return(NA_character_)
-#   fmt_one <- function(a) {
-#     fam_vec <- a$family
-#     if (length(fam_vec)) paste(as.character(fam_vec), collapse = " ") else ""
-#   }
-#   pieces <- vapply(au, fmt_one, character(1))
-#   pieces <- pieces[nzchar(pieces)]
-#   if (!length(pieces)) return(NA_character_)
-#   if (length(pieces) == 1) pieces
-#   else paste(paste(pieces[-length(pieces)], collapse = ", "), "&", pieces[length(pieces)])
-# }
 
 get_abstract <- function(entry) {
   abs <- entry$abstract %||% entry$annotation %||% NA_character_
