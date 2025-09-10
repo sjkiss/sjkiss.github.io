@@ -217,20 +217,62 @@ section#bibliography.level1.unnumbered {
   position: absolute; top: 6px; right: 70px; font-size: 0.8rem;
   background: #333; color: #fff; padding: 3px 7px; border-radius: 6px; display: none;
 }
+.pub-category {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.category {
+  background-color: #eef;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+#category-filter {
+  flex-shrink: 0;
+  padding-top: 10px;
+  margin: 20px 0;
+}
+
+#category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.category-btn {
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.category-btn:hover {
+  background-color: #bbb;
+}
+
 </section></style>
 </div>
+
 <script>
 (function() {
   function getCard(el) {
     while (el && !el.classList?.contains('pub-card')) el = el.parentNode;
     return el;
   }
+
   function showPanel(card, label, html, mode) {
     const area = card.querySelector('.toggle-area');
     const labelEl = area.querySelector('.panel-label');
     const contentEl = area.querySelector('.content');
 
-    // Toggle: if clicking same action while open, collapse
     const current = area.getAttribute('data-current');
     if (current === mode && area.style.display === 'block') {
       area.style.display = 'none';
@@ -247,53 +289,46 @@ section#bibliography.level1.unnumbered {
     } else if (mode === 'abstract') {
       contentEl.textContent = html;
     } else {
-      contentEl.innerHTML = html; // citation HTML
+      contentEl.innerHTML = html;
     }
     area.style.display = 'block';
     area.setAttribute('data-current', mode);
   }
 
-  // Resource link handler (toggle)
   document.addEventListener('click', function(evt) {
     const a = evt.target.closest('a[data-action]');
     if (!a) return;
     const action = a.getAttribute('data-action');
-    const card   = getCard(a);
+    const card = getCard(a);
     if (!card) return;
     evt.preventDefault();
 
-    if (action === 'abstract' || action === 'citation' || action === 'bib') {
-      const key = card.getAttribute('data-key');  // <-- Pandoc ref id suffix
+    const key = card.getAttribute('data-key');
+    let label = action === 'citation' ? 'Citation' : (action === 'bib' ? 'BibTeX' : 'Abstract');
+    let html = '';
 
-      // Build label + payload
-      let label = action === 'citation' ? 'Citation' : (action === 'bib' ? 'BibTeX' : 'Abstract');
-      let html  = '';
+    if (action === 'abstract') {
+      const payloadEl = card.querySelector('.payload-abstract');
+      const text = (payloadEl?.textContent || 'No abstract available.').trim();
+      showPanel(card, label, text, 'abstract');
+      return;
+    }
 
-      if (action === 'abstract') {
-        const payloadEl = card.querySelector('.payload-abstract');
-        const text = (payloadEl?.textContent || 'No abstract available.').trim();
-        showPanel(card, label, text, 'abstract');
-        return;
-      }
+    if (action === 'citation') {
+      const ref = document.querySelector('#ref-' + key);
+      html = (ref ? ref.innerHTML : 'Citation unavailable.').trim();
+      showPanel(card, label, html, 'citation');
+      return;
+    }
 
-      if (action === 'citation') {
-        // Pull APA-formatted HTML from hidden #refs list: <div id="ref-KEY">
-        const ref = document.querySelector('#ref-' + key);
-        html = (ref ? ref.innerHTML : 'Citation unavailable.').trim();
-        showPanel(card, label, html, 'citation');
-        return;
-      }
-
-      if (action === 'bib') {
-        const payloadEl = card.querySelector('.payload-bibtex');
-        const text = (payloadEl?.textContent || 'No BibTeX available.').trim();
-        showPanel(card, label, text, 'bib');
-        return;
-      }
+    if (action === 'bib') {
+      const payloadEl = card.querySelector('.payload-bibtex');
+      const text = (payloadEl?.textContent || 'No BibTeX available.').trim();
+      showPanel(card, label, text, 'bib');
+      return;
     }
   }, false);
 
-  // Copy button
   document.addEventListener('click', function(evt) {
     const btn = evt.target.closest('.copy-btn');
     if (!btn) return;
@@ -319,15 +354,57 @@ section#bibliography.level1.unnumbered {
       document.body.removeChild(ta);
     });
   }, false);
+
+  // ✅ Category filtering logic — now inside the IIFE
+  document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll(".pub-card");
+    const buttonContainer = document.getElementById("category-buttons");
+    const clearButton = document.getElementById("clear-filter");
+
+    const categories = new Set();
+    cards.forEach(card => {
+      const raw = card.getAttribute("data-category");
+      if (raw) {
+        raw.split(",").forEach(cat => categories.add(cat.trim()));
+      }
+    });
+
+    categories.forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "category-btn";
+      btn.textContent = cat.replace(/-/g, " ");
+      btn.setAttribute("data-category", cat);
+      buttonContainer.appendChild(btn);
+    });
+
+    function filterByCategory(category) {
+      cards.forEach(card => {
+        const cardCats = card.getAttribute("data-category") || "";
+        const match = cardCats.split(",").map(c => c.trim()).includes(category);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    buttonContainer.addEventListener("click", function(evt) {
+      const btn = evt.target.closest(".category-btn");
+      if (!btn || btn.id === "clear-filter") return;
+      const category = btn.getAttribute("data-category");
+      filterByCategory(category);
+    });
+
+    clearButton.addEventListener("click", function() {
+      cards.forEach(card => card.style.display = "block");
+    });
+  });
 })();
 </script>
+
+
 <div class="cell">
 <div class="cell-output-display">
-<div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2025">2025</h2>
-<div>
-<div class="pub-card" data-key="polackorevisiting2025">
+<div style="display: flex; gap: 40px;">
+<div class="pub-list">
+<div class="pub-card" data-key="polackorevisiting2025" data-category="voting,-social-democracy,-class,-canada,-elections,-public-opinion" data-year="2025-08-18">
 <div class="pub-title">
 <a href="https://doi.org/10.1111/cars.70014" target="_blank" rel="noopener">Revisiting the Sectoral Cleavage in Canada: Evidence From the Canadian Election Studies</a>
 </div>
@@ -335,6 +412,14 @@ section#bibliography.level1.unnumbered {
 Polacko, Graefe &amp; Kiss
 <br>
 <em>Canadian Review of Sociology = Revue Canadienne De Sociologie</em>
+</div>
+<div class="pub-category">
+<span class="category">Voting</span>
+<span class="category">social democracy</span>
+<span class="category">class</span>
+<span class="category">Canada</span>
+<span class="category">elections</span>
+<span class="category">public opinion</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -358,12 +443,7 @@ Polacko, Graefe &amp; Kiss
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2023">2023</h2>
-<div>
-<div class="pub-card" data-key="kisseducation2023">
+<div class="pub-card" data-key="kisseducation2023" data-category="voting,-social-democracy,-class,-canada,-elections,-public-opinion" data-year="2023-10-01">
 <div class="pub-title">
 <a href="https://doi.org/10.1016/j.electstud.2023.102648" target="_blank" rel="noopener">The Education And Income Voting Divides In Canada And Their Consequences For Redistributive Politics</a>
 </div>
@@ -371,6 +451,14 @@ Polacko, Graefe &amp; Kiss
 Kiss, Graefe &amp; Polacko
 <br>
 <em>Electoral Studies</em>
+</div>
+<div class="pub-category">
+<span class="category">Voting</span>
+<span class="category">social democracy</span>
+<span class="category">class</span>
+<span class="category">Canada</span>
+<span class="category">elections</span>
+<span class="category">public opinion</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -395,12 +483,7 @@ Kiss, Graefe &amp; Polacko
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2022">2022</h2>
-<div>
-<div class="pub-card" data-key="polackochanging2022">
+<div class="pub-card" data-key="polackochanging2022" data-category="" data-year="2022-09">
 <div class="pub-title">
 <a href="https://doi.org/10.1017/S0008423922000439" target="_blank" rel="noopener">The Changing Nature of Class Voting in Canada, 1965–2019</a>
 </div>
@@ -436,12 +519,7 @@ Polacko, Kiss &amp; Graefe
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2020">2020</h2>
-<div>
-<div class="pub-card" data-key="kissRegionIdeologyCultural2020">
+<div class="pub-card" data-key="kissregion2020" data-category="risk-perception,-canada,-public-opinion" data-year="2020-04-21">
 <div class="pub-title">
 <a href="https://doi.org/doi:10.1017/S0008423920000177" target="_blank" rel="noopener">Beyond Region and Ideology: Cultural Theory and Risk Perception in Canada</a>
 </div>
@@ -449,6 +527,11 @@ Polacko, Kiss &amp; Graefe
 Kiss, Lachapelle &amp; Montpetit
 <br>
 <em>Canadian Journal of Political Science / Revue canadienne de science politique</em>
+</div>
+<div class="pub-category">
+<span class="category">Risk perception</span>
+<span class="category">Canada</span>
+<span class="category">public opinion</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -463,7 +546,7 @@ Kiss, Lachapelle &amp; Montpetit
 </div>
 <div style="display:none;">
 <div class="payload-abstract">Cultural theory (CT) has been widely used to explain variations in risk perception but has rarely been tested in Canada. This contribution represents the most thorough attempt to adapt CT to the Canadian context. Study results suggest that respondents’ commitment to egalitarianism was strongly correlated with risks from technology, while respondents’ commitment to hierarchism was strongly correlated with risks from criminal or unsafe behaviours. Respondents’ commitment to individualism was also correlated with risks from criminal and unsafe behaviours but differed from hierarchism in that individualism was not correlated with risk perceptions from prostitution and marijuana use. Respondents’ commitments to fatalism were strongly correlated with risk perception of vaccines. These conclusions are reinforced by results from a survey question that tests the extent to which such cultural predispositions map onto the myths of nature hypothesized by CT and by a survey experiment that tests how cultural commitments predict perceived risks from a controversial pipeline.</div>
-<div class="payload-bibtex">@article{kissRegionIdeologyCultural2020,
+<div class="payload-bibtex">@article{kissregion2020,
   title = {Beyond {{Region}} and {{Ideology}}: {{Cultural Theory}} and {{Risk Perception}} in {{Canada}}},
   author = {Simon Kiss and Erick Lachapelle and Eric Montpetit},
   volume = {53},
@@ -474,7 +557,7 @@ Kiss, Lachapelle &amp; Montpetit
 }</div>
 </div>
 </div>
-<div class="pub-card" data-key="perrellaconservative2020">
+<div class="pub-card" data-key="perrellaconservative2020" data-category="" data-year="2020-11-01">
 <div class="pub-title">
 <a href="https://doi.org/NA" target="_blank" rel="noopener">Conservative Populism, or Unpopular Liberalism? Review of the 2018 Ontario Provincial Election</a>
 </div>
@@ -509,12 +592,49 @@ Perrella, Kiss &amp; Kay
 }</div>
 </div>
 </div>
+<div class="pub-card" data-key="kissrightwing2020" data-category="public-opinion,-elections,-voting,-ontario" data-year="2020-10-02">
+<div class="pub-title">
+<a href="https://doi.org/10.1080/07352166.2019.1657021" target="_blank" rel="noopener">Right-Wing Populism in a Metropolis: Personal Financial Stress, Conservative Attitudes, and Rob Ford’s Toronto</a>
+</div>
+<div class="pub-meta">
+Kiss, Perrella &amp; Spicer
+<br>
+<em>Journal of Urban Affairs</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">elections</span>
+<span class="category">voting</span>
+<span class="category">Ontario</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">public opinion, elections, voting, Ontario</div>
+<div class="payload-bibtex">@article{kissrightwing2020,
+  title = {Right-Wing Populism in a Metropolis: {{Personal}} Financial Stress, Conservative Attitudes, and {{Rob Ford}}’s {{Toronto}}},
+  author = {Simon J. Kiss and Andrea M. L. Perrella and Zachary Spicer},
+  volume = {42},
+  number = {7},
+  pages = {1028--1046},
+  doi = {10.1080/07352166.2019.1657021},
+  url = {https://www.tandfonline.com/doi/full/10.1080/07352166.2019.1657021},
+  year = {2020},
+  month = {oct},
+  note = {Last visited on 07/15/2025}
+}</div>
 </div>
 </div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2019">2019</h2>
-<div>
-<div class="pub-card" data-key="kissOppositionCarbonPricing2019">
+<div class="pub-card" data-key="kissopposition2019a" data-category="risk-perception,-carbon-tax,-public-opinion,-provincial-politics" data-year="2019-04-29">
 <div class="pub-title">
 <a href="https://doi.org/10.1080/09644016.2019.1608659" target="_blank" rel="noopener">Opposition to Carbon Pricing and Right-Wing Populism: Ontario's 2018 General Election</a>
 </div>
@@ -523,6 +643,12 @@ Kiss &amp; Lachapelle
 <br>
 <em>Environmental Politics</em>
 </div>
+<div class="pub-category">
+<span class="category">risk perception</span>
+<span class="category">carbon tax</span>
+<span class="category">public opinion</span>
+<span class="category">provincial politics</span>
+</div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
 <a href="#" data-action="citation" role="button">Citation</a>
@@ -535,8 +661,8 @@ Kiss &amp; Lachapelle
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
-<div class="payload-bibtex">@article{kissOppositionCarbonPricing2019,
+<div class="payload-abstract">risk perception, carbon tax, public opinion, provincial politics</div>
+<div class="payload-bibtex">@article{kissopposition2019a,
   title = {Opposition to {{Carbon Pricing}} and {{Right-Wing Populism}}: {{Ontario}}'s 2018 {{General Election}}},
   author = {Simon Kiss and Erick Lachapelle},
   doi = {10.1080/09644016.2019.1608659},
@@ -545,19 +671,20 @@ Kiss &amp; Lachapelle
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2018">2018</h2>
-<div>
-<div class="pub-card" data-key="kissBalancedJournalismAmplifies2018">
+<div class="pub-card" data-key="woottenambiguous2019" data-category="public-opinion,-government-communications,-political-communication,-political-journalism" data-year="2019-09">
 <div class="pub-title">
-<a href="https://doi.org/10.22230/cjc.2018v43n4a3355" target="_blank" rel="noopener">Balanced Journalism Amplifies Minority Voices: A Case Study of a Fluoridation Plebiscite</a>
+<a href="https://doi.org/10.1017/S0008423918000446" target="_blank" rel="noopener">The Ambiguous Definition of Open Government: Parliamentarians, Journalists and Bloggers Define Open Government In Accordance With Their Interests</a>
 </div>
 <div class="pub-meta">
-Kiss, Rath &amp; Perrella
+Wootten &amp; Kiss
 <br>
-<em>Canadian Journal of Communication</em>
+<em>Canadian Journal of Political Science</em>
+</div>
+<div class="pub-category">
+<span class="category">Public opinion</span>
+<span class="category">government communications</span>
+<span class="category">political communication</span>
+<span class="category">political journalism</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -571,8 +698,50 @@ Kiss, Rath &amp; Perrella
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
-<div class="payload-bibtex">@article{kissBalancedJournalismAmplifies2018,
+<div class="payload-abstract">We present the results of a 2014 survey of Canadian parliamentarians, journalists and bloggers in which respondents were asked to rank competing definitions of open government. Overall, respondents preferred to define open government in terms of access to information and sources. However, controlling for age, ideology and language, we also found that respondents in the different positions ranked definitions of open government differently. Journalists are more likely than any other group to define open government in terms of access to information and sources. In contrast, parliamentarians who were members of a governing party were as likely to choose definitions of open government that emphasized public participation as they were to choose definitions that emphasized access to information. Opposition parliamentarians share more similarities with government parliamentarians than with journalists. These results suggest that key actors in the Canadian policy landscape define open government in ways that are consistent with their institutional interests. We suggest that these results reflect ways in which open government operates more like a buzzword, which helps explain the common pattern whereby opposition parties make promises to be more open and, after taking power, operate in less open ways. Moreover, these results raise questions about the extent to which open government can actually operate as an organizing principle.</div>
+<div class="payload-bibtex">@article{woottenambiguous2019,
+  title = {The {{Ambiguous Definition}} of {{Open Government}}: {{Parliamentarians}}, {{Journalists}} and {{Bloggers Define Open Government In Accordance With Their Interests}}},
+  author = {George W. Wootten and Simon J. Kiss},
+  volume = {52},
+  number = {3},
+  pages = {479--499},
+  doi = {10.1017/S0008423918000446},
+  url = {https://www.cambridge.org/core/product/identifier/S0008423918000446/type/journal_article},
+  year = {2019},
+  month = {sep},
+  note = {Last visited on 02/06/2025}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissbalanced2018a" data-category="public-opinion,-risk-perception,-public-health,-fluoridation" data-year="2018-11-03">
+<div class="pub-title">
+<a href="https://doi.org/10.22230/cjc.2018v43n4a3355" target="_blank" rel="noopener">Balanced Journalism Amplifies Minority Voices: A Case Study of a Fluoridation Plebiscite</a>
+</div>
+<div class="pub-meta">
+Kiss, Rath &amp; Perrella
+<br>
+<em>Canadian Journal of Communication</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">public health</span>
+<span class="category">fluoridation</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">public opinion, risk perception, public health, fluoridation</div>
+<div class="payload-bibtex">@article{kissbalanced2018a,
   title = {Balanced {{Journalism Amplifies Minority Voices}}: {{A Case Study}} of a {{Fluoridation Plebiscite}}},
   author = {Simon Kiss and Karly Rath and Andrea Perrella},
   volume = {43},
@@ -583,7 +752,7 @@ Kiss, Rath &amp; Perrella
 }</div>
 </div>
 </div>
-<div class="pub-card" data-key="lachapellePublicPerceptionsHydraulic2018">
+<div class="pub-card" data-key="lachapellepublic2018a" data-category="risk-perception,-public-opinion" data-year="2018-09-01">
 <div class="pub-title">
 <a href="https://doi.org/10.1016/j.exis.2018.07.003" target="_blank" rel="noopener">Public Perceptions of Hydraulic Fracturing (Fracking) in Canada: Corporate Ownership, Issue Familiarity, and Cultural Bias</a>
 </div>
@@ -591,6 +760,10 @@ Kiss, Rath &amp; Perrella
 Lachapelle, Kiss &amp; Montpetit
 <br>
 <em>Extractive Industries and Society</em>
+</div>
+<div class="pub-category">
+<span class="category">risk perception</span>
+<span class="category">public opinion</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -604,8 +777,8 @@ Lachapelle, Kiss &amp; Montpetit
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
-<div class="payload-bibtex">@article{lachapellePublicPerceptionsHydraulic2018,
+<div class="payload-abstract">risk perception, public opinion</div>
+<div class="payload-bibtex">@article{lachapellepublic2018a,
   title = {Public {{Perceptions}} of {{Hydraulic Fracturing}} ({{Fracking}}) in {{Canada}}: {{Corporate Ownership}}, {{Issue Familiarity}}, and {{Cultural Bias}}},
   author = {Erick Lachapelle and Simon Kiss and {\a'E}ric Montpetit},
   volume = {5},
@@ -616,12 +789,7 @@ Lachapelle, Kiss &amp; Montpetit
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2017">2017</h2>
-<div>
-<div class="pub-card" data-key="perrellatriple2017">
+<div class="pub-card" data-key="perrellatriple2017" data-category="" data-year="2017">
 <div class="pub-title">
 <a href="https://doi.org/NA" target="_blank" rel="noopener">Triple Play: The Ontario 2014 General Election</a>
 </div>
@@ -655,12 +823,7 @@ Perrella, Kiss &amp; Kay
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2015">2015</h2>
-<div>
-<div class="pub-card" data-key="perrellarisk2015">
+<div class="pub-card" data-key="perrellarisk2015" data-category="public-opinion,-risk-perception,-public-health,-fluoridation" data-year="2015-05-01">
 <div class="pub-title">
 <a href="https://doi.org/10.17269/cjph.106.4828" target="_blank" rel="noopener">Risk Perception, Psychological Heuristics and the Water Fluoridation Controversy</a>
 </div>
@@ -668,6 +831,12 @@ Perrella, Kiss &amp; Kay
 Perrella &amp; Kiss
 <br>
 <em>Canadian Journal of Public Health</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">public health</span>
+<span class="category">fluoridation</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -681,7 +850,7 @@ Perrella &amp; Kiss
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
+<div class="payload-abstract">public opinion, risk perception, public health, fluoridation</div>
 <div class="payload-bibtex">@article{perrellarisk2015,
   title = {Risk {{Perception}}, {{Psychological Heuristics}} and the {{Water Fluoridation Controversy}}},
   author = {Andrea ML Perrella and Simon Kiss},
@@ -694,12 +863,7 @@ Perrella &amp; Kiss
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2014">2014</h2>
-<div>
-<div class="pub-card" data-key="kisshow2014">
+<div class="pub-card" data-key="kisshow2014" data-category="" data-year="2014-08-12">
 <div class="pub-title">
 <a href="https://doi.org/10.24124/c677/2014497" target="_blank" rel="noopener">How to Win and Lose an Election: Campaign Dynamics of the 2011 Ontario Election</a>
 </div>
@@ -732,7 +896,7 @@ Kiss, family=Perrella given=AML &amp; Kay
 }</div>
 </div>
 </div>
-<div class="pub-card" data-key="kissRespondingNewPublic2014">
+<div class="pub-card" data-key="kissresponding2014a" data-category="political-communication,-government-communications,-provincial-politics,-alberta" data-year="2014-03-01">
 <div class="pub-title">
 <a href="https://doi.org/10.1111/capa.12053" target="_blank" rel="noopener">Responding to the 'New Public': The Arrival of Strategic Communications and Managed Participation in Alberta</a>
 </div>
@@ -740,6 +904,12 @@ Kiss, family=Perrella given=AML &amp; Kay
 Kiss
 <br>
 <em>Canadian Public Administration</em>
+</div>
+<div class="pub-category">
+<span class="category">political communication</span>
+<span class="category">government communications</span>
+<span class="category">provincial politics</span>
+<span class="category">Alberta</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -753,8 +923,8 @@ Kiss
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
-<div class="payload-bibtex">@article{kissRespondingNewPublic2014,
+<div class="payload-abstract">political communication, government communications, provincial politics, Alberta</div>
+<div class="payload-bibtex">@article{kissresponding2014a,
   title = {Responding to the '{{New Public}}': {{The Arrival}} of {{Strategic Communications}} and {{Managed Participation}} in {{Alberta}}},
   author = {Simon Kiss},
   volume = {57},
@@ -766,12 +936,7 @@ Kiss
 }</div>
 </div>
 </div>
-</div>
-</div>
-<div class="year-group">
-<h2 class="year-title anchored" id="y-2013">2013</h2>
-<div>
-<div class="pub-card" data-key="kissLegislationAgendaSettingAssessing2013">
+<div class="pub-card" data-key="kisslegislation2013a" data-category="public-opinion,-risk-perception,-cultural-theory,political-communication" data-year="2013-09-01">
 <div class="pub-title">
 <a href="https://doi.org/10.1080/15205436.2013.768345" target="_blank" rel="noopener">Legislation by Agenda-Setting: Assessing the Media's Role in the Regulation of Bisphenol A in the U.S. States</a>
 </div>
@@ -779,6 +944,12 @@ Kiss
 Kiss
 <br>
 <em>Mass Communication and Society</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">cultural theory</span>
+<span class="category">political communication</span>
 </div>
 <div class="pub-actions">
 <a href="#" data-action="abstract" role="button">Abstract</a>
@@ -792,8 +963,8 @@ Kiss
 <div class="content"></div>
 </div>
 <div style="display:none;">
-<div class="payload-abstract">NA</div>
-<div class="payload-bibtex">@article{kissLegislationAgendaSettingAssessing2013,
+<div class="payload-abstract">public opinion, risk perception, cultural theory,political communication</div>
+<div class="payload-bibtex">@article{kisslegislation2013a,
   title = {Legislation by {{Agenda-Setting}}: {{Assessing}} the {{Media}}'s {{Role}} in the {{Regulation}} of {{Bisphenol A}} in the {{U}}.{{S}}. {{States}}},
   author = {Simon Kiss},
   volume = {16},
@@ -808,6 +979,10 @@ Kiss
 </div>
 </div>
 </div>
+<div id="category-filter" style="min-width: 200px;">
+<strong>Filter by category:</strong>
+<div id="category-buttons"></div>
+<button id="clear-filter" class="category-btn">Show All</button>
 </div>
 </div>
 </div>
@@ -817,28 +992,31 @@ Kiss
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-kissLegislationAgendaSettingAssessing2013" class="csl-entry" role="listitem">
+<div id="ref-kisslegislation2013a" class="csl-entry" role="listitem">
 Kiss, Simon. 2013. <span>“Legislation by <span>Agenda-Setting</span>: <span>Assessing</span> the <span>Media</span>’s <span>Role</span> in the <span>Regulation</span> of <span>Bisphenol A</span> in the <span>U</span>.<span>S</span>. <span>States</span>.”</span> <em>Mass Communication and Society</em> 16 (5): 687–712. <a href="https://doi.org/10.1080/15205436.2013.768345">https://doi.org/10.1080/15205436.2013.768345</a>.
 </div>
-<div id="ref-kissRespondingNewPublic2014" class="csl-entry" role="listitem">
+<div id="ref-kissresponding2014a" class="csl-entry" role="listitem">
 ———. 2014. <span>“Responding to the ’<span>New Public</span>’: <span>The Arrival</span> of <span>Strategic Communications</span> and <span>Managed Participation</span> in <span>Alberta</span>.”</span> <em>Canadian Public Administration</em> 57 (1): 26–48. <a href="https://doi.org/10.1111/capa.12053">https://doi.org/10.1111/capa.12053</a>.
+</div>
+<div id="ref-kissrightwing2020" class="csl-entry" role="listitem">
+Kiss, Simon J., Andrea M. L. Perrella, and Zachary Spicer. 2020. <span>“Right-Wing Populism in a Metropolis: <span>Personal</span> Financial Stress, Conservative Attitudes, and <span>Rob Ford</span>’s <span>Toronto</span>.”</span> <em>Journal of Urban Affairs</em> 42 (7): 1028–46. <a href="https://doi.org/10.1080/07352166.2019.1657021">https://doi.org/10.1080/07352166.2019.1657021</a>.
 </div>
 <div id="ref-kisseducation2023" class="csl-entry" role="listitem">
 Kiss, Simon, Peter Graefe, and Matt Polacko. 2023. <span>“The <span>Education And Income Voting Divides In Canada And Their Consequences For Redistributive Politics</span>.”</span> <em>Electoral Studies</em> 85 (October). <a href="https://doi.org/10.1016/j.electstud.2023.102648">https://doi.org/10.1016/j.electstud.2023.102648</a>.
 </div>
-<div id="ref-kissOppositionCarbonPricing2019" class="csl-entry" role="listitem">
+<div id="ref-kissopposition2019a" class="csl-entry" role="listitem">
 Kiss, Simon, and Erick Lachapelle. 2019. <span>“Opposition to <span>Carbon Pricing</span> and <span>Right-Wing Populism</span>: <span>Ontario</span>’s 2018 <span>General Election</span>.”</span> <em>Environmental Politics</em>, April. <a href="https://doi.org/10.1080/09644016.2019.1608659">https://doi.org/10.1080/09644016.2019.1608659</a>.
 </div>
-<div id="ref-kissRegionIdeologyCultural2020" class="csl-entry" role="listitem">
+<div id="ref-kissregion2020" class="csl-entry" role="listitem">
 Kiss, Simon, Erick Lachapelle, and Eric Montpetit. 2020. <span>“Beyond <span>Region</span> and <span>Ideology</span>: <span>Cultural Theory</span> and <span>Risk Perception</span> in <span>Canada</span>.”</span> <em>Canadian Journal of Political Science / Revue Canadienne de Science Politique</em> 53 (2). <a href="https://doi.org/doi:10.1017/S0008423920000177">https://doi.org/doi:10.1017/S0008423920000177</a>.
 </div>
 <div id="ref-kisshow2014" class="csl-entry" role="listitem">
 Kiss, Simon, AML Perrella, and B J Kay. 2014. <span>“How to <span>Win</span> and <span>Lose</span> an <span>Election</span>: <span>Campaign Dynamics</span> of the 2011 <span>Ontario Election</span>.”</span> <em>Canadian Political Science Review</em> 8 (1). <a href="https://doi.org/10.24124/c677/2014497">https://doi.org/10.24124/c677/2014497</a>.
 </div>
-<div id="ref-kissBalancedJournalismAmplifies2018" class="csl-entry" role="listitem">
+<div id="ref-kissbalanced2018a" class="csl-entry" role="listitem">
 Kiss, Simon, Karly Rath, and Andrea Perrella. 2018. <span>“Balanced <span>Journalism Amplifies Minority Voices</span>: <span>A Case Study</span> of a <span>Fluoridation Plebiscite</span>.”</span> <em>Canadian Journal of Communication</em> 43 (4). <a href="https://doi.org/10.22230/cjc.2018v43n4a3355">https://doi.org/10.22230/cjc.2018v43n4a3355</a>.
 </div>
-<div id="ref-lachapellePublicPerceptionsHydraulic2018" class="csl-entry" role="listitem">
+<div id="ref-lachapellepublic2018a" class="csl-entry" role="listitem">
 Lachapelle, Erick, Simon Kiss, and Éric Montpetit. 2018. <span>“Public <span>Perceptions</span> of <span>Hydraulic Fracturing</span> (<span>Fracking</span>) in <span>Canada</span>: <span>Corporate Ownership</span>, <span>Issue Familiarity</span>, and <span>Cultural Bias</span>.”</span> <em>Extractive Industries and Society</em> 5 (4). <a href="https://doi.org/10.1016/j.exis.2018.07.003">https://doi.org/10.1016/j.exis.2018.07.003</a>.
 </div>
 <div id="ref-perrellarisk2015" class="csl-entry" role="listitem">
@@ -855,6 +1033,9 @@ Polacko, Matthew, Peter Graefe, and Simon Kiss. 2025. <span>“Revisiting the <s
 </div>
 <div id="ref-polackochanging2022" class="csl-entry" role="listitem">
 Polacko, Matthew, Simon Kiss, and Peter Graefe. 2022. <span>“The <span>Changing Nature</span> of <span>Class Voting</span> in <span>Canada</span>, 1965–2019.”</span> <em>Canadian Journal of Political Science/Revue Canadienne de Science Politique</em> 55 (3): 663–86. <a href="https://doi.org/10.1017/S0008423922000439">https://doi.org/10.1017/S0008423922000439</a>.
+</div>
+<div id="ref-woottenambiguous2019" class="csl-entry" role="listitem">
+Wootten, George W., and Simon J. Kiss. 2019. <span>“The <span>Ambiguous Definition</span> of <span>Open Government</span>: <span>Parliamentarians</span>, <span>Journalists</span> and <span>Bloggers Define Open Government In Accordance With Their Interests</span>.”</span> <em>Canadian Journal of Political Science</em> 52 (3): 479–99. <a href="https://doi.org/10.1017/S0008423918000446">https://doi.org/10.1017/S0008423918000446</a>.
 </div>
 </div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

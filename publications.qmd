@@ -35,6 +35,10 @@ strip_braces <- function(x) {
   gsub("[{}]", "", y, perl = TRUE)
 }
 
+# This code section strips my keywords
+
+
+
 fmt_authors_card <- function(entry) {
   au <- entry$author
   if (is.null(au) || length(au) == 0) return(NA_character_)
@@ -228,21 +232,63 @@ section#bibliography.level1.unnumbered {
   position: absolute; top: 6px; right: 70px; font-size: 0.8rem;
   background: #333; color: #fff; padding: 3px 7px; border-radius: 6px; display: none;
 }
+.pub-category {
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: #444;
+}
+
+.category {
+  background-color: #eef;
+  border-radius: 6px;
+  padding: 2px 6px;
+  margin-right: 6px;
+  display: inline-block;
+  font-size: 0.85rem;
+}
+
+#category-filter {
+  flex-shrink: 0;
+  padding-top: 10px;
+  margin: 20px 0;
+}
+
+#category-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.category-btn {
+  background-color: #ddd;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.category-btn:hover {
+  background-color: #bbb;
+}
+
 ```
 
 ```{=html}
+
 <script>
 (function() {
   function getCard(el) {
     while (el && !el.classList?.contains('pub-card')) el = el.parentNode;
     return el;
   }
+
   function showPanel(card, label, html, mode) {
     const area = card.querySelector('.toggle-area');
     const labelEl = area.querySelector('.panel-label');
     const contentEl = area.querySelector('.content');
 
-    // Toggle: if clicking same action while open, collapse
     const current = area.getAttribute('data-current');
     if (current === mode && area.style.display === 'block') {
       area.style.display = 'none';
@@ -259,53 +305,46 @@ section#bibliography.level1.unnumbered {
     } else if (mode === 'abstract') {
       contentEl.textContent = html;
     } else {
-      contentEl.innerHTML = html; // citation HTML
+      contentEl.innerHTML = html;
     }
     area.style.display = 'block';
     area.setAttribute('data-current', mode);
   }
 
-  // Resource link handler (toggle)
   document.addEventListener('click', function(evt) {
     const a = evt.target.closest('a[data-action]');
     if (!a) return;
     const action = a.getAttribute('data-action');
-    const card   = getCard(a);
+    const card = getCard(a);
     if (!card) return;
     evt.preventDefault();
 
-    if (action === 'abstract' || action === 'citation' || action === 'bib') {
-      const key = card.getAttribute('data-key');  // <-- Pandoc ref id suffix
+    const key = card.getAttribute('data-key');
+    let label = action === 'citation' ? 'Citation' : (action === 'bib' ? 'BibTeX' : 'Abstract');
+    let html = '';
 
-      // Build label + payload
-      let label = action === 'citation' ? 'Citation' : (action === 'bib' ? 'BibTeX' : 'Abstract');
-      let html  = '';
+    if (action === 'abstract') {
+      const payloadEl = card.querySelector('.payload-abstract');
+      const text = (payloadEl?.textContent || 'No abstract available.').trim();
+      showPanel(card, label, text, 'abstract');
+      return;
+    }
 
-      if (action === 'abstract') {
-        const payloadEl = card.querySelector('.payload-abstract');
-        const text = (payloadEl?.textContent || 'No abstract available.').trim();
-        showPanel(card, label, text, 'abstract');
-        return;
-      }
+    if (action === 'citation') {
+      const ref = document.querySelector('#ref-' + key);
+      html = (ref ? ref.innerHTML : 'Citation unavailable.').trim();
+      showPanel(card, label, html, 'citation');
+      return;
+    }
 
-      if (action === 'citation') {
-        // Pull APA-formatted HTML from hidden #refs list: <div id="ref-KEY">
-        const ref = document.querySelector('#ref-' + key);
-        html = (ref ? ref.innerHTML : 'Citation unavailable.').trim();
-        showPanel(card, label, html, 'citation');
-        return;
-      }
-
-      if (action === 'bib') {
-        const payloadEl = card.querySelector('.payload-bibtex');
-        const text = (payloadEl?.textContent || 'No BibTeX available.').trim();
-        showPanel(card, label, text, 'bib');
-        return;
-      }
+    if (action === 'bib') {
+      const payloadEl = card.querySelector('.payload-bibtex');
+      const text = (payloadEl?.textContent || 'No BibTeX available.').trim();
+      showPanel(card, label, text, 'bib');
+      return;
     }
   }, false);
 
-  // Copy button
   document.addEventListener('click', function(evt) {
     const btn = evt.target.closest('.copy-btn');
     if (!btn) return;
@@ -331,12 +370,57 @@ section#bibliography.level1.unnumbered {
       document.body.removeChild(ta);
     });
   }, false);
+
+  // ✅ Category filtering logic — now inside the IIFE
+  document.addEventListener("DOMContentLoaded", function() {
+    const cards = document.querySelectorAll(".pub-card");
+    const buttonContainer = document.getElementById("category-buttons");
+    const clearButton = document.getElementById("clear-filter");
+
+    const categories = new Set();
+    cards.forEach(card => {
+      const raw = card.getAttribute("data-category");
+      if (raw) {
+        raw.split(",").forEach(cat => categories.add(cat.trim()));
+      }
+    });
+
+    categories.forEach(cat => {
+      const btn = document.createElement("button");
+      btn.className = "category-btn";
+      btn.textContent = cat.replace(/-/g, " ");
+      btn.setAttribute("data-category", cat);
+      buttonContainer.appendChild(btn);
+    });
+
+    function filterByCategory(category) {
+      cards.forEach(card => {
+        const cardCats = card.getAttribute("data-category") || "";
+        const match = cardCats.split(",").map(c => c.trim()).includes(category);
+        card.style.display = match ? "block" : "none";
+      });
+    }
+
+    buttonContainer.addEventListener("click", function(evt) {
+      const btn = evt.target.closest(".category-btn");
+      if (!btn || btn.id === "clear-filter") return;
+      const category = btn.getAttribute("data-category");
+      filterByCategory(category);
+    });
+
+    clearButton.addEventListener("click", function() {
+      cards.forEach(card => card.style.display = "block");
+    });
+  });
 })();
 </script>
+
+
 ```
 
 ```{r}
 #| label: render-publications
+
 
 build_card <- function(
   key, entry, title, authors_card, year, venue,
@@ -347,28 +431,40 @@ build_card <- function(
   has_preprint_key  <- !is.null(entry$preprint)  && length(entry$preprint)  > 0
   has_materials_key <- !is.null(entry$materials) && length(entry$materials) > 0
 
+  # Category tags
+  category_block <- NULL
+  category_data <- ""
+  if (!is.null(entry$annotation) && nzchar(entry$annotation)) {
+    category_list <- strsplit(entry$annotation, ",\\s*")[[1]]
+    category_tags <- lapply(category_list, function(category) {
+      tags$span(class = "category", category)
+    })
+    category_block <- tags$div(class = "pub-category", category_tags)
+    category_data <- tolower(gsub("\\s+", "-", entry$annotation))
+  }
+
+  # Payloads
   payloads <- tags$div(
     style = "display:none;",
     tags$div(class = "payload-abstract", abstract %||% ""),
     tags$div(class = "payload-bibtex",  bibtex   %||% "")
   )
 
+  # Title
   ttl_node <- if (isTRUE(nzchar(doi_url %||% ""))) {
     tags$div(class = "pub-title", tags$a(title, href = doi_url, target = "_blank", rel = "noopener"))
   } else {
     tags$div(class = "pub-title", title)
   }
 
+  # Metadata
   meta <- tags$div(
     class = "pub-meta",
-    if (nzchar(authors_card %||% "")) {
-      tagList(HTML(authors_card), tags$br())
-    } else {
-      NULL
-    },
-    tagList(if (nzchar(venue %||% "")) tags$em(venue) else NULL)
+    if (nzchar(authors_card %||% "")) tagList(HTML(authors_card), tags$br()) else NULL,
+    if (nzchar(venue %||% "")) tags$em(venue) else NULL
   )
 
+  # Actions
   actions <- tags$div(
     class = "pub-actions",
     tags$a("Abstract", href = "#", `data-action`="abstract", role="button"),
@@ -380,6 +476,7 @@ build_card <- function(
       tags$a("Materials", class = "external", href = (materials_url %||% "#"), target = "_blank", rel="noopener")
   )
 
+  # Toggle panel
   toggle_panel <- tags$div(
     class = "toggle-area",
     `data-current` = "",
@@ -389,31 +486,55 @@ build_card <- function(
     tags$div(class = "content")
   )
 
-  tags$div(class = "pub-card", `data-key` = key, ttl_node, meta, actions, toggle_panel, payloads)
+  # Final card
+  tags$div(
+    class = "pub-card",
+    `data-key` = key,
+    `data-category` = category_data,
+    `data-year` = year,
+    ttl_node, meta, category_block, actions, toggle_panel, payloads
+  )
 }
 
-years <- rows |>
-  distinct(year_lbl, year_num) |>
-  arrange(desc(year_num), desc(year_lbl)) |>
-  pull(year_lbl)
+# Create flat list of cards
+cards <- rows |>
+  select(
+    key, entry, title, authors_card, year, venue,
+    abstract, bibtex,
+    preprint_url, materials_url, doi_url
+  ) |>
+  pmap(build_card)
 
-groups <- lapply(years, function(y) {
-  subset <- rows |> filter(year_lbl == y)
+# Filter UI
+filter_ui <- tags$div(
+  id = "category-filter",
+  tags$strong("Filter by category:"),
+  tags$div(id = "category-buttons"),
+  tags$button(id = "clear-filter", class = "category-btn", "Show All")
+)
 
-  subset_min <- subset |>
-    select(
-      key, entry, title, authors_card, year, venue,
-      abstract, bibtex,
-      preprint_url, materials_url, doi_url
-    )
-  cards <- pmap(subset_min, build_card)
-
+# Final page content
+page_content <- tagList(
   tags$div(
-    class = "year-group",
-    tags$h2(class = "year-title anchored", id = paste0("y-", y), y),
-    tags$div(cards)
+    style = "display: flex; gap: 40px;",
+    tags$div(class = "pub-list", cards),
+    tags$div(
+      id = "category-filter",
+      style = "min-width: 200px;",
+      tags$strong("Filter by category:"),
+      tags$div(id = "category-buttons"),
+      tags$button(id = "clear-filter", class = "category-btn", "Show All")
+    )
   )
-})
+)
 
-browsable(tags$div(groups))
+
+browsable(page_content)
+
+
 ```
+
+
+
+
+
