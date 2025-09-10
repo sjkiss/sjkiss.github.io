@@ -110,7 +110,8 @@ rows <- tibble(
   key   = keys,
   entry = lapply(keys, function(k) bib[k])
 ) |>
-  mutate(
+  mutate(annotation=map_chr(entry, ~ .x$annotation %||% ""),
+      keywords=map_chr(entry, ~ .x$keywords %||% ""),
     title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
     authors_card = map_chr(entry, fmt_authors_card),
     year         = map_chr(entry, ~ {
@@ -152,6 +153,7 @@ rows <- tibble(
     year_lbl = ifelse(is.na(year_num), "n.d.", as.character(year_num))
   ) |>
   arrange(desc(year_num), title)
+
 ```
 
 ```{css}
