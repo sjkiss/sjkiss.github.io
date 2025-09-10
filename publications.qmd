@@ -37,21 +37,40 @@ strip_braces <- function(x) {
 
 # This code section strips my keywords
 
-
-
 fmt_authors_card <- function(entry) {
   au <- entry$author
   if (is.null(au) || length(au) == 0) return(NA_character_)
+
   fmt_one <- function(a) {
-    fam_vec <- a$family
-    if (length(fam_vec)) paste(as.character(fam_vec), collapse = " ") else ""
+    given <- a$given %||% ""
+    family <- a$family %||% ""
+    full_name <- paste(given, family)
+    trimws(full_name)
   }
+
   pieces <- vapply(au, fmt_one, character(1))
   pieces <- pieces[nzchar(pieces)]
+
   if (!length(pieces)) return(NA_character_)
   if (length(pieces) == 1) pieces
   else paste(paste(pieces[-length(pieces)], collapse = ", "), "&", pieces[length(pieces)])
 }
+
+# 
+# This is the old fmt_authors card that did this
+# fmt_authors_card <- function(entry) {
+#   au <- entry$author
+#   if (is.null(au) || length(au) == 0) return(NA_character_)
+#   fmt_one <- function(a) {
+#     fam_vec <- a$family
+#     if (length(fam_vec)) paste(as.character(fam_vec), collapse = " ") else ""
+#   }
+#   pieces <- vapply(au, fmt_one, character(1))
+#   pieces <- pieces[nzchar(pieces)]
+#   if (!length(pieces)) return(NA_character_)
+#   if (length(pieces) == 1) pieces
+#   else paste(paste(pieces[-length(pieces)], collapse = ", "), "&", pieces[length(pieces)])
+# }
 
 get_abstract <- function(entry) {
   abs <- entry$abstract %||% entry$annotation %||% NA_character_
@@ -516,17 +535,22 @@ filter_ui <- tags$div(
 # Final page content
 page_content <- tagList(
   tags$div(
-    style = "display: flex; gap: 40px;",
-    tags$div(class = "pub-list", cards),
+    style = "display: flex; gap: 40px; align-items: flex-start;",
+    tags$div(
+      class = "pub-list",
+      style = "flex: 1; max-width: 85%;",
+      cards
+    ),
     tags$div(
       id = "category-filter",
-      style = "min-width: 200px;",
+      style = "width: 15%; min-width: 160px;",
       tags$strong("Filter by category:"),
       tags$div(id = "category-buttons"),
       tags$button(id = "clear-filter", class = "category-btn", "Show All")
     )
   )
 )
+
 
 
 browsable(page_content)
