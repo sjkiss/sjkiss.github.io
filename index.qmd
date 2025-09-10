@@ -8,7 +8,7 @@ listing:
   - id: recent-pubs
     contents: publications.qmd
     max-items: 2
-    sort: "date"
+    sort: "date desc"
 about: 
   template: trestles
   image: files/avatar.jpg
