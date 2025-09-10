@@ -6,7 +6,7 @@ listing:
     max-items: 2
     sort: "date desc"
   - id: recent-pubs
-    contents: publications
+    contents: publications.qmd
     max-items: 2
     sort: "date"
 about: 
