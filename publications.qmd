@@ -1,9 +1,6 @@
 ---
 pagetitle: "Publications"
 toc: false
-bibliography: publications/kiss_articles.bib
-nocite: |
-  @*
 execute:
   echo: false
   warning: false
@@ -18,8 +15,6 @@ execute:
   </ol>
 </nav>
 ```
-
-
 
 ```{r setup}
 library(tidyverse)
@@ -110,8 +105,17 @@ normalize_link <- function(x) {
 
 ```{r}
 #| label: build-rows
+#Get articles
+bib_articles  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
 
-bib  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
+# Get reports
+bib_reports  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
+
+# combine
+bib<-c(bib_articles, bib_reports)
+#  unlist(., use.names = T) ->bib
+
+#bib  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
 keys <- names(bib)
 
 extra_links <- tibble(key = character(), preprint = character(), materials = character())
@@ -421,7 +425,6 @@ section#bibliography.level1.unnumbered {
 })();
 </script>
 
-
 ```
 
 ```{r}
@@ -544,8 +547,5 @@ browsable(page_content)
 
 
 ```
-
-
-
 
 
