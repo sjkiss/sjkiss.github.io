@@ -6,6 +6,7 @@
   {
     "listing": "/posts.html",
     "items": [
+      "/posts/2026-02-05-ontario-entrance-averages/index.html",
       "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html",
       "/posts/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/index.html"
     ]
@@ -23,6 +24,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2026-02-05-ontario-entrance-averages/index.html",
       "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html",
       "/posts/2020-02-20-academic-and-non-academic-hiring-in-ontario-1996-2018/index.html",
       "/publications.html"

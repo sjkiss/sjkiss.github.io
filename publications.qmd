@@ -106,13 +106,13 @@ normalize_link <- function(x) {
 ```{r}
 #| label: build-rows
 #Get articles
-bib_articles  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
+bib  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
 
 # Get reports
-bib_reports  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
+#bib_reports  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
 
 # combine
-bib<-c(bib_articles, bib_reports)
+#bib<-c(bib_articles, bib_reports)
 #  unlist(., use.names = T) ->bib
 
 #bib  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
