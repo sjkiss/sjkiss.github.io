@@ -1,0 +1,423 @@
+---
+title: 'Calculating Gini Coefficients From Binned Income Data'
+date: '2026-07-02'
+bibliography: social_class.bib
+execute: 
+  echo: true
+  warning: false
+  message: false
+draft: false
+---
+
+## Introduction
+
+I am currently working on a research project on role that voters' subjective sense of social class plays in political behaviour. This question was last visited in Canadian political science in the 1980s [@lambertSocialClassLeft1987], although it has been revisited by sociologist Michelle Maroto [@marotoEveryoneReallyMiddle2023]. 
+
+A central statistic in the research on income inequality is the Gini coefficient, which runs from 0 to 1.In a country with a Gini coefficient of 1, one person would have all the income in the country, while in a country with a Gini coefficient of 0, everyone would have the same income. 
+
+In the context of subjective social class, one of the things that might make a difference to how people see themselves is what their environment looks like. Andersen and Curtis [-@andersenPolarizingEffectEconomic2012] found that when income inequality is high, subjective social class positions polarize. 
+
+We wanted to test whether or not there were similar effects at a more local level. Given that Canadian elections formally - and substantially - take place at the level of the federal electoral district, it might be reasonable to hypothesize that these effects might manifest themselves there. The problem is getting the Gini coefficient estimates for those districts. 
+
+Currently, Statistics Canada publishes Gini coefficients at some levels of geography and for some time periods, but not very far back. Table 11-10-0134-01[@statisticscanadaTable1110013401Gini2022] reports national Gini coefficients back to 1976. Table 98-10-0096-01 [@statisticscanadaTable9810009601Income2022] publishes similar statistics at lower levels of geography, but *not* at the level of the federal electoral district. Helpfully, however, the most recent data products produced for the 2021 census include Gini coefficients for household income produced at different levels of geography, including Census Metropolitan Areas, Dissemination Areas and, helpfully, Federal Electoral Districts. Normally, the Gini coefficient is estimated with individual-level income data, where each respondent provides their income. It's not entirely clear from Statistics Canada's Dictionary of the Census that this is the case, but it seems to be [@statisticscanadaDictionaryCensusPopulation2023, see Appendix 2.3]. The report indicates that the coefficient is calculated using the adjusted household income, meaning that they modify the total household income to account for the number of people in the household. A single person earning $100,000 is wealthier than a family of four earning the same income in the household. These then are presumably averaged over a geographical area in order to derive a measure of income inequality in some geography. 
+
+However, *historical* Gini coefficients at these levels of geography are lacking and have to be computed by end-users themselves. And here is a trick: getting historical individual-level income data in order to aggregate that to custom levels of geography (like federal electoral districts) will be very challenging. However, Statistics Canada *does* publish *binned* or *aggregated* income data mapped to smaller levels of geography in the past. For a particular level of geography, this is something along the lines of:
+
+| Income | Count | 
+|:---------------------------| ----------------------:|
+| $0-$4,999 | 5,667| 
+| $5,000-$9,999  |10,225 |  
+| $10,000-$14,999 | 15,222 | 
+| etc. |etc | 
+
+In fact, they have a nice PDF of the statistical census profiles of all 282 federal electoral districts from the 1976 representation order which covers precisely the one historical election (1984) that I am interested in [@statisticscanada1981CensusCanada1983]. 
+
+I'll talk about how I extracted those statistiscs for each Federal Electoral District in another post, but Claude was able to accomplish it quite well, in a short period of time. 
+
+So, at the end of it, we could get the *binned* income data for 1984 for each Federal Electoral District, but, we would need to calculate the Gini coefficient for each district *not* from individual level data, but from aggreagated data. Is this possible? 
+
+It seems like the short answer is, yes. 
+
+Enter some work documented in [@vonhippelBetterEstimatesBinned2017] and implemented in the `binsmooth` package in R by [@hunterBinsmoothGeneratePDFs2020].
+
+## Calculating Gini Coefficients From Binned Income Data
+
+There are multiple ways to deal with data of this type. One way is simply to assign each respondent in the dataset's count to the midbpoint of the bracket. While this is simple it suffers from two defects: it treats income as discrete (meaning people can only have values like $22,499 or $49,999) when it is continuous (e.g. $22,499, $22,500, $22,501) and it fails to deal with the problem of the open-ended right bracket, (e.g. greater than $249,999). This requires the analyst to arbitrarily select a midpoint for the bracket. But because income is highly skewed (Pareto-distributed is the technical term) and can very substantially with inequality, this can be consequential. Another strategy is to fit bin counts to a continuous parametric distribution such as the Pareto or the Weibull distribution. This can be computationally intensive to try to find which distribution fits the best. An alternative, proposed by von Hippel et al. [-@vonhippelBetterEstimatesBinned2017] is to fit a non-parametric continuous density curve to the empirically observed distribution of data points in the histograms of the binned incomes. Gini coefficients are then calculated from the curves that are fit to the observed data. 
+
+
+## Shaping the Data
+
+We can start by loading and shaping the data. I took my data right from the [Census 2021 data download page](https://www12.statcan.gc.ca/census-recensement/2021/dp-pd/prof/details/download-telecharger.cfm?Lang=E), searching for the file that provides the profiles for the FEDs for the 2022 representation order. For the purposes of this post, I have prepackaged the file into an `.rdata` file ([here]("https://github.com/sjkiss/cesdata2/raw/refs/heads/master/data-raw/statscan/2022_federal_representation_order/2022_federal_representation_order_statistics_canada_profiles.rdata"). I will leave it to you to sort out how to download it from Statistics Canada on your own. 
+
+Note, these are massive files and include statistical information for each FED for each census variable collected. That is a lot. Finding the rows that include the income information we are interested in is, frankly, a pain. However, downloading that `csv` file includes a file listing the meta-data and can be helpful in locating which specific type of income data that we are interested in.
+
+
+
+```{r}
+#| label: load-package
+#| results: markup
+
+
+library(dplyr)
+library(here)
+library(stringr)
+con<-"https://github.com/sjkiss/cesdata2/raw/refs/heads/master/data-raw/statscan/2022_federal_representation_order/2022_federal_representation_order_statistics_canada_profiles.rdata"
+# 2. Create a temporary file path
+temp_file <- tempfile(fileext = ".RData")
+
+# 3. Download the binary file safely using write-binary mode ("wb")
+download.file(con, destfile = temp_file, mode = "wb")
+
+# 4. Load the data into your environment
+load(temp_file)
+
+census2021 %>% 
+  #filter in only rows that contain statistical information for FEDS, not provinces and Canada
+  filter(str_detect(GEO_LEVEL, "Federal")) ->census2021
+
+```
+
+
+
+## Estimating The Data
+
+We filter this data to include only the data we need for this exercise. To estimate the Gini coefficients we reqire the income brackets and counts for the variable `Total Before Tax Income For Households` as well as the `Average Total Income of the Household`. To benchmark the Gini coefficients that are estimated with those pre-provided by Statistics Canada, we will also extract the published Gini coefficients. We locate the income brackets in characteristic IDs 260-281, the average income in ID 252 and the Gini coefficient in ID 379.[^1]
+
+[^1]: Finding out how to extract these is *not* easy, to be honest. It seems like there is no real systematic way to locate these Characteristic IDs; it really requires trial and error. 
+
+Note, using the `Total Before Tax Income For Households` is not a small decision. The census profiles report multiple types of income data: for example, total household income, total market income, total employment income, etc. These are important distinctions, but for my purposes, I'm picking it because in the individual-level Canada Election Studies which we use for individual-level political behaviour, asked respondents for total household income. Recall, though, that the Gini coefficients are calculated the `*Adjusted* Total Household Income`, which is divided by the square of the number of the members of the household, this statistic is not, and cannot, be reported at the aggregate level. So, when we calculate the Gini from the binned data and compare it to the pre-provided Gini coefficient from the there will be a difference. We will consider that below. 
+
+The most efficient way to extract these rows is as follows:
+```{r}
+#| label: select-income
+
+census2021 %>%
+  # Extract the rows containing the income variables but drop the row that contains the 
+  # count of people with incomes greater that $100,000, CHARACTERISTIC ID 276
+  filter((CHARACTERISTIC_ID>260&CHARACTERISTIC_ID<281&CHARACTERISTIC_ID!=276)|
+           #Capture the rows that contain the FEDs average household income
+           CHARACTERISTIC_ID==252|
+           #use the OR operator | to also select any row that contains the value for the ginis
+           str_detect(CHARACTERISTIC_NAME, "Gini index on adjusted household total income"))->census2021
+
+glimpse(census2021)
+```
+
+## Reshaping The Data
+
+The `binsmooth` package requires one variable that contains the vector of income brackets and one that contains the counts of people in each income bracket. At this point, we have a small challenge which is that the column that contains the income brackets *also* contains a value indicating that that row *also* contains the Gini coefficient and the average income for the district. We also note a data-cleaning measure that the income bracket values have some white-space in their rows. 
+
+In the next sequence, we pivot the values of the variable `CHARACTERISTIC_NAME` wider, separating all the income brackets, the average and the Gini coefficient name into separate columns. Then we pivot only those income brackets longer. 
+
+
+```{r}
+#| label: pivot
+library(tidyr)
+census2021 %>%
+  #Select only the geography name, the variable name, the variable ID and the count contained in each row
+  select(GEO_NAME,CHARACTERISTIC_NAME, CHARACTERISTIC_ID, C1_COUNT_TOTAL) %>%
+  #pivot the income brackets and gini variable wider
+  pivot_wider(., id_cols=GEO_NAME,names_from=CHARACTERISTIC_NAME, values_from = C1_COUNT_TOTAL) %>%
+  #rename the 21st variable to be Gini for simplicity
+  rename(`Gini`=22, `Average`=2)->census2021_income_data
+#trim the white space from the names
+names(census2021_income_data)<-str_trim(names(census2021_income_data))
+#pivot down the income variables
+census2021_income_data %>%
+  pivot_longer(.,
+               #pivot down the income categories
+               cols=3:21,
+               #Stor bin ranges in category and population counts in each category in count
+               names_to=c("Income_Bracket"), values_to = c("Count"))->census2021_income_data
+
+#examine
+glimpse(census2021_income_data)
+```
+## Estimating the Gini Coefficients
+
+This is what the income bracket count and the Gini coefficient look like for the distict of Richmond East-Steveston. So we have income brackets that stretch from under \$5,000 to more than $250,000, the counts of people with household incomes in those brackets and the Gini coefficient for the eleectoral district. 
+
+```{r}
+#| label: richmond
+
+# Set seed for randomization
+set.seed(11)
+
+#Pick a random district by sampling from the levels of GEO_Name
+sample_fed<-sample(levels(as.factor(census2021$GEO_NAME)),size=1)
+census2021_income_data%>% 
+  filter(GEO_NAME==sample_fed) %>% 
+  print(n=20)
+```
+
+
+
+We can plot the data on a histogram (which is somewhat sketchy, as the the actual data that we have is clearly categorical) so that you have categories of income while the heights of each category's bar corresponds to the number of people in each category. Then, to reflect the underlying continuous data, you can fit a curve to those categorical bars and use that to interpolate the income distribution and derive a Gini coefficient.  The `binsmooth` package ships with two built-in interpolation functions: one fits a step function to the histogram of binned income data, one fits a spline. 
+
+
+```{r}
+#| label: draw-histogram
+#| eval: true
+library(ggplot2)
+library(dplyr)
+library(forcats)
+
+census2021_income_data %>%
+  mutate(Income_Bracket = fct_relevel(Income_Bracket, 
+                                      "Under $5,000",
+                                "$5,000 to $9,999",
+                                "$10,000 to $14,999",
+                                "$15,000 to $19,999",
+                                "$20,000 to $24,999",
+                                "$25,000 to $29,999",
+                                "$30,000 to $34,999",
+                                "$35,000 to $39,999",
+                                "$40,000 to $44,999", 
+                                "$45,000 to $49,999",
+                                "$50,000 to $59,999",
+                                "$60,000 to $69,999",
+                                "$70,000 to $79,999",
+                                "$80,000 to $89,999",
+                                "$90,000 to $99,999",
+                                "$100,000 to $124,999",
+                                "$125,000 to $149,999",
+                                "$150,000 to $199,999",
+                                "$200,000 and over"))  ->census2021_income_data
+
+census2021_income_data %>% 
+  filter(GEO_NAME==sample_fed) %>% 
+ggplot(., aes(x = Income_Bracket, y = Count)) +
+  geom_col(fill = "steelblue", colour = "white") +
+  labs(title = "Income distribution — Richmond East-Steveston",
+       subtitle = "Count per bracket (2021 Census)",
+       x = NULL, y = "Number of people") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+
+```
+
+As a first step it is necessary to define the right edges of each income bracket, defining the last bracket as `Inf`. These are taken right from the pre-provided categories by Statistics Canada. 
+
+```{r}
+#| label: define-right-edges
+census2021_income_data %>% 
+  #Print the Income Brackets
+  distinct(Income_Bracket)
+#Save in a vector
+#For spline fit
+edges<-c(5000,9999,14999,19999,24999,29999,34999,39999,44999,49999,59999,69999,79999,89999,99999,124999,149999,199999,Inf)
+
+
+```
+
+To illustrate the curve-fitting process to the observed categorical counts, we can illustrate with one electoral district.  Here we filter the dataset to include only the `Richmond East-Steveston` and then capture some necessary variables. Then we use the `stepbin()` and the `splinebins()` functions to fit the curves to the observed data.
+```{r}
+#| label: one-district
+
+library(binsmooth)
+
+
+#Pick one district for analysis
+richmond<- census2021_income_data %>%
+  filter(GEO_NAME == sample_fed) %>%
+  #arramge the dataset inthe orders of the income brackets from low to high
+  arrange(Income_Bracket)
+#Store the counts of people
+counts <- richmond$Count
+#Total population
+N <- sum(counts)
+#capture the average income for the district
+m <- richmond$Average[1]   # district mean, constant within the FED
+
+#Use the built-in functions from binsmooth
+#these return functions which interpolate data to these counts
+step_fit   <- stepbins(edges, counts, m=m)              # piecewise-constant density
+spline_fit <- splinebins(edges, counts, m = m)    # smooth density, mean-constrained tail
+
+# Evaluate both on a common grid, scaled by N to match the count-density histogram.
+# Grid still ends at a finite display bound even though the spline's tail runs to Inf.
+grid <- seq(0, 250000, length.out = 1000)
+#Match the 
+curves <- bind_rows(
+  data.frame(income = grid, density = N * step_fit$stepPDF(grid),     fit = "Step (stepbins)"),
+  data.frame(income = grid, density = N * spline_fit$splinePDF(grid), fit = "Cubic spline (splinebins)")
+)
+
+
+# Density histogram as backdrop. The top bin has no real upper edge, so cap it
+# at the display bound purely so the bar can be drawn.
+hist_edges <- replace(edges, length(edges), 250000)
+#Store all necessary information in hist_df for the histogram. 
+# lower runs from 0 to the right-edge brackets -1, the upper values equals the edges, the counts will be the hights off the bars
+hist_df <- data.frame(lower = c(0, head(edges, -1)), upper = edges, count = counts) %>%
+  #define variable width into a density so that the histogram's area matches the count; this
+  # lets the scale of the histogram match the curves
+  mutate(width = upper - lower, density = count / width)
+#Draw the plot
+ggplot() +
+  #Use geom_rect() instead of histogram because we are using pre-aggregated counts, not grouping individual observations
+  geom_rect(data = hist_df,
+            aes(xmin = lower, xmax = upper, ymin = 0, ymax = density),
+            fill = "grey85", colour = "white")+
+  #fit two lines from the curves data frame, coloring each by the different fitting functions
+  geom_line(data = curves, aes(income, density, colour = fit), linewidth = 1) +
+  scale_colour_manual(values = c("Step (stepbins)" = "#d1495b",
+                                 "Cubic spline (splinebins)" = "#1b6ca8")) +
+  labs(title = "Step vs cubic-spline fit — Richmond East-Steveston",
+       x = "Income ($)", y = "Density", colour = NULL) +
+  theme_minimal()
+```
+
+You can see now how there are two ways of fitting curves to match the aggregated income data. It is from the interpolated points on one of those two curves that the Gini coefficient is calculated from aggregated data. 
+
+
+## Generating the gini coefficients
+
+Now we turn to the process of generating the Gini cofficients, and not just for one district but for all 343 districts. 
+
+The process I like to use is the ["many models"](https://r4ds.had.co.nz/many-models.html) process that is enabled by the tidyverse syntax. The `binsmooth` package comes with a function (`gini()`) that requires the output from the spline or step-fitting interpolation procedure that we just ran on one district. 
+
+We saved the results of the step function in `step_fit()` and the spline function in `spline_fit()`.  From here it's easy to get the gini coefficient for Richmond East-Steveston. 
+
+```{r}
+#| label: find-gini
+#| echo: true
+
+gini(step_fit)
+gini(spline_fit)
+
+```
+This fits closely with the gini coefficient for the district returned by Statistics Canada. The reason for the difference is key: the Statistics Canada Gini coefficient comes from total household income *adjusted* for household size. But we cannot do that with the aggregated income data because that cannot be adjusted in this way. So there is a discrepancy here, but it might not be a major issue, depending on the use case. 
+
+```{r}
+#| label: show-gini-richmond
+#| echo: true
+
+census2021_income_data %>%
+  filter(GEO_NAME==sample_fed) %>% 
+  summarize(Richmond_Gini=max(Gini))
+  
+```
+
+First, let's get the ginis for all the districts. 
+
+```{r}
+#| label: run-model-fit
+
+library(purrr)
+census2021_income_data %>% 
+  #Nest the dataset by electoral distric
+  nest(-GEO_NAME) %>% # This will createa list-column of dataframes including all other variables stored as a variable `data`
+  #Add a column called `fit` which contains the results of the model fit
+  # fit to each data frame in `data`
+  mutate(fit=map(data, ~{
+    #run the splinebins() function using the `edges` vector containing the right edges of the icnome brackets
+    # and the count of people in each income bracket in Count
+    #and use the variable `Average` for the overal average income
+    # for each district
+    #Note we have to specify that we only require one value for the average
+    # so [1] returns only the first in that variable
+    splinebins(bEdges=edges, bCounts=.x$Count, m=.x$Average[1])
+  }))->fits
+#This returns
+glimpse(fits)  
+```
+
+To calculate the ginis for each, we run the `gini()` function. 
+
+```{r}
+#| label: store-fits
+
+# Everything is stored in fits
+fits %>% 
+  #We add a column running called gini running the gini function on the fit column
+  mutate(gini_estimated=map(fit, gini))->fits
+#Which looks like this
+head(fits)
+
+```
+
+Now, we have the Statistics Canada gini already stored in the `data`column of `fits`. We can unnest it. 
+
+```{r}
+#| label: unnest
+#Take object where all the gini calculations have been stored
+fits %>% 
+  #Unnest the object called gini_estimated
+  unnest(gini_estimated) %>% 
+  #The original GIni coefficient is stored in the `data` list column 
+  # which comes from all the statistics Canada data we collected earlier
+  # and nested
+  #The next two lines extract the Gini coefficient stored there
+  mutate(Gini=map(data, "Gini")) %>% 
+  unnest_longer(Gini) %>% 
+  #We drop the list columns `data` and `fit`
+  select(GEO_NAME, gini_estimated, Gini) %>%
+  #And keep the distinct rows
+  distinct()->ginis
+# we are left wit this
+
+glimpse(ginis)
+
+```
+
+
+## Diagnosis
+
+How well does the estimation procedure do compared to what we have with Statistics Canada? Pretty well, although we absolutely must remember they are based on different measures of household income, one is adjusted for household income size, one is not. The correlation between the two is `r with(ginis, cor(Gini, gini_estimated))`. That's *exceptionally* high, but it doesn't tell the whole story. The tight correlation is visible in the very tight crowding around a linear regression line. But if we add a 45-degree line to the plot, we see the danger that arises coming from the mismatch between income adjusted for household size and not. 
+
+The fact that all points are *above* the 45-degree line shows that the estimated gini systematically generates coefficients that are *larger* than provided by Statistics Canada, but this is going to be almost *entirely* due to the different underlying measures. 
+
+It is also true that the *gap* between the two shrinks as inequality rises. What this means is that as income inequality rises using incomes adjusted for household sizes, it approaches the measure of inequality without taking into account household sizes. Unequal districts are close to equally unequal.
+
+But at lower levels of income inequality, the difference matters more. 
+
+```{r}
+#| label: diagnostic-plot
+#| fig-cap: "Diagnosing Gini estimation from aggregated income data unadjusted for household size."
+ginis %>% 
+  ggplot(., aes(x=Gini, y=gini_estimated))+
+  geom_point()+
+  geom_smooth(method="lm")+labs(title="Comparing Statscan Ginis with Ginis from Splinebins")+
+  geom_abline(intercept = 0, slope = 1, color = "red", linetype = "dashed") +
+  # 2. Force 1 unit on the X-axis to match 1 unit on the Y-axis visually
+  coord_fixed()
+```
+
+The fact that the estimated ginis are *all* larger than than actual ginis provided by Statistics Canada is helpful here; it might be the case that the relative position of districts is actually kept intact. 
+
+If we check the top 10 using both measures.
+
+```{r}
+#| label: rank-variables
+ginis %>% 
+  #rank the districts by the Statistics Canada Gini
+  mutate(gini_rank=rank(.$Gini),
+         #And then by the estimated Gini
+         gini_estimated_rank=rank(.$gini_estimated))->ginis
+#Generate Spearman's rho correlation 
+with(ginis, cor(Gini, gini_estimated, method="spearman"))
+```
+
+That's pretty high, again, meaning that the relative positions of the ginis hold. 
+
+With that, let's see what the top most *unuequal* and *equal* federal electoral districts here. 
+
+```{r}
+#| label: print-unequal-equal
+ginis %>% 
+  slice_max(gini_estimated,n=10)
+ginis %>% 
+  slice_min(gini_estimated, n=10)
+
+```
+
+So that's informative. The most unequal districts are probably the wealthiest ones. Note also that the districts' ranks based on both measures is quite close. But if you look at the bottom districts, we see some differences. First off, overall these mostly seem to be suburban districts with modest income levels. But there are some perhaps not insubstantial differences in rankings. Brampton-East is the second-most equal district without accounting for household size, but only the 12th most equal district doing so. This is a guess here, but I'm going to suggest that the presence of multi-generational households makes a big difference. Accounting for household income size, inequality *goes down* and the district looks closer to the average. 
+
+But that is just a guess. 
+
+Given the close correlation in rank that we found, I *think* that this would be an acceptable measure of electoral district inequality, overall, but I'll let others chime in. 
+
+
+## References

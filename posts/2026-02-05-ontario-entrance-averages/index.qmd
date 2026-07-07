@@ -8,6 +8,7 @@ execute:
   include: true
   warning: false
   message: false
+  fig.path: "images/"
 ---
 
 ```{r}
