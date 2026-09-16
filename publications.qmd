@@ -453,10 +453,13 @@ build_card <- function(
   }
 
   # Payloads
+  # Treat missing (NA) values as empty so the JS shows its "not available"
+  # fallback instead of a literal "NA".
+  na_to_empty <- function(x) if (is.null(x) || length(x) == 0 || is.na(x)) "" else x
   payloads <- tags$div(
     style = "display:none;",
-    tags$div(class = "payload-abstract", abstract %||% ""),
-    tags$div(class = "payload-bibtex",  bibtex   %||% "")
+    tags$div(class = "payload-abstract", na_to_empty(abstract)),
+    tags$div(class = "payload-bibtex",  na_to_empty(bibtex))
   )
 
   # Title
