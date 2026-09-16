@@ -8,5 +8,43 @@ description: Open science and reproducibility
 about:
   template: trestles
   image: minard.png
+listing:
+  - id: data-posts
+    contents: "../../posts/*/index.qmd"
+    include:
+      categories: ["Open science", "reproducibility"]
+    type: default
+    sort: "date desc"
+    fields: [title, date, description, reading-time]
+    field-display-names:
+      reading-time: "Read"
 ---
-There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny. 
+There is a movement in the natural and social sciences to increase the reliability and reproducibility of peer-reviewed research. One of the main endeavours in this initiative is to make data and code publicly available for replication and scrutiny.
+
+::: {.related-posts}
+## Related posts {.unlisted}
+
+::: {#data-posts}
+:::
+:::
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+find_root <- function(start = getwd()) {
+  dir <- normalizePath(start, mustWork = FALSE)
+  while (!file.exists(file.path(dir, "_quarto.yml"))) {
+    parent <- dirname(dir)
+    if (identical(parent, dir)) stop("Could not locate _quarto.yml")
+    dir <- parent
+  }
+  dir
+}
+source(file.path(find_root(), "R_scripts", "project_listings.R"))
+render_project_pubs(c("Open science", "reproducibility"))
+```
+
+```{=html}
+<script src="/assets/pub-cards.js"></script>
+```

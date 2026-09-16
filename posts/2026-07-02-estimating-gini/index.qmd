@@ -1,6 +1,8 @@
 ---
 title: 'Calculating Gini Coefficients From Binned Income Data'
 date: '2026-07-02'
+categories:
+  - Social Democracy
 bibliography: social_class.bib
 execute: 
   echo: true

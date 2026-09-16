@@ -2,13 +2,16 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
 <title>Politics, Risk Perception and Public Policy – Simon Kiss</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -30,16 +33,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-89f93fc7bfb4781976316e93b892b7c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0c9e78abab9a7b32a05399722be96c1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,7 +71,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-risk-posts .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-date','listing-description','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-image"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-risk-posts'] = new List('listing-risk-posts', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../styles.css">
 </head>
@@ -79,8 +141,6 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Simon Kiss</span>
     </a>
@@ -135,6 +195,255 @@ ul.task-list li input[type="checkbox"] {
 <p>The bulk of my research since arriving at Wilfrid Laurier University has been to investigate the politics of risk perception, particularly in regards to environmental issues. I have completed a project on the politics of the controversial chemical BPA. In one <a href="../../publication/legislation-by-agenda-setting">paper</a>, I was able to show that the level of news coverage in state’s daily newspaper about BPA was correlated with the probability that that state would adopt a ban on BPA. In short, politicians adopt policies responding to media pressure. In a second, more qualitative <a href="../../publication/bpa-canada">paper</a>, I examined the interaction between legislative provisions, short term interest-group pressure and media attention that led to Canada being the first country in the world to prohibit baby bottles made with BPA.</p>
 <p>In the course of this project I was inspired by the work emerging on the <a href="http://culturalcognition.net">cultural cognition</a> of risk perception and the cultural theory of risk. I was awarded a <a href="http://www.sshrc.ca">SSHRC</a> Insight Development Grant in 2013 to develop survey measures of the core concepts of cultural theory for the canadian context. Working with <a href="http://www.ericmontpetit.ca/">Dr.&nbsp;Eric Montpetit</a> and <a href="http://www.ericklachapelle.ca">Dr.&nbsp;Erick Lachapelle</a>, I conducted intense qualitative research and survey development to produce these measures. Our first publicadtion from this project can be seen <a href="../../publication/montpetit-lachapelle-kiss">here</a>.</p>
 <p>Building on this project, I have been invited to take part in the <a href="https://issp.uottawa.ca/en/research-and-publications/at-risk">@risk</a> research project, a SSHRC-funded research project that seeks to find ways to mange the democratic and technocratic tensions managing risks in contemporary Canada.</p>
+<section id="related-posts" class="level2 unlisted related-posts">
+<h2 class="unlisted" data-anchor-id="related-posts">Related posts</h2>
+<div id="listing-risk-posts" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+</section>
+<div class="cell">
+<div class="cell-output-display">
+<h2 class="project-listing-heading">Publications</h2>
+<div class="pub-list">
+<div class="pub-card" data-key="kissregion2020" data-year="2020-04-21">
+<div class="pub-title">
+<a href="https://doi.org/doi:10.1017/S0008423920000177" target="_blank" rel="noopener">Beyond Region and Ideology: Cultural Theory and Risk Perception in Canada</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Erick Lachapelle &amp; Eric Montpetit
+<br>
+<em>Canadian Journal of Political Science / Revue canadienne de science politique</em>
+</div>
+<div class="pub-category">
+<span class="category">Risk perception</span>
+<span class="category">Canada</span>
+<span class="category">public opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">Cultural theory (CT) has been widely used to explain variations in risk perception but has rarely been tested in Canada. This contribution represents the most thorough attempt to adapt CT to the Canadian context. Study results suggest that respondents’ commitment to egalitarianism was strongly correlated with risks from technology, while respondents’ commitment to hierarchism was strongly correlated with risks from criminal or unsafe behaviours. Respondents’ commitment to individualism was also correlated with risks from criminal and unsafe behaviours but differed from hierarchism in that individualism was not correlated with risk perceptions from prostitution and marijuana use. Respondents’ commitments to fatalism were strongly correlated with risk perception of vaccines. These conclusions are reinforced by results from a survey question that tests the extent to which such cultural predispositions map onto the myths of nature hypothesized by CT and by a survey experiment that tests how cultural commitments predict perceived risks from a controversial pipeline.</div>
+<div class="payload-bibtex">@article{kissregion2020,
+  title = {Beyond {{Region}} and {{Ideology}}: {{Cultural Theory}} and {{Risk Perception}} in {{Canada}}},
+  author = {Simon Kiss and Erick Lachapelle and Eric Montpetit},
+  volume = {53},
+  number = {2},
+  doi = {doi:10.1017/S0008423920000177},
+  year = {2020},
+  month = {apr}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissopposition2019a" data-year="2019-04-29">
+<div class="pub-title">
+<a href="https://doi.org/10.1080/09644016.2019.1608659" target="_blank" rel="noopener">Opposition to Carbon Pricing and Right-Wing Populism: Ontario's 2018 General Election</a>
+</div>
+<div class="pub-meta">
+Simon Kiss &amp; Erick Lachapelle
+<br>
+<em>Environmental Politics</em>
+</div>
+<div class="pub-category">
+<span class="category">risk perception</span>
+<span class="category">carbon tax</span>
+<span class="category">public opinion</span>
+<span class="category">provincial politics</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">risk perception, carbon tax, public opinion, provincial politics</div>
+<div class="payload-bibtex">@article{kissopposition2019a,
+  title = {Opposition to {{Carbon Pricing}} and {{Right-Wing Populism}}: {{Ontario}}'s 2018 {{General Election}}},
+  author = {Simon Kiss and Erick Lachapelle},
+  doi = {10.1080/09644016.2019.1608659},
+  year = {2019},
+  month = {apr}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissbalanced2018a" data-year="2018-11-03">
+<div class="pub-title">
+<a href="https://doi.org/10.22230/cjc.2018v43n4a3355" target="_blank" rel="noopener">Balanced Journalism Amplifies Minority Voices: A Case Study of a Fluoridation Plebiscite</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Karly Rath &amp; Andrea Perrella
+<br>
+<em>Canadian Journal of Communication</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">public health</span>
+<span class="category">fluoridation</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">public opinion, risk perception, public health, fluoridation</div>
+<div class="payload-bibtex">@article{kissbalanced2018a,
+  title = {Balanced {{Journalism Amplifies Minority Voices}}: {{A Case Study}} of a {{Fluoridation Plebiscite}}},
+  author = {Simon Kiss and Karly Rath and Andrea Perrella},
+  volume = {43},
+  number = {4},
+  doi = {10.22230/cjc.2018v43n4a3355},
+  year = {2018},
+  month = {nov}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="lachapellepublic2018a" data-year="2018-09-01">
+<div class="pub-title">
+<a href="https://doi.org/10.1016/j.exis.2018.07.003" target="_blank" rel="noopener">Public Perceptions of Hydraulic Fracturing (Fracking) in Canada: Corporate Ownership, Issue Familiarity, and Cultural Bias</a>
+</div>
+<div class="pub-meta">
+Erick Lachapelle, Simon Kiss &amp; Éric Montpetit
+<br>
+<em>Extractive Industries and Society</em>
+</div>
+<div class="pub-category">
+<span class="category">risk perception</span>
+<span class="category">public opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">risk perception, public opinion</div>
+<div class="payload-bibtex">@article{lachapellepublic2018a,
+  title = {Public {{Perceptions}} of {{Hydraulic Fracturing}} ({{Fracking}}) in {{Canada}}: {{Corporate Ownership}}, {{Issue Familiarity}}, and {{Cultural Bias}}},
+  author = {Erick Lachapelle and Simon Kiss and {\a'E}ric Montpetit},
+  volume = {5},
+  number = {4},
+  doi = {10.1016/j.exis.2018.07.003},
+  year = {2018},
+  month = {sep}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="perrellarisk2015" data-year="2015-05-01">
+<div class="pub-title">
+<a href="https://doi.org/10.17269/cjph.106.4828" target="_blank" rel="noopener">Risk Perception, Psychological Heuristics and the Water Fluoridation Controversy</a>
+</div>
+<div class="pub-meta">
+Andrea ML Perrella &amp; Simon Kiss
+<br>
+<em>Canadian Journal of Public Health</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">public health</span>
+<span class="category">fluoridation</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">public opinion, risk perception, public health, fluoridation</div>
+<div class="payload-bibtex">@article{perrellarisk2015,
+  title = {Risk {{Perception}}, {{Psychological Heuristics}} and the {{Water Fluoridation Controversy}}},
+  author = {Andrea ML Perrella and Simon Kiss},
+  volume = {106},
+  number = {4},
+  pages = {e197-e203},
+  doi = {10.17269/cjph.106.4828},
+  year = {2015},
+  month = {may}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kisslegislation2013a" data-year="2013-09-01">
+<div class="pub-title">
+<a href="https://doi.org/10.1080/15205436.2013.768345" target="_blank" rel="noopener">Legislation by Agenda-Setting: Assessing the Media's Role in the Regulation of Bisphenol A in the U.S. States</a>
+</div>
+<div class="pub-meta">
+Simon Kiss
+<br>
+<em>Mass Communication and Society</em>
+</div>
+<div class="pub-category">
+<span class="category">public opinion</span>
+<span class="category">risk perception</span>
+<span class="category">cultural theory</span>
+<span class="category">political communication</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">public opinion, risk perception, cultural theory, political communication</div>
+<div class="payload-bibtex">@article{kisslegislation2013a,
+  title = {Legislation by {{Agenda-Setting}}: {{Assessing}} the {{Media}}'s {{Role}} in the {{Regulation}} of {{Bisphenol A}} in the {{U}}.{{S}}. {{States}}},
+  author = {Simon Kiss},
+  volume = {16},
+  number = {5},
+  pages = {687--712},
+  doi = {10.1080/15205436.2013.768345},
+  url = {http://www.tandfonline.com/doi/abs/10.1080/15205436.2013.768345},
+  year = {2013},
+  month = {sep},
+  note = {Last visited on 05/08/2020}
+}</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="../../assets/pub-cards.js"></script>
 
 
 </main></div>

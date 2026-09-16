@@ -1,1 +1,66 @@
 /* css styles */
+
+/* ---- Project-page listings (posts + publications) ---- */
+.project-listing-heading {
+  margin: 34px 0 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 1.4rem;
+}
+.project-empty { color: #666; font-style: italic; }
+
+/* Hide the "Related posts" block entirely when no posts match. */
+.related-posts:not(:has(.quarto-post)) { display: none; }
+
+/* Publication cards (shared with the Publications page) */
+.pub-card {
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px 16px 10px 16px;
+  margin: 14px 0;
+  background: #fff;
+}
+.pub-title { font-weight: 600; font-size: 1.05rem; margin-bottom: 4px; }
+.pub-title a { text-decoration: none; }
+.pub-meta  { color: #555; font-size: 0.95rem; margin-bottom: 8px; }
+
+.pub-actions {
+  display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center;
+  margin-top: 8px; margin-bottom: 8px;
+}
+.pub-actions a {
+  text-decoration: none; font-size: 0.92rem;
+  border-bottom: 1px dotted #999; color: #0b66c3; cursor: pointer;
+}
+.pub-actions a.external { border-bottom-style: solid; }
+
+.toggle-area {
+  display: none; position: relative;
+  border: 1px solid #000; border-radius: 10px;
+  padding: 12px 44px 12px 12px; background: #fafafa;
+  margin-top: 10px; overflow: auto;
+}
+.toggle-area .panel-label {
+  font-size: 0.82rem; color: #333; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.03em;
+  opacity: 0.85; margin-bottom: 6px;
+}
+.toggle-area pre { white-space: pre-wrap; word-wrap: break-word; margin: 0; }
+.toggle-area .content p { margin: 0 0 0.6em 0; }
+
+.copy-btn {
+  position: absolute; top: 6px; right: 6px;
+  border: 1px solid #ddd; background: #fff; font-size: 0.85rem;
+  padding: 4px 8px; border-radius: 6px; cursor: pointer;
+}
+.copy-btn:active { transform: translateY(1px); }
+.copy-toast {
+  position: absolute; top: 6px; right: 70px; font-size: 0.8rem;
+  background: #333; color: #fff; padding: 3px 7px; border-radius: 6px; display: none;
+}
+.pub-category { margin-top: 6px; font-size: 0.85rem; color: #444; }
+.category {
+  background-color: #eef; border-radius: 6px;
+  padding: 2px 6px; margin-right: 6px;
+  display: inline-block; font-size: 0.85rem;
+}

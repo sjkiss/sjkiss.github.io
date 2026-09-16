@@ -8,6 +8,7 @@ project:
   - "*.Rmd"
   resources:
     - "files/"
+    - "assets/"
 format:
   html:
     theme: cosmo
