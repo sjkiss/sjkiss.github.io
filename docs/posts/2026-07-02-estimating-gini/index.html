@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Calculating Gini Coefficients From Binned Income Data – Simon Kiss</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -61,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -89,15 +91,14 @@ div.csl-indent {
 <meta name="quarto:offset" content="../../">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-89f93fc7bfb4781976316e93b892b7c6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-0c9e78abab9a7b32a05399722be96c1c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -137,8 +138,6 @@ div.csl-indent {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    </a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Simon Kiss</span>
     </a>
@@ -173,7 +172,10 @@ div.csl-indent {
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Calculating Gini Coefficients From Binned Income Data</h1>
-                      </div>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Social Democracy</div>
+              </div>
+                  </div>
   </div>
     
   <div class="quarto-title-meta-author">
@@ -235,7 +237,7 @@ div.csl-indent {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>I am currently working on a research project on role that voters’ subjective sense of social class plays in political behaviour. This question was last visited in Canadian political science in the 1980s <span class="citation" data-cites="lambertSocialClassLeft1987">(<a href="#ref-lambertSocialClassLeft1987" role="doc-biblioref">Lambert et al. 1987</a>)</span>, although it has been revisited by sociologist Michelle Maroto <span class="citation" data-cites="marotoEveryoneReallyMiddle2023">(<a href="#ref-marotoEveryoneReallyMiddle2023" role="doc-biblioref">Maroto, Brown, and Durou 2023</a>)</span>.</p>
+<p>I am currently working on a research project on role that voters’ subjective sense of social class plays in political behaviour. This question was last visited in Canadian political science in the 1980s <span class="citation" data-cites="lambertSocialClassLeft1987">(<a href="#ref-lambertSocialClassLeft1987" role="doc-biblioref"><strong>lambertSocialClassLeft1987?</strong></a>)</span>, although it has been revisited by sociologist Michelle Maroto <span class="citation" data-cites="marotoEveryoneReallyMiddle2023">(<a href="#ref-marotoEveryoneReallyMiddle2023" role="doc-biblioref">Maroto et al. 2023</a>)</span>.</p>
 <p>A central statistic in the research on income inequality is the Gini coefficient, which runs from 0 to 1.In a country with a Gini coefficient of 1, one person would have all the income in the country, while in a country with a Gini coefficient of 0, everyone would have the same income.</p>
 <p>In the context of subjective social class, one of the things that might make a difference to how people see themselves is what their environment looks like. Andersen and Curtis <span class="citation" data-cites="andersenPolarizingEffectEconomic2012">(<a href="#ref-andersenPolarizingEffectEconomic2012" role="doc-biblioref">2012</a>)</span> found that when income inequality is high, subjective social class positions polarize.</p>
 <p>We wanted to test whether or not there were similar effects at a more local level. Given that Canadian elections formally - and substantially - take place at the level of the federal electoral district, it might be reasonable to hypothesize that these effects might manifest themselves there. The problem is getting the Gini coefficient estimates for those districts.</p>
@@ -271,7 +273,7 @@ div.csl-indent {
 <p>I’ll talk about how I extracted those statistiscs for each Federal Electoral District in another post, but Claude was able to accomplish it quite well, in a short period of time.</p>
 <p>So, at the end of it, we could get the <em>binned</em> income data for 1984 for each Federal Electoral District, but, we would need to calculate the Gini coefficient for each district <em>not</em> from individual level data, but from aggreagated data. Is this possible?</p>
 <p>It seems like the short answer is, yes.</p>
-<p>Enter some work documented in <span class="citation" data-cites="vonhippelBetterEstimatesBinned2017">(<a href="#ref-vonhippelBetterEstimatesBinned2017" role="doc-biblioref">Von Hippel, Hunter, and Drown 2017</a>)</span> and implemented in the <code>binsmooth</code> package in R by <span class="citation" data-cites="hunterBinsmoothGeneratePDFs2020">(<a href="#ref-hunterBinsmoothGeneratePDFs2020" role="doc-biblioref">Hunter and Drown 2020</a>)</span>.</p>
+<p>Enter some work documented in <span class="citation" data-cites="vonhippelBetterEstimatesBinned2017">(<a href="#ref-vonhippelBetterEstimatesBinned2017" role="doc-biblioref">Von Hippel et al. 2017</a>)</span> and implemented in the <code>binsmooth</code> package in R by <span class="citation" data-cites="hunterBinsmoothGeneratePDFs2020">(<a href="#ref-hunterBinsmoothGeneratePDFs2020" role="doc-biblioref">Hunter and Drown 2020</a>)</span>.</p>
 </section>
 <section id="calculating-gini-coefficients-from-binned-income-data" class="level2">
 <h2 class="anchored" data-anchor-id="calculating-gini-coefficients-from-binned-income-data">Calculating Gini Coefficients From Binned Income Data</h2>
@@ -749,30 +751,27 @@ $ Gini           &lt;dbl&gt; 0.314, 0.328, 0.320, 0.311, 0.313, 0.374, 0.312, 0.
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-andersenPolarizingEffectEconomic2012" class="csl-entry" role="listitem">
 Andersen, Robert, and Josh Curtis. 2012. <span>“The Polarizing Effect of Economic Inequality on Class Identification: <span>Evidence</span> from 44 Countries.”</span> <em>Research in Social Stratification and Mobility</em> 30 (1): 129–41. <a href="https://doi.org/10.1016/j.rssm.2012.01.002">https://doi.org/10.1016/j.rssm.2012.01.002</a>.
 </div>
 <div id="ref-hunterBinsmoothGeneratePDFs2020" class="csl-entry" role="listitem">
-Hunter, David, and Mackalie Drown. 2020. <span>“Binsmooth: <span>Generate PDFs</span> and <span>CDFs</span> from <span>Binned Data</span>.”</span> <a href="https://cran.r-project.org/web/packages/binsmooth/index.html">https://cran.r-project.org/web/packages/binsmooth/index.html</a>.
-</div>
-<div id="ref-lambertSocialClassLeft1987" class="csl-entry" role="listitem">
-Lambert, Ronald D., James E. Curtis, Steven D. Brown, and Barry J. Kay. 1987. <span>“Social Class, Left/Right Political Orientations, and Subjective Class Voting in Provincial and Federal Elections.”</span> <em>Canadian Review of Sociology &amp; Anthropology</em> 24 (4): 526. <a href="https://doi.org/10.1111/j.1755-618x.1987.tb00642.x">https://doi.org/10.1111/j.1755-618x.1987.tb00642.x</a>.
+Hunter, David, and Mackalie Drown. 2020. <em>Binsmooth: <span>Generate PDFs</span> and <span>CDFs</span> from <span>Binned Data</span></em>. V. 0.2.2. Released March 11. <a href="https://cran.r-project.org/web/packages/binsmooth/index.html">https://cran.r-project.org/web/packages/binsmooth/index.html</a>.
 </div>
 <div id="ref-marotoEveryoneReallyMiddle2023" class="csl-entry" role="listitem">
 Maroto, Michelle, Delphine Brown, and Guillaume Durou. 2023. <span>“Is Everyone Really Middle Class? <span>Social</span> Class Position and Identification in <span>Alberta</span>.”</span> <em>Canadian Review of Sociology/Revue Canadienne de Sociologie</em> 60 (3): 336–66. <a href="https://doi.org/10.1111/cars.12444">https://doi.org/10.1111/cars.12444</a>.
 </div>
 <div id="ref-statisticscanada1981CensusCanada1983" class="csl-entry" role="listitem">
-Statistics Canada. 1983. <span>“1981 <span>Census</span> of <span>Canada</span> : Volume 3 - Profile Series <span>B</span> : Federal Electoral Districts - Population, Occupied Private Dwellings, Private Households and Census and Economic Families in Private Households; Selected Social and Economic Characteristics.”</span> CS95-941/1981-PDF. Ottawa: Statistics Canada. <a href="https://publications.gc.ca/collections/collection_2017/statcan/CS95-941-1981.pdf">https://publications.gc.ca/collections/collection_2017/statcan/CS95-941-1981.pdf</a>.
+Statistics Canada. 1983. <em>1981 <span>Census</span> of <span>Canada</span> : Volume 3 - Profile Series <span>B</span> : Federal Electoral Districts - Population, Occupied Private Dwellings, Private Households and Census and Economic Families in Private Households; Selected Social and Economic Characteristics</em>. CS95-941/1981-PDF. Statistics Canada. <a href="https://publications.gc.ca/collections/collection_2017/statcan/CS95-941-1981.pdf">https://publications.gc.ca/collections/collection_2017/statcan/CS95-941-1981.pdf</a>.
 </div>
 <div id="ref-statisticscanadaTable1110013401Gini2022" class="csl-entry" role="listitem">
-———. 2022a. <span>“Table 11-10-0134-01&nbsp; <span>Gini</span> Coefficients of Adjusted Market, Total and After-Tax Income.”</span> July 13, 2022. <a href="https://doi.org/10.25318/1110013401-eng">https://doi.org/10.25318/1110013401-eng</a>.
+Statistics Canada. 2022a. <span>“Table 11-10-0134-01&nbsp; <span>Gini</span> Coefficients of Adjusted Market, Total and After-Tax Income.”</span> July 13. <a href="https://doi.org/10.25318/1110013401-eng">https://doi.org/10.25318/1110013401-eng</a>.
 </div>
 <div id="ref-statisticscanadaTable9810009601Income2022" class="csl-entry" role="listitem">
-———. 2022b. <span>“Table 98-10-0096-01: <span>Income</span> Inequality Statistics Across <span>Canada</span>: <span>Canada</span>, Provinces and Territories, Census Divisions and Census Subdivisions.”</span> July 13, 2022. <a href="https://doi.org/10.25318/9810009601-eng">https://doi.org/10.25318/9810009601-eng</a>.
+Statistics Canada. 2022b. <span>“Table 98-10-0096-01: <span>Income</span> Inequality Statistics Across <span>Canada</span>: <span>Canada</span>, Provinces and Territories, Census Divisions and Census Subdivisions.”</span> July 13. <a href="https://doi.org/10.25318/9810009601-eng">https://doi.org/10.25318/9810009601-eng</a>.
 </div>
 <div id="ref-statisticscanadaDictionaryCensusPopulation2023" class="csl-entry" role="listitem">
-———. 2023. <span>“Dictionary, <span>Census</span> of <span>Population</span> 2021.”</span> 98-301-X. Ottawa: Statistics Canada.
+Statistics Canada. 2023. <em>Dictionary, <span>Census</span> of <span>Population</span> 2021</em>. 98-301-X. Statistics Canada.
 </div>
 <div id="ref-vonhippelBetterEstimatesBinned2017" class="csl-entry" role="listitem">
 Von Hippel, Paul, David Hunter, and McKalie Drown. 2017. <span>“Better <span>Estimates</span> from <span>Binned Income Data</span>: <span>Interpolated CDFs</span> and <span>Mean-Matching</span>.”</span> <em>Sociological Science</em> 4: 641–55. <a href="https://doi.org/10.15195/v4.a26">https://doi.org/10.15195/v4.a26</a>.

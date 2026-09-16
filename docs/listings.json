@@ -1,5 +1,15 @@
 [
   {
+    "listing": "/projects/risk/index.html",
+    "items": []
+  },
+  {
+    "listing": "/projects/political-communication/index.html",
+    "items": [
+      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html"
+    ]
+  },
+  {
     "listing": "/projects.html",
     "items": [
       "/projects/data/index.html",
@@ -29,20 +39,7 @@
     ]
   },
   {
-    "listing": "/projects/social-democracy/index.html",
-    "items": [
-      "/posts/2026-07-02-estimating-gini/index.html",
-      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/political-communication/index.html",
-    "items": [
-      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html"
-    ]
-  },
-  {
-    "listing": "/projects/risk/index.html",
+    "listing": "/projects/data/index.html",
     "items": []
   },
   {
@@ -50,7 +47,10 @@
     "items": []
   },
   {
-    "listing": "/projects/data/index.html",
-    "items": []
+    "listing": "/projects/social-democracy/index.html",
+    "items": [
+      "/posts/2026-07-02-estimating-gini/index.html",
+      "/posts/2022-07-20-public-spending-priorities-in-ontario-elections/index.html"
+    ]
   }
 ]
