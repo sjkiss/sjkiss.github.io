@@ -9,6 +9,7 @@ listing:
   filter-ui: true
   image-height: 260px
   fields:
+    - image
     - title
 page-layout: full
 title-block-banner: false

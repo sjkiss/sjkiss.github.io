@@ -1,6 +1,6 @@
 ---
 title: "Open Science and reproducbility"
-image: minard.jpg
+image: minard.png
 categories: 
   - Open science
   - reproducibility
