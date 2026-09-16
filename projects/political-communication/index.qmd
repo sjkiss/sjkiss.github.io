@@ -5,6 +5,9 @@ categories:
   - Political communication
   - Public Opinion
 description: Research on political communication and public opinion
+bibliography: ../../publications/kiss_articles.bib
+nocite: |
+  @*
 about:
   template: trestles
   image: featured.jpg

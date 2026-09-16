@@ -4,6 +4,9 @@ image: featured.jpg
 categories:
   - Social Democracy
   - Public Opinion
+bibliography: ../../publications/kiss_articles.bib
+nocite: |
+  @*
 about:
   template: trestles
   image: featured.jpg

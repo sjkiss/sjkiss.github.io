@@ -3,6 +3,9 @@ title: "Politics, Risk Perception and Public Policy"
 image: featured.jpg
 categories: 
   - Risk
+bibliography: ../../publications/kiss_articles.bib
+nocite: |
+  @*
 about:
   template: trestles
   image: featured.jpg

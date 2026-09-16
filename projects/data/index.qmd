@@ -5,6 +5,9 @@ categories:
   - Open science
   - reproducibility
 description: Open science and reproducibility
+bibliography: ../../publications/kiss_articles.bib
+nocite: |
+  @*
 about:
   template: trestles
   image: minard.png

@@ -1,5 +1,8 @@
 ---
 title: ""
+bibliography: publications/kiss_articles.bib
+nocite: |
+  @*
 listing:
   - id: blog-posts
     contents: posts

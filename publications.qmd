@@ -1,6 +1,9 @@
 ---
 pagetitle: "Publications"
 toc: false
+bibliography: publications/kiss_articles.bib
+nocite: |
+  @*
 execute:
   echo: false
   warning: false

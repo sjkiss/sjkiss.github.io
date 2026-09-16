@@ -12,6 +12,18 @@
 /* Hide the "Related posts" block entirely when no posts match. */
 .related-posts:not(:has(.quarto-post)) { display: none; }
 
+/* The publication cards read citations from Quarto's generated bibliography
+   (via nocite). Keep that bibliography in the DOM but hidden from view. */
+#quarto-bibliography,
+#quarto-appendix .quarto-appendix-heading,
+#quarto-appendix,
+section#bibliography.level1.unnumbered {
+  display: none !important;
+  border: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 /* Publication cards (shared with the Publications page) */
 .pub-card {
   border: 1px solid #e5e7eb;

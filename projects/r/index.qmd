@@ -3,6 +3,9 @@ title: "R"
 image: featured.jpg
 categories: 
   - R
+bibliography: ../../publications/kiss_articles.bib
+nocite: |
+  @*
 about:
   template: trestles
   image: featured.jpg
