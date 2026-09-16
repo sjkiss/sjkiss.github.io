@@ -1,15 +1,11 @@
 ---
 title: ""
-listing: 
+listing:
   - id: blog-posts
     contents: posts
     max-items: 2
     sort: "date desc"
-  - id: recent-pubs
-    contents: publications.qmd
-    max-items: 2
-    sort: "date desc"
-about: 
+about:
   template: trestles
   image: files/avatar.jpg
   image-shape: rectangle
@@ -46,5 +42,25 @@ I am a political scientist in Human Rights and Political Science at [Wilfrid Lau
 
 ## Recent Publications
 
-::: {#recent-pubs}
-:::
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+find_root <- function(start = getwd()) {
+  dir <- normalizePath(start, mustWork = FALSE)
+  while (!file.exists(file.path(dir, "_quarto.yml"))) {
+    parent <- dirname(dir)
+    if (identical(parent, dir)) stop("Could not locate _quarto.yml")
+    dir <- parent
+  }
+  dir
+}
+source(file.path(find_root(), "R_scripts", "project_listings.R"))
+render_recent_pubs(3)
+```
+
+[All publications →](publications.qmd)
+
+```{=html}
+<script src="/assets/pub-cards.js"></script>
+```

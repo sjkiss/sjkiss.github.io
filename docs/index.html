@@ -99,34 +99,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-recent-pubs .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-recent-pubs'] = new List('listing-recent-pubs', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -307,35 +279,122 @@ Simon Kiss
 </section>
 <section id="recent-publications" class="level2">
 <h2 data-anchor-id="recent-publications">Recent Publications</h2>
-<div id="listing-recent-pubs" class="quarto-listing quarto-listing-container-default">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-file-modified-sort="1757690894000" data-listing-reading-time-sort="13" data-listing-word-count-sort="2569">
-<div class="thumbnail"><a href="./publications.html" class="no-external">
-<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
-</a></div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./publications.html" class="no-external">This code section strips my keywords</a>
-</h3>
-<div class="delink listing-description"><a href="./publications.html" class="no-external">
-
-<style type="text/css">
-/* Hide the bibliography from quarto */
-#quarto-bibliography,
-#quarto-appendix .quarto-appendix-heading,
-#quarto-appendix {
-  display: none !important;
-  border: 0…</style>
-</a></div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="pub-list">
+<div class="pub-card" data-key="polackochanging2026" data-year="2026-01-05">
+<div class="pub-title">
+<a href="https://doi.org/NA" target="_blank" rel="noopener">The Changing Class Basis of Canadian and Social Democratic Futures</a>
 </div>
-<div class="metadata">
-<a href="./publications.html" class="no-external">
-</a>
+<div class="pub-meta">
+Matthew Polacko, Peter Graefe &amp; Simon Kiss
+<br>
+<em>Perspectives</em>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@article{polackochanging2026,
+  title = {The {{Changing Class Basis}} of {{Canadian}} and {{Social Democratic Futures}}},
+  author = {Matthew Polacko and Peter Graefe and Simon Kiss},
+  number = {5},
+  url = {https://perspectivesjournal.ca/changing-class-socdem-future/},
+  year = {2026},
+  month = {jan},
+  note = {Last visited on 01/27/2026}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="polackorevisiting2025" data-year="2025-08-18">
+<div class="pub-title">
+<a href="https://doi.org/10.1111/cars.70014" target="_blank" rel="noopener">Revisiting the Sectoral Cleavage in Canada: Evidence From the Canadian Election Studies</a>
+</div>
+<div class="pub-meta">
+Matthew Polacko, Peter Graefe &amp; Simon Kiss
+<br>
+<em>Canadian Review of Sociology = Revue Canadienne De Sociologie</em>
+</div>
+<div class="pub-category">
+<span class="category">Voting</span>
+<span class="category">social democracy</span>
+<span class="category">class</span>
+<span class="category">Canada</span>
+<span class="category">elections</span>
+<span class="category">public opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">According to the budget-maximizing bureaucrat model, public sector employees should rationally seek to increase government budgets to increase their own power. In contrast to most advanced democracies, class and sectoral voting has largely been neglected in Canada. The ideological and voting preferences of the public sector has been unexamined since the 1980s. Using the Canadian Election Study (1968–2019), we revisit and expand on this literature. We find that the public sector holds more economically leftist attitudes than the public and that a sectoral cleavage has emerged, with public sector employees increasingly supporting the leftist New Democratic Party (NDP). We also find that social class moderates these two relationships, as professionals and managers in the public sector are significantly more likely to vote for the NDP and hold more leftist economic attitudes than their counterparts in both the private sector, and the routine non-manual and working class in the public sector.</div>
+<div class="payload-bibtex">@article{polackorevisiting2025,
+  title = {Revisiting the {{Sectoral Cleavage}} in {{Canada}}: {{Evidence From}} the {{Canadian Election Studies}}},
+  author = {Matthew Polacko and Peter Graefe and Simon Kiss},
+  doi = {10.1111/cars.70014},
+  year = {2025},
+  month = {aug}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="polackosubjective2024" data-year="2024-01-01">
+<div class="pub-title">
+<a href="https://doi.org/10.1111/ssqu.13336" target="_blank" rel="noopener">Subjective Economic Insecurity and Attitudes Toward Immigration and Feminists Among Voters on the Right in Canada</a>
+</div>
+<div class="pub-meta">
+Matthew Polacko, Peter Graefe &amp; Simon Kiss
+<br>
+<em>Social Science Quarterly</em>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">The recent success of far-right populism has led to a wave of public attention to its causes. Drawing on novel survey items from the Canadian Election Study, we investigate how economic insecurity, mediated by immigration and feminist attitudes, affects voting behavior. While economic distress has been linked to far-right voting in Europe, we find support that subjective measures of economic distress are significantly associated with voting for the Right in Canada, when interacting with immigration and feminist attitudes. However, the association only holds for men. The findings suggest that Canada, despite its comparatively weak nativist cleavage, is not immune to tensions arising from globalization and economic insecurity.</div>
+<div class="payload-bibtex">@article{polackosubjective2024,
+  title = {Subjective {{Economic Insecurity}} and {{Attitudes Toward Immigration}} and {{Feminists Among Voters}} on the {{Right}} in {{Canada}}},
+  author = {Matthew Polacko and Peter Graefe and Simon Kiss},
+  volume = {105},
+  number = {2},
+  pages = {281--295},
+  doi = {10.1111/ssqu.13336},
+  url = {https://sjkiss.github.io/publication/subjective_economic_insecurity/subjective_economic_insecurity.pdf},
+  year = {2024},
+  month = {jan},
+  note = {Last visited on 03/28/2024}
+}</div>
 </div>
 </div>
 </div>
-<div class="listing-no-matching d-none">No matching items</div>
 </div>
+</div>
+<p><a href="./publications.html">All publications →</a></p>
+<script src="./assets/pub-cards.js"></script>
 
 
 </section>

@@ -151,9 +151,12 @@ build_card <- function(key, entry, title, authors_card, year, venue,
       lapply(category_list, function(category) tags$span(class = "category", category)))
   }
 
+  # Treat missing (NA) values as empty so the JS shows its "not available"
+  # fallback instead of a literal "NA".
+  na_to_empty <- function(x) if (is.null(x) || length(x) == 0 || is.na(x)) "" else x
   payloads <- tags$div(style = "display:none;",
-    tags$div(class = "payload-abstract", abstract %||% ""),
-    tags$div(class = "payload-bibtex",  bibtex   %||% ""))
+    tags$div(class = "payload-abstract", na_to_empty(abstract)),
+    tags$div(class = "payload-bibtex",  na_to_empty(bibtex)))
 
   ttl_node <- if (isTRUE(nzchar(doi_url %||% ""))) {
     tags$div(class = "pub-title", tags$a(title, href = doi_url, target = "_blank", rel = "noopener"))
@@ -215,4 +218,30 @@ render_project_pubs <- function(categories,
     tags$h2(class = "project-listing-heading", heading),
     tags$div(class = "pub-list", cards)
   ))
+}
+
+# Render the `n` most recent publications as cards (e.g. for the home page).
+# Sorts by full date where available, falling back to year.
+render_recent_pubs <- function(n = 3,
+                               bib_path = here_project("publications/kiss_articles.bib")) {
+  rows <- build_rows(bib_path)
+  if (nrow(rows) == 0) return(browsable(tagList()))
+
+  # Prefer a full date (YYYY-MM-DD); fall back to Jan 1 of the year.
+  sort_date <- suppressWarnings(as.Date(rows$year, format = "%Y-%m-%d"))
+  sort_date <- as.Date(ifelse(
+    is.na(sort_date) & !is.na(rows$year_num),
+    as.Date(paste0(rows$year_num, "-01-01")),
+    sort_date
+  ), origin = "1970-01-01")
+
+  rows <- rows[order(sort_date, decreasing = TRUE), , drop = FALSE]
+  rows <- head(rows, n)
+
+  cards <- rows |>
+    select(key, entry, title, authors_card, year, venue,
+           abstract, bibtex, preprint_url, materials_url, doi_url) |>
+    pmap(build_card)
+
+  browsable(tags$div(class = "pub-list", cards))
 }
