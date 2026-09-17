@@ -67,9 +67,6 @@ subject_tags <- function(entry) {
   parts[!duplicated(tolower(parts))]
 }
 
-# TRUE if an entry is tagged as the author's own work (Zotero tag "mine").
-is_mine <- function(entry) "mine" %in% tolower(split_terms(entry$keywords))
-
 # ---- category -> subject-tag mapping --------------------------------------
 # Project categories don't always match a subject tag verbatim. Map each
 # category to the subject tag(s) that identify it (e.g. Risk -> risk
@@ -148,10 +145,7 @@ normalize_link <- function(x) {
 build_rows <- function(bib_path = here_project("publications/kiss_articles.bib")) {
   bib  <- ReadBib(bib_path, check = FALSE)
   keys <- names(bib)
-  rows <- tibble(key = keys, entry = lapply(keys, function(k) bib[k]))
-  # Only the author's own work (Zotero tag "mine") appears on the site.
-  rows <- rows[vapply(rows$entry, is_mine, logical(1)), , drop = FALSE]
-  rows |>
+  tibble(key = keys, entry = lapply(keys, function(k) bib[k])) |>
     mutate(
       subjects     = map(entry, subject_tags),
       title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
