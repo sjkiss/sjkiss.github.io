@@ -27,6 +27,23 @@ library(htmltools)
 `%||%` <- function(a, b) if (is.null(a) || length(a) == 0) b else a
 nz_chr <- function(x) ifelse(is.na(x) | trimws(x) == "", NA_character_, x)
 
+# Subject (topical) tags come from Zotero *Tags* (bib `keywords`), minus a set
+# of administrative tags, unioned with any legacy `annotation` terms.
+admin_tags <- c(
+  "mine", "notmine", "inprint", "forthcoming", "journalarticle",
+  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource"
+)
+split_terms <- function(x) {
+  if (is.null(x) || length(x) == 0) return(character(0))
+  parts <- trimws(unlist(strsplit(as.character(x), ",")))
+  parts[nzchar(parts)]
+}
+subject_tags <- function(entry) {
+  parts <- c(split_terms(entry$keywords), split_terms(entry$annotation))
+  parts <- parts[!tolower(parts) %in% admin_tags]
+  parts[!duplicated(tolower(parts))]
+}
+
 strip_braces <- function(x) {
   if (is.null(x) || length(x) == 0) return(NA_character_)
   y <- as.character(x)
@@ -443,16 +460,16 @@ build_card <- function(
   has_preprint_key  <- !is.null(entry$preprint)  && length(entry$preprint)  > 0
   has_materials_key <- !is.null(entry$materials) && length(entry$materials) > 0
 
-  # Category tags
+  # Subject tags (from Zotero Tags / keywords, minus administrative tags)
   category_block <- NULL
   category_data <- ""
-  if (!is.null(entry$annotation) && nzchar(entry$annotation)) {
-    category_list <- strsplit(entry$annotation, ",\\s*")[[1]]
-    category_tags <- lapply(category_list, function(category) {
+  subs <- subject_tags(entry)
+  if (length(subs)) {
+    category_tags <- lapply(subs, function(category) {
       tags$span(class = "category", category)
     })
     category_block <- tags$div(class = "pub-category", category_tags)
-    category_data <- tolower(gsub("\\s+", "-", entry$annotation))
+    category_data <- paste(tolower(gsub("\\s+", "-", subs)), collapse = ",")
   }
 
   # Payloads

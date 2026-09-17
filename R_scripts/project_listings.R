@@ -28,10 +28,34 @@ find_project_root <- function(start = getwd()) {
 }
 here_project <- function(...) file.path(find_project_root(), ...)
 
-# ---- category -> annotation-term mapping ----------------------------------
-# Project categories don't always appear verbatim in the bib `annotation`
-# field. Map each category to the annotation term(s) that identify it.
-# A category with no publications maps to character(0).
+# ---- subject tags ---------------------------------------------------------
+# Subject (topical) tags drive the category chips and per-project matching.
+# They come from Zotero *Tags* (exported to the bib `keywords` field), minus a
+# fixed set of administrative tags. Any legacy `annotation` terms are unioned
+# in so older entries keep working during the transition.
+admin_tags <- c(
+  "mine", "notmine", "inprint", "forthcoming", "journalarticle",
+  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource"
+)
+
+split_terms <- function(x) {
+  if (is.null(x) || length(x) == 0) return(character(0))
+  x <- as.character(x)
+  parts <- trimws(unlist(strsplit(x, ",")))
+  parts[nzchar(parts)]
+}
+
+# Return an entry's subject tags, in original (display) case, de-duplicated.
+subject_tags <- function(entry) {
+  parts <- c(split_terms(entry$keywords), split_terms(entry$annotation))
+  parts <- parts[!tolower(parts) %in% admin_tags]
+  parts[!duplicated(tolower(parts))]
+}
+
+# ---- category -> subject-tag mapping --------------------------------------
+# Project categories don't always match a subject tag verbatim. Map each
+# category to the subject tag(s) that identify it (e.g. Risk -> risk
+# perception). A category with no publications maps to character(0).
 category_term_map <- list(
   "Risk"                    = c("risk perception", "risk"),
   "Public Opinion"          = c("public opinion"),
@@ -108,7 +132,7 @@ build_rows <- function(bib_path = here_project("publications/kiss_articles.bib")
   keys <- names(bib)
   tibble(key = keys, entry = lapply(keys, function(k) bib[k])) |>
     mutate(
-      annotation   = map_chr(entry, ~ .x$annotation %||% ""),
+      subjects     = map(entry, subject_tags),
       title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
       authors_card = map_chr(entry, fmt_authors_card),
       year         = map_chr(entry, ~ {
@@ -145,10 +169,10 @@ build_card <- function(key, entry, title, authors_card, year, venue,
   has_materials_key <- !is.null(entry$materials) && length(entry$materials) > 0
 
   category_block <- NULL
-  if (!is.null(entry$annotation) && nzchar(entry$annotation)) {
-    category_list <- strsplit(entry$annotation, ",\\s*")[[1]]
+  subs <- subject_tags(entry)
+  if (length(subs)) {
     category_block <- tags$div(class = "pub-category",
-      lapply(category_list, function(category) tags$span(class = "category", category)))
+      lapply(subs, function(category) tags$span(class = "category", category)))
   }
 
   # Treat missing (NA) values as empty so the JS shows its "not available"
@@ -188,7 +212,7 @@ build_card <- function(key, entry, title, authors_card, year, venue,
 }
 
 # ---- public entry point ---------------------------------------------------
-# Render the publication cards whose annotation matches any of `categories`.
+# Render the publication cards whose subject tags match any of `categories`.
 # Returns a browsable htmltools tag list (empty message if no matches).
 render_project_pubs <- function(categories,
                                 bib_path = here_project("publications/kiss_articles.bib"),
@@ -197,10 +221,9 @@ render_project_pubs <- function(categories,
   rows  <- build_rows(bib_path)
 
   if (length(terms)) {
-    # Match on whole annotation TERMS (comma-separated), not substrings, so a
-    # short tag like "R" never matches "risk"/"class" etc.
-    row_terms <- lapply(strsplit(tolower(rows$annotation), ",\\s*"), trimws)
-    keep <- vapply(row_terms, function(v) any(terms %in% v), logical(1))
+    # Match on whole subject TAGS (not substrings), so a short tag like "R"
+    # never matches "risk"/"class" etc.
+    keep <- vapply(rows$subjects, function(v) any(terms %in% tolower(v)), logical(1))
     rows <- rows[keep, , drop = FALSE]
   } else {
     rows <- rows[0, , drop = FALSE]
