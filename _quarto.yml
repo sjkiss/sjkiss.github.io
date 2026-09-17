@@ -1,6 +1,8 @@
 project:
   type: website
   output-dir: docs
+  pre-render:
+    - R_scripts/sync_bib.R
   render:
   - "*.qmd"
   - "*.rmd"

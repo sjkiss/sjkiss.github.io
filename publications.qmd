@@ -38,11 +38,14 @@ split_terms <- function(x) {
   parts <- trimws(unlist(strsplit(as.character(x), ",")))
   parts[nzchar(parts)]
 }
+norm_term <- function(x) trimws(gsub("[-_[:space:]]+", " ", tolower(as.character(x))))
+pretty_tag <- function(x) gsub("\\b([[:alpha:]])", "\\U\\1", gsub("[-_]+", " ", as.character(x)), perl = TRUE)
 subject_tags <- function(entry) {
   parts <- c(split_terms(entry$keywords), split_terms(entry$annotation))
   parts <- parts[!tolower(parts) %in% admin_tags]
   parts[!duplicated(tolower(parts))]
 }
+is_mine <- function(entry) "mine" %in% tolower(split_terms(entry$keywords))
 
 strip_braces <- function(x) {
   if (is.null(x) || length(x) == 0) return(NA_character_)
@@ -137,6 +140,8 @@ bib  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
 
 #bib  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
 keys <- names(bib)
+# Only the author's own work (Zotero tag "mine") is listed.
+keys <- keys[vapply(keys, function(k) is_mine(bib[k]), logical(1))]
 
 extra_links <- tibble(key = character(), preprint = character(), materials = character())
 
@@ -466,10 +471,10 @@ build_card <- function(
   subs <- subject_tags(entry)
   if (length(subs)) {
     category_tags <- lapply(subs, function(category) {
-      tags$span(class = "category", category)
+      tags$span(class = "category", pretty_tag(category))
     })
     category_block <- tags$div(class = "pub-category", category_tags)
-    category_data <- paste(tolower(gsub("\\s+", "-", subs)), collapse = ",")
+    category_data <- paste(gsub(" ", "-", norm_term(subs)), collapse = ",")
   }
 
   # Payloads

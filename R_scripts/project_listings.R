@@ -45,12 +45,30 @@ split_terms <- function(x) {
   parts[nzchar(parts)]
 }
 
+# Normalise a tag/category for comparison: lowercase, and treat hyphens,
+# underscores and spaces as equivalent (Zotero tag "public-opinion" ==
+# project category "Public Opinion").
+norm_term <- function(x) {
+  x <- tolower(as.character(x))
+  x <- gsub("[-_[:space:]]+", " ", x)
+  trimws(x)
+}
+
+# Human-friendly display form of a tag: separators -> spaces, Title Case.
+pretty_tag <- function(x) {
+  x <- gsub("[-_]+", " ", as.character(x))
+  gsub("\\b([[:alpha:]])", "\\U\\1", x, perl = TRUE)
+}
+
 # Return an entry's subject tags, in original (display) case, de-duplicated.
 subject_tags <- function(entry) {
   parts <- c(split_terms(entry$keywords), split_terms(entry$annotation))
   parts <- parts[!tolower(parts) %in% admin_tags]
   parts[!duplicated(tolower(parts))]
 }
+
+# TRUE if an entry is tagged as the author's own work (Zotero tag "mine").
+is_mine <- function(entry) "mine" %in% tolower(split_terms(entry$keywords))
 
 # ---- category -> subject-tag mapping --------------------------------------
 # Project categories don't always match a subject tag verbatim. Map each
@@ -69,7 +87,7 @@ category_term_map <- list(
 category_terms <- function(categories) {
   terms <- unlist(lapply(categories, function(cat) {
     mapped <- category_term_map[[cat]]
-    if (is.null(mapped)) tolower(cat) else c(tolower(cat), tolower(mapped))
+    if (is.null(mapped)) norm_term(cat) else c(norm_term(cat), norm_term(mapped))
   }))
   unique(terms[nzchar(terms)])
 }
@@ -130,7 +148,10 @@ normalize_link <- function(x) {
 build_rows <- function(bib_path = here_project("publications/kiss_articles.bib")) {
   bib  <- ReadBib(bib_path, check = FALSE)
   keys <- names(bib)
-  tibble(key = keys, entry = lapply(keys, function(k) bib[k])) |>
+  rows <- tibble(key = keys, entry = lapply(keys, function(k) bib[k]))
+  # Only the author's own work (Zotero tag "mine") appears on the site.
+  rows <- rows[vapply(rows$entry, is_mine, logical(1)), , drop = FALSE]
+  rows |>
     mutate(
       subjects     = map(entry, subject_tags),
       title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
@@ -172,7 +193,7 @@ build_card <- function(key, entry, title, authors_card, year, venue,
   subs <- subject_tags(entry)
   if (length(subs)) {
     category_block <- tags$div(class = "pub-category",
-      lapply(subs, function(category) tags$span(class = "category", category)))
+      lapply(subs, function(category) tags$span(class = "category", pretty_tag(category))))
   }
 
   # Treat missing (NA) values as empty so the JS shows its "not available"
@@ -222,8 +243,8 @@ render_project_pubs <- function(categories,
 
   if (length(terms)) {
     # Match on whole subject TAGS (not substrings), so a short tag like "R"
-    # never matches "risk"/"class" etc.
-    keep <- vapply(rows$subjects, function(v) any(terms %in% tolower(v)), logical(1))
+    # never matches "risk"/"class" etc. Hyphens/spaces/case are normalised.
+    keep <- vapply(rows$subjects, function(v) any(terms %in% norm_term(v)), logical(1))
     rows <- rows[keep, , drop = FALSE]
   } else {
     rows <- rows[0, , drop = FALSE]
