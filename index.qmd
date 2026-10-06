@@ -26,6 +26,9 @@ about:
     - text: CV
       icon: file-text
       href: files/kiss_CV.pdf
+    - text: ORCID
+      icon: person-badge
+      href: https://orcid.org/0000-0003-1837-5428
     - text: Faculty Page
       icon: file-text
       href: https://www.wlu.ca/academics/faculties/faculty-of-liberal-arts/faculty-profiles/simon-kiss/index.html
