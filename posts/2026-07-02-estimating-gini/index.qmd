@@ -13,7 +13,7 @@ draft: false
 
 ## Introduction
 
-I am currently working on a research project on role that voters' subjective sense of social class plays in political behaviour. This question was last visited in Canadian political science in the 1980s [@lambertSocialClassLeft1987], although it has been revisited by sociologist Michelle Maroto [@marotoEveryoneReallyMiddle2023]. 
+I am currently working on a research project on role that voters' subjective sense of social class plays in political behaviour. This question was last visited in Canadian political science in the 1980s [[@lambertSocialClassLefthight1987]], although it has been revisited by sociologist Michelle Maroto [@marotoEveryoneReallyMiddle2023]. 
 
 A central statistic in the research on income inequality is the Gini coefficient, which runs from 0 to 1.In a country with a Gini coefficient of 1, one person would have all the income in the country, while in a country with a Gini coefficient of 0, everyone would have the same income. 
 
