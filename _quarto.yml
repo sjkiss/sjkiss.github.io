@@ -8,6 +8,7 @@ project:
   - "*.rmd"
   - "*.md"
   - "*.Rmd"
+  - "!PUBLICATIONS.md"
   resources:
     - "files/"
     - "assets/"
