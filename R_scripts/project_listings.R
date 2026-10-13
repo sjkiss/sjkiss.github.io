@@ -76,6 +76,7 @@ category_term_map <- list(
   "Public Opinion"          = c("public opinion"),
   "Political communication" = c("political communication"),
   "Social Democracy"        = c("social democracy"),
+  "Housing"                 = c("housing"),
   "R"                       = character(0),
   "Open science"            = character(0),
   "reproducibility"         = character(0)
@@ -139,6 +140,13 @@ normalize_link <- function(x) {
   needs_scheme <- domain_like & no_scheme
   y[needs_scheme] <- paste0("https://", y[needs_scheme])
   y
+}
+
+# Site-absolute link to files/papers/<citekey>.pdf, or NA if no such file.
+pdf_href <- function(key) {
+  if (file.exists(here_project("files", "papers", paste0(key, ".pdf"))))
+    paste0("/files/papers/", key, ".pdf")
+  else NA_character_
 }
 
 # ---- read + tidy the bib --------------------------------------------------
@@ -211,6 +219,9 @@ build_card <- function(key, entry, title, authors_card, year, venue,
     tags$a("Abstract", href = "#", `data-action` = "abstract", role = "button"),
     tags$a("Citation", href = "#", `data-action` = "citation", role = "button"),
     tags$a("BibTeX",   href = "#", `data-action` = "bib",      role = "button"),
+    if (!is.na(pdf <- pdf_href(key)))
+      tags$a(class = "pdf-link", href = pdf, target = "_blank", rel = "noopener",
+             tags$i(class = "bi bi-file-earmark-pdf"), "PDF"),
     if (isTRUE(has_preprint_key))
       tags$a("Preprint", class = "external", href = (preprint_url %||% "#"), target = "_blank", rel = "noopener"),
     if (isTRUE(has_materials_key))

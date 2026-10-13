@@ -1,5 +1,6 @@
 ---
 title: "R"
+draft: true   # hidden for now; delete this line to restore
 image: featured.jpg
 categories: 
   - R

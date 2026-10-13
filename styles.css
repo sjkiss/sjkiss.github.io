@@ -45,6 +45,7 @@ section#bibliography.level1.unnumbered {
   border-bottom: 1px dotted #999; color: #0b66c3; cursor: pointer;
 }
 .pub-actions a.external { border-bottom-style: solid; }
+.pub-actions a.pdf-link .bi { color: #c0392b; margin-right: 3px; }
 
 .toggle-area {
   display: none; position: relative;

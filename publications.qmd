@@ -122,6 +122,13 @@ normalize_link <- function(x) {
   y
 }
 
+# Site-absolute link to files/papers/<citekey>.pdf, or NA if no such file.
+pdf_href <- function(key) {
+  if (file.exists(file.path("files", "papers", paste0(key, ".pdf"))))
+    paste0("/files/papers/", key, ".pdf")
+  else NA_character_
+}
+
 
 ```
 
@@ -504,6 +511,9 @@ build_card <- function(
     tags$a("Abstract", href = "#", `data-action`="abstract", role="button"),
     tags$a("Citation", href = "#", `data-action`="citation", role="button"),
     tags$a("BibTeX",   href = "#", `data-action`="bib",      role="button"),
+    if (!is.na(pdf <- pdf_href(key)))
+      tags$a(class = "pdf-link", href = pdf, target = "_blank", rel = "noopener",
+             tags$i(class = "bi bi-file-earmark-pdf"), "PDF"),
     if (isTRUE(has_preprint_key))
       tags$a("Preprint", class = "external", href = (preprint_url %||% "#"), target = "_blank", rel="noopener"),
     if (isTRUE(has_materials_key))

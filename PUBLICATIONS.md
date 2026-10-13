@@ -68,11 +68,13 @@ hyphens, and spaces don't matter — the Zotero tag `public-opinion` matches the
 | Project page            | Zotero tag to use        |
 |-------------------------|--------------------------|
 | Risk                    | `risk`                   |
-| Public Opinion          | `public-opinion`         |
+| Public Opinion and Voting | `public-opinion`       |
 | Social Democracy        | `social-democracy`       |
 | Political communication | `political-communication`|
-| R                       | `r`                      |
-| Open Science            | `open-science`           |
+| Politics of Housing     | `housing`                |
+
+The **R** and **Open Science** project pages are hidden for now with
+`draft: true` in their front matter; delete that line to bring one back.
 
 So: **tag a paper `risk` in Zotero → it shows on the Risk project page with a
 "Risk" chip.** (A few older synonyms like `risk perception` still match Risk too;
@@ -80,6 +82,17 @@ see `category_term_map` in the code if you want to adjust these.)
 
 The `mine` tag is **no longer needed** — the `kiss_articles` collection already
 contains only your papers.
+
+---
+
+## PDFs
+
+A card gets a **PDF** link automatically when a file named after the paper's
+Better BibTeX cite key exists in `files/papers/`, e.g.
+`files/papers/kissWhereDidAll2014.pdf`. To add or swap a PDF (say, replacing a
+publisher version with a preprint), drop the file in with that name and rebuild.
+No Zotero change needed. The cite key is the first line of the entry in
+`publications/kiss_articles.bib`.
 
 ---
 

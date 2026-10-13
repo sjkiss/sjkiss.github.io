@@ -1,5 +1,6 @@
 ---
 title: "Open Science and reproducibility"
+draft: true   # hidden for now; delete this line to restore
 image: minard.png
 categories: 
   - Open science
