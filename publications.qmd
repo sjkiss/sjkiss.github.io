@@ -1,7 +1,9 @@
 ---
 pagetitle: "Publications"
 toc: false
-bibliography: publications/kiss_articles.bib
+bibliography:
+  - publications/kiss_articles.bib
+  - publications/kiss_reports.bib
 nocite: |
   @*
 execute:
@@ -31,7 +33,7 @@ nz_chr <- function(x) ifelse(is.na(x) | trimws(x) == "", NA_character_, x)
 # of administrative tags, unioned with any legacy `annotation` terms.
 admin_tags <- c(
   "mine", "notmine", "inprint", "forthcoming", "journalarticle",
-  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource"
+  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource", "report", "knowledge"
 )
 split_terms <- function(x) {
   if (is.null(x) || length(x) == 0) return(character(0))
@@ -134,68 +136,60 @@ pdf_href <- function(key) {
 
 ```{r}
 #| label: build-rows
-#Get articles
-bib  <- ReadBib("publications/kiss_articles.bib", check = FALSE)
-
-# Get reports
-#bib_reports  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
-
-# combine
-#bib<-c(bib_articles, bib_reports)
-#  unlist(., use.names = T) ->bib
-
-#bib  <- ReadBib("publications/kiss_reports.bib", check = FALSE)
-keys <- names(bib)
-
 extra_links <- tibble(key = character(), preprint = character(), materials = character())
 
-rows <- tibble(
-  key   = keys,
-  entry = lapply(keys, function(k) bib[k])
-) |>
-  mutate(annotation=map_chr(entry, ~ .x$annotation %||% ""),
-      keywords=map_chr(entry, ~ .x$keywords %||% ""),
-    title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
-    authors_card = map_chr(entry, fmt_authors_card),
-    year         = map_chr(entry, ~ {
-      y <- .x$year %||% .x$date %||% ""
-      if (is.list(y)) y$year %||% "" else as.character(y)
-    }),
-    venue        = map_chr(entry, ~ strip_braces(.x$journal %||% .x$booktitle %||% .x$publisher %||% "")),
-    abstract     = map_chr(entry, get_abstract),
-    bibtex       = map_chr(entry, get_bibtex),
+# One row per bib entry, sorted newest first. Used for articles and reports.
+build_rows <- function(bib_path) {
+  bib  <- ReadBib(bib_path, check = FALSE)
+  keys <- names(bib)
 
-    doi          = map_chr(entry, ~ .x$doi %||% NA_character_),
-    url_fallback = map_chr(entry, ~ .x$url %||% NA_character_),
+  tibble(
+    key   = keys,
+    entry = lapply(keys, function(k) bib[k])
+  ) |>
+    mutate(annotation=map_chr(entry, ~ .x$annotation %||% ""),
+        keywords=map_chr(entry, ~ .x$keywords %||% ""),
+      title        = map_chr(entry, ~ strip_braces(.x$title %||% "")),
+      authors_card = map_chr(entry, fmt_authors_card),
+      year         = map_chr(entry, ~ {
+        y <- .x$year %||% .x$date %||% ""
+        if (is.list(y)) y$year %||% "" else as.character(y)
+      }),
+      venue        = map_chr(entry, ~ strip_braces(.x$journal %||% .x$booktitle %||% .x$institution %||% .x$publisher %||% "")),
+      abstract     = map_chr(entry, get_abstract),
+      bibtex       = map_chr(entry, get_bibtex),
 
-    preprint_raw  = map_chr(entry, ~ { v <- .x$preprint;  if (is.null(v) || length(v)==0) NA_character_ else as.character(v[[1]]) }),
-    materials_raw = map_chr(entry, ~ { v <- .x$materials; if (is.null(v) || length(v)==0) NA_character_ else as.character(v[[1]]) }),
+      doi          = map_chr(entry, ~ .x$doi %||% NA_character_),
+      url_fallback = map_chr(entry, ~ .x$url %||% NA_character_),
 
-    has_preprint_key  = map_lgl(entry, ~ !is.null(.x$preprint)  && length(.x$preprint)  > 0),
-    has_materials_key = map_lgl(entry, ~ !is.null(.x$materials) && length(.x$materials) > 0)
-  ) |>
-  left_join(extra_links, by = "key") |>
-  mutate(
-    preprint_val  = coalesce(preprint,  preprint_raw),
-    materials_val = coalesce(materials, materials_raw)
-  ) |>
-  select(-any_of(c("preprint", "materials"))) |>
-  mutate(
-    preprint_url  = normalize_link(preprint_val),
-    materials_url = normalize_link(materials_val)
-  ) |>
-  mutate(
-    doi_url = normalize_link(
-      if_else(
-        nzchar(doi %||% ""),
-        str_glue("https://doi.org/{doi}"),
-        if_else(nzchar(preprint_url %||% ""), preprint_url, url_fallback)
-      )
-    ),
-    year_num = suppressWarnings(as.integer(str_extract(year, "\\d{4}"))),
-    year_lbl = ifelse(is.na(year_num), "n.d.", as.character(year_num))
-  ) |>
-  arrange(desc(year_num), title)
+      preprint_raw  = map_chr(entry, ~ { v <- .x$preprint;  if (is.null(v) || length(v)==0) NA_character_ else as.character(v[[1]]) }),
+      materials_raw = map_chr(entry, ~ { v <- .x$materials; if (is.null(v) || length(v)==0) NA_character_ else as.character(v[[1]]) }),
+
+      has_preprint_key  = map_lgl(entry, ~ !is.null(.x$preprint)  && length(.x$preprint)  > 0),
+      has_materials_key = map_lgl(entry, ~ !is.null(.x$materials) && length(.x$materials) > 0)
+    ) |>
+    left_join(extra_links, by = "key") |>
+    mutate(
+      preprint_val  = coalesce(preprint,  preprint_raw),
+      materials_val = coalesce(materials, materials_raw)
+    ) |>
+    select(-any_of(c("preprint", "materials"))) |>
+    mutate(
+      preprint_url  = normalize_link(preprint_val),
+      materials_url = normalize_link(materials_val)
+    ) |>
+    mutate(
+      # DOI first, then preprint, then plain URL; normalize_link() turns a bare
+      # or "doi:"-prefixed DOI into https://doi.org/...
+      doi_url = normalize_link(coalesce(na_if(trimws(doi), ""), preprint_url, na_if(trimws(url_fallback), ""))),
+      year_num = suppressWarnings(as.integer(str_extract(year, "\\d{4}"))),
+      year_lbl = ifelse(is.na(year_num), "n.d.", as.character(year_num))
+    ) |>
+    arrange(desc(year_num), title)
+}
+
+rows        <- build_rows("publications/kiss_articles.bib")
+report_rows <- build_rows("publications/kiss_reports.bib")
 
 ```
 
@@ -221,6 +215,37 @@ section#bibliography.level1.unnumbered {
 /* Group header */
 .year-group { margin: 28px 0 8px; }
 .year-title { margin: 0; font-size: 1.35rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 2px; }
+.pub-section + .pub-section { margin-top: 36px; }
+.pub-section-title { font-size: 1.4rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; margin-bottom: 4px; scroll-margin-top: 76px; }
+
+/* Two-column layout: cards on the left, sticky sidebar (jump menu + filter) on the right.
+   Quarto's output wrapper scrolls (overflow: auto), which would stop the sidebar sticking. */
+.cell-output-display:has(> .pub-layout) { overflow: visible; }
+.pub-layout { display: flex; gap: 40px; align-items: flex-start; }
+.pub-list { flex: 1; min-width: 0; }
+.pub-sidebar {
+  width: 220px; flex-shrink: 0;
+  position: sticky; top: 76px;
+  max-height: calc(100vh - 90px); overflow-y: auto;
+}
+#pub-jump { padding-top: 10px; }
+#pub-jump ul { list-style: none; padding: 0; margin: 8px 0 0 0; }
+#pub-jump li { margin: 0 0 6px 0; }
+#pub-jump a { text-decoration: none; font-size: 0.92rem; }
+#pub-jump a:hover { text-decoration: underline; }
+#pub-jump a.active { font-weight: 600; }
+#pub-jump li.is-empty a { color: #999; pointer-events: none; }
+#pub-jump .pub-count {
+  display: inline-block; margin-left: 6px; padding: 0 6px;
+  font-size: 0.78rem; color: #555; background: #eef; border-radius: 8px;
+}
+
+/* Narrow screens: sidebar moves above the list and stops sticking */
+@media (max-width: 767px) {
+  .pub-layout { flex-direction: column-reverse; gap: 0; }
+  .pub-sidebar { width: 100%; position: static; max-height: none; }
+  #pub-jump ul { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+}
 
 /* Card + layout */
 .pub-card {
@@ -287,8 +312,6 @@ section#bibliography.level1.unnumbered {
 }
 
 #category-filter {
-  flex-shrink: 0;
-  padding-top: 10px;
   margin: 20px 0;
 }
 
@@ -432,12 +455,37 @@ section#bibliography.level1.unnumbered {
       buttonContainer.appendChild(btn);
     });
 
+    const jumpLinks = [...document.querySelectorAll("#pub-jump a")];
+    // Quarto rewrites in-page hrefs, so look sections up by data-target
+    const headings = jumpLinks.map(a => document.getElementById(a.dataset.target));
+    function markActive() {
+      let current = 0;
+      headings.forEach((h, i) => { if (h && h.getBoundingClientRect().top < 200) current = i; });
+      jumpLinks.forEach((a, i) => a.classList.toggle("active", i === current));
+    }
+    window.addEventListener("scroll", markActive, { passive: true });
+    markActive();
+
+    function updateSections() {
+      document.querySelectorAll(".pub-section").forEach(sec => {
+        const n = [...sec.querySelectorAll(".pub-card")].filter(c => c.style.display !== "none").length;
+        sec.style.display = n ? "" : "none";
+        // Keep the jump menu in step with the filter
+        const link = document.querySelector('#pub-jump a[data-target="' + sec.querySelector("h2").id + '"]');
+        if (link) {
+          link.querySelector(".pub-count").textContent = n;
+          link.parentElement.classList.toggle("is-empty", !n);
+        }
+      });
+    }
+
     function filterByCategory(category) {
       cards.forEach(card => {
         const cardCats = card.getAttribute("data-category") || "";
         const match = cardCats.split(",").map(c => c.trim()).includes(category);
         card.style.display = match ? "block" : "none";
       });
+      updateSections();
     }
 
     buttonContainer.addEventListener("click", function(evt) {
@@ -449,6 +497,7 @@ section#bibliography.level1.unnumbered {
 
     clearButton.addEventListener("click", function() {
       cards.forEach(card => card.style.display = "block");
+      updateSections();
     });
   });
 })();
@@ -492,7 +541,7 @@ build_card <- function(
   )
 
   # Title
-  ttl_node <- if (isTRUE(nzchar(doi_url %||% ""))) {
+  ttl_node <- if (isTRUE(!is.na(doi_url) && nzchar(doi_url))) {
     tags$div(class = "pub-title", tags$a(title, href = doi_url, target = "_blank", rel = "noopener"))
   } else {
     tags$div(class = "pub-title", title)
@@ -540,14 +589,21 @@ build_card <- function(
   )
 }
 
-# Create flat list of cards
-cards <- rows |>
-  select(
-    key, entry, title, authors_card, year, venue,
-    abstract, bibtex,
-    preprint_url, materials_url, doi_url
-  ) |>
-  pmap(build_card)
+# Create flat lists of cards
+to_cards <- function(rows) {
+  rows |>
+    select(
+      key, entry, title, authors_card, year, venue,
+      abstract, bibtex,
+      preprint_url, materials_url, doi_url
+    ) |>
+    pmap(build_card)
+}
+# Articles tagged "notpeer" in Zotero get their own section.
+is_notpeer    <- map_lgl(rows$keywords, ~ "notpeer" %in% tolower(split_terms(.x)))
+peer_cards    <- to_cards(rows[!is_notpeer, ])
+notpeer_cards <- to_cards(rows[is_notpeer, ])
+report_cards  <- to_cards(report_rows)
 
 # Filter UI
 filter_ui <- tags$div(
@@ -557,21 +613,41 @@ filter_ui <- tags$div(
   tags$button(id = "clear-filter", class = "category-btn", "Show All")
 )
 
+# Page sections: id, heading, cards
+sections <- list(
+  list(id = "peer-reviewed",     title = "Peer-Reviewed Journal Articles",     cards = peer_cards),
+  list(id = "non-peer-reviewed", title = "Non-Peer-Reviewed Journal Articles", cards = notpeer_cards),
+  list(id = "reports",           title = "Reports",                            cards = report_cards)
+)
+
+# "Jump to" menu linking to each section, with counts
+jump_menu <- tags$nav(
+  id = "pub-jump", `aria-label` = "Publication sections",
+  tags$strong("Jump to:"),
+  tags$ul(lapply(sections, function(sec)
+    tags$li(tags$a(href = paste0("#", sec$id), `data-target` = sec$id, sec$title,
+                   tags$span(class = "pub-count", length(sec$cards))))))
+)
+
 # Final page content
 page_content <- tagList(
   tags$div(
-    style = "display: flex; gap: 40px; align-items: flex-start;",
+    class = "pub-layout",
     tags$div(
       class = "pub-list",
-      style = "flex: 1; max-width: 85%;",
-      cards
+      lapply(sections, function(sec)
+        tags$div(class = "pub-section",
+          tags$h2(class = "pub-section-title", id = sec$id, sec$title), sec$cards))
     ),
     tags$div(
-      id = "category-filter",
-      style = "width: 15%; min-width: 160px;",
-      tags$strong("Filter by category:"),
-      tags$div(id = "category-buttons"),
-      tags$button(id = "clear-filter", class = "category-btn", "Show All")
+      class = "pub-sidebar",
+      jump_menu,
+      tags$div(
+        id = "category-filter",
+        tags$strong("Filter by category:"),
+        tags$div(id = "category-buttons"),
+        tags$button(id = "clear-filter", class = "category-btn", "Show All")
+      )
     )
   )
 )

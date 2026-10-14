@@ -170,6 +170,37 @@ section#bibliography.level1.unnumbered {
 /* Group header */
 .year-group { margin: 28px 0 8px; }
 .year-title { margin: 0; font-size: 1.35rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 2px; }
+.pub-section + .pub-section { margin-top: 36px; }
+.pub-section-title { font-size: 1.4rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 4px; margin-bottom: 4px; scroll-margin-top: 76px; }
+
+/* Two-column layout: cards on the left, sticky sidebar (jump menu + filter) on the right.
+   Quarto's output wrapper scrolls (overflow: auto), which would stop the sidebar sticking. */
+.cell-output-display:has(> .pub-layout) { overflow: visible; }
+.pub-layout { display: flex; gap: 40px; align-items: flex-start; }
+.pub-list { flex: 1; min-width: 0; }
+.pub-sidebar {
+  width: 220px; flex-shrink: 0;
+  position: sticky; top: 76px;
+  max-height: calc(100vh - 90px); overflow-y: auto;
+}
+#pub-jump { padding-top: 10px; }
+#pub-jump ul { list-style: none; padding: 0; margin: 8px 0 0 0; }
+#pub-jump li { margin: 0 0 6px 0; }
+#pub-jump a { text-decoration: none; font-size: 0.92rem; }
+#pub-jump a:hover { text-decoration: underline; }
+#pub-jump a.active { font-weight: 600; }
+#pub-jump li.is-empty a { color: #999; pointer-events: none; }
+#pub-jump .pub-count {
+  display: inline-block; margin-left: 6px; padding: 0 6px;
+  font-size: 0.78rem; color: #555; background: #eef; border-radius: 8px;
+}
+
+/* Narrow screens: sidebar moves above the list and stops sticking */
+@media (max-width: 767px) {
+  .pub-layout { flex-direction: column-reverse; gap: 0; }
+  .pub-sidebar { width: 100%; position: static; max-height: none; }
+  #pub-jump ul { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+}
 
 /* Card + layout */
 .pub-card {
@@ -236,8 +267,6 @@ section#bibliography.level1.unnumbered {
 }
 
 #category-filter {
-  flex-shrink: 0;
-  padding-top: 10px;
   margin: 20px 0;
 }
 
@@ -380,12 +409,37 @@ section#bibliography.level1.unnumbered {
       buttonContainer.appendChild(btn);
     });
 
+    const jumpLinks = [...document.querySelectorAll("#pub-jump a")];
+    // Quarto rewrites in-page hrefs, so look sections up by data-target
+    const headings = jumpLinks.map(a => document.getElementById(a.dataset.target));
+    function markActive() {
+      let current = 0;
+      headings.forEach((h, i) => { if (h && h.getBoundingClientRect().top < 200) current = i; });
+      jumpLinks.forEach((a, i) => a.classList.toggle("active", i === current));
+    }
+    window.addEventListener("scroll", markActive, { passive: true });
+    markActive();
+
+    function updateSections() {
+      document.querySelectorAll(".pub-section").forEach(sec => {
+        const n = [...sec.querySelectorAll(".pub-card")].filter(c => c.style.display !== "none").length;
+        sec.style.display = n ? "" : "none";
+        // Keep the jump menu in step with the filter
+        const link = document.querySelector('#pub-jump a[data-target="' + sec.querySelector("h2").id + '"]');
+        if (link) {
+          link.querySelector(".pub-count").textContent = n;
+          link.parentElement.classList.toggle("is-empty", !n);
+        }
+      });
+    }
+
     function filterByCategory(category) {
       cards.forEach(card => {
         const cardCats = card.getAttribute("data-category") || "";
         const match = cardCats.split(",").map(c => c.trim()).includes(category);
         card.style.display = match ? "block" : "none";
       });
+      updateSections();
     }
 
     buttonContainer.addEventListener("click", function(evt) {
@@ -397,6 +451,7 @@ section#bibliography.level1.unnumbered {
 
     clearButton.addEventListener("click", function() {
       cards.forEach(card => card.style.display = "block");
+      updateSections();
     });
   });
 })();
@@ -404,44 +459,10 @@ section#bibliography.level1.unnumbered {
 
 <div class="cell">
 <div class="cell-output-display">
-<div style="display: flex; gap: 40px; align-items: flex-start;">
-<div class="pub-list" style="flex: 1; max-width: 85%;">
-<div class="pub-card" data-key="polackoChangingClassBasis2026" data-category="social-democracy" data-year="2026-01-05">
-<div class="pub-title">
-<a href="https://doi.org/NA" target="_blank" rel="noopener">The Changing Class Basis of Canadian and Social Democratic Futures</a>
-</div>
-<div class="pub-meta">
-Matthew Polacko, Peter Graefe &amp; Simon Kiss
-<br>
-<em>Perspectives</em>
-</div>
-<div class="pub-category">
-<span class="category">Social Democracy</span>
-</div>
-<div class="pub-actions">
-<a href="#" data-action="abstract" role="button">Abstract</a>
-<a href="#" data-action="citation" role="button">Citation</a>
-<a href="#" data-action="bib" role="button">BibTeX</a>
-</div>
-<div class="toggle-area" data-current="">
-<button class="copy-btn">Copy</button>
-<span class="copy-toast">Copied!</span>
-<div class="panel-label">—</div>
-<div class="content"></div>
-</div>
-<div style="display:none;">
-<div class="payload-abstract"></div>
-<div class="payload-bibtex">@article{polackoChangingClassBasis2026,
-  title = {The {{Changing Class Basis}} of {{Canadian}} and {{Social Democratic Futures}}},
-  author = {Matthew Polacko and Peter Graefe and Simon Kiss},
-  number = {5},
-  url = {https://perspectivesjournal.ca/changing-class-socdem-future/},
-  year = {2026},
-  month = {jan},
-  note = {Last visited on 01/27/2026}
-}</div>
-</div>
-</div>
+<div class="pub-layout">
+<div class="pub-list">
+<div class="pub-section">
+<h2 class="pub-section-title anchored" id="peer-reviewed">Peer-Reviewed Journal Articles</h2>
 <div class="pub-card" data-key="polackoRevisitingSectoralCleavage2025" data-category="public-opinion,social-democracy" data-year="2025-08-18">
 <div class="pub-title">
 <a href="https://doi.org/10.1111/cars.70014" target="_blank" rel="noopener">Revisiting the Sectoral Cleavage in Canada: Evidence From the Canadian Election Studies</a>
@@ -611,7 +632,7 @@ PDF
 </div>
 <div class="pub-card" data-key="kissRegionIdeologyCultural2020" data-category="public-opinion,risk" data-year="2020-04-21">
 <div class="pub-title">
-<a href="https://doi.org/doi:10.1017/S0008423920000177" target="_blank" rel="noopener">Beyond Region and Ideology: Cultural Theory and Risk Perception in Canada</a>
+<a href="https://doi.org/10.1017/S0008423920000177" target="_blank" rel="noopener">Beyond Region and Ideology: Cultural Theory and Risk Perception in Canada</a>
 </div>
 <div class="pub-meta">
 Simon Kiss, Erick Lachapelle &amp; Eric Montpetit
@@ -644,51 +665,9 @@ PDF
   author = {Simon Kiss and Erick Lachapelle and Eric Montpetit},
   volume = {53},
   number = {2},
-  doi = {doi:10.1017/S0008423920000177},
+  doi = {10.1017/S0008423920000177},
   year = {2020},
   month = {apr}
-}</div>
-</div>
-</div>
-<div class="pub-card" data-key="perrellaConservativePopulismUnpopular2020" data-category="public-opinion" data-year="2020-11-01">
-<div class="pub-title">
-<a href="https://doi.org/NA" target="_blank" rel="noopener">Conservative Populism, or Unpopular Liberalism? Review of the 2018 Ontario Provincial Election</a>
-</div>
-<div class="pub-meta">
-Andrea Perrella, Simon Kiss &amp; Barry J. Kay
-<br>
-<em>Canadian Political Science Review</em>
-</div>
-<div class="pub-category">
-<span class="category">Public Opinion</span>
-</div>
-<div class="pub-actions">
-<a href="#" data-action="abstract" role="button">Abstract</a>
-<a href="#" data-action="citation" role="button">Citation</a>
-<a href="#" data-action="bib" role="button">BibTeX</a>
-<a class="pdf-link" href="./files/papers/perrellaConservativePopulismUnpopular2020.pdf" target="_blank" rel="noopener">
-<i class="bi bi-file-earmark-pdf"></i>
-PDF
-</a>
-</div>
-<div class="toggle-area" data-current="">
-<button class="copy-btn">Copy</button>
-<span class="copy-toast">Copied!</span>
-<div class="panel-label">—</div>
-<div class="content"></div>
-</div>
-<div style="display:none;">
-<div class="payload-abstract">Ontario‚Äôs general election on June 7, 2018, brought the Progressive Conservative party to government for the first time in the 21st Century. The PCs‚Äô victory over the incumbent Liberals, however, reached this point despite much turmoil. Months before the election the party faced a crisis when its leader, Patrick Brown, resigned amid a scandal. The PC party hastily organized a leadership election that put Doug Ford at the helm, who then led the party to victory. The following election review traces these steps and looks at some dynamics that contributed to both the PC leadership vote and the overall result of the election. The PC leadership election is analyzed, providing evidence that Ford‚Äôs rise may reflect some of the populist sentiment that has gripped other democracies. The analysis then turns to the general election, focusing on media coverage and issue salience, particularly as they relate to the party leaders. Survey data are examined to build some explanatory vote-choice models, which shows that voters in the general election appeared less moved by populism than a desire to punish the Liberals.</div>
-<div class="payload-bibtex">@article{perrellaConservativePopulismUnpopular2020,
-  title = {Conservative Populism, or Unpopular Liberalism? {{Review}} of the 2018 {{Ontario Provincial Election}}},
-  author = {Andrea Perrella and Simon Kiss and Barry J. Kay},
-  volume = {14},
-  number = {1},
-  pages = {118--146},
-  url = {http://ojs.unbc.ca/index.php/cpsr/article/view/1790},
-  year = {2020},
-  month = {nov},
-  note = {Last visited on 02/22/2024}
 }</div>
 </div>
 </div>
@@ -900,7 +879,7 @@ PDF
 </div>
 <div class="pub-card" data-key="montpetitDoesCanadianFederalism2017" data-category="public-opinion" data-year="2017-09">
 <div class="pub-title">
-<a href="https://doi.org/NA" target="_blank" rel="noopener">Does Canadian Federalism Amplify Policy Disagreements?</a>
+<a href="https://irpp.org/wp-content/uploads/2017/09/study-no65.pdf" target="_blank" rel="noopener">Does Canadian Federalism Amplify Policy Disagreements?</a>
 </div>
 <div class="pub-meta">
 Éric Montpetit, Erick Lachapelle &amp; Simon Kiss
@@ -934,47 +913,6 @@ PDF
   url = {https://irpp.org/wp-content/uploads/2017/09/study-no65.pdf},
   year = {2017},
   month = {sep}
-}</div>
-</div>
-</div>
-<div class="pub-card" data-key="perrellaTriplePlayOntario2017" data-category="public-opinion" data-year="2017">
-<div class="pub-title">
-<a href="https://doi.org/NA" target="_blank" rel="noopener">Triple Play: The Ontario 2014 General Election</a>
-</div>
-<div class="pub-meta">
-Andrea ML Perrella, Simon Kiss &amp; Barry J. Kay
-<br>
-<em>Canadian Political Science Review</em>
-</div>
-<div class="pub-category">
-<span class="category">Public Opinion</span>
-</div>
-<div class="pub-actions">
-<a href="#" data-action="abstract" role="button">Abstract</a>
-<a href="#" data-action="citation" role="button">Citation</a>
-<a href="#" data-action="bib" role="button">BibTeX</a>
-<a class="pdf-link" href="./files/papers/perrellaTriplePlayOntario2017.pdf" target="_blank" rel="noopener">
-<i class="bi bi-file-earmark-pdf"></i>
-PDF
-</a>
-</div>
-<div class="toggle-area" data-current="">
-<button class="copy-btn">Copy</button>
-<span class="copy-toast">Copied!</span>
-<div class="panel-label">—</div>
-<div class="content"></div>
-</div>
-<div style="display:none;">
-<div class="payload-abstract">The 2014 general election in Ontario was the third straight time when the opposition Progressive Conservative party was poised to win, only to find itself returned to the opposition benches. Part of the incumbent Liberal party‚Äôs victory certainly can be attributed to strategic choices of the party, positioning itself closer to where voters wanted them to be. However, there is also a case to be made that the PCs squandered their chance to form government. The following article walks through some of the key points of the campaign, and the context within which it was held.</div>
-<div class="payload-bibtex">@article{perrellaTriplePlayOntario2017,
-  title = {Triple {{Play}}: {{The Ontario}} 2014 {{General Election}}},
-  author = {Andrea ML Perrella and Simon Kiss and Barry J. Kay},
-  volume = {11},
-  number = {1},
-  pages = {157--181},
-  url = {http://ojs.unbc.ca/index.php/cpsr/article/view/1461},
-  year = {2017},
-  note = {Last visited on 10/10/2024}
 }</div>
 </div>
 </div>
@@ -1017,46 +955,6 @@ PDF
   doi = {10.17269/cjph.106.4828},
   year = {2015},
   month = {may}
-}</div>
-</div>
-</div>
-<div class="pub-card" data-key="kissHowWinLose2014" data-category="public-opinion" data-year="2014-08-12">
-<div class="pub-title">
-<a href="https://doi.org/10.24124/c677/2014497" target="_blank" rel="noopener">How to Win and Lose an Election: Campaign Dynamics of the 2011 Ontario Election</a>
-</div>
-<div class="pub-meta">
-Simon Kiss, Andrea Perrella &amp; Barry Kay
-<br>
-<em>Canadian Political Science Review</em>
-</div>
-<div class="pub-category">
-<span class="category">Public Opinion</span>
-</div>
-<div class="pub-actions">
-<a href="#" data-action="abstract" role="button">Abstract</a>
-<a href="#" data-action="citation" role="button">Citation</a>
-<a href="#" data-action="bib" role="button">BibTeX</a>
-<a class="pdf-link" href="./files/papers/kissHowWinLose2014.pdf" target="_blank" rel="noopener">
-<i class="bi bi-file-earmark-pdf"></i>
-PDF
-</a>
-</div>
-<div class="toggle-area" data-current="">
-<button class="copy-btn">Copy</button>
-<span class="copy-toast">Copied!</span>
-<div class="panel-label">—</div>
-<div class="content"></div>
-</div>
-<div style="display:none;">
-<div class="payload-abstract">We review the 2011 Ontario general election, which reduced the incumbent Liberal party to a minority government. We place attention on campaign dynamics and issue salience.</div>
-<div class="payload-bibtex">@article{kissHowWinLose2014,
-  title = {How to {{Win}} and {{Lose}} an {{Election}}: {{Campaign Dynamics}} of the 2011 {{Ontario Election}}},
-  author = {Simon Kiss and Andrea Perrella and Barry Kay},
-  volume = {8},
-  number = {1},
-  doi = {10.24124/c677/2014497},
-  year = {2014},
-  month = {aug}
 }</div>
 </div>
 </div>
@@ -1103,7 +1001,7 @@ PDF
 </div>
 <div class="pub-card" data-key="kissWhereDidAll2014" data-category="risk" data-year="2014">
 <div class="pub-title">
-<a href="https://doi.org/NA" target="_blank" rel="noopener">Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada's Regulation of Bisphenol A</a>
+<a href="https://www.jstor.org/stable/43298446" target="_blank" rel="noopener">Where Did All The Baby Bottles Go? Risk Perception, Interest Groups, Media Coverage and Institutional Imperatives in Canada's Regulation of Bisphenol A</a>
 </div>
 <div class="pub-meta">
 Simon Kiss
@@ -1228,10 +1126,468 @@ PDF
 </div>
 </div>
 </div>
-<div id="category-filter" style="width: 15%; min-width: 160px;">
+<div class="pub-section">
+<h2 class="pub-section-title anchored" id="non-peer-reviewed">Non-Peer-Reviewed Journal Articles</h2>
+<div class="pub-card" data-key="polackoChangingClassBasis2026" data-category="social-democracy" data-year="2026-01-05">
+<div class="pub-title">
+<a href="https://perspectivesjournal.ca/changing-class-socdem-future/" target="_blank" rel="noopener">The Changing Class Basis of Canadian and Social Democratic Futures</a>
+</div>
+<div class="pub-meta">
+Matthew Polacko, Peter Graefe &amp; Simon Kiss
+<br>
+<em>Perspectives</em>
+</div>
+<div class="pub-category">
+<span class="category">Social Democracy</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@article{polackoChangingClassBasis2026,
+  title = {The {{Changing Class Basis}} of {{Canadian}} and {{Social Democratic Futures}}},
+  author = {Matthew Polacko and Peter Graefe and Simon Kiss},
+  number = {5},
+  url = {https://perspectivesjournal.ca/changing-class-socdem-future/},
+  year = {2026},
+  month = {jan},
+  note = {Last visited on 01/27/2026}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="perrellaConservativePopulismUnpopular2020" data-category="public-opinion" data-year="2020-11-01">
+<div class="pub-title">
+<a href="http://ojs.unbc.ca/index.php/cpsr/article/view/1790" target="_blank" rel="noopener">Conservative Populism, or Unpopular Liberalism? Review of the 2018 Ontario Provincial Election</a>
+</div>
+<div class="pub-meta">
+Andrea Perrella, Simon Kiss &amp; Barry J. Kay
+<br>
+<em>Canadian Political Science Review</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/perrellaConservativePopulismUnpopular2020.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">Ontario‚Äôs general election on June 7, 2018, brought the Progressive Conservative party to government for the first time in the 21st Century. The PCs‚Äô victory over the incumbent Liberals, however, reached this point despite much turmoil. Months before the election the party faced a crisis when its leader, Patrick Brown, resigned amid a scandal. The PC party hastily organized a leadership election that put Doug Ford at the helm, who then led the party to victory. The following election review traces these steps and looks at some dynamics that contributed to both the PC leadership vote and the overall result of the election. The PC leadership election is analyzed, providing evidence that Ford‚Äôs rise may reflect some of the populist sentiment that has gripped other democracies. The analysis then turns to the general election, focusing on media coverage and issue salience, particularly as they relate to the party leaders. Survey data are examined to build some explanatory vote-choice models, which shows that voters in the general election appeared less moved by populism than a desire to punish the Liberals.</div>
+<div class="payload-bibtex">@article{perrellaConservativePopulismUnpopular2020,
+  title = {Conservative Populism, or Unpopular Liberalism? {{Review}} of the 2018 {{Ontario Provincial Election}}},
+  author = {Andrea Perrella and Simon Kiss and Barry J. Kay},
+  volume = {14},
+  number = {1},
+  pages = {118--146},
+  url = {http://ojs.unbc.ca/index.php/cpsr/article/view/1790},
+  year = {2020},
+  month = {nov},
+  note = {Last visited on 02/22/2024}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="perrellaTriplePlayOntario2017" data-category="public-opinion" data-year="2017">
+<div class="pub-title">
+<a href="http://ojs.unbc.ca/index.php/cpsr/article/view/1461" target="_blank" rel="noopener">Triple Play: The Ontario 2014 General Election</a>
+</div>
+<div class="pub-meta">
+Andrea ML Perrella, Simon Kiss &amp; Barry J. Kay
+<br>
+<em>Canadian Political Science Review</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/perrellaTriplePlayOntario2017.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">The 2014 general election in Ontario was the third straight time when the opposition Progressive Conservative party was poised to win, only to find itself returned to the opposition benches. Part of the incumbent Liberal party‚Äôs victory certainly can be attributed to strategic choices of the party, positioning itself closer to where voters wanted them to be. However, there is also a case to be made that the PCs squandered their chance to form government. The following article walks through some of the key points of the campaign, and the context within which it was held.</div>
+<div class="payload-bibtex">@article{perrellaTriplePlayOntario2017,
+  title = {Triple {{Play}}: {{The Ontario}} 2014 {{General Election}}},
+  author = {Andrea ML Perrella and Simon Kiss and Barry J. Kay},
+  volume = {11},
+  number = {1},
+  pages = {157--181},
+  url = {http://ojs.unbc.ca/index.php/cpsr/article/view/1461},
+  year = {2017},
+  note = {Last visited on 10/10/2024}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissHowWinLose2014" data-category="public-opinion" data-year="2014-08-12">
+<div class="pub-title">
+<a href="https://doi.org/10.24124/c677/2014497" target="_blank" rel="noopener">How to Win and Lose an Election: Campaign Dynamics of the 2011 Ontario Election</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Andrea Perrella &amp; Barry Kay
+<br>
+<em>Canadian Political Science Review</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissHowWinLose2014.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract">We review the 2011 Ontario general election, which reduced the incumbent Liberal party to a minority government. We place attention on campaign dynamics and issue salience.</div>
+<div class="payload-bibtex">@article{kissHowWinLose2014,
+  title = {How to {{Win}} and {{Lose}} an {{Election}}: {{Campaign Dynamics}} of the 2011 {{Ontario Election}}},
+  author = {Simon Kiss and Andrea Perrella and Barry Kay},
+  volume = {8},
+  number = {1},
+  doi = {10.24124/c677/2014497},
+  year = {2014},
+  month = {aug}
+}</div>
+</div>
+</div>
+</div>
+<div class="pub-section">
+<h2 class="pub-section-title anchored" id="reports">Reports</h2>
+<div class="pub-card" data-key="kissComparingIdeologyAttitudes2025" data-category="public-opinion,risk" data-year="2025">
+<div class="pub-title">
+<a href="https://doi.org/10.51644/HYEO2285" target="_blank" rel="noopener">Comparing The Ideology and Attitudes of Canada's Public Health Workforce and General Population</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Patrick Fafard, Andrea Perrella, Ketan Shankardass &amp; Erick Lachapelle
+<br>
+<em>Laurier Institute for the Study of Public Opinion and Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+<span class="category">Risk</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissComparingIdeologyAttitudes2025.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@TechReport{kissComparingIdeologyAttitudes2025,
+  type = {Report},
+  title = {Comparing {{The Ideology}} and {{Attitudes}} of {{Canada}}'s {{Public Health Workforce}} and {{General Population}}},
+  author = {Simon Kiss and Patrick Fafard and Andrea Perrella and Ketan Shankardass and Erick Lachapelle},
+  institution = {{Laurier Institute for the Study of Public Opinion and Policy}},
+  doi = {10.51644/HYEO2285},
+  url = {https://scholars.wlu.ca/lispop/6/},
+  address = {Waterloo},
+  year = {2025}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="arpHousingSupplyPrice2025" data-category="housing" data-year="2025-04-15">
+<div class="pub-title">
+<a href="https://scholars.wlu.ca/lispop/9/" target="_blank" rel="noopener">Housing Supply and Price Increases in Canada: Commentary on Ideology, Evidence and Narratives in the Debate About Housing Affordability in Canada</a>
+</div>
+<div class="pub-meta">
+Matthew Arp &amp; Simon Kiss
+<br>
+<em>Laurier Institute for the Study of Public Opinion and Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Housing</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/arpHousingSupplyPrice2025.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex"></div>
+</div>
+</div>
+<div class="pub-card" data-key="kissResearchingPostindustrialPolitical2025" data-category="public-opinion,social-democracy" data-year="2025-09-01">
+<div class="pub-title">
+<a href="https://doi.org/10.51644/ESHB2939" target="_blank" rel="noopener">Researching Post-Industrial Political Behaviour with the National Occupation Classification in the 2019 and 2021 Canada Election Studies</a>
+</div>
+<div class="pub-meta">
+Simon J. Kiss &amp; Rafael Campos-Gottardo
+<br>
+<em>Laurier Institute for the Study of Public Opinion and Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+<span class="category">Social Democracy</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissResearchingPostindustrialPolitical2025.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@TechReport{kissResearchingPostindustrialPolitical2025,
+  type = {Report},
+  title = {Researching Post-Industrial Political Behaviour with the National Occupation Classification in the 2019 and 2021 Canada Election Studies},
+  author = {Simon J. Kiss and Rafael Campos-Gottardo},
+  institution = {{Laurier Institute for the Study of Public Opinion and Policy}},
+  doi = {10.51644/ESHB2939},
+  url = {https://scholars.wlu.ca/lispop/5/},
+  address = {Waterloo, ON},
+  year = {2025},
+  month = {sep}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissSummaryFindingsOntario2022" data-category="public-opinion" data-year="2022-08-11">
+<div class="pub-title">
+<a href="https://doi.org/10.51644/ZDIG8948" target="_blank" rel="noopener">Summary of Findings, Ontario Provincial Election Study 2022</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Andrea Perrella, Anthony Piscitelli, Matthew Arp, Laura Pin, Jason Roy &amp; Zachary Spicer
+<br>
+<em>Laurier Institute for the Study of Public Opinion and Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissSummaryFindingsOntario2022.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@TechReport{kissSummaryFindingsOntario2022,
+  type = {Report},
+  title = {Summary of {{Findings}}, {{Ontario Provincial Election Study}} 2022},
+  author = {Simon Kiss and Andrea Perrella and Anthony Piscitelli and Matthew Arp and Laura Pin and Jason Roy and Zachary Spicer},
+  institution = {{Laurier Institute for the Study of Public Opinion and Policy}},
+  doi = {10.51644/ZDIG8948},
+  url = {https://scholars.wlu.ca/lispop/4/},
+  address = {Waterloo, ON},
+  year = {2022},
+  month = {aug}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissSummaryWaterlooRegion2021" data-category="public-opinion" data-year="2021-05-05">
+<div class="pub-title">
+<a href="https://doi.org/10.51644/UHWT5404" target="_blank" rel="noopener">Summary of Waterloo Region Vote Intention, Spring 2021</a>
+</div>
+<div class="pub-meta">
+Simon Kiss, Andrea Perrella &amp; Anthony Piscitelli
+<br>
+<em>Laurier Institute for the Study of Public Opinion and Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissSummaryWaterlooRegion2021.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@TechReport{kissSummaryWaterlooRegion2021,
+  type = {Report},
+  title = {Summary of {{Waterloo Region Vote Intention}}, {{Spring}} 2021},
+  author = {Simon Kiss and Andrea Perrella and Anthony Piscitelli},
+  institution = {{Laurier Institute for the Study of Public Opinion and Policy}},
+  doi = {10.51644/UHWT5404},
+  url = {https://scholars.wlu.ca/lispop/2/},
+  address = {Waterloo, ON},
+  year = {2021},
+  month = {may}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="kissCanadiansViewsEnergy2015" data-category="public-opinion,risk" data-year="2015-07-12">
+<div class="pub-title">Canadians' Views on Energy East: Report Submitted to the Honorable Shannon Phillips, Minister of the Environment (Alberta)</div>
+<div class="pub-meta">
+Simon Kiss
+<br>
+<em>Wilfrid Laurier University</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+<span class="category">Risk</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+<a class="pdf-link" href="./files/papers/kissCanadiansViewsEnergy2015.pdf" target="_blank" rel="noopener">
+<i class="bi bi-file-earmark-pdf"></i>
+PDF
+</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex">@TechReport{kissCanadiansViewsEnergy2015,
+  type = {Report},
+  title = {Canadians' {{Views}} on {{Energy East}}: {{Report}} Submitted to the {{Honorable Shannon Phillips}}, {{Minister}} of the {{Environment}} ({{Alberta}})},
+  author = {Simon Kiss},
+  institution = {Wilfrid Laurier University},
+  address = {Waterloo, ON},
+  year = {2015},
+  month = {jul}
+}</div>
+</div>
+</div>
+<div class="pub-card" data-key="polackoDoesEconomicInsecurity" data-category="public-opinion,social-democracy" data-year="">
+<div class="pub-title">Does Economic Insecurity Undermine Canada’s pro-Immigration Consensus</div>
+<div class="pub-meta">
+Matt Polacko, Simon Kiss &amp; Peter Graefe
+<br>
+<em>Institute for Research on Public Policy</em>
+</div>
+<div class="pub-category">
+<span class="category">Public Opinion</span>
+<span class="category">Social Democracy</span>
+</div>
+<div class="pub-actions">
+<a href="#" data-action="abstract" role="button">Abstract</a>
+<a href="#" data-action="citation" role="button">Citation</a>
+<a href="#" data-action="bib" role="button">BibTeX</a>
+</div>
+<div class="toggle-area" data-current="">
+<button class="copy-btn">Copy</button>
+<span class="copy-toast">Copied!</span>
+<div class="panel-label">—</div>
+<div class="content"></div>
+</div>
+<div style="display:none;">
+<div class="payload-abstract"></div>
+<div class="payload-bibtex"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pub-sidebar">
+<nav id="pub-jump" aria-label="Publication sections">
+<strong>Jump to:</strong>
+<ul>
+<li>
+<a href="#peer-reviewed" data-target="peer-reviewed">
+Peer-Reviewed Journal Articles
+<span class="pub-count">16</span>
+</a>
+</li>
+<li>
+<a href="#non-peer-reviewed" data-target="non-peer-reviewed">
+Non-Peer-Reviewed Journal Articles
+<span class="pub-count">4</span>
+</a>
+</li>
+<li>
+<a href="#reports" data-target="reports">
+Reports
+<span class="pub-count">7</span>
+</a>
+</li>
+</ul>
+</nav>
+<div id="category-filter">
 <strong>Filter by category:</strong>
 <div id="category-buttons"></div>
 <button id="clear-filter" class="category-btn">Show All</button>
+</div>
 </div>
 </div>
 </div>
@@ -1241,6 +1597,9 @@ PDF
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-arpHousingSupplyPrice2025" class="csl-entry" role="listitem">
+Arp, Matthew, and Simon Kiss. 2025. <em>Housing <span>Supply</span> and <span>Price Increases</span> in <span>Canada</span>: <span>Commentary</span> on <span>Ideology</span>, <span>Evidence</span> and <span>Narratives</span> in the <span>Debate About Housing Affordability</span> in <span>Canada</span></em>. <span>Laurier Institute for the Study of Public Opinion and Policy</span>. <a href="https://scholars.wlu.ca/lispop/9/">https://scholars.wlu.ca/lispop/9/</a>.
+</div>
 <div id="ref-kissLegislationAgendaSettingAssessing2013" class="csl-entry" role="listitem">
 Kiss, Simon. 2013. <span>“Legislation by <span>Agenda-Setting</span>: <span>Assessing</span> the <span>Media</span>’s <span>Role</span> in the <span>Regulation</span> of <span>Bisphenol A</span> in the <span>U</span>.<span>S</span>. <span>States</span>.”</span> <em>Mass Communication and Society</em> 16 (5): 687–712. <a href="https://doi.org/10.1080/15205436.2013.768345">https://doi.org/10.1080/15205436.2013.768345</a>.
 </div>
@@ -1250,8 +1609,17 @@ Kiss, Simon. 2014a. <span>“Responding to the ’<span>New Public</span>’: <s
 <div id="ref-kissWhereDidAll2014" class="csl-entry" role="listitem">
 Kiss, Simon. 2014b. <span>“Where <span>Did All The Baby Bottles Go</span>? <span>Risk Perception</span>, <span>Interest Groups</span>, <span>Media Coverage</span> and <span>Institutional Imperatives</span> in <span>Canada</span>’s <span>Regulation</span> of <span>Bisphenol A</span>.”</span> <em>Canadian Journal of Political Science / Revue Canadienne de Science Politique</em> 47 (4): 741–65. <a href="https://www.jstor.org/stable/43298446">https://www.jstor.org/stable/43298446</a>.
 </div>
+<div id="ref-kissCanadiansViewsEnergy2015" class="csl-entry" role="listitem">
+Kiss, Simon. 2015. <em>Canadians’ <span>Views</span> on <span>Energy East</span>: <span>Report</span> Submitted to the <span>Honorable Shannon Phillips</span>, <span>Minister</span> of the <span>Environment</span> (<span>Alberta</span>)</em>. Report. Wilfrid Laurier University.
+</div>
+<div id="ref-kissResearchingPostindustrialPolitical2025" class="csl-entry" role="listitem">
+Kiss, Simon J., and Rafael Campos-Gottardo. 2025. <em>Researching Post-Industrial Political Behaviour with the National Occupation Classification in the 2019 and 2021 Canada Election Studies</em>. Report. <span>Laurier Institute for the Study of Public Opinion and Policy</span>. <a href="https://doi.org/10.51644/ESHB2939">https://doi.org/10.51644/ESHB2939</a>.
+</div>
 <div id="ref-kissRightwingPopulismMetropolis2020" class="csl-entry" role="listitem">
 Kiss, Simon J., Andrea Perrella, and Zachary Spicer. 2020. <span>“Right-Wing Populism in a Metropolis: <span>Personal</span> Financial Stress, Conservative Attitudes, and <span>Rob Ford</span>’s <span>Toronto</span>.”</span> <em>Journal of Urban Affairs</em> 42 (7): 1028–46. <a href="https://doi.org/10.1080/07352166.2019.1657021">https://doi.org/10.1080/07352166.2019.1657021</a>.
+</div>
+<div id="ref-kissComparingIdeologyAttitudes2025" class="csl-entry" role="listitem">
+Kiss, Simon, Patrick Fafard, Andrea Perrella, Ketan Shankardass, and Erick Lachapelle. 2025. <em>Comparing <span>The Ideology</span> and <span>Attitudes</span> of <span>Canada</span>’s <span>Public Health Workforce</span> and <span>General Population</span></em>. Report. <span>Laurier Institute for the Study of Public Opinion and Policy</span>, submitted. <a href="https://doi.org/10.51644/HYEO2285">https://doi.org/10.51644/HYEO2285</a>.
 </div>
 <div id="ref-kissEducationIncomeVoting2023" class="csl-entry" role="listitem">
 Kiss, Simon, Peter Graefe, and Matt Polacko. 2023. <span>“The <span>Education And Income Voting Divides In Canada And Their Consequences For Redistributive Politics</span>.”</span> <em>Electoral Studies</em> 85 (October). <a href="https://doi.org/10.1016/j.electstud.2023.102648">https://doi.org/10.1016/j.electstud.2023.102648</a>.
@@ -1260,13 +1628,19 @@ Kiss, Simon, Peter Graefe, and Matt Polacko. 2023. <span>“The <span>Education 
 Kiss, Simon, and Erick Lachapelle. 2019. <span>“Opposition to <span>Carbon Pricing</span> and <span>Right-Wing Populism</span>: <span>Ontario</span>’s 2018 <span>General Election</span>.”</span> <em>Environmental Politics</em>, ahead of print, April 29. <a href="https://doi.org/10.1080/09644016.2019.1608659">https://doi.org/10.1080/09644016.2019.1608659</a>.
 </div>
 <div id="ref-kissRegionIdeologyCultural2020" class="csl-entry" role="listitem">
-Kiss, Simon, Erick Lachapelle, and Eric Montpetit. 2020. <span>“Beyond <span>Region</span> and <span>Ideology</span>: <span>Cultural Theory</span> and <span>Risk Perception</span> in <span>Canada</span>.”</span> <em>Canadian Journal of Political Science / Revue Canadienne de Science Politique</em> 53 (2). <a href="https://doi.org/doi:10.1017/S0008423920000177">https://doi.org/doi:10.1017/S0008423920000177</a>.
+Kiss, Simon, Erick Lachapelle, and Eric Montpetit. 2020. <span>“Beyond <span>Region</span> and <span>Ideology</span>: <span>Cultural Theory</span> and <span>Risk Perception</span> in <span>Canada</span>.”</span> <em>Canadian Journal of Political Science / Revue Canadienne de Science Politique</em> 53 (2). <a href="https://doi.org/10.1017/S0008423920000177">https://doi.org/10.1017/S0008423920000177</a>.
 </div>
 <div id="ref-kissNegotiatingElectronicSurveillance2006" class="csl-entry" role="listitem">
 Kiss, Simon, and Vincent Mosco. 2006. <span>“Negotiating <span>Electronic Surveillance</span> in the <span>Workplace</span>: <span>A Study</span> of <span>Collective Agreements</span> in <span>Canada</span>.”</span> <em>Canadian Journal of Communication</em> 30 (4): 549–64. <a href="https://doi.org/10.22230/cjc.2005v30n4a1671">https://doi.org/10.22230/cjc.2005v30n4a1671</a>.
 </div>
 <div id="ref-kissHowWinLose2014" class="csl-entry" role="listitem">
 Kiss, Simon, Andrea Perrella, and Barry Kay. 2014. <span>“How to <span>Win</span> and <span>Lose</span> an <span>Election</span>: <span>Campaign Dynamics</span> of the 2011 <span>Ontario Election</span>.”</span> <em>Canadian Political Science Review</em> 8 (1). <a href="https://doi.org/10.24124/c677/2014497">https://doi.org/10.24124/c677/2014497</a>.
+</div>
+<div id="ref-kissSummaryWaterlooRegion2021" class="csl-entry" role="listitem">
+Kiss, Simon, Andrea Perrella, and Anthony Piscitelli. 2021. <em>Summary of <span>Waterloo Region Vote Intention</span>, <span>Spring</span> 2021</em>. Report. <span>Laurier Institute for the Study of Public Opinion and Policy</span>. <a href="https://doi.org/10.51644/UHWT5404">https://doi.org/10.51644/UHWT5404</a>.
+</div>
+<div id="ref-kissSummaryFindingsOntario2022" class="csl-entry" role="listitem">
+Kiss, Simon, Andrea Perrella, Anthony Piscitelli, et al. 2022. <em>Summary of <span>Findings</span>, <span>Ontario Provincial Election Study</span> 2022</em>. Report. <span>Laurier Institute for the Study of Public Opinion and Policy</span>. <a href="https://doi.org/10.51644/ZDIG8948">https://doi.org/10.51644/ZDIG8948</a>.
 </div>
 <div id="ref-kissBalancedJournalismAmplifies2018" class="csl-entry" role="listitem">
 Kiss, Simon, Karly Rath, and Andrea Perrella. 2018. <span>“Balanced <span>Journalism Amplifies Minority Voices</span>: <span>A Case Study</span> of a <span>Fluoridation Plebiscite</span>.”</span> <em>Canadian Journal of Communication</em> 43 (4). <a href="https://doi.org/10.22230/cjc.2018v43n4a3355">https://doi.org/10.22230/cjc.2018v43n4a3355</a>.
@@ -1297,6 +1671,9 @@ Polacko, Matthew, Peter Graefe, and Simon Kiss. 2026. <span>“The <span>Changin
 </div>
 <div id="ref-polackoChangingNatureClass2022" class="csl-entry" role="listitem">
 Polacko, Matthew, Simon Kiss, and Peter Graefe. 2022. <span>“The <span>Changing Nature</span> of <span>Class Voting</span> in <span>Canada</span>, 1965–2019.”</span> <em>Canadian Journal of Political Science/Revue Canadienne de Science Politique</em> 55 (3): 663–86. <a href="https://doi.org/10.1017/S0008423922000439">https://doi.org/10.1017/S0008423922000439</a>.
+</div>
+<div id="ref-polackoDoesEconomicInsecurity" class="csl-entry" role="listitem">
+Polacko, Matt, Simon Kiss, and Peter Graefe. n.d. <em>Does Economic Insecurity Undermine <span>Canada</span>’s Pro-Immigration Consensus</em>. Institute for Research on Public Policy.
 </div>
 <div id="ref-woottenAmbiguousDefinitionOpen2019" class="csl-entry" role="listitem">
 Wootten, George W., and Simon J. Kiss. 2019. <span>“The <span>Ambiguous Definition</span> of <span>Open Government</span>: <span>Parliamentarians</span>, <span>Journalists</span> and <span>Bloggers Define Open Government In Accordance With Their Interests</span>.”</span> <em>Canadian Journal of Political Science</em> 52 (3): 479–99. <a href="https://doi.org/10.1017/S0008423918000446">https://doi.org/10.1017/S0008423918000446</a>.

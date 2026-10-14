@@ -37,6 +37,15 @@ the rest follows.
 That's it. A publication appears on the site simply because it's **in the
 `kiss_articles` collection**. There's no separate "show on website" flag.
 
+The Publications page splits `kiss_articles` into **Peer-Reviewed Journal
+Articles** and **Non-Peer-Reviewed Journal Articles**: any article with the
+Zotero tag `notpeer` goes in the second section.
+
+**Reports** work the same way through the **`kiss_reports`** collection, which
+auto-exports to `CV/Bib_files/kiss_reports.bib`. They appear in a separate
+*Reports* section at the bottom of the Publications page (not on the home page or
+project pages).
+
 > ⚠️ **One setting to leave alone.** The `kiss_articles.bib` auto-export in Zotero
 > (Settings → Better BibTeX → Automatic export) must have **"Export all child
 > collections" UNCHECKED**. If it gets checked, the whole `Full_Professor_articles`
@@ -56,7 +65,7 @@ the decision about **which project page a paper appears on** both come from
 - **Administrative tags are hidden.** Anything in this list is treated as
   bookkeeping and never shown or matched:
   `mine, notmine, inprint, forthcoming, journalarticle, peerreviewed, notpeer,
-  invited, sshrc, lispop, nosource`.
+  invited, sshrc, lispop, nosource, report, knowledge`.
 - Everything **else** is a subject tag.
 
 ### Matching a paper to a project
@@ -132,9 +141,10 @@ git push
 | File | What it does |
 |------|--------------|
 | `CV/Bib_files/kiss_articles.bib` | **Source of truth.** Zotero auto-export of the `kiss_articles` collection. |
+| `CV/Bib_files/kiss_reports.bib` | Same, for the `kiss_reports` collection (Reports section). |
 | `_quarto.yml` | Registers the pre-render step under `project: pre-render:`. |
-| `R_scripts/sync_bib.R` | Pre-render step: copies the CV `.bib` into `publications/`. |
-| `publications/kiss_articles.bib` | The site's working copy (overwritten on every build). |
+| `R_scripts/sync_bib.R` | Pre-render step: copies both CV `.bib` files into `publications/`. |
+| `publications/kiss_articles.bib`, `publications/kiss_reports.bib` | The site's working copies (overwritten on every build). |
 | `R_scripts/project_listings.R` | Shared code: reads the bib, builds publication cards, derives subject tags, matches papers to projects, renders the home "Recent" list. |
 | `publications.qmd` | The Publications page (its own card layout + category filter). |
 | `index.qmd` | Home page, incl. the "Recent Publications" block. |

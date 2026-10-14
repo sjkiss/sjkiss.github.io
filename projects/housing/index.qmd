@@ -21,7 +21,7 @@ listing:
       reading-time: "Read"
 ---
 
-This page collects my research and blog posts on the politics of housing.
+Canada is experiencing a severe housing crisis. Working with colleagues at the [Laurier Institute for the Study of Public Opinion and Policy](https://lispop.ca), I have begun looking at the politics and economics of housing policy, particularly in Ontario. 
 
 ::: {.related-posts}
 ## Related posts {.unlisted}

@@ -35,7 +35,7 @@ here_project <- function(...) file.path(find_project_root(), ...)
 # in so older entries keep working during the transition.
 admin_tags <- c(
   "mine", "notmine", "inprint", "forthcoming", "journalarticle",
-  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource"
+  "peerreviewed", "notpeer", "invited", "sshrc", "lispop", "nosource", "report", "knowledge"
 )
 
 split_terms <- function(x) {
@@ -173,11 +173,9 @@ build_rows <- function(bib_path = here_project("publications/kiss_articles.bib")
     mutate(
       preprint_url  = normalize_link(preprint_raw),
       materials_url = normalize_link(materials_raw),
-      doi_url = normalize_link(if_else(
-        nzchar(doi %||% ""),
-        str_glue("https://doi.org/{doi}"),
-        if_else(nzchar(preprint_url %||% ""), preprint_url, url_fallback)
-      )),
+      # DOI first, then preprint, then plain URL; normalize_link() turns a bare
+      # or "doi:"-prefixed DOI into https://doi.org/...
+      doi_url = normalize_link(coalesce(na_if(trimws(doi), ""), preprint_url, na_if(trimws(url_fallback), ""))),
       year_num = suppressWarnings(as.integer(str_extract(year, "\\d{4}")))
     ) |>
     arrange(desc(year_num), title)
@@ -205,7 +203,7 @@ build_card <- function(key, entry, title, authors_card, year, venue,
     tags$div(class = "payload-abstract", na_to_empty(abstract)),
     tags$div(class = "payload-bibtex",  na_to_empty(bibtex)))
 
-  ttl_node <- if (isTRUE(nzchar(doi_url %||% ""))) {
+  ttl_node <- if (isTRUE(!is.na(doi_url) && nzchar(doi_url))) {
     tags$div(class = "pub-title", tags$a(title, href = doi_url, target = "_blank", rel = "noopener"))
   } else {
     tags$div(class = "pub-title", title)

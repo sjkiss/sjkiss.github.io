@@ -21,7 +21,7 @@ listing:
       reading-time: "Read"
 ---
 
-This page collects my research and blog posts on public opinion and voting behaviour.
+Public opinion is a powerful mover of public policy. Since 2020, I have served as the Director of the [Laurier Institute for the Study of Public Opinion and Policy](http://lispop.ca) and my interests in public opinion motivate much of the research on the more specific projects you find here. These page collects research that spans these projects.
 
 ::: {.related-posts}
 ## Related posts {.unlisted}
