@@ -20,7 +20,7 @@ library(here)
 
 ## Introduction
 
-A while back I looked at the trends in public school enrollment in Ontario ([link](https://sjkiss.github.io/posts/2021-11-15-private-and-public-school-enrolment-in-ontario/)), and I thought it would be interesting to revisit this topic and see how things have changed over time. However to do this, it was necessary to cobble data together from two different datasets. Statistics Canada reports private and public school enrollment up until 2023-2024 [here](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710017401) but that doesn't distinguish between public and Catholic systems.
+A while back I looked at the trends in public school enrolment in Ontario ([link](https://sjkiss.github.io/posts/2021-11-15-private-and-public-school-enrolment-in-ontario/)), and I thought it would be interesting to revisit this topic and see how things have changed over time. However to do this, it was necessary to cobble data together from two different datasets. Statistics Canada reports private and public school enrolment up until 2023-2024 [here](https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=3710017401) but that doesn't distinguish between public and Catholic systems.
 
 ```{r}
 #| label: load-cansim
@@ -32,23 +32,23 @@ library(cansim)
 ```
 
 ```{r}
-#| label: get-private-school-enrollment
-private_school_enrollment<-get_cansim("37-10-0173")
-private_school_enrollment |> 
+#| label: get-private-school-enrolment
+private_school_enrolment<-get_cansim("37-10-0173")
+private_school_enrolment |> 
   filter(GEO=="Ontario") |> filter(str_detect(Grade, "Total")) |> 
   filter(str_detect(Sex, "Total")) |> 
   # cansim dates each school year by July 1 of the year it ends,
   # e.g. 2011/2012 -> 2012-07-01. The count itself is taken in September.
   select(`School Year End`=Date, Number=VALUE) |> 
-  mutate(Category=rep("Private", n()))->private_school_enrollment
+  mutate(Category=rep("Private", n()))->private_school_enrolment
 ```
 
-My own view is that is an important distinction, as this is one of the few areas where parents can exercise some discretion about where to send their children. Concerns about quality in one, might show up in enrollment shifts between the two.
+My own view is that is an important distinction, as this is one of the few areas where parents can exercise some discretion about where to send their children. Concerns about quality in one, might show up in enrolment shifts between the two.
 
 Ontario, however, does publish this information, in a slightly less usable format, [here](https://data.ontario.ca/dataset/ontario-public-schools-enrolment).
 
 ```{r}
-#| label: scrape-public-school-enrollment
+#| label: scrape-public-school-enrolment
 library(jsonlite)
 library(readxl)
 # List every file in the Ontario Open Data "Ontario public schools enrolment" dataset
@@ -76,14 +76,14 @@ map2(ontario_enrolment_resources$`Academic Year`, ontario_enrolment_resources$ur
   filter(!is.na(`School Number`)) |>
   # Schools with fewer than 10 students are reported as "<10"; set them to 5
   mutate(Enrolment=if_else(Enrolment=="<10", 5, parse_number(Enrolment)),
-         `School Type`=recode(`School Type`, "Roman Catholic"="Catholic"))->public_school_enrollment_by_school
+         `School Type`=recode(`School Type`, "Roman Catholic"="Catholic"))->public_school_enrolment_by_school
 
 ```
 
 ```{r}
-#| label: mutate-public-school-enrollment
-#head(public_school_enrollment_by_school)
-public_school_enrollment_by_school |> 
+#| label: mutate-public-school-enrolment
+#head(public_school_enrolment_by_school)
+public_school_enrolment_by_school |> 
   group_by(`School Type`, `School Language`, `Academic Year`) |> 
   summarise(Number=sum(Enrolment)) |> 
   ungroup() |> 
@@ -92,15 +92,15 @@ public_school_enrollment_by_school |>
   # itself is taken in October, at the start of the school year.
   mutate(`School Year End`=as.Date(paste0(str_sub(`Academic Year`, 6, 9), "-07-01"))) |> 
   select(-`Academic Year`) |> 
-  rename(Category=`School Type`)->public_school_enrollment_type
+  rename(Category=`School Type`)->public_school_enrolment_type
 
 
 ```
 
 ```{r}
 #| label: combine
-private_school_enrollment |> 
-  bind_rows(public_school_enrollment_type) |>
+private_school_enrolment |> 
+  bind_rows(public_school_enrolment_type) |>
   # Keep only the school years both sources cover (2011/12 to 2023/24)
   filter(between(`School Year End`, as.Date("2012-07-01"), as.Date("2024-07-01"))) |>
   group_by(`School Year End`, Category) |>
@@ -109,7 +109,7 @@ private_school_enrollment |>
   mutate(Category_percent=Number/sum(Number)*100) |> 
   ungroup() |> 
   # Readable label for each school year, e.g. 2012-07-01 -> "2011-12"
-  mutate(`School Year`=paste0(year(`School Year End`)-1, "-", str_sub(year(`School Year End`), 3, 4)))->ontario_school_enrollment_catholic_public
+  mutate(`School Year`=paste0(year(`School Year End`)-1, "-", str_sub(year(`School Year End`), 3, 4)))->ontario_school_enrolment_catholic_public
 
 ```
 
@@ -121,8 +121,8 @@ If we combine the two datasets, we end up with a proportional distribution that 
 #| label: fig-draw-plot
 #| fig.width: 8
 #| fig.height: 4
-#| fig.cap: "Distribution of Ontario school enrollment (Kindergarten to Grade 12). Source: Statistics Canada Table 37-10-0173 for private school and Ontario Open Data catalogue for all others."
-ontario_school_enrollment_catholic_public |>
+#| fig.cap: "Distribution of Ontario school enrolment (Kindergarten to Grade 12). Source: Statistics Canada Table 37-10-0173 for private school and Ontario Open Data catalogue for all others."
+ontario_school_enrolment_catholic_public |>
   filter(str_detect(Category, "Protestant", negate=T)) |>
   ggplot(aes(x=`School Year`, y=Category_percent))+geom_col()+facet_grid(~fct_relevel(Category, "Public", "Catholic", "Private"))+theme_minimal()+geom_text(aes(x=`School Year`, y=Category_percent+1, label=round(Category_percent,1)), size=2)+
   labs(x=NULL, y="Percent")+
@@ -137,8 +137,8 @@ This is actually revealing. The drop in the public system from 64.6% in 2011-12 
 
 ```{r}
 #| label: breakout-language
-private_school_enrollment |> 
-  bind_rows(public_school_enrollment_type) |>
+private_school_enrolment |> 
+  bind_rows(public_school_enrolment_type) |>
   # Keep only the school years both sources cover (2011/12 to 2023/24)
   filter(between(`School Year End`, as.Date("2012-07-01"), as.Date("2024-07-01"))) |>
   group_by(`School Year End`, Category, `School Language`) |>
@@ -147,19 +147,19 @@ private_school_enrollment |>
   mutate(Category_percent=Number/sum(Number)*100) |> 
   ungroup() |> 
   # Readable label for each school year, e.g. 2012-07-01 -> "2011-12"
-  mutate(`School Year`=paste0(year(`School Year End`)-1, "-", str_sub(year(`School Year End`), 3, 4)))->ontario_school_enrollment_language
+  mutate(`School Year`=paste0(year(`School Year End`)-1, "-", str_sub(year(`School Year End`), 3, 4)))->ontario_school_enrolment_language
 # Combine the board names and language for comparison
-ontario_school_enrollment_language |> 
+ontario_school_enrolment_language |> 
   mutate(Category=paste(Category, `School Language`)) |> 
-  mutate(Category=str_remove_all(Category, " NA"))->ontario_school_enrollment_language
+  mutate(Category=str_remove_all(Category, " NA"))->ontario_school_enrolment_language
 ```
 
 ```{r}
 #| label: fig-plot-language
 #| fig.width: 7
 #| fig.height: 5
-#| fig.cap: "Distribution of Ontario school enrollment by board and language of instruction (Kindergarten to Grade 12). Source: Statistics Canada Table 37-10-0173 for private school and Ontario Open Data catalogue for all others."
-ontario_school_enrollment_language |>
+#| fig.cap: "Distribution of Ontario school enrolment by board and language of instruction (Kindergarten to Grade 12). Source: Statistics Canada Table 37-10-0173 for private school and Ontario Open Data catalogue for all others."
+ontario_school_enrolment_language |>
     filter(str_detect(Category, "Protestant", negate=T)) |>
   ggplot(aes(x=`School Year`, y=Category_percent))+geom_col()+facet_wrap(~fct_relevel(Category,"Public English", "Catholic English",  "Private", "Catholic French","Public French"), scales="free_x")+theme_minimal()+geom_text(aes(x=`School Year`, y=Category_percent+2, label=round(Category_percent,1)), size=2)+
   labs(x=NULL, y="Percent")+
@@ -167,7 +167,7 @@ ontario_school_enrollment_language |>
 
 ```
 
-One interesting thing that I see there is what happened during the COVID-19 pandemic. As much as there is a perceptible shift *away* from the English public system toward the French public and the private system, this was briefly interrupted by the COVID-19 pandemic. The school year 2019-2020 was interrupted most severely in Ontario because of the first wave of the pandemic; that was the first shutdown in March which continued to the end of the school year. In the *following* year - 2020-2021 - there was an *increase* in enrollment in the English public system and a *drop* in the private school system in Ontario. But then, the enrollment patterns reverted to trend, and the rise in students enrolled in private schools increased. I don't know what explains that slight bump.
+One interesting thing that I see there is what happened during the COVID-19 pandemic. As much as there is a perceptible shift *away* from the English public system toward the French public and the private system, this was briefly interrupted by the COVID-19 pandemic. The school year 2019-2020 was interrupted most severely in Ontario because of the first wave of the pandemic; that was the first shutdown in March which continued to the end of the school year. In the *following* year - 2020-2021 - there was an *increase* in enrolment in the English public system and a *drop* in the private school system in Ontario. But then, the enrolment patterns reverted to trend, and the rise in students enrolled in private schools increased. I don't know what explains that slight bump.
 
 ## Board-by-Board Analysis
 
@@ -178,7 +178,7 @@ We can also try to pinpoint which boards are gaining student share and which are
 #| fig.width: 8
 #| fig.height: 14
 #| fig.cap: "Ontario public school boards by change in enrolment share, 2011-2012 and 2023-2024."
-public_school_enrollment_by_school |> 
+public_school_enrolment_by_school |> 
   group_by(`Academic Year`, `Board Name`, `School Type`, `School Language`) |> 
   summarise(n=sum(Enrolment)) |> 
   group_by(`Academic Year`) |> 
@@ -206,7 +206,7 @@ What this shows to me is the hollowing out of the City of Toronto! Economist, co
 #| fig.width: 8
 #| fig.height: 8
 #| fig.cap: "Share of Ontario public school enrolment, 2011-12 and 2023-24, for boards with more than 1% of enrolment in 2011-12."
-public_school_enrollment_by_school |> 
+public_school_enrolment_by_school |> 
   filter(`Academic Year` %in% c("2011-2012", "2023-2024")) |> 
   group_by(`Academic Year`, `Board Name`) |> 
   summarise(n=sum(Enrolment)) |> 
@@ -239,14 +239,14 @@ On the other hand, there are also profound shifts going on in the distribution o
 
 ## Appendix
 
-For reference and reproducibility, the full numbers for the public boards and the private school enrollment shares are here, in @tbl-print-numbers.
+For reference and reproducibility, the full numbers for the public boards and the private school enrolment shares are here, in @tbl-print-numbers.
 
 ```{r}
 #| label: tbl-print-numbers
 
 library(DT)
 
-ontario_school_enrollment_language |> 
+ontario_school_enrolment_language |> 
   select(`School Year`, Category, Number, Percent=Category_percent) |> 
   datatable() |> 
   formatRound('Percent', 1)
