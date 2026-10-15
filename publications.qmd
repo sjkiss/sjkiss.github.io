@@ -1,4 +1,5 @@
 ---
+body-classes: hide-bibliography
 pagetitle: "Publications"
 toc: false
 bibliography:

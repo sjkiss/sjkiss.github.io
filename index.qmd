@@ -1,4 +1,5 @@
 ---
+body-classes: hide-bibliography
 title: ""
 bibliography: publications/kiss_articles.bib
 nocite: |

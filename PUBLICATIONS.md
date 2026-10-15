@@ -149,7 +149,7 @@ git push
 | `publications.qmd` | The Publications page (its own card layout + category filter). |
 | `index.qmd` | Home page, incl. the "Recent Publications" block. |
 | `projects/*/index.qmd` | Each project page (related posts + matching publications). |
-| `styles.css` | Card styling; hides the auto-generated bibliography used for citations. |
+| `styles.css` | Card styling; hides the auto-generated bibliography used for citations on pages marked `body-classes: hide-bibliography` (home, Publications, `projects/_metadata.yml`). Blog posts are not marked, so their reference lists show. |
 | `assets/pub-cards.js` | The Abstract / Citation / BibTeX toggle buttons on cards. |
 
 ### A note on citations

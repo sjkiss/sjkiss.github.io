@@ -1,0 +1,5 @@
+# Options here apply to every project page in this folder.
+
+# Project pages list publication cards, which read citations from a hidden
+# bibliography (see styles.css).
+body-classes: hide-bibliography
